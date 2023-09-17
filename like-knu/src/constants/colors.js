@@ -13,6 +13,6 @@ const colors = {
   white: "#FFFFFF",
   black: "#403E3F",
   shadow: "rgba(0, 0, 0, 0.05)"
-
-
 }
+
+export default colors;
