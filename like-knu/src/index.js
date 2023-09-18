@@ -5,10 +5,11 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import Test from './pages/Test';
+import MainPage from 'pages/MainPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Test />
+    <MainPage />
   </React.StrictMode>
 );
 
