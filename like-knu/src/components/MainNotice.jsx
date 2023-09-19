@@ -17,25 +17,36 @@ export default function MainNotice() {
   },[]);
   
   return (
-    <CardContainer>
+    <NoticeContainer>
       <Title>공지사항</Title>
       {
         notices.map((notice) => (
-          <Text key={notice.announcementId}>{notice.announcementTitle}</Text>
+          <Text key={notice.announcementId}>
+            <a href={"https://www.youtube.com/"} className="notice_link">
+              {notice.announcementTitle}
+            </a>
+          </Text>
         ))
       }
-    </CardContainer>
+    </NoticeContainer>
   )
 }
+const NoticeContainer = styled(CardContainer)`
+  height: 141px;
+`
 const Text = styled.div`
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   padding-bottom: 10px;
-  color: ${colors.black};
   font-size: 1.3rem;
   font-weight: 400;
+
+  .notice_link {
+    color: ${colors.black};
+    width: 100%;
+  }
 `
 const Title = styled.div`
   color: ${colors.black};
