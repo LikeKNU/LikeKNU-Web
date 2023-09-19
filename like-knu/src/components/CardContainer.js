@@ -8,4 +8,5 @@ export default styled.div`
   padding: 1.6em 2em;
   display: flex;
   flex-direction: column;
+
 `
