@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import CardContainer from "./CardContainer"
-export default function Notice() {
+export default function MainNotice() {
   return (
     <CardContainer>
-      Hello
+      Notice
     </CardContainer>
   )
 }
