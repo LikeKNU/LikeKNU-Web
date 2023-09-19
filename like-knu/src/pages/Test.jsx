@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import colors from 'constants/colors'
 import {test1, test2, axiosTest3} from 'api/test'
