@@ -4,18 +4,21 @@ import {getDeviceId} from "../utils/DeviceManageUtil";
 
 /**
  * 기기 등록 여부
- * @returns {Promise<boolean>}
  */
 export const checkDeviceRegistration = async () => {
-    let deviceId = getDeviceId();
-    await instance.get("/api/register", {
-        params: {
-            deviceId: deviceId
-        }
-    }).then(response => {
-        const body = extractBodyFromResponse(response);
+    try {
+        let deviceId = getDeviceId();
+        let response = await instance.get("/api/register", {
+            params: {
+                deviceId: deviceId
+            }
+        });
+
+        let body = extractBodyFromResponse(response);
         return body.deviceRegistration;
-    });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 /**
@@ -23,12 +26,14 @@ export const checkDeviceRegistration = async () => {
  * @param deviceId 새로 생성한 기기 ID
  */
 export const registerDevice = async (deviceId) => {
-    await instance.post("/api/register", {
-        deviceId: deviceId
-    }).then(response => {
+    try {
+        let response = await instance.post("/api/register", {
+            deviceId: deviceId
+        });
+
         let message = extractMessageFromResponse(response);
         console.log(message);
-    }).catch(reason => {
-        console.log(reason);
-    });
+    } catch (error) {
+        console.log(error);
+    }
 };
