@@ -15,6 +15,7 @@ export const bus = async() => {
 
 export const menu = async() => {
   const {data} = await instance.get(`${baseURL}/menu`);
+  console.log(data);
   return data.data.body;
 }
 
