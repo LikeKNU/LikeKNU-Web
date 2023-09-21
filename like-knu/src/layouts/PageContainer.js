@@ -7,6 +7,6 @@ export default styled.div`
   grid-template-rows: minmax(100px, auto);
   grid-template-columns: 1fr 1fr;
 
-  grid-column-gap: 25px;
-  grid-row-gap: 20px;
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
 `

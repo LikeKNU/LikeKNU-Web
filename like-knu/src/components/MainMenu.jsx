@@ -77,6 +77,9 @@ const Slide=styled(SwiperSlide)`
   background-color: red;
   width: 100%;
 
+  display: flex;
+  flex-direction: column;
+
   .content {
     color: #fff;
     text-align: center;
@@ -84,8 +87,9 @@ const Slide=styled(SwiperSlide)`
   .title { 
     color: #fff;
     text-align:center;
-    margin: 5px;
     border: 1px solid #000;
+    width: 70%;
+    margin: 0 auto;
   }
 `
 const SwiperContainer=styled(Swiper)`
