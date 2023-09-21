@@ -38,14 +38,27 @@ export default function MainMenu() {
           ))
         } */}
         <Slide>
-          <TitleBox text="학생식당"/>
-          <div>안녕하세요111</div>
+          {/* <div className="title">학생식당</div> */}
+          <TitleBox text="학생식당" margin_top="8px"/>
+          <div className="content">안녕하세요111</div>
         </Slide>
         <Slide>
-          <div>안녕하세요222</div>
+          {/* <div className="title">학생식당</div> */}
+
+          <TitleBox text="학생식당" margin_top="8px"/>
+          <div className="content">안녕하세요222</div>
         </Slide>
         <Slide>
-          <div>안녕하세요333</div>
+          {/* <div className="title">학생식당</div> */}
+
+          <TitleBox text="학생식당" margin_top="8px"/>
+          <div className="content">안녕하세요222</div>
+        </Slide>
+        <Slide>
+          {/* <div className="title">학생식당</div> */}
+
+          <TitleBox text="학생식당" margin_top="8px"/>
+          <div className="content">안녕하세요222</div>
         </Slide>
       </SwiperContainer>
     </MenuContainer>
@@ -63,9 +76,19 @@ const Title = styled.div`
 const Slide=styled(SwiperSlide)`
   background-color: red;
   width: 100%;
+
+  .content {
+    color: #fff;
+    text-align: center;
+  }
+  .title { 
+    color: #fff;
+    text-align:center;
+    margin: 5px;
+    border: 1px solid #000;
+  }
 `
 const SwiperContainer=styled(Swiper)`
-  .swiper-wrapper {
-  }
+
 `
 
