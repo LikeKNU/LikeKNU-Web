@@ -17,7 +17,7 @@ export default function MainMenu() {
     setCafeteria(res);
   }
   useEffect( () => {
-    // getCafeteria();
+    getCafeteria();
   },[]);
 
   return (
@@ -26,40 +26,14 @@ export default function MainMenu() {
       <SwiperContainer
         slidesPerView="auto"
       >
-        {/* {
+        {
           cafeteria.map((c) => (
-            <SwiperSlide key={c.cafeteriaId}>
+            <Slide key={c.cafeteriaId}>
+              <TitleBox text={c.cafeteriaName} margin_top="8px"/>
               <MenuSlide menu={c.menu} />
-              {
-                console.log(c.menu)
-              }
-              <div>안녕하세요!</div>
-            </SwiperSlide>
+            </Slide>
           ))
-        } */}
-        <Slide>
-          {/* <div className="title">학생식당</div> */}
-          <TitleBox text="학생식당" margin_top="8px"/>
-          <div className="content">안녕하세요111</div>
-        </Slide>
-        <Slide>
-          {/* <div className="title">학생식당</div> */}
-
-          <TitleBox text="학생식당" margin_top="8px"/>
-          <div className="content">안녕하세요222</div>
-        </Slide>
-        <Slide>
-          {/* <div className="title">학생식당</div> */}
-
-          <TitleBox text="학생식당" margin_top="8px"/>
-          <div className="content">안녕하세요222</div>
-        </Slide>
-        <Slide>
-          {/* <div className="title">학생식당</div> */}
-
-          <TitleBox text="학생식당" margin_top="8px"/>
-          <div className="content">안녕하세요222</div>
-        </Slide>
+        }
       </SwiperContainer>
     </MenuContainer>
   )
@@ -74,8 +48,7 @@ const Title = styled.div`
   font-weight: 700;
 `
 const Slide=styled(SwiperSlide)`
-  background-color: red;
-  width: 100%;
+  // width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -83,13 +56,6 @@ const Slide=styled(SwiperSlide)`
   .content {
     color: #fff;
     text-align: center;
-  }
-  .title { 
-    color: #fff;
-    text-align:center;
-    border: 1px solid #000;
-    width: 70%;
-    margin: 0 auto;
   }
 `
 const SwiperContainer=styled(Swiper)`

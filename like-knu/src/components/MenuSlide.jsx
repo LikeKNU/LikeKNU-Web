@@ -1,13 +1,13 @@
 import { useState } from "react"
 import styled from "styled-components"
-
+import colors from "constants/colors";
 export default function MenuSlide(props) {
   const {menu} = props;
   return (
     <Wrapper>
       {
         menu.map((menu) => {
-          return(<div key={menu.menuId}>{menu.menuName}</div>)
+          return(<div key={menu.menuId} className="text">{menu.menuName}</div>)
         })
       }
     </Wrapper>
@@ -15,6 +15,17 @@ export default function MenuSlide(props) {
 }
 
 const Wrapper=styled.div`
-  background-color: purple;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+  color: ${colors.black};
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  .text {
+    margin-bottom: 4px;
+  }
+
+
 `
