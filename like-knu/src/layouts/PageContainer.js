@@ -5,7 +5,7 @@ export default styled.div`
   background-color: skyblue;
   display: grid;
   grid-template-rows: minmax(100px, auto);
-  grid-template-columns: repeat(2, minmax(100px, auto));
+  grid-template-columns: 1fr 1fr;
 
   grid-column-gap: 25px;
   grid-row-gap: 20px;

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react"
 import MenuSlide from "./MenuSlide"
 import { menu } from "api/main"
 import "swiper/css"
+import TitleBox from "./TitleBox"
 
 export default function MainMenu() {
   const [cafeteria, setCafeteria]=useState([]);
@@ -22,7 +23,9 @@ export default function MainMenu() {
   return (
     <MenuContainer>
       <Title>식단</Title>
-      <SwiperContainer>
+      <SwiperContainer
+        slidesPerView="auto"
+      >
         {/* {
           cafeteria.map((c) => (
             <SwiperSlide key={c.cafeteriaId}>
@@ -35,6 +38,7 @@ export default function MainMenu() {
           ))
         } */}
         <Slide>
+          <TitleBox text="학생식당"/>
           <div>안녕하세요111</div>
         </Slide>
         <Slide>
@@ -48,7 +52,8 @@ export default function MainMenu() {
   )
 }
 const MenuContainer = styled(CardContainer)`
-  width: 100%;
+  display:flex;
+  flex-direction: column;
 `
 const Title = styled.div`
   color: ${colors.black};
@@ -57,16 +62,10 @@ const Title = styled.div`
 `
 const Slide=styled(SwiperSlide)`
   background-color: red;
-  width: 50px;
+  width: 100%;
 `
 const SwiperContainer=styled(Swiper)`
-  height: 200px;
   .swiper-wrapper {
-    width: 50px;
-  }
-  .swiper-slide div {
-    width: 50px;
-    margin: 0;
   }
 `
 

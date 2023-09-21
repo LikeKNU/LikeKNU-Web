@@ -13,7 +13,7 @@ export default function MainNotice() {
     setNotices(res);
   }
   useEffect( () => {
-    getNotices();
+    // getNotices();
   },[]);
   
   return (
