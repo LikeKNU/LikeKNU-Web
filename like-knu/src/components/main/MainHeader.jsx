@@ -1,11 +1,6 @@
 import styled from "styled-components"
 import colors from "constants/colors"
 
-const Campus = {
-  CHEONAN: "천안캠",
-  SINGWAN: "신관캠",
-  YESAN: "예산캠"
-}
 function DropDown() {
 
 }
