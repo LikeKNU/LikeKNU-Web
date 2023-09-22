@@ -6,7 +6,7 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import Test from './pages/Test';
 import MainPage from 'pages/MainPage';
-import MainMenu from 'components/MainMenu';
+import MainMenu from 'components/main/MainMenu';
 import SwiperTest from 'pages/SwiperTest'
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

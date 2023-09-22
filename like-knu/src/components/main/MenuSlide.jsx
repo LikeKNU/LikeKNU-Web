@@ -50,6 +50,7 @@ export default function MenuSlide(props) {
 }
 const MoreMenu = styled.div`
   color: ${colors.cheonAn};
+  margin-bottom: 4px;
 `
 const Text=styled.div`
   margin-bottom: 4px;

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import CardContainer from "./CardContainer"
+import CardContainer from "components/CardContainer"
 import colors from "constants/colors"
 
 export default function MainCalendar() {
