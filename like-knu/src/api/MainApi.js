@@ -1,0 +1,21 @@
+import {generateAndSaveNewDeviceId, getCampus, getDeviceId, setCampus} from "../utils/DeviceManageUtil";
+import {registerDevice} from "./DeviceRegister";
+import Campus from "../constants/Campus";
+
+export const initializeDevice = () => {
+    let deviceId = getDeviceId();
+    if (deviceId === null) {
+        let newDeviceId = generateAndSaveNewDeviceId();
+        registerDevice(newDeviceId)
+            .then(() => {
+            });
+    }
+
+    let campus = getCampus();
+    if (campus === null) {
+        campus = Campus.CHEONAN;
+        setCampus(campus);
+    }
+
+    return campus;
+}
