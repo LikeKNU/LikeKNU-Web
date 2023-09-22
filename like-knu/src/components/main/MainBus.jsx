@@ -3,6 +3,7 @@ import CardContainer from "components/CardContainer"
 import colors from "constants/colors"
 import { bus } from "api/main"
 import { useState, useEffect } from "react"
+import BusItem from "components/BusItem"
 
 export default function MainBus() {
   const [buses, setBuses] = useState([]);
@@ -13,16 +14,22 @@ export default function MainBus() {
     setBuses(res);
   }
   useEffect( () => {
-    getBuses();
+    // getBuses();
   },[]);
   return (
     <BusContainer>
       <Title>버스</Title>
-      {
+      {/* {
         buses.map((bus) => (
-          <div key={bus.routeId} bus={bus}>{bus.busNumber}</div>
+          <BusItem key={bus.routeId} bus={bus} />
         ))
-      }
+      } */}
+      <BusList>
+        <BusItem />
+        <BusItem />
+        <BusItem />
+      </BusList>
+
     </BusContainer>
   )
 }
@@ -34,4 +41,12 @@ const Title = styled.div`
   color: ${colors.black};
   font-size: 1.8rem;
   font-weight: 700;
+  margin-bottom: 1rem;
+`
+const BusList = styled.div`
+  display:grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-row-gap: 1.2rem;
+
+
 `
