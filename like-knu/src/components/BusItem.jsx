@@ -4,24 +4,24 @@ import {ReactComponent as ArrowIcon} from "assets/icon/Arrow right alt.svg"
 import {ReactComponent as BusIcon} from "assets/icon/directions_bus_black_24dp.svg"
 export default function BusItem(props) {
   const {bus} = props;
+  const busColor = "#"+bus.bus_color;
   return (
     <div>
       <Title>
-        <Text>종합버스터미널(옥룡동방면)</Text>
+        <Text>{bus.departureStop}</Text>
         <StyeldArrow />
-        <Text>집에갈래</Text>
+        <Text>{bus.arrivalStop}</Text>
       </Title>
       <ColumnArea>
         <ColumnArea>
-          <BusIcon fill="#386DE8" />
-          <BoldText $margin="0 0 0 1.2rem">100-1</BoldText>
+          <BusIcon fill={busColor} />
+          <BoldText $margin="0 0 0 1.2rem">{bus.busNumber}</BoldText>
         </ColumnArea>
         <ColumnArea>
-          <BoldText $margin="0 1.6rem 0 0">60분 뒤</BoldText>
-          <LightText>12:34</LightText>
+          <BoldText $margin="0 1.6rem 0 0">{bus.remainingTime}</BoldText>
+          <LightText>{bus.arrivalTime}</LightText>
         </ColumnArea>
       </ColumnArea>
-
     </div>
   )
 }

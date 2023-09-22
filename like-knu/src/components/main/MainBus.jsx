@@ -14,20 +14,21 @@ export default function MainBus() {
     setBuses(res);
   }
   useEffect( () => {
-    // getBuses();
+    getBuses();
   },[]);
   return (
     <BusContainer>
       <Title>버스</Title>
-      {/* {
-        buses.map((bus) => (
-          <BusItem key={bus.routeId} bus={bus} />
-        ))
-      } */}
+
       <BusList>
+        {
+          buses.map((bus) => (
+          <BusItem key={bus.routeId} bus={bus} />
+          ))
+        }
+        {/* <BusItem />
         <BusItem />
-        <BusItem />
-        <BusItem />
+        <BusItem /> */}
       </BusList>
 
     </BusContainer>
