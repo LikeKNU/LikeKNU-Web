@@ -2,7 +2,8 @@ import styled from "styled-components"
 import colors from "constants/colors"
 import {ReactComponent as ArrowIcon} from "assets/icon/Arrow right alt.svg"
 import {ReactComponent as BusIcon} from "assets/icon/directions_bus_black_24dp.svg"
-export default function BusItem(props) {
+
+export default function MainBusItem(props) {
   const {bus} = props;
   const busColor = "#"+bus.bus_color;
   return (

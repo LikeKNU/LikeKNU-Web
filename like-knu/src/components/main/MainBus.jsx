@@ -3,7 +3,7 @@ import CardContainer from "components/CardContainer"
 import colors from "constants/colors"
 import { bus } from "api/main"
 import { useState, useEffect } from "react"
-import BusItem from "components/BusItem"
+import MainBusItem from "components/main/MainBusItem"
 
 export default function MainBus() {
   const [buses, setBuses] = useState([]);
@@ -14,7 +14,7 @@ export default function MainBus() {
     setBuses(res);
   }
   useEffect( () => {
-    getBuses();
+    // getBuses();
   },[]);
   return (
     <BusContainer>
@@ -23,7 +23,7 @@ export default function MainBus() {
       <BusList>
         {
           buses.map((bus) => (
-          <BusItem key={bus.routeId} bus={bus} />
+          <MainBusItem key={bus.routeId} bus={bus} />
           ))
         }
         {/* <BusItem />
