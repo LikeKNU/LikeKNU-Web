@@ -10,6 +10,7 @@ export const notice = async() => {
 
 export const bus = async() => {
   const {data} = await instance.get(`${baseURL}/buses`);
+  console.log(data);
   return data.data.body;
 }
 
