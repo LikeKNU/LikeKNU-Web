@@ -19,7 +19,7 @@ export default function MainBusItem(props) {
           <BoldText $margin="0 0 0 1.2rem">{bus.busNumber}</BoldText>
         </ColumnArea>
         <ColumnArea>
-          <BoldText $margin="0 1.6rem 0 0">{bus.remainingTime}</BoldText>
+          <BoldText $margin="0 2rem 0 0">{bus.remainingTime}</BoldText>
           <LightText>{bus.arrivalTime}</LightText>
         </ColumnArea>
       </ColumnArea>

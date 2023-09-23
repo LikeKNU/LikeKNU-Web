@@ -3,24 +3,29 @@ import CardContainer from "components/CardContainer"
 import colors from "constants/colors"
 import { useEffect, useState } from "react"
 import { calendar } from "api/main"
+import MainCalendarItem from "./MainCalendarItem"
+
 export default function MainCalendar() {
-  const [schedule, setSchedule] = useState([]);
+  const [scheduleList, setScheduleList] = useState([]);
 
   const getSchedule = async() => {
     const res = await calendar();
-    setSchedule(res);
+    setScheduleList(res);
   }
   useEffect( () => {
-    // getSchedule();
+    getSchedule();
   },[]);
   return (
     <CardContainer>
       <Title>학사일정</Title>
       {
-        schedule.map((s) => (
-          <div key={s.scheduleId}>{s.scheduleContents}</div>
+        scheduleList.map((schedule) => (
+          <MainCalendarItem key={schedule.scheduleId} schedule={schedule}/>
         ))
       }
+      {/* <CalendarList>
+        <MainCalendarItem></MainCalendarItem>
+      </CalendarList> */}
     </CardContainer>
   )
 }
@@ -29,4 +34,6 @@ const Title = styled.div`
   color: ${colors.black};
   font-size: 1.8rem;
   font-weight: 700;
+`
+const CalendarList = styled.div`
 `

@@ -14,7 +14,7 @@ export default function MainBus() {
     setBuses(res);
   }
   useEffect( () => {
-    // getBuses();
+    getBuses();
   },[]);
   return (
     <BusContainer>
@@ -23,7 +23,7 @@ export default function MainBus() {
       <BusList>
         {
           buses.map((bus) => (
-          <MainBusItem key={bus.routeId} bus={bus} />
+            <MainBusItem key={bus.routeId} bus={bus} />
           ))
         }
         {/* <BusItem />

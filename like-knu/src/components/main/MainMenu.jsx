@@ -20,7 +20,7 @@ export default function MainMenu() {
     setCafeteria(res);
   }
   useEffect( () => {
-    // getCafeteria();
+    getCafeteria();
   },[]);
 
   return (
