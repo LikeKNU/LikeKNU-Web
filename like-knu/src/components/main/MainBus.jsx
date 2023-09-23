@@ -30,7 +30,6 @@ export default function MainBus() {
         <BusItem />
         <BusItem /> */}
       </BusList>
-
     </BusContainer>
   )
 }
@@ -48,6 +47,5 @@ const BusList = styled.div`
   display:grid;
   grid-template-rows: repeat(3, 1fr);
   grid-row-gap: 1.2rem;
-
 
 `
