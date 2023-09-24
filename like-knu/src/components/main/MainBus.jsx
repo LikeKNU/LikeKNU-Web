@@ -4,7 +4,7 @@ import colors from "constants/colors"
 import { bus } from "api/main"
 import { useState, useEffect } from "react"
 import MainBusItem from "components/main/MainBusItem"
-
+import BusRefreshBtn from 'components/BusRefreshBtn'
 export default function MainBus() {
   const [buses, setBuses] = useState([]);
 
@@ -19,16 +19,13 @@ export default function MainBus() {
   return (
     <BusContainer>
       <Title>버스</Title>
-
+      <BusRefreshBtn></BusRefreshBtn>
       <BusList>
         {
           buses.map((bus) => (
             <MainBusItem key={bus.routeId} bus={bus} />
           ))
         }
-        {/* <BusItem />
-        <BusItem />
-        <BusItem /> */}
       </BusList>
     </BusContainer>
   )

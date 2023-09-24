@@ -18,14 +18,21 @@ export default function MainCalendar() {
   return (
     <CardContainer>
       <Title>학사일정</Title>
-      {
+      {/* {
         scheduleList.map((schedule) => (
           <MainCalendarItem key={schedule.scheduleId} schedule={schedule}/>
         ))
-      }
+      } */}
       {/* <CalendarList>
         <MainCalendarItem></MainCalendarItem>
       </CalendarList> */}
+      <CalendarList>
+        {
+          scheduleList.map((schedule) => (
+            <MainCalendarItem key={schedule.scheduleId} schedule={schedule}/>
+          ))
+        }
+      </CalendarList>
     </CardContainer>
   )
 }
@@ -34,6 +41,11 @@ const Title = styled.div`
   color: ${colors.black};
   font-size: 1.8rem;
   font-weight: 700;
+  margin-bottom: 10px;
 `
 const CalendarList = styled.div`
+  height: 172px;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  grid-row-gap: 1.2rem;
 `
