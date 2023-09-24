@@ -9,6 +9,7 @@ const colors = {
   gray300: "#BDBDBD",
   gray350: "#AFAFAF",
   gray400: "#8A8A8A",
+  gray500: "#666666",
 
   white: "#FFFFFF",
   black: "#403E3F",

@@ -10,7 +10,7 @@ export default function MainBusItem(props) {
     <div>
       <Title>
         <Text>{bus.departureStop}</Text>
-        <StyeldArrow />
+        <StyledArrow />
         <Text>{bus.arrivalStop}</Text>
       </Title>
       <ColumnArea>
@@ -38,7 +38,7 @@ const Text = styled.div`
   color: ${colors.black};
   text-align: center;
 `
-const StyeldArrow = styled(ArrowIcon)`
+const StyledArrow = styled(ArrowIcon)`
   margin: 0 1rem;
 `
 const ColumnArea = styled.div`

@@ -5,6 +5,7 @@ import { bus } from "api/main"
 import { useState, useEffect } from "react"
 import MainBusItem from "components/main/MainBusItem"
 import BusRefreshBtn from 'components/BusRefreshBtn'
+
 export default function MainBus() {
   const [buses, setBuses] = useState([]);
 
@@ -13,13 +14,17 @@ export default function MainBus() {
     const res = await bus();
     setBuses(res);
   }
+
+  const refreshHandler = () => {
+    console.log("새로고칠까말까11")
+  }
   useEffect( () => {
     getBuses();
   },[]);
   return (
     <BusContainer>
       <Title>버스</Title>
-      <BusRefreshBtn></BusRefreshBtn>
+      <BusRefreshBtn onclick={refreshHandler}></BusRefreshBtn>
       <BusList>
         {
           buses.map((bus) => (
@@ -33,6 +38,7 @@ export default function MainBus() {
 
 const BusContainer = styled(CardContainer)`
   grid-column: 1 / 3;
+  position: relative;
 `
 const Title = styled.div`
   color: ${colors.black};
@@ -44,5 +50,4 @@ const BusList = styled.div`
   display:grid;
   grid-template-rows: repeat(3, 1fr);
   grid-row-gap: 1.2rem;
-
 `
