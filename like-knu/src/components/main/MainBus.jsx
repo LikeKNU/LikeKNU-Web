@@ -9,12 +9,11 @@ import BusRefreshBtn from 'components/BusRefreshBtn'
 export default function MainBus() {
   const [buses, setBuses] = useState([]);
 
-
   const getBuses = async() => {
     const res = await bus();
     setBuses(res);
   }
-  
+
   useEffect( () => {
     getBuses();
   },[]);
@@ -36,6 +35,7 @@ export default function MainBus() {
 const BusContainer = styled(CardContainer)`
   grid-column: 1 / 3;
   position: relative;
+  min-height: 80px;
 `
 const Title = styled.div`
   color: ${colors.black};
@@ -45,6 +45,5 @@ const Title = styled.div`
 `
 const BusList = styled.div`
   display:grid;
-  grid-template-rows: repeat(3, 1fr);
   grid-row-gap: 1.2rem;
 `
