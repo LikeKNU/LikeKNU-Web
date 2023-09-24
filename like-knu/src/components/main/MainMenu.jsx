@@ -20,7 +20,7 @@ export default function MainMenu() {
     setCafeteria(res);
   }
   useEffect( () => {
-    // getCafeteria();
+    getCafeteria();
   },[]);
 
   return (
@@ -37,7 +37,7 @@ export default function MainMenu() {
         cafeteria.map((c) => (
           <Slide key={c.cafeteriaId}>
             <TitleBox text={c.cafeteriaName} margin_top="8px"/>
-            <MenuSlide menu={c.menu} />
+            <MenuSlide menu={c.menus} />
           </Slide>
         ))
       }

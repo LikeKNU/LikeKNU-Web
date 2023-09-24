@@ -21,6 +21,7 @@ export const menu = async() => {
 }
 
 export const calendar = async() => {
-  const {data} = await instance.get(`${baseURL}/calendar`);
+  const {data} = await instance.get(`${baseURL}/schedule`);
+  console.log(data);
   return data.data.body;
 }

@@ -13,7 +13,7 @@ export default function MainNotice() {
     setNotices(res);
   }
   useEffect( () => {
-    // getNotices();
+    getNotices();
   },[]);
   
   return (
@@ -53,6 +53,6 @@ const Title = styled.div`
   color: ${colors.black};
   font-size: 1.8rem;
   font-weight: 700;
-  padding-bottom: 15px;
+  margin-bottom: 15px;
 
 `

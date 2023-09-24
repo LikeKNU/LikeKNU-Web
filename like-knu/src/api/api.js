@@ -2,7 +2,7 @@ import axios from "axios";
 
 // axios instance
 const instance = axios.create({
-  baseURL: "https://53067293-11da-40b6-9b84-170eaa91fc73.mock.pstmn.io",
+  baseURL: "http://210.125.212.192:8888",
   timeout: 10000,
 });
 
