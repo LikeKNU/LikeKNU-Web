@@ -14,17 +14,14 @@ export default function MainBus() {
     const res = await bus();
     setBuses(res);
   }
-
-  const refreshHandler = () => {
-    console.log("새로고칠까말까11")
-  }
+  
   useEffect( () => {
     getBuses();
   },[]);
   return (
     <BusContainer>
       <Title>버스</Title>
-      <BusRefreshBtn onclick={refreshHandler}></BusRefreshBtn>
+      <BusRefreshBtn></BusRefreshBtn>
       <BusList>
         {
           buses.map((bus) => (

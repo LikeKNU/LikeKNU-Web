@@ -7,6 +7,7 @@ export default function MenuSlide(props) {
   const [isOver, setIsOver] = useState(false);
   const cnt = Object.keys(menu).length;
   const slice = 6;
+  const [isEmpty, setIsEmpty] = useState(false);
 
   // 메뉴 개수 세서 새로운 객체에 저장하는 함수
   const countMenu = () => {
@@ -31,9 +32,15 @@ export default function MenuSlide(props) {
       console.log(isOver);
     }
   }
+  const funIsEmpty = () => {
+    if(cnt === 0) {
+      setIsEmpty(true);
+    }
+  }
   useEffect(() => {
     setNewMenu(countMenu());
     funIsOver();
+    funIsEmpty();
   },[]);
   return (
     <Wrapper>
@@ -45,9 +52,15 @@ export default function MenuSlide(props) {
       {
         isOver && <MoreMenu>+더보기</MoreMenu>
       }
+      {
+        isEmpty && <NoMenu>메뉴 없음</NoMenu>
+      }
     </Wrapper>
   )
 }
+const NoMenu = styled.div`
+  color: ${colors.gray400};
+`
 const MoreMenu = styled.div`
   color: ${colors.cheonAn};
   margin-bottom: 4px;
