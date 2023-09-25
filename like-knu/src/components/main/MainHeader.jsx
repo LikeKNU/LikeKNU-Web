@@ -3,22 +3,29 @@ import colors from "constants/colors"
 import Campus from "constants/Campus"
 import DropDown from "components/DropDown"
 import { useEffect, useState } from "react"
-import {getCampus, setCampus} from "utils/DeviceManageUtil"
-import {initializeDevice} from "api/MainApi"
+import {getCampus} from "utils/DeviceManageUtil"
+import {ReactComponent as DownIcon} from "assets/icon/expand_more_black_24dp.svg"
 
 export default function MainHeader() {
   const [view, setview] = useState(false);
-  const [campusName, setCampusName] = useState("");
+  const [campusName, setCampusName] = useState(getCampus);
+  
+  const changeCampus = (campus) => {
+    setCampusName(campus);
+  }
+
   useEffect(() => {
-    initializeDevice();
-    setCampusName(getCampus);
-  },[]);
+    console.log(campusName);
+  },[getCampus]);
+
   return (
     <Wrapper>
       <CampusList onClick={() => {setview(!view)}}>
         <Title $campus={campusName}>{campusName}</Title>
-        {view && <DropDown campus={campusName}/>}
+        {view && <DropDown changeCampus={changeCampus}/>}
       </CampusList>
+      <DownIcon fill={colors.black} />
+
     </Wrapper>
   )
 }
@@ -34,12 +41,14 @@ const Wrapper = styled.div`
 `
 const CampusList = styled.ul`
   padding: 0;
-
+  display: flex;
+  flex-direction: row;
 `
+
 const Title = styled.div`
   font-size: 2.2rem;
   font-weight: 700;
-
+  margin-right: 4px;
   ${(props) => {
     switch (props.$campus) {
       case "천안캠":

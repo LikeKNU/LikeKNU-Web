@@ -20,8 +20,12 @@ export const menu = async() => {
   return data.data.body;
 }
 
-export const calendar = async() => {
-  const {data} = await instance.get(`${baseURL}/schedule`);
+export const calendar = async(campus) => {
+  const {data} = await instance.get(`${baseURL}/schedule`, {
+    params: {
+        campus: campus
+    }
+});
   console.log(data);
   return data.data.body;
 }
