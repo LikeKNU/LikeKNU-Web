@@ -3,7 +3,7 @@ import styled from "styled-components"
 import colors from "constants/colors";
 export default function MenuSlide(props) {
   const {menu} = props;
-  const [newMenu, setNewMenu] = useState([]);
+  const [newMenu, setNewMenu] = useState([]);   //메뉴스
   const [isOver, setIsOver] = useState(false);
   const cnt = Object.keys(menu).length;
   const slice = 6;
@@ -12,21 +12,31 @@ export default function MenuSlide(props) {
   // 메뉴 개수 세서 새로운 객체에 저장하는 함수
   const countMenu = () => {
     let newObj = [];
-    for( let i = 0; i < cnt; i++) {
-      if(i > slice-1) {
-        break;
-      }
-      else {
-        let key = Object.keys(menu)[i];
-        newObj[key] = menu[key];
-      }
+
+    const isCntBig = () => {
+      return cnt > slice ? slice : cnt;
     }
+
+    for(let i=0; i < isCntBig(); i++)   //0~3
+      newObj[i] = menu[i];
     return newObj;
+    
+    // for( let i = 0; i < cnt; i++) {
+    //   if(i > slice-1) {
+    //     break;
+    //   }
+    //   else {
+    //     let key = Object.keys(menu)[i];
+    //     console.log(key);
+    //     newObj[key] = menu[key];
+    //   }
+    // }
+  
   }
+
 
   // 메뉴 개수가 slice 이상인지 확인하는 함수
   const funIsOver = () => {
-    const cnt = Object.keys(menu).length;
     if(cnt > slice) {
       setIsOver(true);
       console.log(isOver);
@@ -39,8 +49,8 @@ export default function MenuSlide(props) {
   }
   useEffect(() => {
     setNewMenu(countMenu());
-    funIsOver();
     funIsEmpty();
+    funIsOver();
   },[]);
   return (
     <Wrapper>

@@ -14,9 +14,6 @@ export default function MainHeader() {
     setCampusName(campus);
   }
 
-  useEffect(() => {
-    console.log(campusName);
-  },[getCampus]);
 
   return (
     <Wrapper>

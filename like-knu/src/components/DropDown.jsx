@@ -9,6 +9,7 @@ export default function DropDown({changeCampus, campusName}) {
   const setCampusHandler = (e) => {
     setCampus(e.target.textContent);
     changeCampus(getCampus);
+  
   }
   return (
       <Wrapper>

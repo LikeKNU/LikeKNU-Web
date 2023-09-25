@@ -5,18 +5,27 @@ import { bus } from "api/main"
 import { useState, useEffect } from "react"
 import MainBusItem from "components/main/MainBusItem"
 import BusRefreshBtn from 'components/BusRefreshBtn'
+import { getCampus } from "utils/DeviceManageUtil"
 
 export default function MainBus() {
   const [buses, setBuses] = useState([]);
-
+  const [campus, setCampus] = useState();
   const getBuses = async() => {
-    const res = await bus();
+    const res = await bus(getCampus());
     setBuses(res);
   }
 
   useEffect( () => {
-    getBuses();
+    const storedCampus = getCampus();
+    if(campus !== storedCampus) {
+      setCampus(storedCampus);
+    }
+    console.log("ss"+storedCampus);
   },[]);
+
+  useEffect( () => {
+    getBuses();
+  },[campus]);
   return (
     <BusContainer>
       <Title>버스</Title>
