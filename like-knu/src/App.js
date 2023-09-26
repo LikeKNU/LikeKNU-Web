@@ -2,14 +2,20 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import MainPage from 'pages/MainPage';
+import NoticePage from 'pages/NoticePage';
+import CalendarPage from 'pages/CalendarPage';
+import Test from 'pages/Test';
 
 function App() {
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" ></Route>
+        <Route path="/" element={<Test />} />
+        <Route path="/main" element={<MainPage />} />
+        <Route path="/notice" element={<NoticePage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
       </Routes>
     </BrowserRouter>
     // <div className="App">
