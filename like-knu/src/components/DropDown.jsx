@@ -9,7 +9,7 @@ export default function DropDown({changeCampus, campusName}) {
   // 이름 클릭시, 캠퍼스 세팅
   const setCampusHandler = (e) => {
     setCampus(e.target.textContent);
-    // changeCampus(getCampus);
+    changeCampus(getCampus);
   }
   const campus = useParams();
   console.log(campus);

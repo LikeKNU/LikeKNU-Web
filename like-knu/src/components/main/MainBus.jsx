@@ -6,22 +6,25 @@ import { useState, useEffect } from "react"
 import MainBusItem from "components/main/MainBusItem"
 import BusRefreshBtn from 'components/BusRefreshBtn'
 import { getCampus } from "utils/DeviceManageUtil"
+import { useParams } from "react-router-dom"
 
 export default function MainBus() {
   const [buses, setBuses] = useState([]);
-  const [campus, setCampus] = useState();
+  // const [campus, setCampus] = useState();
+  const campus = useParams();
   const getBuses = async() => {
-    const res = await bus(getCampus());
+    setBuses([]);
+    const res = await bus(campus.campus);
     setBuses(res);
   }
 
-  useEffect( () => {
-    const storedCampus = getCampus();
-    if(campus !== storedCampus) {
-      setCampus(storedCampus);
-    }
-    // console.log("ss"+storedCampus);
-  },[]);
+  // useEffect( () => {
+  //   const storedCampus = getCampus();
+  //   if(campus !== storedCampus) {
+  //     setCampus(storedCampus);
+  //   }
+  //   // console.log("ss"+storedCampus);
+  // },[]);
 
   useEffect( () => {
     getBuses();
