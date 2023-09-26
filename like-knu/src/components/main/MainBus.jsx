@@ -20,7 +20,7 @@ export default function MainBus() {
     if(campus !== storedCampus) {
       setCampus(storedCampus);
     }
-    console.log("ss"+storedCampus);
+    // console.log("ss"+storedCampus);
   },[]);
 
   useEffect( () => {

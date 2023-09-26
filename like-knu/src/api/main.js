@@ -12,7 +12,6 @@ export const bus = async(campus) => {
     params: {
         campus: campus
     }});
-  console.log(campus);
   console.log(data);
   return data.data.body;
 }

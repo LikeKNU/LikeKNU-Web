@@ -3,21 +3,29 @@ import Campus from "constants/Campus"
 import colors from "constants/colors"
 import { getCampus, setCampus } from "utils/DeviceManageUtil"
 import { useState } from "react"
+import { Link, useParams } from 'react-router-dom'
 
 export default function DropDown({changeCampus, campusName}) {
   // 이름 클릭시, 캠퍼스 세팅
   const setCampusHandler = (e) => {
     setCampus(e.target.textContent);
-    changeCampus(getCampus);
-  
+    // changeCampus(getCampus);
   }
+  const campus = useParams();
+  console.log(campus);
   return (
       <Wrapper>
-        <CampusItem onClick={setCampusHandler}>{Campus.SINGWAN}</CampusItem>
+        <CampusItem onClick={setCampusHandler}>
+          <Link to={`/main/SINGWAN`}>{Campus.SINGWAN}</Link>
+        </CampusItem>
         <Line />
-        <CampusItem onClick={setCampusHandler}>{Campus.CHEONAN}</CampusItem>
+        <CampusItem onClick={setCampusHandler}>
+          <Link to={`/main/CHEONAN`}>{Campus.CHEONAN}</Link>
+        </CampusItem>
         <Line />
-        <CampusItem onClick={setCampusHandler}>{Campus.YESAN}</CampusItem>
+        <CampusItem onClick={setCampusHandler}>
+          <Link to={`/main/YESAN`}>{Campus.YESAN}</Link>
+        </CampusItem>
       </Wrapper>
   )
 }
