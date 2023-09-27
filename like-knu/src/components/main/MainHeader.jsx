@@ -51,6 +51,8 @@ const Wrapper = styled.div`
   height: 6.4rem;
   margin-bottom: 16px;
   padding: 0px 16px;
+  position: relative;
+  border-bottom: 1px solid ${colors.gray100};
 `
 const CampusList = styled.ul`
   padding: 0;
@@ -87,17 +89,22 @@ const DateText = styled.div`
   color: ${colors.gray400};
   font-size: 1.4rem;
   font-weight: 600;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
 `
 const IconList = styled.div`
 `
 const StyledNotification = styled(NotificationIcon)`
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   color: #FFCB74;
   margin-right: 14px;
 `
 const StyledSetting = styled(SettingIcon)`
-  width: 24px;
-  height: 24px;
+  width: 22px;
+  height: 22px;
   color: #7F7C7D;
 `

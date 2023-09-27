@@ -15,16 +15,16 @@ export default function DropDown({changeCampus, campusName}) {
   console.log(campus);
   return (
       <Wrapper>
-        <CampusItem onClick={setCampusHandler}>
-          <Link to={`/main/SINGWAN`}>{Campus.SINGWAN}</Link>
+        <CampusItem >
+          <StyledLink to={`/main/SINGWAN`} onClick={setCampusHandler}>{Campus.SINGWAN}</StyledLink>
         </CampusItem>
         <Line />
-        <CampusItem onClick={setCampusHandler}>
-          <Link to={`/main/CHEONAN`}>{Campus.CHEONAN}</Link>
+        <CampusItem >
+          <StyledLink to={`/main/CHEONAN`} onClick={setCampusHandler}>{Campus.CHEONAN}</StyledLink>
         </CampusItem>
         <Line />
-        <CampusItem onClick={setCampusHandler}>
-          <Link to={`/main/YESAN`}>{Campus.YESAN}</Link>
+        <CampusItem >
+          <StyledLink to={`/main/YESAN`} onClick={setCampusHandler}>{Campus.YESAN}</StyledLink>
         </CampusItem>
       </Wrapper>
   )
@@ -41,15 +41,17 @@ const Wrapper = styled.div`
   border: 1px solid ${colors.gray200};
 `
 const CampusItem = styled.li`
-  margin: 8px 40px;
   font-size: 1.6rem;
   font-weight: 500;
   color: ${colors.black};
-
-
+  // box-sizing: border-box;
 `
 const Line = styled.hr`
   border: none;
   height: 1px;
   background-color: ${colors.gray100};
+`
+const StyledLink = styled(Link)`
+  padding: 8px 40px;
+  display: inline-block;
 `
