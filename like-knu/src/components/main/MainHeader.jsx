@@ -11,7 +11,9 @@ import {ReactComponent as SettingIcon} from "assets/icon/gear-fill.svg"
 export default function MainHeader() {
   const [view, setview] = useState(false);
   const [campusName, setCampusName] = useState(getCampus);
-  
+  const today = new Date();
+  const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
+  const formattedDate = `${today.getMonth() + 1}월 ${today.getDate()}일 ${week[today.getDay()]}`;
   const changeCampus = (campus) => {
     setCampusName(campus);
   }
@@ -31,7 +33,7 @@ export default function MainHeader() {
         {view && <DropDown changeCampus={changeCampus}/>}
         <DownIcon fill={colors.black} />
       </CampusList>
-      <DateText>12월 31일 금요일</DateText>
+      <DateText>{formattedDate}</DateText>
       <IconList>
         <StyledNotification onClick={goNotification}/>
         <StyledSetting onClick={goSetting}/>

@@ -5,10 +5,12 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { initializeDevice } from 'api/MainApi';
+import BottomNav from 'components/globals/BottomNav';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* 여기만 바꾸면 됩니다 */}
+    <BottomNav />
     <App />
   </React.StrictMode>
 );
