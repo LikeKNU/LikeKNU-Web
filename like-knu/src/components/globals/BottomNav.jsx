@@ -13,36 +13,37 @@ import Campus from 'constants/Campus'
 export default function BottomNav() {
   const [activeNav, setActiveNav] = useState(1);
   let campus = Object.keys(Campus).find(key => Campus[key] === getCampus());
+  console.log(activeNav);
   return (
     <Wrapper>
       <ButtonItem>
-        <StyledLink to={`/main/${campus}`}>
-          <HomeIcon className='icon_style' fill={colors.gray350}/>
-          <Text>메인</Text>
+        <StyledLink to={`/main/${campus}`} onClick={() => setActiveNav(1)}>
+          <HomeIcon className={activeNav === 1 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 1 ? "text_active" : null}>메인</Text>
         </StyledLink>
       </ButtonItem>
       <ButtonItem>
-        <StyledLink to={`/bus`}>
-          <BusIcon className='icon_style' fill={colors.gray350}/>
-          <Text>버스</Text>
+        <StyledLink to={`/bus`} onClick={() => setActiveNav(2)}>
+          <BusIcon className={activeNav === 2 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 2 ? "text_active" : null}>버스</Text>
         </StyledLink>
       </ButtonItem>
       <ButtonItem>
-        <StyledLink to={`/notice`}>
-          <AssignmentIcon className='icon_style' fill={colors.gray350}/>
-          <Text>공지사항</Text>
+        <StyledLink to={`/notice`} onClick={() => setActiveNav(3)}>
+          <AssignmentIcon className={activeNav === 3 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 3 ? "text_active" : null}>공지사항</Text>
         </StyledLink> 
       </ButtonItem>
       <ButtonItem>
-        <StyledLink to={`/calendar`}>
-          <CalendarIcon className='icon_style' fill={colors.gray350}/>
-          <Text>학사일정</Text>
+        <StyledLink to={`/calendar`} onClick={() => setActiveNav(4)}>
+          <CalendarIcon className={activeNav === 4 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 4 ? "text_active" : null}>학사일정</Text>
         </StyledLink>
       </ButtonItem>
       <ButtonItem>
-        <StyledLink to={`/menu`}>
-          <RestaurantIcon className='icon_style' fill={colors.gray350}/>
-          <Text>식단</Text>
+        <StyledLink to={`/menu`} onClick={() => setActiveNav(5)}>
+          <RestaurantIcon className={activeNav === 5 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 5 ? "text_active" : null}>식단</Text>
         </StyledLink>
       </ButtonItem>
 
@@ -50,6 +51,7 @@ export default function BottomNav() {
   )
 }
 
+// nav 전체
 const Wrapper = styled.nav`
   position: fixed;
   bottom: 0;
@@ -64,6 +66,8 @@ const Wrapper = styled.nav`
   border-top: 1px solid ${colors.gray100};
   background-color: ${colors.white};
 `
+
+// 각 아이템
 const ButtonItem = styled.div`
   height: 100%;
   width: 58px; 
@@ -72,19 +76,30 @@ const ButtonItem = styled.div`
   align-items: center;
   justify-content: center;
 `
+
+// 글자
 const Text = styled.div`
   color: ${colors.gray350};
   font-size: 1.2rem;
+  font-weight: 600;
 `
-
+// 링크
 const StyledLink = styled(Link)`
   display: inline-block;
   text-align: center;
-  
+
   // 아이콘 크기 조절
   .icon_style { 
     width: 22px;
     height: 22px;
     margin-bottom: 4px;
+    fill: ${colors.gray350};
+  }
+  .icon_active {
+    fill: ${colors.common};
+  }
+
+  .text_active{
+    color: ${colors.common};
   }
 `
