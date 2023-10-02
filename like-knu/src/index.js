@@ -6,11 +6,14 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import { initializeDevice } from 'api/MainApi';
 import BottomNav from 'components/globals/BottomNav';
+import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
-    <BottomNav />
+    <BrowserRouter>
+      <App />
+      <BottomNav />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

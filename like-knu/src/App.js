@@ -6,18 +6,20 @@ import MainPage from 'pages/MainPage';
 import NoticePage from 'pages/NoticePage';
 import CalendarPage from 'pages/CalendarPage';
 import Test from 'pages/Test';
+import BusPage from 'pages/BusPage';
+import MenuPage from 'pages/MenuPage';
 
 function App() {
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Test />} />
-        <Route path="/main/:campus" element={<MainPage />} />
-        <Route path="/notice" element={<NoticePage />} />
-        <Route path="/calendar" element={<CalendarPage />} />
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Test />} />
+      <Route path="/main/:campus" element={<MainPage />} />
+      <Route path="/bus" element={<BusPage />} />
+      <Route path="/notice" element={<NoticePage />} />
+      <Route path="/calendar" element={<CalendarPage />} />
+      <Route path="/menu" element={<MenuPage />} />
+    </Routes>
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
