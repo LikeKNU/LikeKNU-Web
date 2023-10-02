@@ -43,16 +43,21 @@ export default function MainHeader() {
 }
 
 const Wrapper = styled.div`
-  background-color: #fff;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
   height: 6.4rem;
   margin-bottom: 16px;
   padding: 0px 16px;
-  position: relative;
   border-bottom: 1px solid ${colors.gray100};
+  background-color: ${colors.white};
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 `
 const CampusList = styled.ul`
   padding: 0;
