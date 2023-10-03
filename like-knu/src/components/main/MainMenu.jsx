@@ -11,11 +11,12 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import TitleBox from "components/TitleBox"
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 export default function MainMenu() {
   const [cafeteria, setCafeteria]=useState([]);
   const navigate = useNavigate();
+
   const getCafeteria = async() => {
     const res = await menu();
     setCafeteria(res);

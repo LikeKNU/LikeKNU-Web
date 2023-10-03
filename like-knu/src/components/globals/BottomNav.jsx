@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import {ReactComponent as HomeIcon} from "assets/icon/home_black_24dp.svg"
 import {ReactComponent as BusIcon} from "assets/icon/directions_bus_black_24dp.svg"
@@ -6,14 +6,27 @@ import {ReactComponent as AssignmentIcon} from "assets/icon/assignment_black_24d
 import {ReactComponent as CalendarIcon} from "assets/icon/calendar_today_black_24dp.svg"
 import {ReactComponent as RestaurantIcon} from "assets/icon/restaurant_black_24dp.svg"
 import colors from 'constants/colors'
-import { Link } from 'react-router-dom'
+import {Link, useLocation, useParams} from 'react-router-dom'
 import { getCampus } from "utils/DeviceManageUtil"
 import Campus from 'constants/Campus'
 
 export default function BottomNav() {
   const [activeNav, setActiveNav] = useState(1);
   let campus = Object.keys(Campus).find(key => Campus[key] === getCampus());
-  console.log(activeNav);
+  let pathName = useLocation().pathname;
+
+  useEffect(() => {
+    if(pathName.includes('/notice')) {
+      setActiveNav(2);
+    } else if(pathName.includes('/bus')) {
+      setActiveNav(3);
+    } else if(pathName.includes('/menu')) {
+      setActiveNav(4);
+    } else if(pathName.includes('/calendar')) {
+      setActiveNav(5);
+    }
+  }, [pathName]);
+
   return (
     <Wrapper>
       <ButtonItem>
@@ -23,30 +36,29 @@ export default function BottomNav() {
         </StyledLink>
       </ButtonItem>
       <ButtonItem>
-        <StyledLink to={`/bus`} onClick={() => setActiveNav(2)}>
-          <BusIcon className={activeNav === 2 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 2 ? "text_active" : null}>버스</Text>
+        <StyledLink to={`/notice`} onClick={() => setActiveNav(2)}>
+          <AssignmentIcon className={activeNav === 2 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 2 ? "text_active" : null}>공지사항</Text>
         </StyledLink>
       </ButtonItem>
       <ButtonItem>
-        <StyledLink to={`/notice`} onClick={() => setActiveNav(3)}>
-          <AssignmentIcon className={activeNav === 3 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 3 ? "text_active" : null}>공지사항</Text>
-        </StyledLink> 
-      </ButtonItem>
-      <ButtonItem>
-        <StyledLink to={`/calendar`} onClick={() => setActiveNav(4)}>
-          <CalendarIcon className={activeNav === 4 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 4 ? "text_active" : null}>학사일정</Text>
+        <StyledLink to={`/bus`} onClick={() => setActiveNav(3)}>
+          <BusIcon className={activeNav === 3 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 3 ? "text_active" : null}>버스</Text>
         </StyledLink>
       </ButtonItem>
       <ButtonItem>
-        <StyledLink to={`/menu`} onClick={() => setActiveNav(5)}>
-          <RestaurantIcon className={activeNav === 5 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 5 ? "text_active" : null}>식단</Text>
+        <StyledLink to={`/menu`} onClick={() => setActiveNav(4)}>
+          <RestaurantIcon className={activeNav === 4 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 4 ? "text_active" : null}>식단</Text>
         </StyledLink>
       </ButtonItem>
-
+      <ButtonItem>
+        <StyledLink to={`/calendar`} onClick={() => setActiveNav(5)}>
+          <CalendarIcon className={activeNav === 5 ? "icon_style icon_active" : "icon_style"} />
+          <Text className={activeNav === 5 ? "text_active" : null}>학사일정</Text>
+        </StyledLink>
+      </ButtonItem>
     </Wrapper>
   )
 }
