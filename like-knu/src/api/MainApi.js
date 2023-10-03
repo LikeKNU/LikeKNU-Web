@@ -12,7 +12,7 @@ export const initializeDevice = () => {
     }
 
     let campus = getCampus();
-    if (campus === null) {
+    if (campus === null || campus === undefined) {
         campus = Campus.CHEONAN;
         setCampus(campus);
     }

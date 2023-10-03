@@ -4,15 +4,16 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import Test from './pages/Test';
-import MainPage from 'pages/MainPage';
-import MainMenu from 'components/main/MainMenu';
-import SwiperTest from 'pages/SwiperTest'
+import { initializeDevice } from 'api/MainApi';
+import BottomNav from 'components/globals/BottomNav';
+import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* 여기만 바꾸면 됩니다 */}
-    <MainPage />
+    <BrowserRouter>
+      <App />
+      <BottomNav />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
@@ -25,3 +26,4 @@ serviceWorkerRegistration.unregister();
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+initializeDevice();

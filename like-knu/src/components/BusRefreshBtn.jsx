@@ -16,12 +16,13 @@ export default function BusRefreshBtn() {
 }
 const Wrapper = styled.button`
   position: absolute;
-  right: 20px;
-  top: 16px;
+  right: 32px;
+  top: 274px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 1px solid ${colors.gray200};
+  background-color: ${colors.white};
   display: flex;
   justify-content: center;
   align-items: center;

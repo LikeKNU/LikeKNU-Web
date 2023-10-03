@@ -1,5 +1,4 @@
 import instance from "./api";
-
 const baseURL = "/api/main";
 
 export const notice = async() => {
@@ -8,8 +7,11 @@ export const notice = async() => {
   return data.data.body;
 }
 
-export const bus = async() => {
-  const {data} = await instance.get(`${baseURL}/buses`);
+export const bus = async(campus) => {
+  const {data} = await instance.get(`${baseURL}/buses`, {
+    params: {
+        campus: campus
+    }});
   console.log(data);
   return data.data.body;
 }

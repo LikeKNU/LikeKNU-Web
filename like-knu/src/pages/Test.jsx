@@ -1,17 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import colors from 'constants/colors'
 import {test1, test2, axiosTest3} from 'api/test'
 import axios from 'axios'
-function Dropdown() {
-  return(
-    <div>
-      <li>천안</li>
-      <li>신관</li>
-      <li>예산</li>
-    </div>
-  )
-}
+
 export default function Test() {
   const [view, setView] = useState(false);
   const [data, setData] = useState([]);
@@ -33,6 +25,7 @@ export default function Test() {
   const print = () => {
     console.log(data);
   }
+
   return (
     <Background>
       {/* <ul onClick={() => setView(!view)}>
