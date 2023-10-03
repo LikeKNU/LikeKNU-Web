@@ -1,8 +1,7 @@
 import styled, {css} from "styled-components"
 import colors from "constants/colors"
-import Campus from "constants/Campus"
 import DropDown from "components/DropDown"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import {getCampus} from "utils/DeviceManageUtil"
 import {ReactComponent as DownIcon} from "assets/icon/expand_more_black_24dp.svg"
 import {ReactComponent as NotificationIcon} from "assets/icon/bell-fill.svg"
@@ -50,7 +49,7 @@ const Wrapper = styled.div`
 
   height: 6.4rem;
   margin-bottom: 16px;
-  padding: 0px 16px;
+  padding: 0 16px;
   border-bottom: 1px solid ${colors.gray100};
   background-color: ${colors.white};
 
