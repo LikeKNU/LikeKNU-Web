@@ -34,7 +34,6 @@ export default function MainNotice() {
 const NoticeContainer = styled(CardContainer)`
   height: 141px;
   grid-column: 1 / 3;
-  margin-top: 74px;
 `
 const Text = styled.div`
   width: 100%;

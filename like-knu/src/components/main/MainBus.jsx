@@ -46,7 +46,6 @@ export default function MainBus() {
 
 const BusContainer = styled(CardContainer)`
   grid-column: 1 / 3;
-  position: relative;
   min-height: 80px;
 `
 const Title = styled.div`
