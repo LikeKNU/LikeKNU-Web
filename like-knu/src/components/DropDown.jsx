@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   z-index: 10;
   position: absolute;
   left: 16px;
-  top: 60px;
+  top: 55px;
   border-radius: 5px;
   padding: 5px 10px;
   border: 1px solid ${colors.gray200};

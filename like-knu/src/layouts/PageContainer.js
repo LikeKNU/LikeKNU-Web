@@ -8,5 +8,5 @@ export default styled.div`
   grid-template-columns: 1fr 1fr;
 
   grid-column-gap: 14px;
-  grid-row-gap: 200px;
+  grid-row-gap: 12px;
 `
