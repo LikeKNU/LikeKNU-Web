@@ -7,7 +7,8 @@ export default styled.div`
   padding: 1.6em 2em;
   display: flex;
   flex-direction: column;
-  border: 1px solid ${colors.gray100};
+  box-shadow: 0px 0px 16px 0px #F0F0F0;
 `
 
-// box-shadow: 0px 0.2em 0.6em 0.4em ${colors.shadow};
+// border: 1px solid ${colors.gray100};
+
