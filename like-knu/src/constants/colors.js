@@ -4,7 +4,8 @@ const colors = {
   sinGwan: "#E85239",
   yeSan: "#E2981E",
 
-  gray50: "#EDEDED",
+  gray50: "#FAFAFA",
+  gray80: "#EDEDED",
   gray100: "#E2E2E2",
   gray200: "#D1D3D2",
   gray300: "#BDBDBD",
