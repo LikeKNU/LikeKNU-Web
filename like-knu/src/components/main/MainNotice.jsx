@@ -3,22 +3,27 @@ import CardContainer from "components/CardContainer"
 import { notice } from "api/main"
 import colors from "constants/colors"
 import { useEffect, useState } from "react"
+import {useNavigate} from "react-router-dom";
 
 export default function MainNotice() {
   const [notices, setNotices] = useState([]);
-
-
+  const navigate = useNavigate();
+  const goNotice = () => {
+    console.log("공지사항으로 이동!!");
+    navigate(`/notice`);
+  }
   const getNotices = async() => {
     const res = await notice();
     setNotices(res);
   }
+
   useEffect( () => {
     getNotices();
   },[]);
   
   return (
     <NoticeContainer>
-      <Title>공지사항</Title>
+      <Title onClick={goNotice}>공지사항</Title>
       {
         notices.map((notice) => (
           <Text key={notice.announcementId}>
@@ -53,6 +58,8 @@ const Title = styled.div`
   color: ${colors.black};
   font-size: 1.8rem;
   font-weight: 700;
-  margin-bottom: 15px;
-
+  margin-bottom: 16px;
+  width: 100%;
+  background-color: orange;
+  padding-top: 16px;
 `

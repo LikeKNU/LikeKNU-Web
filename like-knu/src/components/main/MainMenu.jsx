@@ -11,13 +11,19 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import TitleBox from "components/TitleBox"
+import {useNavigate} from "react-router-dom";
 
 export default function MainMenu() {
   const [cafeteria, setCafeteria]=useState([]);
-
+  const navigate = useNavigate();
   const getCafeteria = async() => {
     const res = await menu();
     setCafeteria(res);
+  }
+
+  const goMenu = () => {
+    console.log("메뉴로 이동!!");
+    navigate(`/menu`);
   }
   useEffect( () => {
     getCafeteria();
@@ -25,7 +31,7 @@ export default function MainMenu() {
 
   return (
     <MenuContainer>
-      <Title>식단</Title>
+      <Title onClick={goMenu}>식단</Title>
       <SwiperContainer
         slidesPerView="auto"
         modules={[Pagination, Navigation]}
@@ -55,6 +61,9 @@ const Title = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 2px;
+  width: 100%;
+  background-color: orange;
+  padding-top: 16px;
 `
 const Slide=styled(SwiperSlide)`
   display: flex;

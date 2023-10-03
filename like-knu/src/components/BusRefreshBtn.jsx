@@ -17,7 +17,7 @@ export default function BusRefreshBtn() {
 const Wrapper = styled.button`
   position: absolute;
   right: 32px;
-  top: 274px;
+  top: 256px;
   width: 30px;
   height: 30px;
   border-radius: 50%;

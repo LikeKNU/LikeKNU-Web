@@ -10,6 +10,7 @@ import styled from 'styled-components'
 import colors from 'constants/colors'
 
 export default function MainPage() {
+
   return (
     <PageLayout>
       <MainHeader />
