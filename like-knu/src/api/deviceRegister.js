@@ -1,5 +1,5 @@
 import instance from "./api";
-import {extractBodyFromResponse, extractMessageFromResponse} from "./ApiUtility";
+import {extractBodyFromResponse, extractMessageFromResponse} from "./apiUtility";
 import {getDeviceId} from "../utils/DeviceManageUtil";
 
 /**

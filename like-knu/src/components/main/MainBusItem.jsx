@@ -5,7 +5,7 @@ import {ReactComponent as BusIcon} from "assets/icon/directions_bus_black_24dp.s
 
 export default function MainBusItem(props) {
   const {bus} = props;
-  const busColor = "#"+bus.bus_color;
+  const busColor = "#"+bus.busColor;
   return (
     <div>
       <Title>

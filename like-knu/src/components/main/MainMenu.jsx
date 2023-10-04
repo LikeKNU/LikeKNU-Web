@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import CardContainer from "components/CardContainer"
+import CardContainer from "components/styles/CardContainer"
 import colors from "constants/colors"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from 'swiper/modules'
@@ -16,9 +16,9 @@ import {useNavigate, useParams} from "react-router-dom";
 export default function MainMenu() {
   const [cafeteria, setCafeteria]=useState([]);
   const navigate = useNavigate();
-
+  const campus = useParams();
   const getCafeteria = async() => {
-    const res = await menu();
+    const res = await menu(campus.campus);
     setCafeteria(res);
   }
 
@@ -27,7 +27,7 @@ export default function MainMenu() {
     navigate(`/menu`);
   }
   useEffect( () => {
-    getCafeteria();
+    // getCafeteria();
   },[]);
 
   return (
@@ -63,7 +63,6 @@ const Title = styled.div`
   font-weight: 700;
   margin-bottom: 2px;
   width: 100%;
-  background-color: orange;
   padding-top: 16px;
 `
 const Slide=styled(SwiperSlide)`

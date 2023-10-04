@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import CardContainer from "components/CardContainer"
+import CardContainer from "components/styles/CardContainer"
 import colors from "constants/colors"
 import { bus } from "api/main"
 import { useState, useEffect } from "react"
@@ -58,7 +58,6 @@ const Title = styled.div`
   font-weight: 700;
   margin-bottom: 1rem;
   width: 80%;
-  background-color: orange;
   padding-top: 16px;
 `
 const BusList = styled.div`

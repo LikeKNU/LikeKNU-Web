@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import { initializeDevice } from 'api/MainApi';
+import { initializeDevice } from 'api/mainApi';
 import BottomNav from 'components/globals/BottomNav';
 import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));

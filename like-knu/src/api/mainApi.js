@@ -1,5 +1,5 @@
 import {generateAndSaveNewDeviceId, getCampus, getDeviceId, setCampus} from "../utils/DeviceManageUtil";
-import {registerDevice} from "./DeviceRegister";
+import {registerDevice} from "./deviceRegister";
 import Campus from "../constants/Campus";
 
 export const initializeDevice = () => {

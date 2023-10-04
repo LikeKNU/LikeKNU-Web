@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import CardContainer from "components/CardContainer"
+import CardContainer from "components/styles/CardContainer"
 import colors from "constants/colors"
 import { useEffect, useState } from "react"
 import { calendar } from "api/main"
@@ -48,7 +48,6 @@ const Title = styled.div`
   font-weight: 700;
   margin-bottom: 10px;
   width: 100%;
-  background-color: orange;
   padding-top: 16px;
 `
 const CalendarList = styled.div`

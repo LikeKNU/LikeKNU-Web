@@ -1,25 +1,26 @@
 import styled from "styled-components"
-import CardContainer from "components/CardContainer"
+import CardContainer from "components/styles/CardContainer"
 import { notice } from "api/main"
 import colors from "constants/colors"
 import { useEffect, useState } from "react"
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
 export default function MainNotice() {
   const [notices, setNotices] = useState([]);
   const navigate = useNavigate();
+  const campus = useParams();
   const goNotice = () => {
     console.log("공지사항으로 이동!!");
-    navigate(`/notice`);
+    navigate(`/notice/`);
   }
   const getNotices = async() => {
-    const res = await notice();
+    const res = await notice(campus.campus);
     setNotices(res);
   }
 
   useEffect( () => {
     getNotices();
-  },[]);
+  },[campus]);
   
   return (
     <NoticeContainer>
@@ -60,6 +61,5 @@ const Title = styled.div`
   font-weight: 700;
   margin-bottom: 16px;
   width: 100%;
-  background-color: orange;
   padding-top: 16px;
 `
