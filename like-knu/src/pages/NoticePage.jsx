@@ -1,18 +1,17 @@
 import PageLayout from "layouts/PageLayout";
 import PageContainer from "layouts/PageContainer";
-import {NoticeList} from "components/notice/NoticeList";
 import {PageHeader, Header} from "../components/styles/PageHeader";
-import Tab from "../components/Tab";
 import {noticeTab} from "../constants/tabName";
 import {useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
 import {notice} from "../api/notice";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
-
+import {NoticeItem} from "../components/notice/NoticeItem";
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
+  const [category, setCategory] = useState("student-news");
+
   let campus = getCampus();
   if (campus === "천안캠") {
     campus = "CHEONAN";
@@ -21,29 +20,46 @@ export default function NoticePage() {
   } else if (campus === "신관캠") {
     campus = "SINGWAN";
   }
-  let category = "student-news"
+
   const getNotices = async (category) => {
     const res = await notice(campus, category);
+    console.log(res);
     setNotices(res);
+  }
+
+  const printConsole = () => {
+    console.log("클릭!")
   }
 
   useEffect(() => {
     console.log(campus);
     getNotices(category);
-  }, []);
+  }, [category]);
   return (
     <PageLayout>
       <Header>
         <PageHeader>공지사항</PageHeader>
         <TabList>
-          <TabItem>학생소식</TabItem>
-          <TabItem>도서관</TabItem>
-          <TabItem>기숙사</TabItem>
-          <TabItem>인재개발</TabItem>
+          <TabItem onClick={() => setCategory("student-news")}>{noticeTab[0]}</TabItem>
+          <TabItem onClick={() => setCategory("library")}>{noticeTab[1]}</TabItem>
+          <TabItem onClick={() => setCategory("dormitory")}>{noticeTab[2]}</TabItem>
+          <TabItem onClick={() => setCategory("talent-development")}>{noticeTab[3]}</TabItem>
         </TabList>
       </Header>
       <PageContainer>
-        <NoticeList/>
+        <NoticeList>
+
+          {/*{*/}
+          {/*  notices.map((notice) => (*/}
+          {/*    <div key={notice.announcementId}>{notice.announcementTitle}</div>*/}
+          {/*  ))*/}
+          {/*}*/}
+          <NoticeItem
+            title={notices[0]?.announcementTitle}
+            date={notices[0]?.announcementDate}
+            link={notices[0]?.announcementUrl}>
+          </NoticeItem>
+        </NoticeList>
       </PageContainer>
     </PageLayout>
   )
@@ -62,7 +78,10 @@ const TabList = styled.div`
   justify-content: space-between;
   box-sizing: border-box;
 `
-const TabItem = styled.div`
+const NoticeList = styled.div`
+  margin-top: 200px;
+`
+const TabItem = styled.button`
   color: ${colors.black};
   line-height: 34px;
   text-align: center;

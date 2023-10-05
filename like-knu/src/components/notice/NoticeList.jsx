@@ -1,5 +1,0 @@
-export function NoticeList() {
-  return (
-      <></>
-  )
-}
