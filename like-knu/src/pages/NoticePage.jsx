@@ -92,6 +92,6 @@ const Content = styled.div`
   margin-bottom: 14px;
 `
 const Date = styled.div`
-  color: ${colors.gray300};
+  color: ${colors.gray350};
   
 `
