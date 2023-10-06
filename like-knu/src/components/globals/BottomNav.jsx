@@ -6,58 +6,54 @@ import {ReactComponent as AssignmentIcon} from "assets/icon/assignment_black_24d
 import {ReactComponent as CalendarIcon} from "assets/icon/calendar_today_black_24dp.svg"
 import {ReactComponent as RestaurantIcon} from "assets/icon/restaurant_black_24dp.svg"
 import colors from 'constants/colors'
-import {Link, useLocation, useParams} from 'react-router-dom'
-import { getCampus } from "utils/DeviceManageUtil"
+import {Link, useLocation, useNavigate, useParams} from 'react-router-dom'
+import {getCampus} from "utils/DeviceManageUtil"
 import Campus from 'constants/Campus'
 
 export default function BottomNav() {
   const [activeNav, setActiveNav] = useState(1);
   let campus = Object.keys(Campus).find(key => Campus[key] === getCampus());
   let pathName = useLocation().pathname;
-
+  const navigate = useNavigate();
+  const goDetailPage = (url, value) => {
+    if(activeNav !== 1) {
+      navigate(url);
+      setActiveNav(value);
+    }
+  }
   useEffect(() => {
-    if(pathName.includes('/notice')) {
+    if (pathName.includes('/notice')) {
       setActiveNav(2);
-    } else if(pathName.includes('/bus')) {
+    } else if (pathName.includes('/bus')) {
       setActiveNav(3);
-    } else if(pathName.includes('/menu')) {
+    } else if (pathName.includes('/menu')) {
       setActiveNav(4);
-    } else if(pathName.includes('/calendar')) {
+    } else if (pathName.includes('/calendar')) {
       setActiveNav(5);
     }
   }, [pathName]);
 
   return (
     <Wrapper>
-      <ButtonItem>
-        <StyledLink to={`/main/${campus}`} onClick={() => setActiveNav(1)}>
-          <HomeIcon className={activeNav === 1 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 1 ? "text_active" : null}>메인</Text>
-        </StyledLink>
+      <ButtonItem onClick={() => goDetailPage(`/main/${campus}`, 1)}>
+        <HomeIcon className={activeNav === 1 ? "icon_style icon_active" : "icon_style"}/>
+        <Text className={activeNav === 1 ? "text_active" : null}>메인</Text>
       </ButtonItem>
-      <ButtonItem>
-        <StyledLink to={`/notice`} onClick={() => setActiveNav(2)}>
-          <AssignmentIcon className={activeNav === 2 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 2 ? "text_active" : null}>공지사항</Text>
-        </StyledLink>
+      <ButtonItem onClick={() => goDetailPage(`/notice`, 2)}>
+        <AssignmentIcon className={activeNav === 2 ? "icon_style icon_active" : "icon_style"}/>
+        <Text className={activeNav === 2 ? "text_active" : null}>공지사항</Text>
       </ButtonItem>
-      <ButtonItem>
-        <StyledLink to={`/bus`} onClick={() => setActiveNav(3)}>
-          <BusIcon className={activeNav === 3 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 3 ? "text_active" : null}>버스</Text>
-        </StyledLink>
+      <ButtonItem onClick={() => goDetailPage(`/bus`, 3)}>
+        <BusIcon className={activeNav === 3 ? "icon_style icon_active" : "icon_style"}/>
+        <Text className={activeNav === 3 ? "text_active" : null}>버스</Text>
       </ButtonItem>
-      <ButtonItem>
-        <StyledLink to={`/menu`} onClick={() => setActiveNav(4)}>
-          <RestaurantIcon className={activeNav === 4 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 4 ? "text_active" : null}>식단</Text>
-        </StyledLink>
+      <ButtonItem onClick={() => goDetailPage(`/menu`, 4)}>
+        <RestaurantIcon className={activeNav === 4 ? "icon_style icon_active" : "icon_style"}/>
+        <Text className={activeNav === 4 ? "text_active" : null}>식단</Text>
       </ButtonItem>
-      <ButtonItem>
-        <StyledLink to={`/calendar`} onClick={() => setActiveNav(5)}>
-          <CalendarIcon className={activeNav === 5 ? "icon_style icon_active" : "icon_style"} />
-          <Text className={activeNav === 5 ? "text_active" : null}>학사일정</Text>
-        </StyledLink>
+      <ButtonItem onClick={() => goDetailPage(`/calendar`, 5)}>
+        <CalendarIcon className={activeNav === 5 ? "icon_style icon_active" : "icon_style"}/>
+        <Text className={activeNav === 5 ? "text_active" : null}>학사일정</Text>
       </ButtonItem>
     </Wrapper>
   )
@@ -82,11 +78,29 @@ const Wrapper = styled.nav`
 // 각 아이템
 const ButtonItem = styled.div`
   height: 100%;
-  width: 58px; 
+  width: 58px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  text-align: center;
+
+  // 아이콘 크기 조절
+  .icon_style {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 4px;
+    fill: ${colors.gray350};
+  }
+
+  .icon_active {
+    fill: ${colors.common};
+  }
+
+  .text_active {
+    color: ${colors.common};
+  }
 `
 
 // 글자
@@ -98,20 +112,5 @@ const Text = styled.div`
 // 링크
 const StyledLink = styled(Link)`
   display: inline-block;
-  text-align: center;
 
-  // 아이콘 크기 조절
-  .icon_style { 
-    width: 22px;
-    height: 22px;
-    margin-bottom: 4px;
-    fill: ${colors.gray350};
-  }
-  .icon_active {
-    fill: ${colors.common};
-  }
-
-  .text_active{
-    color: ${colors.common};
-  }
 `
