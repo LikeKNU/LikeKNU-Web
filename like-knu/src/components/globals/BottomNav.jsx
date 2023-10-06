@@ -16,7 +16,10 @@ export default function BottomNav() {
   let pathName = useLocation().pathname;
   const navigate = useNavigate();
   const goDetailPage = (url, value) => {
-    if(activeNav !== 1) {
+    if(activeNav === 1 && value === 1) {
+      console.log("메인에서 메인으로 이동하려 함.")
+    }
+    else {
       navigate(url);
       setActiveNav(value);
     }

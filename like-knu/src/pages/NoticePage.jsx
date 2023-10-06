@@ -8,6 +8,7 @@ import styled from "styled-components";
 import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
 import {NoticeItem} from "../components/notice/NoticeItem";
+import {NoticePagination} from "../components/notice/NoticePagination";
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
   const [category, setCategory] = useState("student-news");
@@ -27,8 +28,8 @@ export default function NoticePage() {
     setNotices(res);
   }
 
-  const printConsole = () => {
-    console.log("클릭!")
+  const goDetailPage = (url) => {
+
   }
 
   useEffect(() => {
@@ -49,12 +50,15 @@ export default function NoticePage() {
       <PageContainer>
         {
           notices.map((notice) => (
-            <Content key={notice.announcementId}>
-              <a href={notice.announcementUrl}>{notice.announcementTitle}</a>
+            <Content key={notice.announcementId} href={notice.announcementUrl}>
+              <span>{notice.announcementTitle}</span>
               <Date>{notice.announcementDate}</Date>
             </Content>
           ))
         }
+        <NoticePagination>
+
+        </NoticePagination>
       </PageContainer>
     </PageLayout>
   )
@@ -83,7 +87,7 @@ const TabItem = styled.button`
   padding-right: 8px;
   padding-left: 8px;
 `
-const Content = styled.div`
+const Content = styled.a`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -93,5 +97,4 @@ const Content = styled.div`
 `
 const Date = styled.div`
   color: ${colors.gray350};
-  
 `
