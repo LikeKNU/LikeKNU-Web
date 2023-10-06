@@ -43,23 +43,18 @@ export default function NoticePage() {
           <TabItem onClick={() => setCategory("student-news")}>{noticeTab[0]}</TabItem>
           <TabItem onClick={() => setCategory("library")}>{noticeTab[1]}</TabItem>
           <TabItem onClick={() => setCategory("dormitory")}>{noticeTab[2]}</TabItem>
-          <TabItem onClick={() => setCategory("talent-development")}>{noticeTab[3]}</TabItem>
+          <TabItem onClick={() => setCategory("internship")}>{noticeTab[3]}</TabItem>
         </TabList>
       </Header>
       <PageContainer>
-        <NoticeList>
-
-          {/*{*/}
-          {/*  notices.map((notice) => (*/}
-          {/*    <div key={notice.announcementId}>{notice.announcementTitle}</div>*/}
-          {/*  ))*/}
-          {/*}*/}
-          <NoticeItem
-            title={notices[0]?.announcementTitle}
-            date={notices[0]?.announcementDate}
-            link={notices[0]?.announcementUrl}>
-          </NoticeItem>
-        </NoticeList>
+        {
+          notices.map((notice) => (
+            <Content key={notice.announcementId}>
+              <a href={notice.announcementUrl}>{notice.announcementTitle}</a>
+              <Date>{notice.announcementDate}</Date>
+            </Content>
+          ))
+        }
       </PageContainer>
     </PageLayout>
   )
@@ -76,10 +71,8 @@ const TabList = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  
   box-sizing: border-box;
-`
-const NoticeList = styled.div`
-  margin-top: 200px;
 `
 const TabItem = styled.button`
   color: ${colors.black};
@@ -89,4 +82,16 @@ const TabItem = styled.button`
   background-color: orange;
   padding-right: 8px;
   padding-left: 8px;
+`
+const Content = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.3rem;
+  border-bottom: 1px solid ${colors.gray200}; 
+  margin-bottom: 14px;
+`
+const Date = styled.div`
+  color: ${colors.gray300};
+  
 `

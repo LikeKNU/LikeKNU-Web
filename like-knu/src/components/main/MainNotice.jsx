@@ -42,17 +42,15 @@ const NoticeContainer = styled(CardContainer)`
   grid-column: 1 / 3;
 `
 const Text = styled.div`
-  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 400;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   padding-bottom: 10px;
-  font-size: 1.3rem;
-  font-weight: 400;
-
+  
   .notice_link {
     color: ${colors.black};
-    width: 100%;
   }
 `
 const Title = styled.div`

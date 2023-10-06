@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import colors from "../../constants/colors";
 export function NoticeItem(props) {
   const {title, date, link} = props;
   console.log(title);
@@ -6,11 +7,24 @@ export function NoticeItem(props) {
   console.log(link);
   return (
     <Wrapper>
-      <div>{title}</div>
-      <div>{date}</div>
-      <div>{link}</div>
+      <NoticeLink href={"https://www.youtube.com/"} className={"notice_link"}>
+        <Text>{title}</Text>
+      </NoticeLink>
     </Wrapper>
   )
 }
+const Wrapper = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+const NoticeLink = styled.a`
+  color: ${colors.black};
 
-const Wrapper = styled.div``
+  font-size: 1.3rem;
+  font-weight: 400;
+`
+const Text = styled.div`
+
+  
+`
