@@ -7,5 +7,5 @@ export const notice = async(campus,category) => {
             campus: campus
         }});
     console.log(data);
-    return data.data.body;
+    return data.data;
 }

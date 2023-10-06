@@ -8,10 +8,12 @@ import styled from "styled-components";
 import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
 import {NoticeItem} from "../components/notice/NoticeItem";
-import {NoticePagination} from "../components/notice/NoticePagination";
+import NoticePagination from "../components/notice/NoticePagination";
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
   const [category, setCategory] = useState("student-news");
+  const [totalPages, setTotalPages] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
 
   let campus = getCampus();
   if (campus === "천안캠") {
@@ -24,8 +26,11 @@ export default function NoticePage() {
 
   const getNotices = async (category) => {
     const res = await notice(campus, category);
-    console.log(res);
-    setNotices(res);
+    console.log(res.body);
+    setNotices(res.body);
+    setCurrentPage(res.page.currentPage);
+    setTotalPages(res.page.totalPages);
+    console.log(totalPages);
   }
 
   const goDetailPage = (url) => {
@@ -51,14 +56,12 @@ export default function NoticePage() {
         {
           notices.map((notice) => (
             <Content key={notice.announcementId} href={notice.announcementUrl}>
-              <span>{notice.announcementTitle}</span>
+              <Title>{notice.announcementTitle}</Title>
               <Date>{notice.announcementDate}</Date>
             </Content>
           ))
         }
-        <NoticePagination>
-
-        </NoticePagination>
+        <NoticePagination totalPage={totalPages} currentPage={currentPage} setPage={setCurrentPage}/>
       </PageContainer>
     </PageLayout>
   )
@@ -91,10 +94,15 @@ const Content = styled.a`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 1.3rem;
   border-bottom: 1px solid ${colors.gray200}; 
   margin-bottom: 14px;
 `
+const Title = styled.span`
+  font-size: 1.3rem;
+`
 const Date = styled.div`
   color: ${colors.gray350};
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 1.1rem;
 `
