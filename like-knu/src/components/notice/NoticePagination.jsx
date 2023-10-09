@@ -2,31 +2,31 @@ import styled from "styled-components";
 import {ReactComponent as BeforeIcon} from "assets/icon/navigate_before_black_24dp.svg";
 import {ReactComponent as NextIcon} from "assets/icon/navigate_next_black_24dp.svg";
 import Pagination from "react-js-pagination";
-
-export default function NoticePagination({totalPage, currentPage, setPage}) {
-  console.log(totalPage);
+import "./NoticePagination.css";
+export default function NoticePagination({totalElements, currentPage, setPage}) {
+  console.log(totalElements);
+  console.log(currentPage);
   return (
     <Pagination
       activePage={currentPage}
-      itemsCountPerPage={5}
-      totalItemsCount={totalPage}
+      itemsCountPerPage={10}
+      totalItemsCount={totalElements}
       pageRangeDisplayed={5}
-      prevPageText={"<"}
-      nextPageText={">"}
-      onChange={setPage}>
-
+      prevPageText={<StyledBeforeIcon />}
+      nextPageText={<StyledNextIcon />}
+      onChange={setPage}
+      hideFirstLastPages={true}
+      >
     </Pagination>
   )
 }
+const StyledBeforeIcon = styled(BeforeIcon)`
+  fill: #979797;
+  width: 22px;
+  height: 22px;
+`
+const StyledNextIcon = styled(NextIcon)`
+  fill: #979797;
+  width: 22px;
+  height: 22px;`
 
-const Wrapper = styled.div`
-  background-color: palevioletred;
-  width: 100%;
-  height: 50px;
-`
-const PageList = styled.div``
-const PageButton = styled.div`
-  width: 15px;
-  height: 15px;
-  background-color: aquamarine;
-`

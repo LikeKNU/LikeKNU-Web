@@ -12,7 +12,7 @@ import NoticePagination from "../components/notice/NoticePagination";
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
   const [category, setCategory] = useState("student-news");
-  const [totalPages, setTotalPages] = useState(0);
+  const [totalElements, setTotalElements] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
   let campus = getCampus();
@@ -24,23 +24,24 @@ export default function NoticePage() {
     campus = "SINGWAN";
   }
 
-  const getNotices = async (category) => {
-    const res = await notice(campus, category);
+  const getNotices = async (category, page) => {
+    const res = await notice(campus, category, page);
     console.log(res.body);
     setNotices(res.body);
-    setCurrentPage(res.page.currentPage);
-    setTotalPages(res.page.totalPages);
-    console.log(totalPages);
-  }
-
-  const goDetailPage = (url) => {
-
+    setTotalElements(res.page.totalElements);
+    console.log(totalElements);
   }
 
   useEffect(() => {
     console.log(campus);
-    getNotices(category);
+    console.log(currentPage);
+    setCurrentPage(1);
+    getNotices(category, currentPage);
   }, [category]);
+
+  useEffect(() => {
+    getNotices(category, currentPage);
+  }, [currentPage]);
   return (
     <PageLayout>
       <Header>
@@ -61,7 +62,7 @@ export default function NoticePage() {
             </Content>
           ))
         }
-        <NoticePagination totalPage={totalPages} currentPage={currentPage} setPage={setCurrentPage}/>
+        <NoticePagination totalElements={totalElements} currentPage={currentPage} setPage={setCurrentPage}/>
       </PageContainer>
     </PageLayout>
   )
@@ -69,7 +70,6 @@ export default function NoticePage() {
 const TabList = styled.div`
   width: 100%;
   height: 34px;
-  background-color: skyblue;
 
   padding-right: 24px;
   padding-left: 24px;
@@ -86,7 +86,6 @@ const TabItem = styled.button`
   line-height: 34px;
   text-align: center;
   font-size: 1.6rem;
-  background-color: orange;
   padding-right: 8px;
   padding-left: 8px;
 `
