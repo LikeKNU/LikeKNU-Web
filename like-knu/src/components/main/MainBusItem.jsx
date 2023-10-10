@@ -5,7 +5,7 @@ import {ReactComponent as BusIcon} from "assets/icon/directions_bus_black_24dp.s
 
 export default function MainBusItem(props) {
   const {bus} = props;
-  const busColor = "#"+bus.bus_color;
+  const busColor = "#"+bus.busColor;
   return (
     <div>
       <Title>
@@ -13,16 +13,16 @@ export default function MainBusItem(props) {
         <StyledArrow />
         <Text>{bus.arrivalStop}</Text>
       </Title>
-      <ColumnArea>
-        <ColumnArea>
+      <RowArea>
+        <RowArea>
           <BusIcon fill={busColor} />
           <BoldText $margin="0 0 0 1.2rem">{bus.busNumber}</BoldText>
-        </ColumnArea>
-        <ColumnArea>
+        </RowArea>
+        <RowArea>
           <BoldText $margin="0 2rem 0 0">{bus.remainingTime}</BoldText>
           <LightText>{bus.arrivalTime}</LightText>
-        </ColumnArea>
-      </ColumnArea>
+        </RowArea>
+      </RowArea>
     </div>
   )
 }
@@ -41,9 +41,9 @@ const Text = styled.div`
 const StyledArrow = styled(ArrowIcon)`
   margin: 0 1rem;
 `
-const ColumnArea = styled.div`
+const RowArea = styled.div`
   display: flex;
-  flex-diretion: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
 `
