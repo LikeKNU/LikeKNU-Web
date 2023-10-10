@@ -7,8 +7,9 @@ import {notice} from "../api/notice";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
-import {NoticeItem} from "../components/notice/NoticeItem";
 import NoticePagination from "../components/notice/NoticePagination";
+import Campus from "../constants/Campus";
+
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
   const [category, setCategory] = useState("student-news");
@@ -16,24 +17,16 @@ export default function NoticePage() {
   const [currentPage, setCurrentPage] = useState(1);
 
   let campus = getCampus();
-  if (campus === "천안캠") {
-    campus = "CHEONAN";
-  } else if (campus === "예산캠") {
-    campus = "YESAN";
-  } else if (campus === "신관캠") {
-    campus = "SINGWAN";
-  }
+  const keys = Object.keys(Campus);
+  campus = keys.find((key) => Campus[key] === campus);
 
   const getNotices = async (category, page) => {
     const res = await notice(campus, category, page);
-    console.log(res.body);
     setNotices(res.body);
     setTotalElements(res.page.totalElements);
-    console.log(totalElements);
   }
 
   useEffect(() => {
-    console.log(campus);
     console.log(currentPage);
     setCurrentPage(1);
     getNotices(category, currentPage);
