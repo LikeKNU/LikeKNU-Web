@@ -4,7 +4,6 @@ import {ReactComponent as NextIcon} from "assets/icon/navigate_next_black_24dp.s
 import Pagination from "react-js-pagination";
 import "./NoticePagination.css";
 export default function NoticePagination({totalElements, currentPage, setPage}) {
-  console.log(totalElements);
   console.log(currentPage);
   return (
     <Pagination

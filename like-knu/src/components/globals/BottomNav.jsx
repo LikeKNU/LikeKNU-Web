@@ -6,7 +6,7 @@ import {ReactComponent as AssignmentIcon} from "assets/icon/assignment_black_24d
 import {ReactComponent as CalendarIcon} from "assets/icon/calendar_today_black_24dp.svg"
 import {ReactComponent as RestaurantIcon} from "assets/icon/restaurant_black_24dp.svg"
 import colors from 'constants/colors'
-import {Link, useLocation, useNavigate, useParams} from 'react-router-dom'
+import {useLocation, useNavigate} from 'react-router-dom'
 import {getCampus} from "utils/DeviceManageUtil"
 import Campus from 'constants/Campus'
 
@@ -111,9 +111,4 @@ const Text = styled.div`
   color: ${colors.gray350};
   font-size: 1.2rem;
   font-weight: 600;
-`
-// 링크
-const StyledLink = styled(Link)`
-  display: inline-block;
-
 `
