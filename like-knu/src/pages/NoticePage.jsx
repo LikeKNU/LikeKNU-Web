@@ -1,7 +1,8 @@
 import PageLayout from "layouts/PageLayout";
 import PageContainer from "layouts/PageContainer";
 import {PageHeader, Header} from "../components/styles/PageHeader";
-import {noticeTab, noticeParams} from "../constants/tabName";
+import {TabList, TabItem} from "../components/styles/Tab";
+import {noticeTab, apiNoticeTabList} from "../constants/tabName";
 import {useEffect, useState} from "react";
 import {notice} from "../api/notice";
 import styled from "styled-components";
@@ -29,11 +30,11 @@ export default function NoticePage() {
   useEffect(() => {
     console.log(currentPage);
     setCurrentPage(1);
-    getNotices(noticeParams[category], currentPage);
+    getNotices(apiNoticeTabList[category], currentPage);
   }, [category]);
 
   useEffect(() => {
-    getNotices(noticeParams[category], currentPage);
+    getNotices(apiNoticeTabList[category], currentPage);
   }, [currentPage]);
   return (
     <PageLayout>
@@ -60,35 +61,7 @@ export default function NoticePage() {
     </PageLayout>
   )
 }
-const TabList = styled.div`
-  width: 100%;
-  height: 34px;
 
-  padding-right: 24px;
-  padding-left: 24px;
-  border-bottom: 1px solid ${colors.gray100};
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  
-  box-sizing: border-box;
-
-
-  .active {
-    border-bottom: 2px solid ${colors.black};
-  }
-  
-`
-const TabItem = styled.button`
-  color: ${colors.black};
-  line-height: 34px;
-  text-align: center;
-  font-size: 1.6rem;
-  padding-right: 8px;
-  padding-left: 8px;
-
-`
 const Content = styled.a`
   white-space: nowrap;
   overflow: hidden;

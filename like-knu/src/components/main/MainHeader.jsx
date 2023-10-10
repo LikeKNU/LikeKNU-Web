@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components"
 import colors from "constants/colors"
-import DropDown from "components/DropDown"
+import DropDown from "components/main/DropDown"
 import { useState } from "react"
 import {getCampus} from "utils/DeviceManageUtil"
 import {ReactComponent as DownIcon} from "assets/icon/expand_more_black_24dp.svg"
