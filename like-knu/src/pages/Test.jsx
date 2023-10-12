@@ -54,10 +54,10 @@ export default function Test() {
         </div>
       </div>
 
-      <BusItem routeCount={2} campus={"CHEONAN"} />
-      <BusItem routeCount={3} campus={"CHEONAN"} />
-      <BusItem routeCount={4} campus={"CHEONAN"} />
-      <BusItem routeCount={5} campus={"CHEONAN"} />
+      <BusItem routeCount={2} campus={"천안캠"} />
+      <BusItem routeCount={3} campus={"신관캠"} />
+      <BusItem routeCount={4} campus={"예산캠"} />
+      <BusItem routeCount={5} campus={"천안캠"} />
 
     </Background>
   )

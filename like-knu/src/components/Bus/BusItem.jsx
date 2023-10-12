@@ -1,5 +1,6 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import React from "react";
+import colors from "../../constants/colors";
 
 export function BusItem({routeCount, campus}) {
   const calAreaHeight = () => {
@@ -7,19 +8,19 @@ export function BusItem({routeCount, campus}) {
   }
   console.log(calAreaHeight());
   return (
-    <Wrapper $height={calAreaHeight()+"px"}>
+    <Wrapper $height={calAreaHeight() + "px"}>
       <div className="marker_area">
         {
           Array(routeCount).fill(0).map((_, index) => (
-            <div className="circle" key={index}></div>
+            <Circle key={index} $campus={campus}></Circle>
           ))
         }
-        <div className="line"></div>
+        <Line $campus={campus}/>
       </div>
       <div className="text_area">
         {
           Array(routeCount).fill(0).map((_, index) => (
-            <div className="text" key={index}>뭐지 </div>
+            <div key={index}>뭐지 </div>
           ))
         }
       </div>
@@ -31,7 +32,7 @@ export function BusItem({routeCount, campus}) {
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
-  
+
   margin-bottom: 20px;
   margin-top: 20px;
 
@@ -40,37 +41,70 @@ const Wrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
     margin-left: 10px;
-  }
-  .text_area .text {
     font-size: 1.4rem;
   }
+
   .marker_area {
     width: 12px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
-
     height: ${(props) => props.$height};
-
   }
-
-  .marker_area .circle {
-    border: 3px solid #E85239;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    box-sizing: border-box;
-    background-color: white;
-  }
-
-  .marker_area .line {
-    height: inherit;
-    width: 2px;
-    background-color: #E85239;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: -1;
-  }
+`
+const Circle = styled.div`
+  ${(props) => {
+    switch (props.$campus) {
+      case "천안캠":
+        return css`
+          border: 3px solid ${colors.cheonAn};
+        `
+      case "신관캠":
+        return css`
+          border: 3px solid ${colors.sinGwan};
+        `
+      case "예산캠":
+        return css`
+          border: 3px solid ${colors.yeSan};
+        `
+      default:
+        return css`
+          border: 3px solid ${colors.common};
+        `
+    }
+  }}
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: #FFF;
+`
+const Line = styled.div`
+  ${(props) => {
+    switch (props.$campus) {
+      case "천안캠":
+        return css`
+          background-color: ${colors.cheonAn};
+        `
+      case "신관캠":
+        return css`
+          background-color: ${colors.sinGwan};
+        `
+      case "예산캠":
+        return css`
+          background-color: ${colors.yeSan};
+        `
+      default:
+        return css`
+          background-color: ${colors.common};
+        `
+    }
+  }}
+  height: inherit;
+  width: 2px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -1;
 `
