@@ -6,7 +6,6 @@ export function BusItem({routeCount, campus}) {
   const calAreaHeight = () => {
     return (12 * routeCount) + (18 * (routeCount - 1));
   }
-  console.log(calAreaHeight());
   return (
     <Wrapper $height={calAreaHeight() + "px"}>
       <div className="marker_area">

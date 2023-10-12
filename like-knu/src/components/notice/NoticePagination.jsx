@@ -27,5 +27,6 @@ const StyledBeforeIcon = styled(BeforeIcon)`
 const StyledNextIcon = styled(NextIcon)`
   fill: #979797;
   width: 22px;
-  height: 22px;`
+  height: 22px;
+`
 

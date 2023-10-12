@@ -4,10 +4,23 @@ import colors from 'constants/colors'
 import {test1, test2, axiosTest3} from 'api/test'
 import axios from 'axios'
 import {BusItem} from "../components/Bus/BusItem";
+import Select from "react-select";
+import {cityBusesRoutes} from "../api/bus";
+import {getCampus} from "../utils/DeviceManageUtil";
+import Campus from "../constants/Campus";
 
+const options = [
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+];
 export default function Test() {
   const [view, setView] = useState(false);
   const [data, setData] = useState([]);
+  const [routes, setRoutes] = useState([]);
+  let campus = getCampus();
+  const keys = Object.keys(Campus);
+  campus = keys.find((key) => Campus[key] === campus);
   // 컴포넌트 내에 axios 테스트
   const axiosTest4 = async () => {
     await axios
@@ -28,6 +41,15 @@ export default function Test() {
   const print = () => {
     console.log(data);
   }
+
+  const getRoutes = async () => {
+    const res = await cityBusesRoutes(campus);
+    setRoutes(res);
+  }
+
+  useEffect(() => {
+    getRoutes();
+  }, []);
 
   return (
     <Background>
@@ -59,9 +81,18 @@ export default function Test() {
       <BusItem routeCount={4} campus={"예산캠"} />
       <BusItem routeCount={5} campus={"천안캠"} />
 
+      <StyledSelect
+        options={routes}
+        getOptionValue={(option) => `${option['routeId']}`}
+        getOptionLabel={(option) => `${option['routeName']}`}
+      />
+
     </Background>
   )
 }
+const StyledSelect = styled(Select)`
+  width: 250px;
+`
 
 const Background = styled.div`
     // background-color: ${colors.common};
