@@ -43,7 +43,7 @@ export default function Test() {
   }
 
   const getRoutes = async () => {
-    const res = await cityBusesRoutes(campus);
+    const res = await cityBusesRoutes(campus, "city-bus");
     setRoutes(res);
   }
 

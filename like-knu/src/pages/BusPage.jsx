@@ -1,7 +1,7 @@
 import PageLayout from "layouts/PageLayout";
 import {PageHeader, Header} from "components/styles/PageHeader";
 import PageContainer from "layouts/PageContainer";
-import {busTab, apiBusTabList} from "../constants/tabName";
+import {busTab, apiBusTabList, noticeTab} from "../constants/tabName";
 import {TabList, TabItem} from "../components/styles/Tab";
 import {useEffect, useState} from "react";
 import {cityBusesRoutes} from "../api/bus";
@@ -11,6 +11,7 @@ import styled from "styled-components";
 export default function BusPage() {
   const [category, setCategory] = useState(0);
   const [routes, setRoutes] = useState([]);
+  const routeId = ["routeId", "셔틀아이디"]
 
   let campus = getCampus();
   const keys = Object.keys(Campus);
@@ -29,19 +30,24 @@ export default function BusPage() {
         <Header>
           <PageHeader>버스</PageHeader>
           <TabList>
-            <TabItem onClick={() => setCategory(0)} className={category === 0 ? "active" : null}>{busTab[0]}</TabItem>
-            <TabItem onClick={() => setCategory(1)} className={category === 1 ? "active" : null}>{busTab[1]}</TabItem>
-            <TabItem onClick={() => setCategory(2)} className={category === 2 ? "active" : null}>{busTab[2]}</TabItem>
+            {
+              busTab.map((name, index) => (
+                <TabItem onClick={() => setCategory(index)} className={category === index ? "active" : null}>{name}</TabItem>
+              ))
+            }
           </TabList>
         </Header>
+
         {
           (category === 0) &&
           <StyledCityBusPageContainer>
+            모시깽
           </StyledCityBusPageContainer>
         }
         {
           (category === 1 || category === 2) &&
           <StyledSchoolBusPageContainer>
+
           </StyledSchoolBusPageContainer>
         }
 
