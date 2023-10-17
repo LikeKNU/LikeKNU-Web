@@ -1,14 +1,8 @@
 import styled from "styled-components";
 
 export default styled.div`
-  margin: 0px 16px;
-  margin-top: 74px;
-  margin-bottom: 90px;
-  // background-color: skyblue;
+  padding: 0 16px;
+  padding-top: 140px;
+  margin-bottom: 300px;
   display: grid;
-  grid-template-rows: minmax(100px, auto);
-  grid-template-columns: 1fr 1fr;
-
-  grid-column-gap: 14px;
-  grid-row-gap: 12px;
 `

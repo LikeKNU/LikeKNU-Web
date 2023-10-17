@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import CardContainer from "components/CardContainer"
+import CardContainer from "components/styles/CardContainer"
 import colors from "constants/colors"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from 'swiper/modules'
@@ -11,21 +11,28 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import TitleBox from "components/TitleBox"
+import {useNavigate, useParams} from "react-router-dom";
 
 export default function MainMenu() {
   const [cafeteria, setCafeteria]=useState([]);
-
+  const navigate = useNavigate();
+  const campus = useParams();
   const getCafeteria = async() => {
-    const res = await menu();
+    const res = await menu(campus.campus);
     setCafeteria(res);
   }
+
+  const goMenu = () => {
+    console.log("메뉴로 이동!!");
+    navigate(`/menu`);
+  }
   useEffect( () => {
-    getCafeteria();
+    // getCafeteria();
   },[]);
 
   return (
     <MenuContainer>
-      <Title>식단</Title>
+      <Title onClick={goMenu}>식단</Title>
       <SwiperContainer
         slidesPerView="auto"
         modules={[Pagination, Navigation]}
@@ -55,6 +62,8 @@ const Title = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 2px;
+  width: 100%;
+  padding-top: 16px;
 `
 const Slide=styled(SwiperSlide)`
   display: flex;

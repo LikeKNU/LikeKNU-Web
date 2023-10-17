@@ -31,7 +31,6 @@ const DateText = styled.div`
 `
 const TodayText = styled.div`
   color: ${colors.gray300};
-  margin-left: 
 `
 
 const Content = styled.div`

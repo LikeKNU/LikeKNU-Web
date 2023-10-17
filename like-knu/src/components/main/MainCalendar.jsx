@@ -1,23 +1,28 @@
 import styled from "styled-components"
-import CardContainer from "components/CardContainer"
+import CardContainer from "components/styles/CardContainer"
 import colors from "constants/colors"
 import { useEffect, useState } from "react"
 import { calendar } from "api/main"
 import MainCalendarItem from "./MainCalendarItem"
+import {useNavigate} from "react-router-dom";
 
 export default function MainCalendar() {
   const [scheduleList, setScheduleList] = useState([]);
-
+  const navigate = useNavigate();
   const getSchedule = async() => {
     const res = await calendar();
     setScheduleList(res);
+  }
+  const goCalendar = () => {
+    console.log("학사일정으로 이동!!");
+    navigate(`/calendar`);
   }
   useEffect( () => {
     getSchedule();
   },[]);
   return (
     <CardContainer>
-      <Title>학사일정</Title>
+      <Title onClick={goCalendar}>학사일정</Title>
       {/* {
         scheduleList.map((schedule) => (
           <MainCalendarItem key={schedule.scheduleId} schedule={schedule}/>
@@ -42,6 +47,8 @@ const Title = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;
+  width: 100%;
+  padding-top: 16px;
 `
 const CalendarList = styled.div`
   height: 172px;
