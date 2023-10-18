@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import { initializeDevice } from 'api/mainApi';
 import BottomNav from 'components/globals/BottomNav';
 import { BrowserRouter } from 'react-router-dom';
+import {registerToken} from "./api/deviceRegister";
+import {requestPermission} from "./firebaseCloudMessaging";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -27,3 +29,6 @@ serviceWorkerRegistration.unregister();
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 initializeDevice();
+let token = await requestPermission();
+console.log(token);
+registerToken(token);

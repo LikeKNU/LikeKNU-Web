@@ -43,11 +43,25 @@ export const registerDevice = async (deviceId) => {
  * @param deviceId 기기 ID
  * @param campus 기기에 설정된 캠퍼스
  */
-export const setDeviceCampus = async (deviceId, campus) => {
+export const setDeviceCampus = async (campus) => {
     try {
         let response = await instance.post("/api/devices/campus", {
-            deviceId: deviceId,
+            deviceId: getDeviceId(),
             campus: campus
+        });
+
+        let message = extractMessageFromResponse(response);
+        console.log(message);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const registerToken = async (token) => {
+    try {
+        let response = await instance.post("/api/devices/token", {
+            deviceId: getDeviceId(),
+            token: token
         });
 
         let message = extractMessageFromResponse(response);
