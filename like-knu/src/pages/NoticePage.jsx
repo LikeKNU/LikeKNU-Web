@@ -43,7 +43,7 @@ export default function NoticePage() {
         <TabList>
           {
             noticeTab.map((name, index) => (
-              <TabItem onClick={() => setCategory(index)} className={category === index ? "active" : null}>{name}</TabItem>
+              <TabItem key={index} onClick={() => setCategory(index)} className={category === index ? "active" : null}>{name}</TabItem>
             ))
           }
         </TabList>
@@ -52,8 +52,12 @@ export default function NoticePage() {
         {
           notices.map((notice) => (
             <Content key={notice.announcementId} onClick={() => window.open(notice.announcementUrl, "_blank")}>
+              <Detail>
+                <div>{notice.announcementTag}</div>
+                <div>{notice.announcementDate}</div>
+              </Detail>
+
               <Title>{notice.announcementTitle}</Title>
-              <Date>{notice.announcementDate}</Date>
             </Content>
           ))
         }
@@ -67,15 +71,18 @@ const Content = styled.a`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-bottom: 1px solid ${colors.gray200}; 
-  margin-bottom: 14px;
+  margin-bottom: 24px;
 `
+const Detail = styled.div`
+  color: ${colors.gray350};
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+`
+
 const Title = styled.span`
   font-size: 1.3rem;
-`
-const Date = styled.div`
-  color: ${colors.gray350};
-  margin-top: 2px;
-  margin-bottom: 2px;
-  font-size: 1.1rem;
+  color: ${colors.black};
 `
