@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import CardContainer from "components/styles/CardContainer"
 import colors from "constants/colors"
-import { bus } from "api/main"
+import {busMain} from "api/main"
 import { useState, useEffect } from "react"
 import MainBusItem from "components/main/MainBusItem"
 import BusRefreshBtn from 'components/BusRefreshBtn'
@@ -15,7 +15,7 @@ export default function MainBus() {
   const navigate = useNavigate();
   const getBuses = async() => {
     setBuses([]);
-    const res = await bus(campus.campus);
+    const res = await busMain(campus.campus);
     setBuses(res);
   }
   const goBus = () => {

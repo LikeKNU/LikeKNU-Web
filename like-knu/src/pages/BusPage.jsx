@@ -32,7 +32,7 @@ export default function BusPage() {
           <TabList>
             {
               busTab.map((name, index) => (
-                <TabItem onClick={() => setCategory(index)} className={category === index ? "active" : null}>{name}</TabItem>
+                <TabItem key={index} onClick={() => setCategory(index)} className={category === index ? "active" : null}>{name}</TabItem>
               ))
             }
           </TabList>

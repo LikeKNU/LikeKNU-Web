@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import colors from 'constants/colors'
 import {test1, test2, axiosTest3} from 'api/test'
 import axios from 'axios'
-import {BusItem} from "../components/Bus/BusItem";
+import {BusItem} from "../components/bus/BusItem";
 import Select from "react-select";
 import {cityBusesRoutes} from "../api/bus";
 import {getCampus} from "../utils/DeviceManageUtil";
