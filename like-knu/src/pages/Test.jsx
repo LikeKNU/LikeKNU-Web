@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import colors from 'constants/colors'
 import {test1, test2, axiosTest3} from 'api/test'
 import axios from 'axios'
+import {updateNotificationToken} from "../api/deviceManager";
+import {requestPermission} from "../firebaseCloudMessaging";
 
 export default function Test() {
   const [view, setView] = useState(false);
@@ -26,6 +28,13 @@ export default function Test() {
     console.log(data);
   }
 
+    const notification = async () => {
+        console.log("Notification!!!!!!!!!");
+        let token = await requestPermission();
+        console.log(token);
+        updateNotificationToken(token);
+    };
+
   return (
     <Background>
       {/* <ul onClick={() => setView(!view)}>
@@ -37,6 +46,7 @@ export default function Test() {
       <button onClick={printAxiosTest3}>안녕하세요3</button>
       <button onClick={axiosTest4}>안녕하세요4</button>
       <button onClick={print}>안녕하세요5</button>
+        <button onClick={notification}>푸시알림!</button>
       {
         data.map((d) => (
           <div key={d.announcementId}>{d.announcementId}</div>

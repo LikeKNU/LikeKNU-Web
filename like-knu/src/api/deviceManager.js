@@ -57,7 +57,7 @@ export const setDeviceCampus = async (campus) => {
     }
 }
 
-export const registerToken = async (token) => {
+export const updateNotificationToken = async (token) => {
     try {
         let response = await instance.post("/api/devices/token", {
             deviceId: getDeviceId(),

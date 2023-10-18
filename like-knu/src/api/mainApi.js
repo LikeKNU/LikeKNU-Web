@@ -1,7 +1,6 @@
 import {generateAndSaveNewDeviceId, getCampus, setCampus} from "../utils/DeviceManageUtil";
-import {checkDeviceRegistration, registerDevice, registerToken} from "./deviceRegister";
+import {checkDeviceRegistration, registerDevice, updateNotificationToken} from "./deviceManager";
 import Campus from "../constants/Campus";
-import {requestPermission} from "../firebaseCloudMessaging";
 
 export const initializeDevice = async () => {
     let isRegistered = await checkDeviceRegistration();
@@ -12,10 +11,6 @@ export const initializeDevice = async () => {
             })
             .catch(() => {
             });
-
-        let token = await requestPermission();
-        console.log(token);
-        registerToken(token);
     }
 
     let campus = getCampus();
