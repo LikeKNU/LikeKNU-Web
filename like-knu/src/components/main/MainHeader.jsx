@@ -6,6 +6,7 @@ import {getCampus} from "utils/DeviceManageUtil"
 import {ReactComponent as DownIcon} from "assets/icon/expand_more_black_24dp.svg"
 import {ReactComponent as NotificationIcon} from "assets/icon/bell-fill.svg"
 import {ReactComponent as SettingIcon} from "assets/icon/gear-fill.svg"
+import {useNavigate} from "react-router-dom";
 
 export default function MainHeader() {
   const [view, setview] = useState(false);
@@ -13,6 +14,7 @@ export default function MainHeader() {
   const today = new Date();
   const week = ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'];
   const formattedDate = `${today.getMonth() + 1}월 ${today.getDate()}일 ${week[today.getDay()]}`;
+  const navigate = useNavigate();
   const changeCampus = (campus) => {
     setCampusName(campus);
   }
@@ -23,6 +25,7 @@ export default function MainHeader() {
 
   const goSetting = () => {
     console.log("설정 이동!!");
+    navigate(`/setting`);
   }
 
   return (

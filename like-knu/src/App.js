@@ -8,6 +8,7 @@ import CalendarPage from 'pages/CalendarPage';
 import Test from 'pages/Test';
 import BusPage from 'pages/BusPage';
 import MenuPage from 'pages/MenuPage';
+import SettingPage from "./pages/SettingPage";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
       <Route path="/notice" element={<NoticePage />} />
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/menu" element={<MenuPage />} />
+      <Route path="/setting" element={<SettingPage />} />
     </Routes>
     // <div className="App">
     //   <header className="App-header">

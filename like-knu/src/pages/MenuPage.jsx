@@ -1,13 +1,13 @@
 import PageLayout from "../layouts/PageLayout";
 import {PageHeader, Header} from "../components/styles/PageHeader";
 import PageContainer from "../layouts/PageContainer";
-import Tab from "../components/Tab";
 import {getCampus} from "../utils/DeviceManageUtil";
 import {TabItem, TabList} from "../components/styles/Tab";
 import {useEffect, useState} from "react";
 import Campus from "../constants/Campus";
 import {menu} from "../api/menu";
-import {MenuListItme} from "../components/menu/MenuListItme";
+import {MenuListItem} from "../components/menu/MenuListItem";
+
 export default function MenuPage() {
   const [category, setCategory] = useState(0);
   const [menuList, setMenuList] = useState([]);
@@ -25,7 +25,13 @@ export default function MenuPage() {
   useEffect(() => {
     getMenuList();
   }, []);
-  console.log(mealList);
+
+  useEffect(() => {
+    if(mealList.length !== 0) {
+      setMealList(menuList[category].meal);
+    }
+  }, [category]);
+
   return (
       <PageLayout>
       <Header>
@@ -39,7 +45,7 @@ export default function MenuPage() {
         </TabList>
       </Header>
       <PageContainer>
-        <MenuListItme menuList={mealList}></MenuListItme>
+        <MenuListItem menuList={mealList}></MenuListItem>
       </PageContainer>
       </PageLayout>
   )
