@@ -9,6 +9,8 @@ import Test from 'pages/Test';
 import BusPage from 'pages/BusPage';
 import MenuPage from 'pages/MenuPage';
 import SettingPage from "./pages/SettingPage";
+import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScrollNoticePage from "./pages/InfiniteScrollNoticePage";
 
 function App() {
 
@@ -21,6 +23,7 @@ function App() {
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/menu" element={<MenuPage />} />
       <Route path="/setting" element={<SettingPage />} />
+      <Route path="/infinite" element={<InfiniteScrollNoticePage />} />
     </Routes>
     // <div className="App">
     //   <header className="App-header">
