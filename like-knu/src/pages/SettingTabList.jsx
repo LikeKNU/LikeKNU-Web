@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 import {ReactComponent as RightArrowIcon} from '../assets/icon/right-arrow.svg';
 import styled from "styled-components";
 
-const SettingTabList = () => {
+export default function SettingTabList() {
   const sendAskMail = () => {
     document.location.href = 'mailto:likeknu2023@gmail.com';
   };
@@ -11,22 +11,20 @@ const SettingTabList = () => {
     <SettingContent>
       <Link to={'notification'}>
         <SettingItem>
-          공지사항 알림 구독 <RightArrowIcon/>
+          공지사항 알림 구독 <RightArrowIcon />
         </SettingItem>
       </Link>
       <SettingItem onClick={sendAskMail}>
-        문의하기 <RightArrowIcon/>
+        문의하기 <RightArrowIcon />
       </SettingItem>
       <Link to={'about'}>
         <SettingItem>
-          공주대처럼 가이드 <RightArrowIcon/>
+          공주대처럼 가이드 <RightArrowIcon />
         </SettingItem>
       </Link>
     </SettingContent>
   );
 };
-
-export default SettingTabList;
 
 const SettingContent = styled.div`
   display: flex;
