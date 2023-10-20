@@ -24,6 +24,7 @@ function App() {
       <Route path="/menu" element={<MenuPage />} />
       <Route path="/setting" element={<SettingPage />} />
       <Route path="/infinite" element={<InfiniteScrollNoticePage />} />
+      <Route path='/setting' element={<SettingPage/>} />
     </Routes>
     // <div className="App">
     //   <header className="App-header">
