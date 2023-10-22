@@ -41,8 +41,10 @@ export default function InfiniteScrollNoticePage() {
   }
 
   useEffect(() => {
-    getNotices(apiNoticeTabList[category]);
+    setNotices([]);
     setCurrentPage(1);
+    setHasMore(true);
+    getNotices(apiNoticeTabList[category]);
   }, [category]);
 
   return (
