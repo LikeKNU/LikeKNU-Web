@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "../../constants/colors";
 
-export function NotificationListItem({head, subHead, body, url}) {
+export function ListItem({head, subHead, body, url}) {
   return (
     <Wrapper onClick={() => window.open(url, "_blank")}>
       <Detail>
