@@ -18,12 +18,12 @@ const Detail = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   margin-bottom: 4px;
 `
 
 const Title = styled.span`
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: ${colors.black};
 `
 
