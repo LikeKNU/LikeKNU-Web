@@ -4,6 +4,7 @@ import PageContainer from "../layouts/PageContainer";
 import {ListItem} from "../components/notification/NotificationListItem";
 import {useEffect, useState} from "react";
 import {fetchNotifications} from "../api/notification";
+import styled from "styled-components";
 
 export default function NotificationPage() {
 
@@ -28,7 +29,7 @@ export default function NotificationPage() {
       <Header>
         <PageHeader>알림</PageHeader>
       </Header>
-      <PageContainer>
+      <ShortHeaderPageContainer>
         {
           notifications.map(notification => (
             <ListItem
@@ -39,7 +40,13 @@ export default function NotificationPage() {
             ></ListItem>
           ))
         }
-      </PageContainer>
+      </ShortHeaderPageContainer>
     </PageLayout>
   );
 }
+
+const ShortHeaderPageContainer = styled(PageContainer)`
+  &&& {
+    padding-top: 100px;
+  }
+`
