@@ -31,9 +31,6 @@ export default function NotificationPage() {
     setCurrentPage(currentPage + 1);
   }
 
-  const fetchData = () => {
-  }
-
   useEffect(() => {
     updateNotifications();
   }, []);
