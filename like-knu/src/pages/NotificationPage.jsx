@@ -5,19 +5,33 @@ import {ListItem} from "../components/notification/NotificationListItem";
 import {useEffect, useState} from "react";
 import {fetchNotifications} from "../api/notification";
 import styled from "styled-components";
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 export default function NotificationPage() {
 
   const [notifications, setNotifications] = useState([]);
+  const [totalPages, setTotalPages] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   const updateNotifications = () => {
-    fetchNotifications()
+    if (totalPages === currentPage) {
+      setHasMore(false);
+    }
+
+    fetchNotifications(currentPage)
       .then(response => {
-        setNotifications(response.body);
+        setNotifications(notifications.concat(response.body));
+        setTotalPages(response.page.totalPages);
       })
       .catch(error => {
         //TODO Error handling
       });
+
+    setCurrentPage(currentPage + 1);
+  }
+
+  const fetchData = () => {
   }
 
   useEffect(() => {
@@ -40,6 +54,14 @@ export default function NotificationPage() {
             ></ListItem>
           ))
         }
+        <InfiniteScroll
+          dataLength={notifications.length}
+          next={updateNotifications}
+          hasMore={hasMore}
+          loader={
+            <div>불러오는 중..</div>
+          }
+        />
       </ShortHeaderPageContainer>
     </PageLayout>
   );
