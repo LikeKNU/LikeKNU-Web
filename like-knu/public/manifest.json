@@ -25,14 +25,14 @@
   "id": "ac.knu.likeknu",
   "description": "공주대학교 학생들을 위한 정보 제공 서비스",
   "lang": "ko",
-  "orientation": "natural",
+  "orientation": "portrait",
   "display_override": [
-    "window-controls-overlay",
-    "browser",
-    "standalone"
+    "standalone",
+    "window-controls-overlay"
   ],
   "categories": [
     "education",
     "utilities"
-  ]
+  ],
+  "dir": "ltr"
 }
