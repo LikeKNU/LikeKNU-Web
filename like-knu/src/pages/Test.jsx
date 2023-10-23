@@ -8,12 +8,14 @@ import Select from "react-select";
 import {cityBusesRoutes} from "../api/bus";
 import {getCampus} from "../utils/DeviceManageUtil";
 import Campus from "../constants/Campus";
+import Modal from 'react-modal'
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
   { value: 'vanilla', label: 'Vanilla' },
 ];
+
 export default function Test() {
   const [view, setView] = useState(false);
   const [data, setData] = useState([]);
@@ -81,11 +83,17 @@ export default function Test() {
       <BusItem routeCount={4} campus={"예산캠"} />
       <BusItem routeCount={5} campus={"천안캠"} />
 
-      <StyledSelect
-        options={routes}
-        getOptionValue={(option) => `${option['routeId']}`}
-        getOptionLabel={(option) => `${option['routeName']}`}
-      />
+      {/*<StyledSelect*/}
+      {/*  options={routes}*/}
+      {/*  getOptionValue={(option) => `${option['routeId']}`}*/}
+      {/*  getOptionLabel={(option) => `${option['routeName']}`}*/}
+      {/*/>*/}
+
+      <Modal isOpen={true}>
+        <p>This is Modal content</p>
+      </Modal>
+
+
 
     </Background>
   )
