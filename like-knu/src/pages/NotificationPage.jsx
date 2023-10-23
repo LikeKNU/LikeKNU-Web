@@ -33,6 +33,7 @@ export default function NotificationPage() {
           notifications.map(notification => (
             <NotificationListItem
               head={notification.notificationTitle}
+              subHead={notification.notificationDate}
               body={notification.notificationBody}
               url={notification.notificationUrl}
             ></NotificationListItem>
