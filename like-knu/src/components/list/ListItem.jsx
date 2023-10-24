@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "../../constants/colors";
 
-export function ListItem({head, subHead, body, url}) {
+export default function ListItem({head, subHead, body, url}) {
   return (
     <Wrapper onClick={() => window.open(url, "_blank")}>
       <Detail>

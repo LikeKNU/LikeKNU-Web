@@ -10,7 +10,7 @@ import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
 import NoticePagination from "../components/notice/NoticePagination";
 import Campus from "../constants/Campus";
-import {ListItem} from "../components/notification/NotificationListItem";
+import ListItem from "../components/list/ListItem";
 
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
