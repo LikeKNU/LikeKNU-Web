@@ -1,7 +1,7 @@
 import instance from "./api";
 const baseURL = "/api/main";
 
-export const notice = async(campus) => {
+export const noticeMain = async(campus) => {
   const {data} = await instance.get(`${baseURL}/announcements`, {
     params: {
       campus: campus
@@ -10,7 +10,7 @@ export const notice = async(campus) => {
   return data.data.body;
 }
 
-export const bus = async(campus) => {
+export const busMain = async(campus) => {
   const {data} = await instance.get(`${baseURL}/buses`, {
     params: {
         campus: campus
@@ -19,7 +19,7 @@ export const bus = async(campus) => {
   return data.data.body;
 }
 
-export const menu = async(campus) => {
+export const menuMain = async(campus) => {
   const {data} = await instance.get(`${baseURL}/menu`, {
     params: {
       campus: campus
@@ -28,7 +28,7 @@ export const menu = async(campus) => {
   return data.data.body;
 }
 
-export const calendar = async(campus) => {
+export const calendarMain = async(campus) => {
   const {data} = await instance.get(`${baseURL}/schedule` ,{
     params: {
       campus: campus

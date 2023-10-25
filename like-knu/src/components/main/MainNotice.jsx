@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import CardContainer from "components/styles/CardContainer"
-import { notice } from "api/main"
+import {noticeMain} from "api/main"
 import colors from "constants/colors"
 import { useEffect, useState } from "react"
 import {useNavigate, useParams} from "react-router-dom";
@@ -14,7 +14,7 @@ export default function MainNotice() {
     navigate(`/notice/`);
   }
   const getNotices = async() => {
-    const res = await notice(campus.campus);
+    const res = await noticeMain(campus.campus);
     setNotices(res);
   }
 
