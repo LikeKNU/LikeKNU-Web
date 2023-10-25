@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from 'swiper/modules'
 import { useState, useEffect } from "react"
 import MenuSlide from "./MenuSlide"
-import { menu } from "api/main"
+import {menuMain} from "api/main"
 import "swiper/css"
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -18,7 +18,7 @@ export default function MainMenu() {
   const navigate = useNavigate();
   const campus = useParams();
   const getCafeteria = async() => {
-    const res = await menu(campus.campus);
+    const res = await menuMain(campus.campus);
     setCafeteria(res);
   }
 
@@ -27,9 +27,8 @@ export default function MainMenu() {
     navigate(`/menu`);
   }
   useEffect( () => {
-    // getCafeteria();
+    getCafeteria();
   },[]);
-
   return (
     <MenuContainer>
       <Title onClick={goMenu}>식단</Title>

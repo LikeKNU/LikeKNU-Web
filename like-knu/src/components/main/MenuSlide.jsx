@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
 import colors from "constants/colors";
-export default function MenuSlide(props) {
-  const {menu} = props;
+export default function MenuSlide({menu}) {
   const [newMenu, setNewMenu] = useState([]);   //메뉴스
   const [isOver, setIsOver] = useState(false);
   const cnt = Object.keys(menu).length;
@@ -52,6 +51,7 @@ export default function MenuSlide(props) {
     funIsEmpty();
     funIsOver();
   },[]);
+
   return (
     <Wrapper>
       {
@@ -86,5 +86,6 @@ const Wrapper=styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  height: 130px;
 
 `
