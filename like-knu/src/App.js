@@ -9,8 +9,8 @@ import Test from 'pages/Test';
 import BusPage from 'pages/BusPage';
 import MenuPage from 'pages/MenuPage';
 import SettingPage from "./pages/SettingPage";
-import NotificationPage from "./pages/NotificationPage";
-import BottomNav from "./components/globals/BottomNav";
+import InfiniteScroll from "react-infinite-scroll-component";
+import InfiniteScrollNoticePage from "./pages/InfiniteScrollNoticePage";
 
 function App() {
 
@@ -41,7 +41,6 @@ function App() {
 
       }
     </>
-
 
   // <div className="App">
     //   <header className="App-header">
