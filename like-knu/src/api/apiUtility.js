@@ -7,6 +7,10 @@ export function extractBodyFromResponse(response) {
     return response.data.data.body;
 }
 
+export function extractDataFromResponse(response) {
+    return response.data.data;
+}
+
 /**
  * 응답에서 Timestamp 추출
  * @param response

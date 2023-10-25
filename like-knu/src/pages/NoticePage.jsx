@@ -1,8 +1,8 @@
 import PageLayout from "layouts/PageLayout";
 import PageContainer from "layouts/PageContainer";
-import {PageHeader, Header} from "../components/styles/PageHeader";
-import {TabList, TabItem} from "../components/styles/Tab";
-import {noticeTab, apiNoticeTabList} from "../constants/tabName";
+import {Header, PageHeader} from "../components/styles/PageHeader";
+import {TabItem, TabList} from "../components/styles/Tab";
+import {apiNoticeTabList, noticeTab} from "../constants/tabName";
 import {useEffect, useState} from "react";
 import {notice} from "../api/notice";
 import styled from "styled-components";
@@ -10,6 +10,7 @@ import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
 import NoticePagination from "../components/notice/NoticePagination";
 import Campus from "../constants/Campus";
+import ListItem from "../components/list/ListItem";
 
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
@@ -43,7 +44,8 @@ export default function NoticePage() {
         <TabList>
           {
             noticeTab.map((name, index) => (
-              <TabItem key={index} onClick={() => setCategory(index)} className={category === index ? "active" : null}>{name}</TabItem>
+              <TabItem key={index} onClick={() => setCategory(index)}
+                       className={category === index ? "active" : null}>{name}</TabItem>
             ))
           }
         </TabList>
@@ -51,14 +53,12 @@ export default function NoticePage() {
       <PageContainer>
         {
           notices.map((notice) => (
-            <Content key={notice.announcementId} onClick={() => window.open(notice.announcementUrl, "_blank")}>
-              <Detail>
-                <div>{notice.announcementTag}</div>
-                <div>{notice.announcementDate}</div>
-              </Detail>
-
-              <Title>{notice.announcementTitle}</Title>
-            </Content>
+            <ListItem
+              head={notice.announcementTag}
+              subHead={notice.announcementDate}
+              body={notice.announcementTitle}
+              url={notice.announcementUrl}
+            ></ListItem>
           ))
         }
         <NoticePagination totalElements={totalElements} currentPage={currentPage} setPage={setCurrentPage}/>

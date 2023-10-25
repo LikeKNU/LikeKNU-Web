@@ -21,6 +21,7 @@ export default function MainHeader() {
 
   const goNotification = () =>{
     console.log("푸시알림 이동!!");
+    navigate(`/notification`);
   }
 
   const goSetting = () => {

@@ -47,7 +47,6 @@ const Title = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
 `
 const IconTitle = styled.div`
   display: flex;
@@ -56,6 +55,8 @@ const IconTitle = styled.div`
 `
 
 const Content = styled.div`
+  padding-top: 12px;
+
   .menuItem {
     margin-bottom: 8px;
   }
