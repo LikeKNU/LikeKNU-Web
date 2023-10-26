@@ -6,6 +6,7 @@ import {useEffect, useState} from "react";
 import {fetchNotifications} from "../api/notification";
 import styled from "styled-components";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import {BackHeader} from "../components/BackHeader";
 
 export default function NotificationPage() {
 
@@ -38,7 +39,7 @@ export default function NotificationPage() {
   return (
     <PageLayout>
       <Header>
-        <PageHeader>알림</PageHeader>
+        <BackHeader Title={"알림"} />
       </Header>
       <ShortHeaderPageContainer>
         {

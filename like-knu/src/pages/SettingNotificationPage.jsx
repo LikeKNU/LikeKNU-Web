@@ -1,7 +1,10 @@
+import PageLayout from "../layouts/PageLayout";
+import {BackHeader} from "../components/BackHeader";
+
 export function SettingNotificationPage() {
   return (
-    <>
-      <div>설정 알림 페이지</div>
-    </>
+    <PageLayout>
+      <BackHeader Title={"공지사항 알림 구독"} />
+    </PageLayout>
   )
 }

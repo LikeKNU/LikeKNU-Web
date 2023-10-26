@@ -6,7 +6,6 @@ export const PageHeader =  styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  
   padding-right: 16px;
   padding-left: 16px;
   border-bottom: 1px solid ${colors.gray100};

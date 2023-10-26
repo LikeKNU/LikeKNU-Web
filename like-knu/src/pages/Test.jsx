@@ -9,6 +9,7 @@ import {cityBusesRoutes} from "../api/bus";
 import {getCampus} from "../utils/DeviceManageUtil";
 import Campus from "../constants/Campus";
 import Modal from 'react-modal'
+import {BackHeader} from "../components/BackHeader";
 
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
@@ -83,11 +84,7 @@ export default function Test() {
       <BusItem routeCount={4} campus={"예산캠"} />
       <BusItem routeCount={5} campus={"천안캠"} />
 
-      {/*<StyledSelect*/}
-      {/*  options={routes}*/}
-      {/*  getOptionValue={(option) => `${option['routeId']}`}*/}
-      {/*  getOptionLabel={(option) => `${option['routeName']}`}*/}
-      {/*/>*/}
+      <BackHeader Title={"설정"} />
 
     </Background>
   )
