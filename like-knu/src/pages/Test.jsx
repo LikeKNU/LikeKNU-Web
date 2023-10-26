@@ -89,12 +89,6 @@ export default function Test() {
       {/*  getOptionLabel={(option) => `${option['routeName']}`}*/}
       {/*/>*/}
 
-      <Modal isOpen={true}>
-        <p>This is Modal content</p>
-      </Modal>
-
-
-
     </Background>
   )
 }
