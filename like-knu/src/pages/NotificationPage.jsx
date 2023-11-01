@@ -1,7 +1,7 @@
 import PageLayout from "../layouts/PageLayout";
 import {Header, PageHeader} from "../components/styles/PageHeader";
 import PageContainer from "../layouts/PageContainer";
-import ListItem from "../components/list/ListItem";
+import ListItem from "../components/ListItem";
 import {useEffect, useState} from "react";
 import {fetchNotifications} from "../api/notification";
 import styled from "styled-components";

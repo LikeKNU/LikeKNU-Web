@@ -7,10 +7,12 @@ import {BusItem} from "../components/bus/BusItem";
 import Select from "react-select";
 import {cityBusesRoutes} from "../api/bus";
 import {getCampus} from "../utils/DeviceManageUtil";
-import Campus from "../constants/Campus";
+import Campus from "../constants/campus";
 import Modal from 'react-modal'
 import {BackHeader} from "../components/BackHeader";
-
+import {TabItem} from "../components/styles/Tab";
+import TagItem from "../components/setting/TagItem";
+import TagList from "../components/setting/TagList";
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
@@ -79,13 +81,14 @@ export default function Test() {
         </div>
       </div>
 
-      <BusItem routeCount={2} campus={"천안캠"} />
-      <BusItem routeCount={3} campus={"신관캠"} />
-      <BusItem routeCount={4} campus={"예산캠"} />
-      <BusItem routeCount={5} campus={"천안캠"} />
+      {/*<BusItem routeCount={2} campus={"천안캠"} />*/}
+      {/*<BusItem routeCount={3} campus={"신관캠"} />*/}
+      {/*<BusItem routeCount={4} campus={"예산캠"} />*/}
+      {/*<BusItem routeCount={5} campus={"천안캠"} />*/}
 
       <BackHeader Title={"설정"} />
-
+      <TagItem>기숙사</TagItem>
+      <TagList />
     </Background>
   )
 }

@@ -9,8 +9,8 @@ import styled from "styled-components";
 import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
 import NoticePagination from "../components/notice/NoticePagination";
-import Campus from "../constants/Campus";
-import ListItem from "../components/list/ListItem";
+import Campus from "../constants/campus";
+import ListItem from "../components/ListItem";
 
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);

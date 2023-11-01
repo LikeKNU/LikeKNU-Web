@@ -13,8 +13,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import InfiniteScrollNoticePage from "./pages/InfiniteScrollNoticePage";
 import BottomNav from "./components/globals/BottomNav";
 import NotificationPage from "./pages/NotificationPage";
-import {SettingNotificationPage} from "./pages/SettingNotificationPage";
-import {SettingAboutPage} from "./pages/SettingAboutPage";
+import SettingNotificationPage from "./pages/SettingNotificationPage";
+import SettingAboutPage from "./pages/SettingAboutPage";
 
 
 function App() {
