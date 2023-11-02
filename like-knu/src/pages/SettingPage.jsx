@@ -1,14 +1,12 @@
 import PageLayout from "../layouts/PageLayout";
-import {Header, PageHeader} from "../components/styles/PageHeader";
 import SettingTabList from "./SettingTabList";
+import {BackHeader} from "../components/BackHeader";
 
 export default function SettingPage() {
   return (
     <PageLayout>
-      <Header>
-        <PageHeader>설정</PageHeader>
-        <SettingTabList />
-      </Header>
+        <BackHeader Title={"설정"} />
+        <SettingTabList/>
     </PageLayout>
   )
 }

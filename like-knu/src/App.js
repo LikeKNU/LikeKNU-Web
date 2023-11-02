@@ -13,6 +13,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import InfiniteScrollNoticePage from "./pages/InfiniteScrollNoticePage";
 import BottomNav from "./components/globals/BottomNav";
 import NotificationPage from "./pages/NotificationPage";
+import SettingNotificationPage from "./pages/SettingNotificationPage";
+import SettingAboutPage from "./pages/SettingAboutPage";
 
 
 function App() {
@@ -20,7 +22,7 @@ function App() {
   const location = useLocation();
   const [isBottomBar, setIsBottomBar] = useState(true);
   useEffect(() => {
-    if(location.pathname === "/setting" || location.pathname === "/notification") {
+    if(location.pathname.includes("/setting") || location.pathname === "/notification") {
       setIsBottomBar(false);
     }
     else {
@@ -33,11 +35,14 @@ function App() {
         <Route path="/" element={<Test />} />
         <Route path="/main/:campus" element={<MainPage />} />
         <Route path="/bus" element={<BusPage />} />
-        <Route path="/notice" element={<NoticePage />} />
+        <Route path="/notice" element={<InfiniteScrollNoticePage />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/setting" element={<SettingPage />} />
+        <Route path="/setting/notificationTag" element={<SettingNotificationPage />} />
+        <Route path="/setting/about" element={<SettingAboutPage />} />
         <Route path="/notification" element={<NotificationPage />} />
+        <Route path="*" element={<Test />} />
       </Routes>
       {
         isBottomBar && <BottomNav />

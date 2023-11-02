@@ -6,7 +6,7 @@ import {TabList, TabItem} from "../components/styles/Tab";
 import {useEffect, useState} from "react";
 import {cityBusesRoutes} from "../api/bus";
 import {getCampus} from "../utils/DeviceManageUtil";
-import Campus from "../constants/Campus";
+import Campus from "../constants/campus";
 import styled from "styled-components";
 export default function BusPage() {
   const [category, setCategory] = useState(0);

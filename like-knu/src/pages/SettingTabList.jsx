@@ -1,6 +1,8 @@
 import {Link} from "react-router-dom";
 import {ReactComponent as RightArrowIcon} from '../assets/icon/right-arrow.svg';
 import styled from "styled-components";
+import {SettingNotificationPage} from "./SettingNotificationPage";
+import {SettingAboutPage} from "./SettingAboutPage";
 
 export default function SettingTabList() {
   const sendAskMail = () => {
@@ -9,7 +11,7 @@ export default function SettingTabList() {
 
   return (
     <SettingContent>
-      <Link to={'notification'}>
+      <Link to={'/setting/notificationTag'}>
         <SettingItem>
           공지사항 알림 구독 <RightArrowIcon />
         </SettingItem>
@@ -17,7 +19,7 @@ export default function SettingTabList() {
       <SettingItem onClick={sendAskMail}>
         문의하기 <RightArrowIcon />
       </SettingItem>
-      <Link to={'about'}>
+      <Link to={'/setting/about'}>
         <SettingItem>
           공주대처럼 가이드 <RightArrowIcon />
         </SettingItem>

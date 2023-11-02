@@ -9,7 +9,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import styled from "styled-components";
 import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
-import Campus from "../constants/Campus";
+import Campus from "../constants/campus";
 import async from "async";
 
 export default function InfiniteScrollNoticePage() {
@@ -62,8 +62,8 @@ export default function InfiniteScrollNoticePage() {
       </Header>
       <PageContainer>
         {
-          notices.map((notice) => (
-            <Content key={notice.announcementId} onClick={() => window.open(notice.announcementUrl, "_blank")}>
+          notices.map((notice, index) => (
+            <Content key={index} onClick={() => window.open(notice.announcementUrl, "_blank")}>
               <Detail>
                 <div>{notice.announcementTag}</div>
                 <div>{notice.announcementDate}</div>

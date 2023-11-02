@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Campus from "constants/Campus"
+import Campus from "constants/campus"
 import colors from "constants/colors"
 import { getCampus, setCampus } from "utils/DeviceManageUtil"
 import { useState } from "react"
