@@ -82,6 +82,7 @@ export default function InfiniteScrollNoticePage() {
           loader={ // 로딩 메시지
             <div>불러오는 중..</div>
           }
+          scrollThreshold={0.9}
         />
       </PageContainer>
     </PageLayout>
