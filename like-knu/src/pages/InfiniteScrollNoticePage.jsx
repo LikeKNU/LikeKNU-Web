@@ -25,12 +25,18 @@ export default function InfiniteScrollNoticePage() {
   campus = keys.find((key) => Campus[key] === campus);
 
   const getNotices = async (category) => {
-    const res = await notice(campus, category, currentPage);
+    const res = await notice(campus, category);
     setNotices(res.body);
     setTotalPages(res.page.totalPages);
   }
 
   const fetchData = async () => {
+    if (notices.length === 0) {
+      const res = await notice(campus, apiNoticeTabList[category], 1);
+      setNotices(notices.concat(res.body));
+      return;
+    }
+
     if (totalPages === currentPage) {
       setHasMore(false);
     }
@@ -42,7 +48,7 @@ export default function InfiniteScrollNoticePage() {
 
   useEffect(() => {
     setNotices([]);
-    setCurrentPage(1);
+    setCurrentPage(2);
     setHasMore(true);
     getNotices(apiNoticeTabList[category]);
   }, [category]);
