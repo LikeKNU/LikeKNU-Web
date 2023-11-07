@@ -63,14 +63,12 @@ export default function InfiniteScrollNoticePage() {
       <PageContainer>
         {
           notices.map((notice, index) => (
-            <Content key={index} onClick={() => window.open(notice.announcementUrl, "_blank")}>
-              <Detail>
-                <div>{notice.announcementTag}</div>
-                <div>{notice.announcementDate}</div>
-              </Detail>
-
-              <Title>{notice.announcementTitle}</Title>
-            </Content>
+            <ListItem
+              head={notice.announcementTag}
+              subHead={notice.announcementDate}
+              body={notice.announcementTitle}
+              url={notice.announcementUrl}
+            ></ListItem>
           ))
         }
         <InfiniteScroll
