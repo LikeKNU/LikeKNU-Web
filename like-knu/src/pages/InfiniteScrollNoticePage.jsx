@@ -10,7 +10,7 @@ import styled from "styled-components";
 import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
 import Campus from "../constants/campus";
-import async from "async";
+import ListItem from "../components/ListItem";
 
 export default function InfiniteScrollNoticePage() {
 
