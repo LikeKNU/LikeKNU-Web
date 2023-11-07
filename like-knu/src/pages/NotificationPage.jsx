@@ -1,5 +1,5 @@
 import PageLayout from "../layouts/PageLayout";
-import {Header, PageHeader} from "../components/styles/PageHeader";
+import {Header} from "../components/styles/PageHeader";
 import PageContainer from "../layouts/PageContainer";
 import ListItem from "../components/ListItem";
 import {useEffect, useState} from "react";
@@ -15,20 +15,14 @@ export default function NotificationPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  const updateNotifications = () => {
-    if (totalPages === currentPage) {
+  const updateNotifications = async () => {
+    if (totalPages === currentPage || totalPages < currentPage) {
       setHasMore(false);
     }
 
-    fetchNotifications(currentPage)
-      .then(response => {
-        setNotifications(notifications.concat(response.body));
-        setTotalPages(response.page.totalPages);
-      })
-      .catch(error => {
-        //TODO Error handling
-      });
-
+    let response = await fetchNotifications(currentPage);
+    setNotifications(notifications.concat(response.body));
+    setTotalPages(response.page.totalPages);
     setCurrentPage(currentPage + 1);
   }
 
@@ -39,7 +33,7 @@ export default function NotificationPage() {
   return (
     <PageLayout>
       <Header>
-        <BackHeader Title={"알림"} />
+        <BackHeader Title={"알림"}/>
       </Header>
       <ShortHeaderPageContainer>
         {
