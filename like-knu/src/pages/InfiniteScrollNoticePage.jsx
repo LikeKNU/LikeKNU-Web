@@ -6,8 +6,6 @@ import {apiNoticeTabList, noticeTab} from "../constants/tabName";
 import {useEffect, useState} from "react";
 import {notice} from "../api/notice";
 import InfiniteScroll from 'react-infinite-scroll-component';
-import styled from "styled-components";
-import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
 import Campus from "../constants/campus";
 import ListItem from "../components/ListItem";
@@ -89,23 +87,3 @@ export default function InfiniteScrollNoticePage() {
     </PageLayout>
   )
 }
-
-const Content = styled.a`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 24px;
-`
-const Detail = styled.div`
-  color: ${colors.gray350};
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-size: 1.1rem;
-  margin-bottom: 4px;
-`
-
-const Title = styled.span`
-  font-size: 1.3rem;
-  color: ${colors.black};
-`
