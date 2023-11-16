@@ -18,12 +18,12 @@ export function ToggleSwitch({ width, height, area }) {
 }
 const Wrapper = styled.div`
   #toggle:checked ~ .toggle_switch {
-    background: ${colors.common};
+    background: ${colors.COMMON};
   }
 
   #toggle:checked ~ .toggle_switch .toggle_div {
     left: calc(100% - 26px);
-    background: ${colors.white};
+    background: ${colors.WHITE};
   }
 `;
 
@@ -33,7 +33,7 @@ const ToggleLabel = styled.label`
   display: block;
   position: relative;
   border-radius: 30px;
-  background-color: ${colors.gray300};
+  background-color: ${colors.GRAY300};
   transition: all 0.2s ease-in;
 `;
 const ToggleDiv = styled.div`
@@ -44,6 +44,6 @@ const ToggleDiv = styled.div`
   left: 4px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: ${colors.white};
+  background: ${colors.WHITE};
   transition: all 0.2s ease-in;
 `;

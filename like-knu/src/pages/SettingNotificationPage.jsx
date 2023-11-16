@@ -41,12 +41,12 @@ const Notification = styled.div`
 `;
 const Title = styled.div`
   font-size: 1.8rem;
-  color: ${colors.black};
+  color: ${colors.BLACK};
   font-weight: 600;
 `;
 const Detail = styled.div`
   font-size: 1.4rem;
-  color: ${colors.gray400};
+  color: ${colors.GRAY400};
   margin-top: 4px;
   margin-bottom: 20px;
 `;

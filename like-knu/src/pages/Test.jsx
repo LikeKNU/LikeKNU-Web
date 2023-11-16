@@ -106,7 +106,7 @@ const Toggle = styled.div`
     display: block;
     position: relative;
     border-radius: 30px;
-    background-color: ${colors.gray300};
+    background-color: ${colors.GRAY300};
     margin: 30px;
   }
 
@@ -118,16 +118,16 @@ const Toggle = styled.div`
     left: 4px;
     transform: translateY(-50%);
     border-radius: 50%;
-    background: ${colors.white};
+    background: ${colors.WHITE};
   }
 
   #toggle:checked ~ .toggleSwitch {
-    background: ${colors.common};
+    background: ${colors.COMMON};
   }
 
   #toggle:checked ~ .toggleSwitch .toggleButton {
     left: calc(100% - 44px);
-    background: ${colors.white};
+    background: ${colors.WHITE};
   }
 
   .toggleSwitch,
@@ -140,7 +140,7 @@ const StyledSelect = styled(Select)`
 `;
 
 const Background = styled.div`
-  // background-color: ${colors.common};
+  // background-color: ${colors.COMMON};
 
   .wrapper {
     display: flex;

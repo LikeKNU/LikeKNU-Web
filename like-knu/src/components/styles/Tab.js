@@ -6,26 +6,23 @@ export const TabList = styled.div`
 
   padding-right: 24px;
   padding-left: 24px;
-  border-bottom: 1px solid ${colors.gray100};
+  border-bottom: 1px solid ${colors.GRAY100};
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  
+  justify-content: space-evenly;
+
   box-sizing: border-box;
 
-
   .active {
-    border-bottom: 2px solid ${colors.black};
+    border-bottom: 2px solid ${colors.BLACK};
   }
-  
-`
+`;
 export const TabItem = styled.button`
-  color: ${colors.black};
+  color: ${colors.BLACK};
   line-height: 34px;
   text-align: center;
   font-size: 1.6rem;
   padding-right: 8px;
   padding-left: 8px;
-
-`
+`;

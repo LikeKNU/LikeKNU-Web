@@ -2,7 +2,7 @@ import styled from "styled-components";
 import colors from "constants/colors";
 
 export default function MainCalendarItem(props) {
-  const {schedule} = props;
+  const { schedule } = props;
   const isToday = schedule.today;
   return (
     <div>
@@ -12,11 +12,9 @@ export default function MainCalendarItem(props) {
           isToday && <TodayText>오늘</TodayText>
         } */}
       </Title>
-      <Content>
-        {schedule.scheduleContents}
-      </Content>
+      <Content>{schedule.scheduleContents}</Content>
     </div>
-  )
+  );
 }
 
 const Title = styled.div`
@@ -24,20 +22,20 @@ const Title = styled.div`
   flex-direction: row;
   font-size: 1.1rem;
   margin-bottom: 2px;
-`
+`;
 const DateText = styled.div`
-  color: ${colors.black};
+  color: ${colors.BLACK};
   font-weight: 600;
-`
+`;
 const TodayText = styled.div`
-  color: ${colors.gray300};
-`
+  color: ${colors.GRAY300};
+`;
 
 const Content = styled.div`
-  color: ${colors.black};
+  color: ${colors.BLACK};
   font-size: 1.2rem;
   text-overflow: ellipsis;
   overflow: hidden;
   width: 117px;
   white-space: nowrap;
-`
+`;

@@ -35,8 +35,8 @@ export function MenuListItem({ menuList }) {
 
 const MenuCardContainer = styled(CardContainer)`
   box-shadow: none;
-  border: 1px solid ${colors.gray80};
-  color: ${colors.black};
+  border: 1px solid ${colors.GRAY80};
+  color: ${colors.BLACK};
   font-size: 1.3rem;
   font-weight: 400;
   padding-top: 16px;
@@ -67,5 +67,5 @@ const MealType = styled.div`
   margin-left: 10px;
 `;
 const OperatingTime = styled.div`
-  color: ${colors.gray350};
+  color: ${colors.GRAY350};
 `;

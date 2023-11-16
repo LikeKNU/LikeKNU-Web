@@ -1,19 +1,17 @@
-import styled from "styled-components"
+import styled from "styled-components";
 import colors from "constants/colors";
 
 export default function TitleBox(props) {
-  const {text, colors, margin_top} = props;
+  const { text, colors, margin_top } = props;
   return (
     <Wrapper $margin_top={margin_top}>
-      <Inner>
-        {text}
-      </Inner>
+      <Inner>{text}</Inner>
     </Wrapper>
-  )
+  );
 }
-const Inner=styled.div`
-  border: 2px solid ${colors.cheonAn};
-  color: ${colors.cheonAn};
+const Inner = styled.div`
+  border: 2px solid ${colors.CHEONAN};
+  color: ${colors.CHEONAN};
   border-radius: 8px;
   font-size: 1.2rem;
   font-weight: 700;
@@ -23,10 +21,9 @@ const Inner=styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${colors.white};
-`
-const Wrapper=styled.div`
+  background-color: ${colors.WHITE};
+`;
+const Wrapper = styled.div`
   margin-bottom: 10px;
   margin-top: ${(props) => props.$margin_top};
-  
-`
+`;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import tagName from "../../constants/tagName";
+import TAGNAME from "../../constants/tagName";
 import { putTag } from "../../api/tag";
 import colors from "../../constants/colors";
 import Tag from "../styles/Tag";
@@ -8,7 +8,7 @@ import Tag from "../styles/Tag";
 const Id = "UUID";
 const data = {
   deviceId: Id,
-  Tags: [],
+  Tags: [{ tag: "jcw" }],
 };
 export default function TagList() {
   const [checkedList, setCheckedList] = useState([]);
@@ -41,26 +41,33 @@ export default function TagList() {
   };
 
   return (
-    <Wrapper onSubmit={() => putData(data)}>
-      {tagName.map((tag, index) => (
-        <div key={index}>
-          <CheckBoxInput
-            type="checkbox"
-            id={index}
-            name="NoticeTag"
-            checked={checkedList.includes(index)}
-            onChange={(e) => checkHandler(e, index)}
-          />
-          <CheckBoxLabel htmlFor={index}>
-            <CheckBoxText>{tag}</CheckBoxText>
-          </CheckBoxLabel>
-        </div>
-      ))}
-    </Wrapper>
+    <>
+      <Form>
+        {TAGNAME.map((tag, index) => (
+          <div key={index}>
+            <CheckBoxInput
+              type="checkbox"
+              id={index}
+              name="NoticeTag"
+              checked={checkedList.includes(index)}
+              onChange={(e) => checkHandler(e, tag)}
+            />
+            <CheckBoxLabel htmlFor={index}>
+              <CheckBoxText>{tag}</CheckBoxText>
+            </CheckBoxLabel>
+          </div>
+        ))}
+      </Form>
+      <Button onClick={() => putData(data)}>제출</Button>
+    </>
   );
 }
-
-const Wrapper = styled.form`
+const Button = styled.button`
+  width: 100%;
+  height: 50px;
+  background-color: ${colors.COMMON};
+`;
+const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px 10px;
@@ -76,8 +83,8 @@ const CheckBoxInput = styled.input`
   border: 0;
 
   &:checked + label {
-    background-color: ${colors.common};
-    color: ${colors.white};
+    background-color: ${colors.COMMON};
+    color: ${colors.WHITE};
   }
 `;
 const CheckBoxLabel = styled(Tag)``;

@@ -9,8 +9,8 @@ export default styled.label`
   font-size: 15px;
   font-weight: 600;
 
-  background-color: ${colors.gray100};
-  color: ${colors.gray400};
+  background-color: ${colors.GRAY100};
+  color: ${colors.GRAY400};
 
   display: flex;
   justify-content: center;
