@@ -11,7 +11,6 @@ const data = {
   Tags: [],
 };
 export default function TagList() {
-  const [tags, setTags] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
   const [isChecked, setIstChecked] = useState(false);
 
@@ -32,7 +31,6 @@ export default function TagList() {
     if (!isChecked && checkedList.includes(value)) {
       setCheckedList(checkedList.filter((item) => item !== value));
       console.log(checkedList);
-      return;
     }
   };
 

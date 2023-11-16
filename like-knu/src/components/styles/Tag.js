@@ -2,7 +2,7 @@ import styled from "styled-components";
 import colors from "../../constants/colors";
 export default styled.label`
   width: auto;
-  height: 18px;
+  height: 22px;
   padding: 5px 0;
   border-radius: 13px;
 

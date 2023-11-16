@@ -11,8 +11,8 @@ import Campus from "../constants/campus";
 import Modal from "react-modal";
 import { BackHeader } from "../components/BackHeader";
 import { TabItem } from "../components/styles/Tab";
-import TagItem from "../components/setting/TagItem";
 import TagList from "../components/setting/TagList";
+import { ToggleSwitch } from "../components/setting/ToggleSwitch";
 const options = [
   { value: "chocolate", label: "Chocolate" },
   { value: "strawberry", label: "Strawberry" },
@@ -87,9 +87,54 @@ export default function Test() {
       {/*<BusItem routeCount={3} campus={"신관캠"} />*/}
       {/*<BusItem routeCount={4} campus={"예산캠"} />*/}
       {/*<BusItem routeCount={5} campus={"천안캠"} />*/}
+
+      {/*<Toggle>*/}
+      {/*  <input type="checkbox" id="toggle" hidden />*/}
+      {/*  <label htmlFor="toggle" className="toggleSwitch">*/}
+      {/*    <div className="toggleButton" />*/}
+      {/*  </label>*/}
+      {/*</Toggle>*/}
+
+      <ToggleSwitch />
     </Background>
   );
 }
+const Toggle = styled.div`
+  .toggleSwitch {
+    width: 100px;
+    height: 50px;
+    display: block;
+    position: relative;
+    border-radius: 30px;
+    background-color: ${colors.gray300};
+    margin: 30px;
+  }
+
+  .toggleSwitch .toggleButton {
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: ${colors.white};
+  }
+
+  #toggle:checked ~ .toggleSwitch {
+    background: ${colors.common};
+  }
+
+  #toggle:checked ~ .toggleSwitch .toggleButton {
+    left: calc(100% - 44px);
+    background: ${colors.white};
+  }
+
+  .toggleSwitch,
+  .toggleButton {
+    transition: all 0.2s ease-in;
+  }
+`;
 const StyledSelect = styled(Select)`
   width: 250px;
 `;
