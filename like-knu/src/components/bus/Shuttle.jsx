@@ -1,5 +1,6 @@
 import BusSelect from "../BusSelect";
 import styled from "styled-components";
+import PageContainer from "../../layouts/PageContainer";
 const options = [
   { shuttleId: "a", shuttleName: "성한빈 → 석매튜" },
   { shuttleId: "b", shuttleName: "김지웅 → 한유진" },
@@ -17,7 +18,5 @@ function Shuttle() {
   );
 }
 
-const Wrapper = styled.div`
-  margin-top: 140px;
-`;
+const Wrapper = styled(PageContainer)``;
 export default Shuttle;

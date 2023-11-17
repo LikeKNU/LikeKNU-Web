@@ -22,13 +22,6 @@ export default function MainBus() {
     console.log("버스로 이동!!");
     navigate(`/bus`);
   };
-  // useEffect( () => {
-  //   const storedCampus = getCampus();
-  //   if(campus !== storedCampus) {
-  //     setCampus(storedCampus);
-  //   }
-  //   // console.log("ss"+storedCampus);
-  // },[]);
 
   useEffect(() => {
     getBuses();

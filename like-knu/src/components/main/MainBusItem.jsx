@@ -9,9 +9,9 @@ export default function MainBusItem(props) {
   return (
     <div>
       <Title>
-        <Text>{bus.departureStop}</Text>
+        <Text>{bus.origin}</Text>
         <StyledArrow />
-        <Text>{bus.arrivalStop}</Text>
+        <Text>{bus.destination}</Text>
       </Title>
       <RowArea>
         <BusIcon fill={busColor} />

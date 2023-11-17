@@ -4,7 +4,6 @@ import colors from "constants/colors";
 import { getCampus, setCampus } from "utils/DeviceManageUtil";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
 export default function DropDown({ changeCampus, campusName }) {
   // 이름 클릭시, 캠퍼스 세팅
   const setCampusHandler = (e) => {

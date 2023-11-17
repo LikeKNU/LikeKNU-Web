@@ -7,9 +7,10 @@ import { ReactComponent as DownIcon } from "assets/icon/expand_more_black_24dp.s
 import { ReactComponent as NotificationIcon } from "assets/icon/bell-fill.svg";
 import { ReactComponent as SettingIcon } from "assets/icon/gear-fill.svg";
 import { useNavigate } from "react-router-dom";
+import GlobalColor from "../styles/globalColor";
 
 export default function MainHeader() {
-  const [view, setview] = useState(false);
+  const [view, setView] = useState(false);
   const [campusName, setCampusName] = useState(getCampus);
   const today = new Date();
   const week = [
@@ -27,6 +28,7 @@ export default function MainHeader() {
   const navigate = useNavigate();
   const changeCampus = (campus) => {
     setCampusName(campus);
+    GlobalColor.setColor();
   };
 
   const goNotification = () => {
@@ -38,15 +40,16 @@ export default function MainHeader() {
     console.log("설정 이동!!");
     navigate(`/setting`);
   };
+  GlobalColor.setColor();
 
   return (
     <Wrapper>
       <CampusList
         onClick={() => {
-          setview(!view);
+          setView(!view);
         }}
       >
-        <Title $campus={campusName}>{campusName}</Title>
+        <Title $campus={GlobalColor.getColor()}>{campusName}</Title>
         {view && <DropDown changeCampus={changeCampus} />}
         <DownIcon fill={colors.BLACK} />
       </CampusList>
@@ -87,26 +90,7 @@ const Title = styled.div`
   font-size: 2.2rem;
   font-weight: 700;
   margin-right: 4px;
-  ${(props) => {
-    switch (props.$campus) {
-      case "천안캠":
-        return css`
-          color: ${colors.CHEONAN};
-        `;
-      case "신관캠":
-        return css`
-          color: ${colors.SINGWAN};
-        `;
-      case "예산캠":
-        return css`
-          color: ${colors.YESAN};
-        `;
-      default:
-        return css`
-          color: ${colors.COMMON};
-        `;
-    }
-  }}
+  color: ${(props) => props.$campus};
 `;
 const DateText = styled.div`
   color: ${colors.GRAY400};

@@ -26,7 +26,7 @@ export default function MainMenu() {
   };
   useEffect(() => {
     getCafeteria();
-  }, []);
+  }, [campus]);
   return (
     <MenuContainer>
       <SwiperContainer
