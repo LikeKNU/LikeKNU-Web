@@ -6,11 +6,9 @@ import {apiNoticeTabList, noticeTab} from "../constants/tabName";
 import {useEffect, useState} from "react";
 import {notice} from "../api/notice";
 import InfiniteScroll from 'react-infinite-scroll-component';
-import styled from "styled-components";
-import colors from "../constants/colors";
 import {getCampus} from "../utils/DeviceManageUtil";
 import Campus from "../constants/campus";
-import async from "async";
+import ListItem from "../components/ListItem";
 
 export default function InfiniteScrollNoticePage() {
 
@@ -25,12 +23,18 @@ export default function InfiniteScrollNoticePage() {
   campus = keys.find((key) => Campus[key] === campus);
 
   const getNotices = async (category) => {
-    const res = await notice(campus, category, currentPage);
+    const res = await notice(campus, category);
     setNotices(res.body);
     setTotalPages(res.page.totalPages);
   }
 
   const fetchData = async () => {
+    if (notices.length === 0) {
+      const res = await notice(campus, apiNoticeTabList[category], 1);
+      setNotices(notices.concat(res.body));
+      return;
+    }
+
     if (totalPages === currentPage) {
       setHasMore(false);
     }
@@ -42,7 +46,7 @@ export default function InfiniteScrollNoticePage() {
 
   useEffect(() => {
     setNotices([]);
-    setCurrentPage(1);
+    setCurrentPage(2);
     setHasMore(true);
     getNotices(apiNoticeTabList[category]);
   }, [category]);
@@ -63,14 +67,12 @@ export default function InfiniteScrollNoticePage() {
       <PageContainer>
         {
           notices.map((notice, index) => (
-            <Content key={index} onClick={() => window.open(notice.announcementUrl, "_blank")}>
-              <Detail>
-                <div>{notice.announcementTag}</div>
-                <div>{notice.announcementDate}</div>
-              </Detail>
-
-              <Title>{notice.announcementTitle}</Title>
-            </Content>
+            <ListItem
+              head={notice.announcementTag}
+              subHead={notice.announcementDate}
+              body={notice.announcementTitle}
+              url={notice.announcementUrl}
+            ></ListItem>
           ))
         }
         <InfiniteScroll
@@ -80,28 +82,9 @@ export default function InfiniteScrollNoticePage() {
           loader={ // 로딩 메시지
             <div>불러오는 중..</div>
           }
+          scrollThreshold={0.9}
         />
       </PageContainer>
     </PageLayout>
   )
 }
-
-const Content = styled.a`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 24px;
-`
-const Detail = styled.div`
-  color: ${colors.gray350};
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  font-size: 1.1rem;
-  margin-bottom: 4px;
-`
-
-const Title = styled.span`
-  font-size: 1.3rem;
-  color: ${colors.black};
-`
