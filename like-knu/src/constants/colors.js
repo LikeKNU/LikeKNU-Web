@@ -17,5 +17,4 @@ const colors = {
   BLACK: "#403E3F",
   SHADOW: "rgba(0, 0, 0, 0.05)",
 };
-
 export default colors;

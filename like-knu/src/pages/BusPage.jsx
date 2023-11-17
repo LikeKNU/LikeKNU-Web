@@ -1,17 +1,16 @@
 import PageLayout from "layouts/PageLayout";
 import { PageHeader, Header } from "components/styles/PageHeader";
-import CityBus from "../components/bus/CityBus";
 import { busTab, apiBusTabList } from "../constants/tabName";
 import { TabList, TabItem } from "../components/styles/Tab";
 import { useEffect, useState } from "react";
 import { cityBusesRoutes } from "../api/bus";
 import { getCampus } from "../utils/DeviceManageUtil";
 import Campus from "../constants/campus";
+import CityBus from "../components/bus/CityBus";
 import Shuttle from "../components/bus/Shuttle";
 export default function BusPage() {
   const [category, setCategory] = useState(0);
   const [routes, setRoutes] = useState([]);
-  const routeId = ["routeId", "셔틀아이디"];
 
   let campus = getCampus();
   const keys = Object.keys(Campus);
@@ -23,7 +22,8 @@ export default function BusPage() {
   };
 
   useEffect(() => {
-    getRoutes(apiBusTabList[category]);
+    // getRoutes(apiBusTabList[category]);
+    console.log(category);
   }, [category]);
   return (
     <PageLayout>

@@ -55,7 +55,7 @@ const NoMenu = styled.div`
   color: ${colors.GRAY400};
 `;
 const MoreMenu = styled.div`
-  color: ${colors.CHEONAN};
+  color: ${colors.COMMON};
   margin-bottom: 4px;
 `;
 const Text = styled.div`

@@ -13,6 +13,8 @@ import { BackHeader } from "../components/BackHeader";
 import { TabItem } from "../components/styles/Tab";
 import TagList from "../components/setting/TagList";
 import { ToggleSwitch } from "../components/setting/ToggleSwitch";
+import BusSelect from "../components/BusSelect";
+
 const options = [
   { value: "chocolate", label: "Chocolate" },
   { value: "strawberry", label: "Strawberry" },
@@ -95,10 +97,33 @@ export default function Test() {
       {/*  </label>*/}
       {/*</Toggle>*/}
 
-      <ToggleSwitch />
+      {/*<ToggleSwitch />*/}
+      <Select
+        defaultValue={options[0]}
+        options={options}
+        isSearchable={false}
+        theme={(theme) => ({
+          ...theme,
+          colors: {
+            ...theme.colors,
+            primary: colors.COMMON,
+            primary50: colors.GRAY100,
+            primary75: "black",
+          },
+        })}
+        styles={SelectStyle}
+      ></Select>
+      <BusSelect options={options}></BusSelect>
     </Background>
   );
 }
+const SelectStyle = {
+  control: (control) => ({
+    ...control,
+    fontSize: "15px",
+    fontWeight: "600",
+  }),
+};
 const Toggle = styled.div`
   .toggleSwitch {
     width: 100px;

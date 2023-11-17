@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import CardContainer from "components/styles/CardContainer";
 import colors from "constants/colors";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { useNavigate, useParams } from "react-router-dom";
+import { styled } from "styled-components";
 
 export default function MainMenu() {
   const [cafeteria, setCafeteria] = useState([]);
@@ -37,10 +37,10 @@ export default function MainMenu() {
         onClick={goMenu}
       >
         {cafeteria.map((c) => (
-          <Slide key={c.cafeteriaId}>
+          <SwiperSlide key={c.cafeteriaId}>
             <Title>{c.cafeteriaName}</Title>
             <MenuSlide menu={c.menus} />
-          </Slide>
+          </SwiperSlide>
         ))}
       </SwiperContainer>
     </MenuContainer>
@@ -64,18 +64,20 @@ const Slide = styled(SwiperSlide)`
   height: auto;
 `;
 const SwiperContainer = styled(Swiper)`
-  overflow: hidden;
+  overflow: visible;
 
   .swiper-pagination {
     position: absolute;
   }
+
   .swiper-pagination-bullet {
     border: 1.5px solid ${colors.WHITE};
     opacity: 1;
     background-color: ${colors.GRAY350};
     // margin: 0 3px !important;
   }
+
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
-    background-color: ${colors.CHEONAN};
+    background-color: ${colors.COMMON};
   }
 `;
