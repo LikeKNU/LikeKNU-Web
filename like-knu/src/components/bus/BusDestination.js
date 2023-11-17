@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import colors from "../../constants/colors";
-
+import GlobalColor from "../styles/globalColor";
 export const BusDestination = styled.button`
   background-color: ${colors.WHITE};
   width: 120px;
@@ -13,7 +13,7 @@ export const BusDestination = styled.button`
   margin-right: 10px;
 
   &&.active {
-    background-color: ${colors.CHEONAN};
+    background-color: ${(props) => props.$campus};
     color: ${colors.WHITE};
     border: 0;
   }

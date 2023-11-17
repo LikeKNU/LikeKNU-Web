@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { BusDestination } from "./BusDestination";
 import { useState } from "react";
 import PageContainer from "../../layouts/PageContainer";
+import GlobalColor from "../styles/globalColor";
 const school = ["학교로 출발", "학교로 도착"];
 
 function CityBus() {
@@ -14,6 +15,7 @@ function CityBus() {
             key={index}
             onClick={() => setDestination(index)}
             className={destination === index ? "active" : null}
+            $campus={GlobalColor.getColor()}
           >
             {text}
           </BusDestination>
