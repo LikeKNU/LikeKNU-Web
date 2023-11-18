@@ -51,13 +51,13 @@ export default function Test() {
     console.log(data);
   };
 
-  const getRoutes = async () => {
-    const res = await cityBusesRoutes(campus, "city-bus");
-    setRoutes(res);
-  };
+  // const getRoutes = async () => {
+  //   const res = await cityBusesRoutes(campus, "city-bus");
+  //   setRoutes(res);
+  // };
 
   useEffect(() => {
-    getRoutes();
+    // getRoutes();
   }, []);
 
   return (
@@ -98,22 +98,22 @@ export default function Test() {
       {/*</Toggle>*/}
 
       {/*<ToggleSwitch />*/}
-      <Select
-        defaultValue={options[0]}
-        options={options}
-        isSearchable={false}
-        theme={(theme) => ({
-          ...theme,
-          colors: {
-            ...theme.colors,
-            primary: colors.COMMON,
-            primary50: colors.GRAY100,
-            primary75: "black",
-          },
-        })}
-        styles={SelectStyle}
-      ></Select>
-      <BusSelect options={options}></BusSelect>
+      {/*<Select*/}
+      {/*  defaultValue={options[0]}*/}
+      {/*  options={options}*/}
+      {/*  isSearchable={false}*/}
+      {/*  theme={(theme) => ({*/}
+      {/*    ...theme,*/}
+      {/*    colors: {*/}
+      {/*      ...theme.colors,*/}
+      {/*      primary: colors.COMMON,*/}
+      {/*      primary50: colors.GRAY100,*/}
+      {/*      primary75: "black",*/}
+      {/*    },*/}
+      {/*  })}*/}
+      {/*  styles={SelectStyle}*/}
+      {/*></Select>*/}
+      {/*<BusSelect options={options}></BusSelect>*/}
     </Background>
   );
 }

@@ -16,11 +16,6 @@ export default function BusPage() {
   const keys = Object.keys(Campus);
   campus = keys.find((key) => Campus[key] === campus);
 
-  const getRoutes = async (category) => {
-    const res = await cityBusesRoutes(campus, category);
-    setRoutes(res);
-  };
-
   useEffect(() => {
     // getRoutes(apiBusTabList[category]);
     console.log(category);

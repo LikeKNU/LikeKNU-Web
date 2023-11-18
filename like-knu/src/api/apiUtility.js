@@ -4,11 +4,11 @@
  * @returns {*}
  */
 export function extractBodyFromResponse(response) {
-    return response.data.data.body;
+  return response.data.body;
 }
 
 export function extractDataFromResponse(response) {
-    return response.data.data;
+  return response.data.data;
 }
 
 /**
@@ -17,7 +17,7 @@ export function extractDataFromResponse(response) {
  * @returns {*}
  */
 export function extractTimestampFromResponse(response) {
-    return response.data.timestamp;
+  return response.data.timestamp;
 }
 
 /**
@@ -26,5 +26,5 @@ export function extractTimestampFromResponse(response) {
  * @returns String 메시지
  */
 export function extractMessageFromResponse(response) {
-    return response.data.message;
+  return response.data.message;
 }

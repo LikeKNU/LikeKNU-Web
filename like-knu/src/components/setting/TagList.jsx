@@ -1,15 +1,13 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TAGNAME from "../../constants/tagName";
-import { putTag } from "../../api/tag";
+import { putTag, tags } from "../../api/tag";
 import colors from "../../constants/colors";
 import Tag from "../styles/Tag";
+import { getDeviceId } from "../../utils/DeviceManageUtil";
 
-const Id = "test";
-// const data = {
-//   deviceId: Id,
-//   Tags: [{ tag: "jcw" }],
-// };
+// const Id = "test";
+
 export default function TagList() {
   const [checkedList, setCheckedList] = useState([]);
   const [isChecked, setIstChecked] = useState(false);
@@ -19,10 +17,26 @@ export default function TagList() {
     checkedList.forEach((tagName) => {
       tags.push({ tag: tagName });
     });
-    const data = { deviceId: Id, Tags: tags };
+    const data = { deviceId: getDeviceId(), tags: tags };
     await putTag(data);
     console.log("보냄");
   };
+
+  const getTags = async () => {
+    const res = await tags();
+    setCheckedList(generateTagNameList(res));
+  };
+  const generateTagNameList = (res) => {
+    let nameList = [];
+    res.map((name) => {
+      nameList.push(name.tag);
+    });
+    return nameList;
+  };
+
+  useEffect(() => {
+    getTags();
+  }, []);
 
   const checkedItemHandler = (value, isChecked) => {
     // 배열에 추가

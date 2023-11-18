@@ -5,12 +5,10 @@ import { busMain } from "api/main";
 import { useState, useEffect } from "react";
 import MainBusItem from "components/main/MainBusItem";
 import BusRefreshBtn from "components/BusRefreshBtn";
-import { getCampus } from "utils/DeviceManageUtil";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function MainBus() {
   const [buses, setBuses] = useState([]);
-  // const [campus, setCampus] = useState();
   const campus = useParams();
   const navigate = useNavigate();
   const getBuses = async () => {
@@ -28,8 +26,11 @@ export default function MainBus() {
   }, [campus]);
   return (
     <BusContainer>
-      <Title onClick={goBus}>버스</Title>
-      <BusRefreshBtn></BusRefreshBtn>
+      <Row>
+        <Title onClick={goBus}>버스</Title>
+        <BusRefreshBtn></BusRefreshBtn>
+      </Row>
+
       <BusList>
         {buses.map((bus) => (
           <MainBusItem key={bus.routeId} bus={bus} />
@@ -38,7 +39,17 @@ export default function MainBus() {
     </BusContainer>
   );
 }
-
+const StyledBusRefreshBtn = styled(BusRefreshBtn)`
+  position: absolute;
+  right: 32px;
+  top: 256px;
+`;
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
 const BusContainer = styled(CardContainer)`
   grid-column: 1 / 3;
   min-height: 80px;
