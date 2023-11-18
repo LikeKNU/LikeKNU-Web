@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import colors from "../constants/colors";
 
-export default function ListItem({head, subHead, body, url}) {
+export default function ListItem({ head, subHead, body, url }) {
   return (
     <Wrapper onClick={() => window.open(url, "_blank")}>
       <Detail>
@@ -10,26 +10,26 @@ export default function ListItem({head, subHead, body, url}) {
       </Detail>
       <Title>{body}</Title>
     </Wrapper>
-  )
+  );
 }
 
 const Detail = styled.div`
-  color: ${colors.gray350};
+  color: ${colors.GRAY350};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 1.4rem;
   margin-bottom: 4px;
-`
+`;
 
 const Title = styled.span`
   font-size: 1.4rem;
-  color: ${colors.black};
-`
+  color: ${colors.BLACK};
+`;
 
 const Wrapper = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 24px;
-`
+`;

@@ -1,21 +1,25 @@
 import styled from "styled-components";
 import { useState } from "react";
-import tagName from "../../constants/tagName";
+import TAGNAME from "../../constants/tagName";
 import { putTag } from "../../api/tag";
 import colors from "../../constants/colors";
 import Tag from "../styles/Tag";
 
-const Id = "UUID";
-const data = {
-  deviceId: Id,
-  Tags: [],
-};
+const Id = "test";
+// const data = {
+//   deviceId: Id,
+//   Tags: [{ tag: "jcw" }],
+// };
 export default function TagList() {
-  const [tags, setTags] = useState([]);
   const [checkedList, setCheckedList] = useState([]);
   const [isChecked, setIstChecked] = useState(false);
 
-  const putData = async (data) => {
+  const putData = async () => {
+    const tags = [];
+    checkedList.forEach((tagName) => {
+      tags.push({ tag: tagName });
+    });
+    const data = { deviceId: Id, Tags: tags };
     await putTag(data);
     console.log("보냄");
   };
@@ -32,7 +36,6 @@ export default function TagList() {
     if (!isChecked && checkedList.includes(value)) {
       setCheckedList(checkedList.filter((item) => item !== value));
       console.log(checkedList);
-      return;
     }
   };
 
@@ -43,26 +46,45 @@ export default function TagList() {
   };
 
   return (
-    <Wrapper onSubmit={() => putData(data)}>
-      {tagName.map((tag, index) => (
-        <div key={index}>
-          <CheckBoxInput
-            type="checkbox"
-            id={index}
-            name="NoticeTag"
-            checked={checkedList.includes(index)}
-            onChange={(e) => checkHandler(e, index)}
-          />
-          <CheckBoxLabel htmlFor={index}>
-            <CheckBoxText>{tag}</CheckBoxText>
-          </CheckBoxLabel>
-        </div>
-      ))}
+    <Wrapper>
+      <Form>
+        {TAGNAME.map((tag, index) => (
+          <div key={index}>
+            <CheckBoxInput
+              type="checkbox"
+              id={index}
+              name="NoticeTag"
+              checked={checkedList.includes(tag)}
+              onChange={(e) => checkHandler(e, tag)}
+            />
+            <CheckBoxLabel htmlFor={index}>
+              <CheckBoxText>{tag}</CheckBoxText>
+            </CheckBoxLabel>
+          </div>
+        ))}
+      </Form>
+      <Button onClick={() => putData()}>확 인</Button>
     </Wrapper>
   );
 }
+const Wrapper = styled.div``;
+const Button = styled.button`
+  ${`width: calc(100% - 32px)`};
+  height: 46px;
+  background-color: ${colors.COMMON};
+  border-radius: 13px;
 
-const Wrapper = styled.form`
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+
+  font-size: 1.6rem;
+  font-weight: 700;
+  transform: translate(-50%, 0);
+
+  color: ${colors.WHITE};
+`;
+const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px 10px;
@@ -78,8 +100,8 @@ const CheckBoxInput = styled.input`
   border: 0;
 
   &:checked + label {
-    background-color: ${colors.common};
-    color: ${colors.white};
+    background-color: ${colors.COMMON};
+    color: ${colors.WHITE};
   }
 `;
 const CheckBoxLabel = styled(Tag)``;

@@ -1,21 +1,26 @@
-const colors = { 
-  common: "#A68968",
-  cheonAn: "#2C8E9A",
-  sinGwan: "#E85239",
-  yeSan: "#E2981E",
+const colors = {
+  COMMON: "#A68968",
+  CHEONAN: "#2C8E9A",
+  SINGWAN: "#E85239",
+  YESAN: "#E2981E",
 
-  gray50: "#FAFAFA",
-  gray80: "#EDEDED",
-  gray100: "#E2E2E2",
-  gray200: "#D1D3D2",
-  gray300: "#BDBDBD",
-  gray350: "#AFAFAF",
-  gray400: "#8A8A8A",
-  gray500: "#666666",
+  GRAY50: "#FAFAFA",
+  GRAY80: "#EDEDED",
+  GRAY100: "#E2E2E2",
+  GRAY200: "#D1D3D2",
+  GRAY300: "#BDBDBD",
+  GRAY350: "#AFAFAF",
+  GRAY400: "#8A8A8A",
+  GRAY500: "#666666",
 
-  white: "#FFFFFF",
-  black: "#403E3F",
-  shadow: "rgba(0, 0, 0, 0.05)"
-}
-
+  WHITE: "#FFFFFF",
+  BLACK: "#403E3F",
+  SHADOW: "rgba(0, 0, 0, 0.05)",
+};
 export default colors;
+
+export let campusColors = {
+  천안캠: "#2C8E9A",
+  신관캠: "#E85239",
+  예산캠: "#E2981E",
+};

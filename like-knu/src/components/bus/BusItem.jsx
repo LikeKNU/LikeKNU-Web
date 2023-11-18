@@ -1,31 +1,30 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 import React from "react";
 import colors from "../../constants/colors";
 
-export function BusItem({routeCount, campus}) {
+export function BusItem({ routeCount, campus }) {
   const calAreaHeight = () => {
-    return (12 * routeCount) + (18 * (routeCount - 1));
-  }
+    return 12 * routeCount + 18 * (routeCount - 1);
+  };
   return (
     <Wrapper $height={calAreaHeight() + "px"}>
       <div className="marker_area">
-        {
-          Array(routeCount).fill(0).map((_, index) => (
+        {Array(routeCount)
+          .fill(0)
+          .map((_, index) => (
             <Circle key={index} $campus={campus}></Circle>
-          ))
-        }
-        <Line $campus={campus}/>
+          ))}
+        <Line $campus={campus} />
       </div>
       <div className="text_area">
-        {
-          Array(routeCount).fill(0).map((_, index) => (
+        {Array(routeCount)
+          .fill(0)
+          .map((_, index) => (
             <div key={index}>뭐지 </div>
-          ))
-        }
+          ))}
       </div>
-
     </Wrapper>
-  )
+  );
 }
 
 const Wrapper = styled.div`
@@ -51,53 +50,53 @@ const Wrapper = styled.div`
     position: relative;
     height: ${(props) => props.$height};
   }
-`
+`;
 const Circle = styled.div`
   ${(props) => {
     switch (props.$campus) {
       case "천안캠":
         return css`
-          border: 3px solid ${colors.cheonAn};
-        `
+          border: 3px solid ${colors.CHEONAN};
+        `;
       case "신관캠":
         return css`
-          border: 3px solid ${colors.sinGwan};
-        `
+          border: 3px solid ${colors.SINGWAN};
+        `;
       case "예산캠":
         return css`
-          border: 3px solid ${colors.yeSan};
-        `
+          border: 3px solid ${colors.YESAN};
+        `;
       default:
         return css`
-          border: 3px solid ${colors.common};
-        `
+          border: 3px solid ${colors.COMMON};
+        `;
     }
   }}
   width: 12px;
   height: 12px;
   border-radius: 50%;
   box-sizing: border-box;
-  background-color: #FFF;
-`
+  background-color: #fff;
+`;
 const Line = styled.div`
   ${(props) => {
     switch (props.$campus) {
       case "천안캠":
         return css`
-          background-color: ${colors.cheonAn};
-        `
+          background-color: ${colors.CHEONAN};
+        `;
       case "신관캠":
         return css`
-          background-color: ${colors.sinGwan};
-        `
+          background-color: ${colors.SINGWAN};
+        `;
       case "예산캠":
         return css`
-          background-color: ${colors.yeSan};
-        `
+          background-color: ${colors.YESAN};
+        `;
       default:
         return css`
-          background-color: ${colors.common};
-        `
+          background-color: ${colors.COMMON};
+        `;
     }
   }}
   height: inherit;
@@ -106,4 +105,4 @@ const Line = styled.div`
   left: 50%;
   transform: translate(-50%, 0);
   z-index: -1;
-`
+`;

@@ -1,13 +1,13 @@
 import PageLayout from "layouts/PageLayout";
 import PageContainer from "layouts/PageContainer";
-import {Header, PageHeader} from "../components/styles/PageHeader";
-import {TabItem, TabList} from "../components/styles/Tab";
-import {apiNoticeTabList, noticeTab} from "../constants/tabName";
-import {useEffect, useState} from "react";
-import {notice} from "../api/notice";
+import { Header, PageHeader } from "../components/styles/PageHeader";
+import { TabItem, TabList } from "../components/styles/Tab";
+import { apiNoticeTabList, noticeTab } from "../constants/tabName";
+import { useEffect, useState } from "react";
+import { notice } from "../api/notice";
 import styled from "styled-components";
 import colors from "../constants/colors";
-import {getCampus} from "../utils/DeviceManageUtil";
+import { getCampus } from "../utils/DeviceManageUtil";
 import NoticePagination from "../components/notice/NoticePagination";
 import Campus from "../constants/campus";
 import ListItem from "../components/ListItem";
@@ -26,7 +26,7 @@ export default function NoticePage() {
     const res = await notice(campus, category, page);
     setNotices(res.body);
     setTotalElements(res.page.totalElements);
-  }
+  };
 
   useEffect(() => {
     console.log(currentPage);
@@ -42,29 +42,34 @@ export default function NoticePage() {
       <Header>
         <PageHeader>공지사항</PageHeader>
         <TabList>
-          {
-            noticeTab.map((name, index) => (
-              <TabItem key={index} onClick={() => setCategory(index)}
-                       className={category === index ? "active" : null}>{name}</TabItem>
-            ))
-          }
+          {noticeTab.map((name, index) => (
+            <TabItem
+              key={index}
+              onClick={() => setCategory(index)}
+              className={category === index ? "active" : null}
+            >
+              {name}
+            </TabItem>
+          ))}
         </TabList>
       </Header>
       <PageContainer>
-        {
-          notices.map((notice) => (
-            <ListItem
-              head={notice.announcementTag}
-              subHead={notice.announcementDate}
-              body={notice.announcementTitle}
-              url={notice.announcementUrl}
-            ></ListItem>
-          ))
-        }
-        <NoticePagination totalElements={totalElements} currentPage={currentPage} setPage={setCurrentPage}/>
+        {notices.map((notice) => (
+          <ListItem
+            head={notice.announcementTag}
+            subHead={notice.announcementDate}
+            body={notice.announcementTitle}
+            url={notice.announcementUrl}
+          ></ListItem>
+        ))}
+        <NoticePagination
+          totalElements={totalElements}
+          currentPage={currentPage}
+          setPage={setCurrentPage}
+        />
       </PageContainer>
     </PageLayout>
-  )
+  );
 }
 
 const Content = styled.a`
@@ -72,17 +77,17 @@ const Content = styled.a`
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 24px;
-`
+`;
 const Detail = styled.div`
-  color: ${colors.gray350};
+  color: ${colors.GRAY350};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 1.1rem;
   margin-bottom: 4px;
-`
+`;
 
 const Title = styled.span`
   font-size: 1.3rem;
-  color: ${colors.black};
-`
+  color: ${colors.BLACK};
+`;

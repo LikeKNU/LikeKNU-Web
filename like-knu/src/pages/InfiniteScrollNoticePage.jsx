@@ -1,17 +1,16 @@
 import PageLayout from "layouts/PageLayout";
 import PageContainer from "layouts/PageContainer";
-import {Header, PageHeader} from "../components/styles/PageHeader";
-import {TabItem, TabList} from "../components/styles/Tab";
-import {apiNoticeTabList, noticeTab} from "../constants/tabName";
-import {useEffect, useState} from "react";
-import {notice} from "../api/notice";
-import InfiniteScroll from 'react-infinite-scroll-component';
-import {getCampus} from "../utils/DeviceManageUtil";
+import { Header, PageHeader } from "../components/styles/PageHeader";
+import { TabItem, TabList } from "../components/styles/Tab";
+import { apiNoticeTabList, noticeTab } from "../constants/tabName";
+import { useEffect, useState } from "react";
+import { notice } from "../api/notice";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { getCampus } from "../utils/DeviceManageUtil";
 import Campus from "../constants/campus";
 import ListItem from "../components/ListItem";
 
 export default function InfiniteScrollNoticePage() {
-
   const [notices, setNotices] = useState([]);
   const [category, setCategory] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -26,7 +25,7 @@ export default function InfiniteScrollNoticePage() {
     const res = await notice(campus, category);
     setNotices(res.body);
     setTotalPages(res.page.totalPages);
-  }
+  };
 
   const fetchData = async () => {
     if (notices.length === 0) {
@@ -42,7 +41,7 @@ export default function InfiniteScrollNoticePage() {
     const res = await notice(campus, apiNoticeTabList[category], currentPage);
     setNotices(notices.concat(res.body));
     setCurrentPage(currentPage + 1);
-  }
+  };
 
   useEffect(() => {
     setNotices([]);
@@ -56,35 +55,37 @@ export default function InfiniteScrollNoticePage() {
       <Header>
         <PageHeader>공지사항</PageHeader>
         <TabList>
-          {
-            noticeTab.map((name, index) => (
-              <TabItem key={index} onClick={() => setCategory(index)}
-                       className={category === index ? "active" : null}>{name}</TabItem>
-            ))
-          }
+          {noticeTab.map((name, index) => (
+            <TabItem
+              key={index}
+              onClick={() => setCategory(index)}
+              className={category === index ? "active" : null}
+            >
+              {name}
+            </TabItem>
+          ))}
         </TabList>
       </Header>
       <PageContainer>
-        {
-          notices.map((notice, index) => (
-            <ListItem
-              head={notice.announcementTag}
-              subHead={notice.announcementDate}
-              body={notice.announcementTitle}
-              url={notice.announcementUrl}
-            ></ListItem>
-          ))
-        }
+        {notices.map((notice, index) => (
+          <ListItem
+            head={notice.announcementTag}
+            subHead={notice.announcementDate}
+            body={notice.announcementTitle}
+            url={notice.announcementUrl}
+          ></ListItem>
+        ))}
         <InfiniteScroll
           dataLength={notices.length} // 페이지 당 개수
           next={fetchData} // 스크롤 하단에 도달한 경우 호출할 함수
           hasMore={hasMore} // 추가 데이터 여부
-          loader={ // 로딩 메시지
+          loader={
+            // 로딩 메시지
             <div>불러오는 중..</div>
           }
           scrollThreshold={0.9}
         />
       </PageContainer>
     </PageLayout>
-  )
+  );
 }

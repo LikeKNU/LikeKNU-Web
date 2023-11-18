@@ -1,31 +1,28 @@
-import React, {useEffect, useState} from 'react';
-import logo from './logo.svg';
-import './App.css';
-import {BrowserRouter, Routes, Route, useLocation} from "react-router-dom";
-import MainPage from 'pages/MainPage';
-import NoticePage from 'pages/NoticePage';
-import CalendarPage from 'pages/CalendarPage';
-import Test from 'pages/Test';
-import BusPage from 'pages/BusPage';
-import MenuPage from 'pages/MenuPage';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import { Routes, Route, useLocation } from "react-router-dom";
+import MainPage from "pages/MainPage";
+import CalendarPage from "pages/CalendarPage";
+import Test from "pages/Test";
+import BusPage from "pages/BusPage";
+import MenuPage from "pages/MenuPage";
 import SettingPage from "./pages/SettingPage";
-import InfiniteScroll from "react-infinite-scroll-component";
 import InfiniteScrollNoticePage from "./pages/InfiniteScrollNoticePage";
 import BottomNav from "./components/globals/BottomNav";
 import NotificationPage from "./pages/NotificationPage";
 import SettingNotificationPage from "./pages/SettingNotificationPage";
 import SettingAboutPage from "./pages/SettingAboutPage";
 
-
 function App() {
-
   const location = useLocation();
   const [isBottomBar, setIsBottomBar] = useState(true);
   useEffect(() => {
-    if(location.pathname.includes("/setting") || location.pathname === "/notification") {
+    if (
+      location.pathname.includes("/setting") ||
+      location.pathname === "/notification"
+    ) {
       setIsBottomBar(false);
-    }
-    else {
+    } else {
       setIsBottomBar(true);
     }
   }, [location]);
@@ -39,18 +36,18 @@ function App() {
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/setting" element={<SettingPage />} />
-        <Route path="/setting/notificationTag" element={<SettingNotificationPage />} />
+        <Route
+          path="/setting/notificationTag"
+          element={<SettingNotificationPage />}
+        />
         <Route path="/setting/about" element={<SettingAboutPage />} />
         <Route path="/notification" element={<NotificationPage />} />
         <Route path="*" element={<Test />} />
       </Routes>
-      {
-        isBottomBar && <BottomNav />
-
-      }
+      {isBottomBar && <BottomNav />}
     </>
 
-  // <div className="App">
+    // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
     //     <p>

@@ -5,4 +5,4 @@ export default styled.div`
   padding-top: 140px;
   margin-bottom: 300px;
   display: grid;
-`
+`;
