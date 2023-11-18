@@ -13,7 +13,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
-export async function requestPermission() {
+export async function requestNotificationPermission() {
   const permission = await Notification.requestPermission();
   if (permission === "denied") {
     console.log("알림 권한 허용 안됨");

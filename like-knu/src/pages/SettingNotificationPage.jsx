@@ -8,6 +8,7 @@ import { ToggleSwitch } from "../components/setting/ToggleSwitch";
 import {useEffect, useState} from "react";
 import {changeTurnOnNotification, isTurnOnNotification, updateNotificationToken} from "../api/device";
 import {getDeviceId} from "../utils/DeviceManageUtil";
+import {requestNotificationPermission} from "../firebaseCloudMessaging";
 
 export default function SettingNotificationPage() {
   const [isTurnOn, setIsTurnOn] = useState(false);
@@ -19,6 +20,9 @@ export default function SettingNotificationPage() {
 
   const changeDeviceNotification =  () => {
     changeTurnOnNotification(!isTurnOn);
+    if (!isTurnOn) {
+      requestNotificationPermission();
+    }
     setIsTurnOn(!isTurnOn);
   }
 
