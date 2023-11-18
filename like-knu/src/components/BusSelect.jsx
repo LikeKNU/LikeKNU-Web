@@ -1,14 +1,14 @@
 import colors from "../constants/colors";
 import Select from "react-select";
 
-function BusSelect({ options, value, label, a }) {
+function BusSelect({ options, value, label }) {
   return (
     <Select
-      defaultValue={options[0]}
-      options={options}
-      isSearchable={false}
       getOptionValue={(option) => `${option[value]}`}
       getOptionLabel={(option) => `${option[label]}`}
+      options={options}
+      isSearchable={false}
+      placeholder={"고르던가말던가"}
       theme={(theme) => ({
         ...theme,
         colors: {
@@ -16,6 +16,7 @@ function BusSelect({ options, value, label, a }) {
           primary: colors.COMMON,
           primary50: colors.GRAY100,
           primary75: "black",
+          primary25: colors.WHITE,
         },
       })}
       styles={SelectStyle}

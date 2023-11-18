@@ -3,6 +3,7 @@ import { BusDestination } from "./BusDestination";
 import { useState } from "react";
 import PageContainer from "../../layouts/PageContainer";
 import GlobalColor from "../styles/globalColor";
+import BusRefreshBtn from "../BusRefreshBtn";
 const school = ["학교로 출발", "학교로 도착"];
 
 function CityBus() {
@@ -20,6 +21,7 @@ function CityBus() {
             {text}
           </BusDestination>
         ))}
+        <BusRefreshBtn></BusRefreshBtn>
       </BusDestinationArea>
     </Wrapper>
   );
