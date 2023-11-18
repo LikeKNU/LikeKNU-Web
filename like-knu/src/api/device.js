@@ -8,13 +8,13 @@ import {getDeviceId} from "../utils/DeviceManageUtil";
 export const checkDeviceRegistration = async () => {
   try {
     let deviceId = getDeviceId();
-    let response = await instance.get("/api/devices", {
+    let { data } = await instance.get("/api/devices", {
       params: {
         deviceId: deviceId
       }
     });
 
-    let body = extractBodyFromResponse(response);
+    let body = extractBodyFromResponse(data);
     return body.deviceRegistration;
   } catch (error) {
     console.log(error);
@@ -27,11 +27,11 @@ export const checkDeviceRegistration = async () => {
  */
 export const registerDevice = async (deviceId) => {
   try {
-    let response = await instance.post("/api/devices", {
+    let { data } = await instance.post("/api/devices", {
       deviceId: deviceId
     });
 
-    let message = extractMessageFromResponse(response);
+    let message = extractMessageFromResponse(data);
     console.log(message);
   } catch (error) {
     console.log(error);
@@ -45,12 +45,12 @@ export const registerDevice = async (deviceId) => {
  */
 export const setDeviceCampus = async (campus) => {
   try {
-    let response = await instance.put("/api/devices/campus", {
+    let { data } = await instance.put("/api/devices/campus", {
       deviceId: getDeviceId(),
       campus: campus
     });
 
-    let message = extractMessageFromResponse(response);
+    let message = extractMessageFromResponse(data);
     console.log(message);
   } catch (error) {
     console.log(error);
@@ -59,12 +59,12 @@ export const setDeviceCampus = async (campus) => {
 
 export const updateNotificationToken = async (token) => {
   try {
-    let response = await instance.post("/api/devices/token", {
+    let { data } = await instance.post("/api/devices/token", {
       deviceId: getDeviceId(),
       token: token
     });
 
-    let message = extractMessageFromResponse(response);
+    let message = extractMessageFromResponse(data);
     console.log(message);
   } catch (error) {
     console.log(error);
@@ -73,13 +73,13 @@ export const updateNotificationToken = async (token) => {
 
 export const isTurnOnNotification = async () => {
   try {
-    let response = await instance.get("/api/devices/notifications", {
+    let { data } = await instance.get("/api/devices/notifications", {
       params: {
         deviceId: getDeviceId()
       }
     });
 
-    let body = extractBodyFromResponse(response);
+    let body = extractBodyFromResponse(data);
     return body.turnOn;
   } catch (error) {
     console.log(error);
@@ -88,12 +88,12 @@ export const isTurnOnNotification = async () => {
 
 export const changeTurnOnNotification = async (isTurnOn) => {
   try {
-    let response = await instance.put("/api/devices/notifications", {
+    let { data } = await instance.put("/api/devices/notifications", {
       deviceId: getDeviceId(),
       notification: isTurnOn
     });
 
-    let message = extractMessageFromResponse(response);
+    let message = extractMessageFromResponse(data);
     console.log(message);
   } catch (error) {
     console.log(error);

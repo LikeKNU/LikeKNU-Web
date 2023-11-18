@@ -37,7 +37,12 @@ export default function SettingNotificationPage() {
         <Content>
           <Notification>
             <Title>공지사항 알림</Title>
-            <ToggleSwitch width={"54px"} height={"28px"} area={"22px"} isTurnOn={isTurnOn} changeHandler={changeDeviceNotification} />
+            <ToggleSwitch
+              width={"54px"}
+              height={"28px"}
+              area={"22px"}
+              isTurnOn={isTurnOn}
+              changeHandler={changeDeviceNotification} />
           </Notification>
           <Tag>
             <Title>공지사항 태그</Title>

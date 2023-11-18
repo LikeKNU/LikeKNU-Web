@@ -1,4 +1,5 @@
 import instance from "./api";
+
 const baseURL = "/api/devices/subscribes";
 
 export const putTag = async (data) => {
