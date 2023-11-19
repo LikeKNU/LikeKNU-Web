@@ -64,5 +64,5 @@ const Title = styled.div`
 `;
 const BusList = styled.div`
   display: grid;
-  grid-row-gap: 1.2rem;
+  //grid-row-gap: 1.2rem;
 `;

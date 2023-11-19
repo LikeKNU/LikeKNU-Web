@@ -2,10 +2,10 @@ import styled from "styled-components";
 import colors from "constants/colors";
 import { ReactComponent as ArrowIcon } from "assets/icon/Arrow right alt.svg";
 import { ReactComponent as BusIcon } from "assets/icon/directions_bus_black_24dp.svg";
+import { CityBusListItem } from "../bus/CityBusListItem";
 
 export default function MainBusItem(props) {
   const { bus } = props;
-  const busColor = "#" + bus.busColor;
   return (
     <div>
       <Title>
@@ -13,11 +13,11 @@ export default function MainBusItem(props) {
         <StyledArrow />
         <Text>{bus.destination}</Text>
       </Title>
-      <RowArea>
-        <BusIcon fill={busColor} />
-        <BoldText $margin="0 3rem 0 1.2rem">{bus.busNumber}</BoldText>
-        <LightText>{bus.remainingTime}</LightText>
-      </RowArea>
+      <CityBusListItem
+        busColor={bus.busColor}
+        busNumber={bus.busNumber}
+        remainingTime={bus.remainingTime}
+      />
     </div>
   );
 }
@@ -35,19 +35,4 @@ const Text = styled.div`
 `;
 const StyledArrow = styled(ArrowIcon)`
   margin: 0 1rem;
-`;
-const RowArea = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-const BoldText = styled(Text)`
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin: ${(props) => props.$margin};
-`;
-const LightText = styled.div`
-  color: ${colors.GRAY500};
-  font-size: 1.3rem;
-  font-weight: 400;
 `;

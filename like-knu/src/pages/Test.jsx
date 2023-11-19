@@ -14,6 +14,7 @@ import { TabItem } from "../components/styles/Tab";
 import TagList from "../components/setting/TagList";
 import { ToggleSwitch } from "../components/setting/ToggleSwitch";
 import BusSelect from "../components/BusSelect";
+import BusList from "../components/bus/BusList";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
