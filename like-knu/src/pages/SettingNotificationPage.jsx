@@ -18,10 +18,11 @@ export default function SettingNotificationPage() {
     setIsTurnOn(turnOn);
   }
 
-  const changeDeviceNotification =  () => {
+  const changeDeviceNotification =  async () => {
     changeTurnOnNotification(!isTurnOn);
     if (!isTurnOn) {
-      requestNotificationPermission();
+      let token = await requestNotificationPermission();
+      updateNotificationToken(token);
     }
     setIsTurnOn(!isTurnOn);
   }
