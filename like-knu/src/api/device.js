@@ -44,6 +44,7 @@ export const registerDevice = async (deviceId) => {
  * @param campus 기기에 설정된 캠퍼스
  */
 export const setDeviceCampus = async (campus) => {
+  console.log(campus);
   try {
     let { data } = await instance.put("/api/devices/campus", {
       deviceId: getDeviceId(),

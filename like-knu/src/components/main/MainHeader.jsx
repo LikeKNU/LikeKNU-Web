@@ -31,9 +31,6 @@ export default function MainHeader() {
   const changeCampus = (campus) => {
     setCampusName(campus);
     GlobalColor.setColor();
-    const keys = Object.keys(Campus);
-    let selectCampus = keys.find((key) => Campus[key] === campus);
-    setDeviceCampus(selectCampus);
   };
 
   const goNotification = () => {
