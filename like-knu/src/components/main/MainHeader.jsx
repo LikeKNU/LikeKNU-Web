@@ -9,27 +9,9 @@ import { ReactComponent as SettingIcon } from "assets/icon/gear-fill.svg";
 import { useNavigate } from "react-router-dom";
 import GlobalColor from "../styles/globalColor";
 
-export default function MainHeader() {
+export default function MainHeader({ setSelectCampus }) {
   const [view, setView] = useState(false);
-  const [campusName, setCampusName] = useState(getCampus);
-  const today = new Date();
-  const week = [
-    "일요일",
-    "월요일",
-    "화요일",
-    "수요일",
-    "목요일",
-    "금요일",
-    "토요일",
-  ];
-  const formattedDate = `${today.getMonth() + 1}월 ${today.getDate()}일 ${
-    week[today.getDay()]
-  }`;
   const navigate = useNavigate();
-  const changeCampus = (campus) => {
-    setCampusName(campus);
-    GlobalColor.setColor();
-  };
 
   const goNotification = () => {
     console.log("푸시알림 이동!!");
@@ -49,11 +31,11 @@ export default function MainHeader() {
           setView(!view);
         }}
       >
-        <Title $campus={GlobalColor.getColor()}>{campusName}</Title>
-        {view && <DropDown changeCampus={changeCampus} />}
+        <Title $campus={GlobalColor.getColor()}>{getCampus()}</Title>
+        {view && <DropDown setSelectCampus={setSelectCampus} />}
         <DownIcon fill={colors.BLACK} />
       </CampusList>
-      <DateText>{formattedDate}</DateText>
+      <Message>✨915에 망령은 존재한다 ✨</Message>
       <IconList>
         <StyledNotification onClick={goNotification} />
         <StyledSetting onClick={goSetting} />
@@ -92,7 +74,7 @@ const Title = styled.div`
   margin-right: 4px;
   color: ${(props) => props.$campus};
 `;
-const DateText = styled.div`
+const Message = styled.div`
   color: ${colors.GRAY400};
   font-size: 1.4rem;
   font-weight: 600;

@@ -3,9 +3,8 @@ import { PageHeader, Header } from "components/styles/PageHeader";
 import { busTab, apiBusTabList } from "../constants/tabName";
 import { TabList, TabItem } from "../components/styles/Tab";
 import { useEffect, useState } from "react";
-import { cityBusesRoutes } from "../api/bus";
 import { getCampus } from "../utils/DeviceManageUtil";
-import Campus from "../constants/campus";
+import { Campus } from "../constants/campus";
 import CityBus from "../components/bus/CityBus";
 import Shuttle from "../components/bus/Shuttle";
 export default function BusPage() {

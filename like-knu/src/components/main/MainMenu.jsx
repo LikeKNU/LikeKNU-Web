@@ -11,12 +11,12 @@ import "swiper/css/navigation";
 import { useNavigate, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import GlobalColor from "../styles/globalColor";
-export default function MainMenu() {
+import { CampusEng } from "../../constants/campus";
+export default function MainMenu({ selectCampus }) {
   const [cafeteria, setCafeteria] = useState([]);
   const navigate = useNavigate();
-  const campus = useParams();
   const getCafeteria = async () => {
-    const res = await menuMain(campus.campus);
+    const res = await menuMain(CampusEng[selectCampus]);
     setCafeteria(res);
   };
 
@@ -26,7 +26,7 @@ export default function MainMenu() {
   };
   useEffect(() => {
     getCafeteria();
-  }, [campus]);
+  }, [selectCampus]);
   return (
     <MenuContainer>
       <SwiperContainer

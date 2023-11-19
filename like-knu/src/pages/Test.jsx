@@ -7,7 +7,7 @@ import { BusItem } from "../components/bus/BusItem";
 import Select from "react-select";
 import { cityBusesRoutes } from "../api/bus";
 import { getCampus } from "../utils/DeviceManageUtil";
-import Campus from "../constants/campus";
+import { Campus } from "../constants/campus";
 import Modal from "react-modal";
 import { BackHeader } from "../components/BackHeader";
 import { TabItem } from "../components/styles/Tab";

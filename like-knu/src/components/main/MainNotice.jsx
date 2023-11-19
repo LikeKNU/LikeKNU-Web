@@ -4,23 +4,24 @@ import { noticeMain } from "api/main";
 import colors from "constants/colors";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { CampusEng } from "../../constants/campus";
 
-export default function MainNotice() {
+export default function MainNotice({ selectCampus }) {
   const [notices, setNotices] = useState([]);
   const navigate = useNavigate();
-  const campus = useParams();
+  // const campus = useParams();
   const goNotice = () => {
     console.log("공지사항으로 이동!!");
     navigate(`/notice/`);
   };
   const getNotices = async () => {
-    const res = await noticeMain(campus.campus);
+    const res = await noticeMain(CampusEng[selectCampus]);
     setNotices(res);
   };
 
   useEffect(() => {
     getNotices();
-  }, [campus]);
+  }, [selectCampus]);
 
   return (
     <NoticeContainer>

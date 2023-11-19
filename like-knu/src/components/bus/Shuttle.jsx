@@ -4,7 +4,7 @@ import PageContainer from "../../layouts/PageContainer";
 import { useEffect, useState } from "react";
 import { shuttleBuses, shuttleBusesRoutes } from "../../api/bus";
 import { getCampus } from "../../utils/DeviceManageUtil";
-import Campus from "../../constants/campus";
+import { Campus } from "../../constants/campus";
 import { BusItem } from "./BusItem";
 import colors from "../../constants/colors";
 

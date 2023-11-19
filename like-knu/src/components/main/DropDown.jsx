@@ -1,35 +1,28 @@
 import styled from "styled-components";
-import Campus from "constants/campus";
+import { Campus } from "constants/campus";
 import colors from "constants/colors";
 import { getCampus, setCampus } from "utils/DeviceManageUtil";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-export default function DropDown({ changeCampus, campusName }) {
+export default function DropDown({ setSelectCampus }) {
   // 이름 클릭시, 캠퍼스 세팅
   const setCampusHandler = (e) => {
+    setSelectCampus(e.target.textContent);
     setCampus(e.target.textContent);
-    changeCampus(getCampus);
+    console.log("ddd");
   };
-  const campus = useParams();
-  console.log(campus);
   return (
     <Wrapper>
       <CampusItem>
-        <StyledLink to={`/main/SINGWAN`} onClick={setCampusHandler}>
-          {Campus.SINGWAN}
-        </StyledLink>
+        <div onClick={setCampusHandler}>{Campus.SINGWAN}</div>
       </CampusItem>
       <Line />
       <CampusItem>
-        <StyledLink to={`/main/CHEONAN`} onClick={setCampusHandler}>
-          {Campus.CHEONAN}
-        </StyledLink>
+        <div onClick={setCampusHandler}>{Campus.CHEONAN}</div>
       </CampusItem>
       <Line />
       <CampusItem>
-        <StyledLink to={`/main/YESAN`} onClick={setCampusHandler}>
-          {Campus.YESAN}
-        </StyledLink>
+        <div onClick={setCampusHandler}>{Campus.YESAN}</div>
       </CampusItem>
     </Wrapper>
   );

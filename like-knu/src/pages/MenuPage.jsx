@@ -4,7 +4,7 @@ import PageContainer from "../layouts/PageContainer";
 import {getCampus} from "../utils/DeviceManageUtil";
 import {TabItem, TabList} from "../components/styles/Tab";
 import {useEffect, useState} from "react";
-import Campus from "../constants/campus";
+import { Campus } from "../constants/campus";
 import {menu} from "../api/menu";
 import {MenuListItem} from "../components/menu/MenuListItem";
 
