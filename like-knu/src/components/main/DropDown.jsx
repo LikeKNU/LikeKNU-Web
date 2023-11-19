@@ -4,11 +4,16 @@ import colors from "constants/colors";
 import { getCampus, setCampus } from "utils/DeviceManageUtil";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import {setDeviceCampus} from "../../api/device";
 export default function DropDown({ changeCampus, campusName }) {
   // 이름 클릭시, 캠퍼스 세팅
   const setCampusHandler = (e) => {
     setCampus(e.target.textContent);
-    changeCampus(getCampus);
+    let selectedCampus = getCampus();
+    changeCampus(selectedCampus);
+    const keys = Object.keys(Campus);
+    let selectCampus = keys.find((key) => Campus[key] === selectedCampus);
+    setDeviceCampus(selectCampus);
   };
   const campus = useParams();
   console.log(campus);

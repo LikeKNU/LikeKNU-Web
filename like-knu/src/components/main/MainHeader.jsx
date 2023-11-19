@@ -8,6 +8,8 @@ import { ReactComponent as NotificationIcon } from "assets/icon/bell-fill.svg";
 import { ReactComponent as SettingIcon } from "assets/icon/gear-fill.svg";
 import { useNavigate } from "react-router-dom";
 import GlobalColor from "../styles/globalColor";
+import Campus from "../../constants/campus";
+import {setDeviceCampus} from "../../api/device";
 
 export default function MainHeader() {
   const [view, setView] = useState(false);

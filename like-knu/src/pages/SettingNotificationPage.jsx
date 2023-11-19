@@ -5,8 +5,32 @@ import PageContainer from "../layouts/PageContainer";
 import TagList from "../components/setting/TagList";
 import colors from "../constants/colors";
 import { ToggleSwitch } from "../components/setting/ToggleSwitch";
+import {useEffect, useState} from "react";
+import {changeTurnOnNotification, isTurnOnNotification, updateNotificationToken} from "../api/device";
+import {getDeviceId} from "../utils/DeviceManageUtil";
+import {requestNotificationPermission} from "../firebaseCloudMessaging";
 
 export default function SettingNotificationPage() {
+  const [isTurnOn, setIsTurnOn] = useState(false);
+
+  const getDeviceTurnOnNotification = async () => {
+    let turnOn = await isTurnOnNotification();
+    setIsTurnOn(turnOn);
+  }
+
+  const changeDeviceNotification =  async () => {
+    changeTurnOnNotification(!isTurnOn);
+    if (!isTurnOn) {
+      let token = await requestNotificationPermission();
+      updateNotificationToken(token);
+    }
+    setIsTurnOn(!isTurnOn);
+  }
+
+  useEffect(() => {
+    getDeviceTurnOnNotification();
+  }, []);
+
   return (
     <PageLayout>
       <BackHeader Title={"공지사항 알림 구독"} />
@@ -14,7 +38,12 @@ export default function SettingNotificationPage() {
         <Content>
           <Notification>
             <Title>공지사항 알림</Title>
-            <ToggleSwitch width={"54px"} height={"28px"} area={"22px"} />
+            <ToggleSwitch
+              width={"54px"}
+              height={"28px"}
+              area={"22px"}
+              isTurnOn={isTurnOn}
+              changeHandler={changeDeviceNotification} />
           </Notification>
           <Tag>
             <Title>공지사항 태그</Title>
