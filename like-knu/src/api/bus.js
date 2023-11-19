@@ -12,3 +12,8 @@ export const shuttleBusesRoutes = async (campus) => {
   console.log(data.data.body);
   return extractBodyFromResponse(data);
 };
+export const shuttleBuses = async (shuttleId) => {
+  const { data } = await instance.get(`${baseURL}/shuttle-bus/${shuttleId}`);
+  console.log(data.data.body);
+  return extractBodyFromResponse(data);
+};
