@@ -5,11 +5,11 @@ import Campus from "../constants/campus";
 export const initializeDevice = () => {
   let deviceId = getDeviceId();
   if (deviceId === null) {
-    let newDeviceId = generateAndSaveNewDeviceId();
-    registerDevice(newDeviceId)
-      .then(() => {
-      });
+    deviceId = generateAndSaveNewDeviceId();
   }
+  registerDevice(deviceId)
+    .then(() => {
+    });
 
   let campus = getCampus();
   if (campus === null || campus === undefined) {
