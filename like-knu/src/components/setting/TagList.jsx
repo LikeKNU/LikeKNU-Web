@@ -101,7 +101,7 @@ const Button = styled.button`
 const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px 10px;
+  gap: 16px 12px;
 `;
 const CheckBoxInput = styled.input`
   position: absolute;
