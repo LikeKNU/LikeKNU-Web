@@ -2,9 +2,10 @@ import styled from "styled-components";
 import { ReactComponent as RefreshIcon } from "assets/icon/refresh_black_24dp.svg";
 import colors from "constants/colors";
 
-export default function BusRefreshBtn() {
+export default function BusRefreshBtn({ getBuses }) {
   const refreshHandler = () => {
     console.log("새로고칠까말까");
+    getBuses();
   };
 
   return (

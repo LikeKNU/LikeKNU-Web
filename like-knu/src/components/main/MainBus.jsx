@@ -11,6 +11,10 @@ import { CampusEng } from "../../constants/campus";
 export default function MainBus({ selectCampus }) {
   const [buses, setBuses] = useState([]);
   const navigate = useNavigate();
+  const today = new Date();
+  const formattedDate = `${today.getHours()}:${String(
+    today.getMinutes(),
+  ).padStart(2, "0")} 기준`;
   const getBuses = async () => {
     const res = await busMain(CampusEng[selectCampus]);
     setBuses(res);
@@ -27,7 +31,8 @@ export default function MainBus({ selectCampus }) {
     <BusContainer>
       <Row>
         <Title onClick={goBus}>버스</Title>
-        <BusRefreshBtn></BusRefreshBtn>
+        <RefreshTime>{formattedDate}</RefreshTime>
+        <BusRefreshBtn getBuses={getBuses}></BusRefreshBtn>
       </Row>
       <BusList>
         {buses.map((bus) => (
@@ -37,6 +42,13 @@ export default function MainBus({ selectCampus }) {
     </BusContainer>
   );
 }
+const RefreshTime = styled.div`
+  color: ${colors.GRAY350};
+  font-size: 1.2rem;
+  margin-right: 10px;
+  width: 20%;
+`;
+
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -52,7 +64,7 @@ const Title = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  width: 80%;
+  width: 70%;
   padding-top: 16px;
 `;
 const BusList = styled.div`
