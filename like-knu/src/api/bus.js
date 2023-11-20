@@ -1,13 +1,19 @@
 import instance from "./api";
+import { extractBodyFromResponse } from "./apiUtility";
 
 const baseURL = "/api/buses";
 
-export const cityBusesRoutes = async (campus, category) => {
-  const {data} = await instance.get(`${baseURL}/${category}/routes`, {
+export const shuttleBusesRoutes = async (campus) => {
+  const { data } = await instance.get(`${baseURL}/shuttle-bus/routes`, {
     params: {
       campus: campus,
-    }
+    },
   });
   console.log(data.data.body);
-  return data.data.body;
-}
+  return extractBodyFromResponse(data);
+};
+export const shuttleBuses = async (shuttleId) => {
+  const { data } = await instance.get(`${baseURL}/shuttle-bus/${shuttleId}`);
+  console.log(data.data.body);
+  return extractBodyFromResponse(data);
+};

@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { ReactComponent as RefreshIcon } from "assets/icon/refresh_black_24dp.svg";
 import colors from "constants/colors";
 
@@ -14,9 +14,6 @@ export default function BusRefreshBtn() {
   );
 }
 const Wrapper = styled.button`
-  position: absolute;
-  right: 32px;
-  top: 256px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -26,25 +23,9 @@ const Wrapper = styled.button`
   justify-content: center;
   align-items: center;
 `;
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
 
-  to {
-    transform: rotate(360deg);
-  }
-`;
 const StyledRefresh = styled(RefreshIcon)`
   width: 18px;
   height: 18px;
   fill: ${colors.GRAY500};
-  // // &:active {
-  // //   animation: ${rotate} 1s linear forward;
-  // //   // animation-iteration-count: 2;
-  // // }
-  // transition: all ease 1s;
-  // &:active {
-  //   transform: rotate(90deg);
-  // }
 `;

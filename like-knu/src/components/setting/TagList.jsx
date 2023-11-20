@@ -1,15 +1,12 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TAGNAME from "../../constants/tagName";
-import { putTag } from "../../api/tag";
+import { putTag, tags } from "../../api/tag";
 import colors from "../../constants/colors";
 import Tag from "../styles/Tag";
-import {getDeviceId} from "../../utils/DeviceManageUtil";
+import { getDeviceId } from "../../utils/DeviceManageUtil";
 
-// const data = {
-//   deviceId: Id,
-//   Tags: [{ tag: "jcw" }],
-// };
+// const Id = "test";
 export default function TagList() {
   const [checkedList, setCheckedList] = useState([]);
   const [isChecked, setIstChecked] = useState(false);
@@ -19,9 +16,26 @@ export default function TagList() {
     checkedList.forEach((tagName) => {
       tags.push({ tag: tagName });
     });
-    await putTag(tags);
+    const data = { deviceId: getDeviceId(), tags: tags };
+    await putTag(data);
     console.log("보냄");
   };
+
+  const getTags = async () => {
+    const res = await tags();
+    setCheckedList(generateTagNameList(res));
+  };
+  const generateTagNameList = (res) => {
+    let nameList = [];
+    res.map((name) => {
+      nameList.push(name.tag);
+    });
+    return nameList;
+  };
+
+  useEffect(() => {
+    getTags();
+  }, []);
 
   const checkedItemHandler = (value, isChecked) => {
     // 배열에 추가
@@ -86,7 +100,7 @@ const Button = styled.button`
 const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px 10px;
+  gap: 16px 12px;
 `;
 const CheckBoxInput = styled.input`
   position: absolute;

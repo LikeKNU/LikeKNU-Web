@@ -1,22 +1,74 @@
 import BusSelect from "../BusSelect";
 import styled from "styled-components";
 import PageContainer from "../../layouts/PageContainer";
-const options = [
-  { shuttleId: "a", shuttleName: "성한빈 → 석매튜" },
-  { shuttleId: "b", shuttleName: "김지웅 → 한유진" },
-  { shuttleId: "c", shuttleName: "김규빈 → 김태래" },
-  { shuttleId: "e", shuttleName: "박건욱 → 리키" },
-  { shuttleId: "f", shuttleName: "장하오 → 강채련" },
-];
+import { useEffect, useState } from "react";
+import { shuttleBuses, shuttleBusesRoutes } from "../../api/bus";
+import { getCampus } from "../../utils/DeviceManageUtil";
+import { Campus } from "../../constants/campus";
+import { BusItem } from "./BusItem";
+import colors from "../../constants/colors";
+
 const parameter = ["shuttleId", "shuttleName"];
 
 function Shuttle() {
+  const [routes, setRoutes] = useState([]);
+  const [shuttle, setShuttle] = useState([]);
+  const [message, setMessage] = useState("");
+  const [id, setId] = useState("");
+  let campus = getCampus();
+  const keys = Object.keys(Campus);
+  campus = keys.find((key) => Campus[key] === campus);
+
+  const getRoutes = async () => {
+    const res = await shuttleBusesRoutes(campus);
+    setRoutes(res);
+  };
+  const getBuses = async (shuttleId) => {
+    const res = await shuttleBuses(shuttleId);
+    setShuttle(res);
+  };
+  useEffect(() => {
+    getRoutes();
+  }, []);
+  useEffect(() => {
+    if (id !== "") {
+      getBuses(id);
+    }
+  }, [id]);
+
   return (
     <Wrapper>
-      <BusSelect options={options} value={parameter[0]} label={parameter[1]} />
+      <BusSelect
+        options={routes}
+        value={parameter[0]}
+        label={parameter[1]}
+        setId={setId}
+        setMesseage={setMessage}
+      />
+      <Message>{message}</Message>
+      {shuttle.map((route, index) => (
+        <Content key={index}>
+          <Title>{route.busName}</Title>
+          <BusItem times={route.times} />
+        </Content>
+      ))}
     </Wrapper>
   );
 }
-
+const Message = styled.div`
+  text-align: center;
+  font-size: 1.2rem;
+  color: ${colors.SINGWAN};
+  margin-top: 10px;
+`;
+const Title = styled.div`
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: ${colors.BLACK};
+`;
+const Content = styled.div`
+  padding: 0 40px;
+  margin-top: 30px;
+`;
 const Wrapper = styled(PageContainer)``;
 export default Shuttle;

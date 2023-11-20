@@ -8,7 +8,7 @@ import { ReactComponent as RestaurantIcon } from "assets/icon/restaurant_black_2
 import colors from "constants/colors";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getCampus } from "utils/DeviceManageUtil";
-import Campus from "constants/campus";
+import { Campus } from "constants/campus";
 
 export default function BottomNav() {
   const [activeNav, setActiveNav] = useState(1);
@@ -37,7 +37,7 @@ export default function BottomNav() {
 
   return (
     <Wrapper>
-      <ButtonItem onClick={() => goDetailPage(`/main/${campus}`, 1)}>
+      <ButtonItem onClick={() => goDetailPage(`/`, 1)}>
         <HomeIcon
           className={activeNav === 1 ? "icon_style icon_active" : "icon_style"}
         />

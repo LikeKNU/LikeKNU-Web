@@ -1,14 +1,14 @@
 import instance from "./api";
+import { extractBodyFromResponse } from "./apiUtility";
 
-const baseURL = "/api/menu"
+const baseURL = "/api/menu";
 
 export const menu = async (campus) => {
-  const {data} = await instance.get(`${baseURL}`, {
+  const { data } = await instance.get(`${baseURL}`, {
     params: {
       campus: campus,
-    }
+    },
   });
   console.log(data);
-  return data.data.body;
-}
-
+  return extractBodyFromResponse(data);
+};

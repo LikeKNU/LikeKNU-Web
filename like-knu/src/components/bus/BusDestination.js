@@ -3,9 +3,9 @@ import colors from "../../constants/colors";
 import GlobalColor from "../styles/globalColor";
 export const BusDestination = styled.button`
   background-color: ${colors.WHITE};
-  width: 120px;
+  width: 100px;
   height: 30px;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 600;
   border: 1px solid ${colors.GRAY200};
   border-radius: 6px;

@@ -29,8 +29,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Test />} />
-        <Route path="/main/:campus" element={<MainPage />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/bus" element={<BusPage />} />
         <Route path="/notice" element={<InfiniteScrollNoticePage />} />
         <Route path="/calendar" element={<CalendarPage />} />

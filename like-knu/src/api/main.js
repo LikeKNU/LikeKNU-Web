@@ -1,38 +1,43 @@
 import instance from "./api";
+import { extractBodyFromResponse } from "./apiUtility";
 const baseURL = "/api/main";
 
-export const noticeMain = async(campus) => {
-  const {data} = await instance.get(`${baseURL}/announcements`, {
+export const noticeMain = async (campus) => {
+  const { data } = await instance.get(`${baseURL}/announcements`, {
     params: {
-      campus: campus
-    }});
+      campus: campus,
+    },
+  });
   console.log(data);
-  return data.data.body;
-}
+  return extractBodyFromResponse(data);
+};
 
-export const busMain = async(campus) => {
-  const {data} = await instance.get(`${baseURL}/buses`, {
+export const busMain = async (campus) => {
+  const { data } = await instance.get(`${baseURL}/buses`, {
     params: {
-        campus: campus
-    }});
+      campus: campus,
+    },
+  });
   console.log(data);
-  return data.data.body;
-}
+  return extractBodyFromResponse(data);
+};
 
-export const menuMain = async(campus) => {
-  const {data} = await instance.get(`${baseURL}/menu`, {
+export const menuMain = async (campus) => {
+  const { data } = await instance.get(`${baseURL}/menu`, {
     params: {
-      campus: campus
-    }});
+      campus: campus,
+    },
+  });
   console.log(data);
-  return data.data.body;
-}
+  return extractBodyFromResponse(data);
+};
 
-export const calendarMain = async(campus) => {
-  const {data} = await instance.get(`${baseURL}/schedule` ,{
+export const calendarMain = async (campus) => {
+  const { data } = await instance.get(`${baseURL}/schedule`, {
     params: {
-      campus: campus
-    }});
+      campus: campus,
+    },
+  });
   console.log(data);
-  return data.data.body;
-}
+  return extractBodyFromResponse(data);
+};

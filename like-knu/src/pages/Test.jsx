@@ -7,13 +7,14 @@ import { BusItem } from "../components/bus/BusItem";
 import Select from "react-select";
 import { cityBusesRoutes } from "../api/bus";
 import { getCampus } from "../utils/DeviceManageUtil";
-import Campus from "../constants/campus";
+import { Campus } from "../constants/campus";
 import Modal from "react-modal";
 import { BackHeader } from "../components/BackHeader";
 import { TabItem } from "../components/styles/Tab";
 import TagList from "../components/setting/TagList";
 import { ToggleSwitch } from "../components/setting/ToggleSwitch";
 import BusSelect from "../components/BusSelect";
+import BusList from "../components/bus/BusList";
 
 const options = [
   { value: "chocolate", label: "Chocolate" },
@@ -51,13 +52,13 @@ export default function Test() {
     console.log(data);
   };
 
-  const getRoutes = async () => {
-    const res = await cityBusesRoutes(campus, "city-bus");
-    setRoutes(res);
-  };
+  // const getRoutes = async () => {
+  //   const res = await cityBusesRoutes(campus, "city-bus");
+  //   setRoutes(res);
+  // };
 
   useEffect(() => {
-    getRoutes();
+    // getRoutes();
   }, []);
 
   return (
@@ -98,22 +99,22 @@ export default function Test() {
       {/*</Toggle>*/}
 
       {/*<ToggleSwitch />*/}
-      <Select
-        defaultValue={options[0]}
-        options={options}
-        isSearchable={false}
-        theme={(theme) => ({
-          ...theme,
-          colors: {
-            ...theme.colors,
-            primary: colors.COMMON,
-            primary50: colors.GRAY100,
-            primary75: "black",
-          },
-        })}
-        styles={SelectStyle}
-      ></Select>
-      <BusSelect options={options}></BusSelect>
+      {/*<Select*/}
+      {/*  defaultValue={options[0]}*/}
+      {/*  options={options}*/}
+      {/*  isSearchable={false}*/}
+      {/*  theme={(theme) => ({*/}
+      {/*    ...theme,*/}
+      {/*    colors: {*/}
+      {/*      ...theme.colors,*/}
+      {/*      primary: colors.COMMON,*/}
+      {/*      primary50: colors.GRAY100,*/}
+      {/*      primary75: "black",*/}
+      {/*    },*/}
+      {/*  })}*/}
+      {/*  styles={SelectStyle}*/}
+      {/*></Select>*/}
+      {/*<BusSelect options={options}></BusSelect>*/}
     </Background>
   );
 }

@@ -5,17 +5,14 @@ import { busMain } from "api/main";
 import { useState, useEffect } from "react";
 import MainBusItem from "components/main/MainBusItem";
 import BusRefreshBtn from "components/BusRefreshBtn";
-import { getCampus } from "utils/DeviceManageUtil";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { CampusEng } from "../../constants/campus";
 
-export default function MainBus() {
+export default function MainBus({ selectCampus }) {
   const [buses, setBuses] = useState([]);
-  // const [campus, setCampus] = useState();
-  const campus = useParams();
   const navigate = useNavigate();
   const getBuses = async () => {
-    setBuses([]);
-    const res = await busMain(campus.campus);
+    const res = await busMain(CampusEng[selectCampus]);
     setBuses(res);
   };
   const goBus = () => {
@@ -25,11 +22,13 @@ export default function MainBus() {
 
   useEffect(() => {
     getBuses();
-  }, [campus]);
+  }, [selectCampus]);
   return (
     <BusContainer>
-      <Title onClick={goBus}>버스</Title>
-      <BusRefreshBtn></BusRefreshBtn>
+      <Row>
+        <Title onClick={goBus}>버스</Title>
+        <BusRefreshBtn></BusRefreshBtn>
+      </Row>
       <BusList>
         {buses.map((bus) => (
           <MainBusItem key={bus.routeId} bus={bus} />
@@ -38,7 +37,12 @@ export default function MainBus() {
     </BusContainer>
   );
 }
-
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+`;
 const BusContainer = styled(CardContainer)`
   grid-column: 1 / 3;
   min-height: 80px;
@@ -53,5 +57,4 @@ const Title = styled.div`
 `;
 const BusList = styled.div`
   display: grid;
-  grid-row-gap: 1.2rem;
 `;

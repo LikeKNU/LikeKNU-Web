@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { notice } from "../api/notice";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getCampus } from "../utils/DeviceManageUtil";
-import Campus from "../constants/campus";
+import { Campus } from "../constants/campus";
 import ListItem from "../components/ListItem";
 
 export default function InfiniteScrollNoticePage() {
