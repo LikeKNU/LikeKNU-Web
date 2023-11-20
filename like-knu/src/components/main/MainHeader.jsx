@@ -9,7 +9,7 @@ import { ReactComponent as SettingIcon } from "assets/icon/gear-fill.svg";
 import { useNavigate } from "react-router-dom";
 import GlobalColor from "../styles/globalColor";
 import Campus from "../../constants/campus";
-import {setDeviceCampus} from "../../api/device";
+import { setDeviceCampus } from "../../api/device";
 
 export default function MainHeader({ setSelectCampus }) {
   const [view, setView] = useState(false);
@@ -37,7 +37,7 @@ export default function MainHeader({ setSelectCampus }) {
         {view && <DropDown setSelectCampus={setSelectCampus} />}
         <DownIcon fill={colors.BLACK} />
       </CampusList>
-      <Message>✨915에 망령은 존재한다 ✨</Message>
+      <Message>✨롤드컵 우승 축하✨</Message>
       <IconList>
         <StyledNotification onClick={goNotification} />
         <StyledSetting onClick={goSetting} />

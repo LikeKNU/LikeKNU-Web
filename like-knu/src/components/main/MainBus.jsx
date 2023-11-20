@@ -27,7 +27,7 @@ export default function MainBus({ selectCampus }) {
     <BusContainer>
       <Row>
         <Title onClick={goBus}>버스</Title>
-        <BusRefreshBtn></BusRefreshBtn>
+        <BusRefreshBtn getBuses={getBuses}></BusRefreshBtn>
       </Row>
       <BusList>
         {buses.map((bus) => (
