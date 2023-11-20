@@ -3,6 +3,14 @@ import styled from "styled-components";
 import colors from "../../constants/colors";
 
 export function CityBusListItem({ busColor, busNumber, remainingTime }) {
+  if (!busColor && !busNumber && !remainingTime) {
+    return (
+      <Wrapper>
+        <Text>30분 이내에 있는 버스가 없습니다.</Text>
+      </Wrapper>
+    );
+  }
+
   const fomattedBusColor = "#" + busColor;
 
   return (
