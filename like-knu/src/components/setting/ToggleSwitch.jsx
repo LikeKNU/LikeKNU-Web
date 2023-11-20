@@ -1,10 +1,15 @@
 import styled from "styled-components";
 import colors from "../../constants/colors";
 
-export function ToggleSwitch({ width, height, area }) {
+export function ToggleSwitch({ width, height, area, isTurnOn, changeHandler }) {
   return (
     <Wrapper>
-      <input type="checkbox" id="toggle" hidden />
+      <input
+        type="checkbox"
+        id="toggle"
+        checked={isTurnOn}
+        onChange={changeHandler}
+        hidden />
       <ToggleLabel
         htmlFor="toggle"
         className="toggle_switch"

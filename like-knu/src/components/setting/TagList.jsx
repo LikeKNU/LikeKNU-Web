@@ -7,7 +7,6 @@ import Tag from "../styles/Tag";
 import { getDeviceId } from "../../utils/DeviceManageUtil";
 
 // const Id = "test";
-
 export default function TagList() {
   const [checkedList, setCheckedList] = useState([]);
   const [isChecked, setIstChecked] = useState(false);
