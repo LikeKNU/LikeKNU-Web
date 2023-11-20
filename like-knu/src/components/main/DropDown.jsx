@@ -48,6 +48,7 @@ const CampusItem = styled.li`
   font-size: 1.6rem;
   font-weight: 500;
   color: ${colors.BLACK};
+  padding: 5px 15px;
   // box-sizing: border-box;
 `;
 const Line = styled.hr`

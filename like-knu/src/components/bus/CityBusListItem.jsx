@@ -3,11 +3,11 @@ import styled from "styled-components";
 import colors from "../../constants/colors";
 
 export function CityBusListItem({ busColor, busNumber, remainingTime }) {
-  const fomattedBusColor = "#" + busColor;
+  const formattedBusColor = "#" + busColor;
 
   return (
     <Wrapper>
-      <BusIcon fill={fomattedBusColor} />
+      <BusIcon fill={formattedBusColor} />
       <BoldText $margin="0 3rem 0 1.2rem">{busNumber}</BoldText>
       <LightText>{remainingTime}</LightText>
     </Wrapper>

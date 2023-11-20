@@ -17,3 +17,13 @@ export const shuttleBuses = async (shuttleId) => {
   console.log(data.data.body);
   return extractBodyFromResponse(data);
 };
+
+export const cityBuses = async (campus, type) => {
+  const { data } = await instance.get(`${baseURL}/city-bus/${type}`, {
+    params: {
+      campus: campus,
+    },
+  });
+  console.log(data.data.body);
+  return extractBodyFromResponse(data);
+};
