@@ -52,9 +52,9 @@ export default function MainMenu({ selectCampus }) {
   );
 }
 const MealTypeText = styled.div`
-  color: ${colors.GRAY350};
-  font-size: 1.4rem;
-  margin-left: 20px;
+  color: ${colors.GRAY300};
+  font-size: 1.2rem;
+  margin-left: 6px;
 `;
 const MenuContainer = styled(CardContainer)`
   display: flex;
