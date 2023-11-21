@@ -6,7 +6,7 @@ import GlobalColor from "../styles/globalColor";
 import BusRefreshBtn from "../BusRefreshBtn";
 import colors from "../../constants/colors";
 import BusList from "./BusList";
-import { Campus, CampusEng } from "../../constants/campus";
+import { CampusEng } from "../../constants/campus";
 import { getCampus } from "../../utils/DeviceManageUtil";
 import { cityBuses } from "../../api/bus";
 

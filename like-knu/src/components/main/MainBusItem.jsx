@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import colors from "constants/colors";
 import { ReactComponent as ArrowIcon } from "assets/icon/Arrow right alt.svg";
-import { ReactComponent as BusIcon } from "assets/icon/directions_bus_black_24dp.svg";
 import { CityBusListItem } from "../bus/CityBusListItem";
 
 export default function MainBusItem(props) {

@@ -1,13 +1,13 @@
 import { ReactComponent as BusIcon } from "assets/icon/directions_bus_black_24dp.svg";
 import styled from "styled-components";
 import colors from "../../constants/colors";
-
+const EMPTY_MESSAGE = "30분 이내에 있는 버스가 없습니다.";
 export function CityBusListItem({ busColor, busNumber, remainingTime }) {
   const formattedBusColor = "#" + busColor;
   if (!busColor && !busNumber && !remainingTime) {
     return (
       <Wrapper>
-        <Text>30분 이내에 있는 버스가 없습니다.</Text>
+        <EmptyText>{EMPTY_MESSAGE}</EmptyText>
       </Wrapper>
     );
   }
@@ -26,19 +26,19 @@ const Wrapper = styled.div`
   align-items: center;
   margin-bottom: 8px;
 `;
-const Text = styled.div`
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: ${colors.BLACK};
-  text-align: center;
-`;
-const BoldText = styled(Text)`
+const BoldText = styled.div`
   font-size: 1.5rem;
   font-weight: 800;
   margin: ${(props) => props.$margin};
+  color: ${colors.BLACK};
+  text-align: center;
 `;
 const LightText = styled.div`
   color: ${colors.GRAY500};
   font-size: 1.3rem;
   font-weight: 400;
+`;
+const EmptyText = styled(LightText)`
+  color: ${colors.GRAY300};
+  margin-top: 5px;
 `;

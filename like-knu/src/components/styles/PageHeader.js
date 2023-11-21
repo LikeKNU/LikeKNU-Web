@@ -8,7 +8,6 @@ export const PageHeader = styled.div`
   justify-content: center;
   padding-right: 16px;
   padding-left: 16px;
-  border-bottom: 1px solid ${colors.GRAY100};
 
   color: ${colors.BLACK};
   font-size: 2.2rem;
