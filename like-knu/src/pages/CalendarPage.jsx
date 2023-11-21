@@ -19,28 +19,33 @@ export default function CalendarPage() {
   return (
     <PageLayout>
       <Header>
-        <PageHeader>학사일정</PageHeader>
+        <StyledPageHeader>학사일정</StyledPageHeader>
       </Header>
       <StyledPageContainer>
         {scheduleList.map((schedule, index) => (
-          <div key={index}>
+          <Content key={index}>
             <Month>{schedule.scheduleCriterion}</Month>
             <CalendarListItem
               scheduleContent={schedule.scheduleWrapper}
             ></CalendarListItem>
-          </div>
+          </Content>
         ))}
       </StyledPageContainer>
     </PageLayout>
   );
 }
+
+const Content = styled.div``;
+const StyledPageHeader = styled(PageHeader)`
+  border-bottom: 1px solid ${colors.GRAY100};
+`;
 const StyledPageContainer = styled(PageContainer)`
-  padding-top: 80px;
+  padding-top: 68px;
 `;
 const Month = styled.div`
   color: ${colors.BLACK};
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   margin-top: 20px;
 `;

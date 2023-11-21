@@ -3,6 +3,7 @@ import { ReactComponent as RightArrowIcon } from "../assets/icon/right-arrow.svg
 import styled from "styled-components";
 import { SettingNotificationPage } from "./SettingNotificationPage";
 import { SettingAboutPage } from "./SettingAboutPage";
+import colors from "../constants/colors";
 
 export default function SettingTabList() {
   const sendAskMail = () => {
@@ -24,23 +25,29 @@ export default function SettingTabList() {
           공주대처럼 가이드 <RightArrowIcon />
         </SettingItem>
       </Link>
+      <Info>
+        공주대학교 <br />
+        컴퓨터공학부 소프트웨어전공 캡스톤디자인 <br />
+        지찬우(jcw001031@gmail.com) <br />
+        강채련(chaechae823@naver.com) <br />
+        안나영(annay01794@gmail.com) <br />
+      </Info>
     </SettingContent>
   );
 }
-
+const Info = styled.div`
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 1.5;
+  color: ${colors.GRAY400};
+`;
 const SettingContent = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top:;
-  & a {
-    color: #000;
-    text-decoration: none;
-    outline: none;
-
-    &:active {
-      text-decoration: none;
-    }
-  }
 `;
 
 const SettingItem = styled.div`
@@ -52,15 +59,4 @@ const SettingItem = styled.div`
   height: 48px;
   background-color: #fff;
   font-size: 1.6rem;
-
-  &::before {
-    content: "";
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: #d9d9d9;
-    opacity: 0.5;
-  }
 `;

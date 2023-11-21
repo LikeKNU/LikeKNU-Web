@@ -12,6 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import GlobalColor from "../styles/globalColor";
 import { CampusEng } from "../../constants/campus";
+const MEAL_TYPE = "아침";
 export default function MainMenu({ selectCampus }) {
   const [cafeteria, setCafeteria] = useState([]);
   const navigate = useNavigate();
@@ -39,7 +40,10 @@ export default function MainMenu({ selectCampus }) {
       >
         {cafeteria.map((c) => (
           <SwiperSlide key={c.cafeteriaId}>
-            <Title>{c.cafeteriaName}</Title>
+            <Title>
+              {c.cafeteriaName}
+              <MealTypeText>{MEAL_TYPE}</MealTypeText>
+            </Title>
             <MenuSlide menu={c.menus} />
           </SwiperSlide>
         ))}
@@ -47,6 +51,11 @@ export default function MainMenu({ selectCampus }) {
     </MenuContainer>
   );
 }
+const MealTypeText = styled.div`
+  color: ${colors.GRAY350};
+  font-size: 1.4rem;
+  margin-left: 20px;
+`;
 const MenuContainer = styled(CardContainer)`
   display: flex;
   flex-direction: column;
@@ -58,6 +67,9 @@ const Title = styled.div`
   margin-bottom: 10px;
   width: 100%;
   padding-top: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 const SwiperContainer = styled(Swiper)`
   overflow: visible;

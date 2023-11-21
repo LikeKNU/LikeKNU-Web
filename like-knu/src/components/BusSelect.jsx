@@ -1,6 +1,7 @@
 import colors from "../constants/colors";
 import Select from "react-select";
-
+import GlobalColor from "./styles/globalColor";
+const CHOICE_MESSAGE = "경로를 선택해주세요";
 function BusSelect({ options, value, label, setId, setMesseage }) {
   const setShuttleId = (e) => {
     setMesseage(e.note);
@@ -13,12 +14,12 @@ function BusSelect({ options, value, label, setId, setMesseage }) {
       options={options}
       isSearchable={false}
       onChange={setShuttleId}
-      placeholder={"고르던가말던가"}
+      placeholder={CHOICE_MESSAGE}
       theme={(theme) => ({
         ...theme,
         colors: {
           ...theme.colors,
-          primary: colors.COMMON,
+          primary: GlobalColor.getColor(),
           primary50: colors.GRAY100,
           primary75: "black",
           primary25: colors.WHITE,
