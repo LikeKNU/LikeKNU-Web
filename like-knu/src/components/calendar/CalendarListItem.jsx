@@ -19,10 +19,10 @@ const Content = styled.div`
 `;
 const Date = styled.div`
   color: ${colors.GRAY350};
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   margin-bottom: 4px;
 `;
 const Text = styled.div`
   color: ${colors.BLACK};
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 `;
