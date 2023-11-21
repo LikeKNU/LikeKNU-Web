@@ -52,8 +52,8 @@ function App() {
       </>);
   } else {
     // PWA로 설치되지 않은 상태
-    var isAndroid = /Android/.test(navigator.userAgent);
-    var isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
+    const isAndroid = /Android/.test(navigator.userAgent);
+    const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
 
     if (isAndroid) {
       alert('Android');
