@@ -1,5 +1,6 @@
 import colors from "../constants/colors";
 import Select from "react-select";
+import GlobalColor from "./styles/globalColor";
 
 function BusSelect({ options, value, label, setId, setMesseage }) {
   const setShuttleId = (e) => {
@@ -18,7 +19,7 @@ function BusSelect({ options, value, label, setId, setMesseage }) {
         ...theme,
         colors: {
           ...theme.colors,
-          primary: colors.COMMON,
+          primary: GlobalColor.getColor(),
           primary50: colors.GRAY100,
           primary75: "black",
           primary25: colors.WHITE,
