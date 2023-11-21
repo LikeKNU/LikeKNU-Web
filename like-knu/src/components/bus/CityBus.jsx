@@ -10,30 +10,8 @@ import { Campus, CampusEng } from "../../constants/campus";
 import { getCampus } from "../../utils/DeviceManageUtil";
 import { cityBuses } from "../../api/bus";
 
-const school = ["학교로 출발", "학교로 도착"];
+const school = ["학교에서 출발", "학교로 도착"];
 
-const cityBus = [
-  {
-    origin: "공주대",
-    destination: "터미널",
-    departureStop: "공주대공과대학",
-    buses: [
-      { busNumber: "110", remainingTime: "곧 도착", busColor: "FF0000" },
-      { busNumber: "140", remainingTime: "1분 뒤", busColor: "00FF00" },
-      { busNumber: "120", remainingTime: "13분 뒤", busColor: "0000FF" },
-    ],
-  },
-  {
-    origin: "공주대",
-    destination: "터미널",
-    departureStop: "공주대공과대학",
-    buses: [
-      { busNumber: "110", remainingTime: "곧 도착", busColor: "FF0000" },
-      { busNumber: "140", remainingTime: "1분 뒤", busColor: "00FF00" },
-      { busNumber: "120", remainingTime: "13분 뒤", busColor: "0000FF" },
-    ],
-  },
-];
 function CityBus() {
   const [destination, setDestination] = useState(0);
   const [buses, setBuses] = useState([]);

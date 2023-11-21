@@ -31,16 +31,15 @@ export default function SettingTabList() {
 const SettingContent = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top:;
-  & a {
-    color: #000;
-    text-decoration: none;
-    outline: none;
-
-    &:active {
-      text-decoration: none;
-    }
-  }
+  //& a {
+  //  color: #000;
+  //  text-decoration: none;
+  //  outline: none;
+  //
+  //  &:active {
+  //    text-decoration: none;
+  //  }
+  //}
 `;
 
 const SettingItem = styled.div`
@@ -52,15 +51,15 @@ const SettingItem = styled.div`
   height: 48px;
   background-color: #fff;
   font-size: 1.6rem;
-
-  &::before {
-    content: "";
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: #d9d9d9;
-    opacity: 0.5;
-  }
+  //
+  //&::before {
+  //  content: "";
+  //  position: absolute;
+  //  height: 1px;
+  //  width: 100%;
+  //  top: 0;
+  //  left: 0;
+  //  background-color: #d9d9d9;
+  //  opacity: 0.5;
+  //}
 `;
