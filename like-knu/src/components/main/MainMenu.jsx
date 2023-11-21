@@ -59,6 +59,7 @@ const MealTypeText = styled.div`
 const MenuContainer = styled(CardContainer)`
   display: flex;
   flex-direction: column;
+  padding: 0;
 `;
 const Title = styled.div`
   color: ${colors.BLACK};
@@ -73,7 +74,8 @@ const Title = styled.div`
 `;
 const SwiperContainer = styled(Swiper)`
   overflow: visible;
-
+  margin-right: 2rem;
+  margin-left: 2rem;
   .swiper-pagination {
     position: absolute;
   }

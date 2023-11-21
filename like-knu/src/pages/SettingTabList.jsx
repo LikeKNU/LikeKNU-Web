@@ -44,6 +44,7 @@ const Info = styled.div`
   text-align: center;
   line-height: 1.5;
   color: ${colors.GRAY400};
+  width: 100%;
 `;
 const SettingContent = styled.div`
   display: flex;

@@ -4,7 +4,7 @@ import colors from "constants/colors";
 export default styled.div`
   background-color: ${colors.WHITE};
   border-radius: 2rem;
-  padding: 0 2em;
+  padding: 0 2rem;
   padding-bottom: 1.6rem;
   display: flex;
   flex-direction: column;
