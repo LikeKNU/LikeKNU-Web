@@ -34,9 +34,8 @@ export default function CalendarPage() {
     </PageLayout>
   );
 }
-const Content = styled.div`
-  background-color: red;
-`;
+
+const Content = styled.div``;
 const StyledPageHeader = styled(PageHeader)`
   border-bottom: 1px solid ${colors.GRAY100};
 `;
@@ -47,6 +46,6 @@ const Month = styled.div`
   color: ${colors.BLACK};
   font-size: 1.7rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   margin-top: 20px;
 `;

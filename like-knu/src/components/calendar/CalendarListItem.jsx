@@ -13,7 +13,11 @@ export default function CalendarListItem({ scheduleContent }) {
     </Wrapper>
   );
 }
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  margin-left: 10px;
+  padding-left: 16px;
+  border-left: 2px solid ${colors.BLACK};
+`;
 const Content = styled.div`
   margin-bottom: 15px;
 `;
