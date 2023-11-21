@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { ReactComponent as RefreshIcon } from "assets/icon/refresh_black_24dp.svg";
 import colors from "constants/colors";
 

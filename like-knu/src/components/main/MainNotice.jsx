@@ -28,7 +28,7 @@ export default function MainNotice({ selectCampus }) {
       <Title onClick={goNotice}>공지사항</Title>
       {notices.map((notice) => (
         <Text key={notice.announcementId}>
-          <a href={"https://www.youtube.com/"} className="notice_link">
+          <a href={notice.announcementUrl} className="notice_link">
             {notice.announcementTitle}
           </a>
         </Text>
