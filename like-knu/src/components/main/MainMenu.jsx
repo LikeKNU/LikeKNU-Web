@@ -55,6 +55,7 @@ const MealTypeText = styled.div`
   color: ${colors.GRAY300};
   font-size: 1.2rem;
   margin-left: 6px;
+  display: inline-block;
 `;
 const MenuContainer = styled(CardContainer)`
   display: flex;
@@ -68,8 +69,8 @@ const Title = styled.div`
   margin-bottom: 10px;
   width: 100%;
   padding-top: 16px;
-  display: flex;
-  flex-direction: row;
+  //display: flex;
+  //flex-direction: row;
   align-items: center;
 `;
 const SwiperContainer = styled(Swiper)`
