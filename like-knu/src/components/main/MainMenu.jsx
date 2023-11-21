@@ -69,8 +69,6 @@ const Title = styled.div`
   margin-bottom: 10px;
   width: 100%;
   padding-top: 16px;
-  //display: flex;
-  //flex-direction: row;
   align-items: center;
 `;
 const SwiperContainer = styled(Swiper)`

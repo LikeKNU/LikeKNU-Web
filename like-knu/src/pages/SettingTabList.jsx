@@ -37,7 +37,7 @@ export default function SettingTabList() {
 }
 const Info = styled.div`
   position: absolute;
-  bottom: 50px;
+  bottom: 30px;
   left: 50%;
   transform: translate(-50%, 0);
   font-size: 1.2rem;

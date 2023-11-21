@@ -19,6 +19,7 @@ export default function TagList() {
     const data = { deviceId: getDeviceId(), tags: tags };
     await putTag(data);
     console.log("보냄");
+    alert("설정되었습니다.");
   };
 
   const getTags = async () => {
