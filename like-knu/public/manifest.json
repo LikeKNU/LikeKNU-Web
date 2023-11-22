@@ -147,21 +147,10 @@
   "description": "공주대학교 학생들을 위한 정보 제공 서비스",
   "lang": "ko",
   "orientation": "portrait",
-  "display_override": [
-    "standalone",
-    "window-controls-overlay"
-  ],
   "categories": [
     "education",
     "utilities"
   ],
   "dir": "ltr",
-  "prefer_related_applications": false,
-  "shortcuts": [
-    {
-      "name": "버스 시간 확인",
-      "url": "/bus",
-      "description": "시내버스와 셔틀버스 시간 확인"
-    }
-  ]
+  "prefer_related_applications": false
 }
