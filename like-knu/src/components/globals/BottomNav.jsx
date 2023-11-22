@@ -7,12 +7,10 @@ import { ReactComponent as CalendarIcon } from "assets/icon/calendar_today_black
 import { ReactComponent as RestaurantIcon } from "assets/icon/restaurant_black_24dp.svg";
 import colors from "constants/colors";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getCampus } from "utils/DeviceManageUtil";
-import { Campus } from "constants/campus";
+import { PAGE_NAME } from "../../constants/pageName";
 
 export default function BottomNav() {
   const [activeNav, setActiveNav] = useState(1);
-  let campus = Object.keys(Campus).find((key) => Campus[key] === getCampus());
   let pathName = useLocation().pathname;
   const navigate = useNavigate();
   const goDetailPage = (url, value) => {
@@ -41,31 +39,41 @@ export default function BottomNav() {
         <HomeIcon
           className={activeNav === 1 ? "icon_style icon_active" : "icon_style"}
         />
-        <Text className={activeNav === 1 ? "text_active" : null}>메인</Text>
+        <Text className={activeNav === 1 ? "text_active" : null}>
+          {PAGE_NAME.MAIN}
+        </Text>
       </ButtonItem>
       <ButtonItem onClick={() => goDetailPage(`/notice`, 2)}>
         <AssignmentIcon
           className={activeNav === 2 ? "icon_style icon_active" : "icon_style"}
         />
-        <Text className={activeNav === 2 ? "text_active" : null}>공지사항</Text>
+        <Text className={activeNav === 2 ? "text_active" : null}>
+          {PAGE_NAME.NOTICE}
+        </Text>
       </ButtonItem>
       <ButtonItem onClick={() => goDetailPage(`/bus`, 3)}>
         <BusIcon
           className={activeNav === 3 ? "icon_style icon_active" : "icon_style"}
         />
-        <Text className={activeNav === 3 ? "text_active" : null}>버스</Text>
+        <Text className={activeNav === 3 ? "text_active" : null}>
+          {PAGE_NAME.BUS}
+        </Text>
       </ButtonItem>
       <ButtonItem onClick={() => goDetailPage(`/menu`, 4)}>
         <RestaurantIcon
           className={activeNav === 4 ? "icon_style icon_active" : "icon_style"}
         />
-        <Text className={activeNav === 4 ? "text_active" : null}>식단</Text>
+        <Text className={activeNav === 4 ? "text_active" : null}>
+          {PAGE_NAME.MENU}
+        </Text>
       </ButtonItem>
       <ButtonItem onClick={() => goDetailPage(`/calendar`, 5)}>
         <CalendarIcon
           className={activeNav === 5 ? "icon_style icon_active" : "icon_style"}
         />
-        <Text className={activeNav === 5 ? "text_active" : null}>학사일정</Text>
+        <Text className={activeNav === 5 ? "text_active" : null}>
+          {PAGE_NAME.CALENDAR}
+        </Text>
       </ButtonItem>
     </Wrapper>
   );

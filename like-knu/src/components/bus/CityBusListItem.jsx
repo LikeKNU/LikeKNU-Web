@@ -1,7 +1,7 @@
 import { ReactComponent as BusIcon } from "assets/icon/directions_bus_black_24dp.svg";
 import styled from "styled-components";
 import colors from "../../constants/colors";
-const EMPTY_MESSAGE = "30분 이내에 있는 버스가 없습니다.";
+import { EMPTY_MESSAGE } from "../../constants/message";
 export function CityBusListItem({ busColor, busNumber, remainingTime }) {
   const formattedBusColor = "#" + busColor;
   if (!busColor && !busNumber && !remainingTime) {

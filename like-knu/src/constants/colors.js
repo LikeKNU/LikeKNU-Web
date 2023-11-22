@@ -17,10 +17,11 @@ const colors = {
   BLACK: "#403E3F",
   SHADOW: "rgba(0, 0, 0, 0.05)",
 };
-export default colors;
 
 export let campusColors = {
   천안캠: "#2C8E9A",
   신관캠: "#E85239",
   예산캠: "#E2981E",
 };
+
+export default colors;

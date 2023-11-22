@@ -6,11 +6,11 @@ import colors from "../constants/colors";
 import { useEffect, useState } from "react";
 import { calendar } from "../api/calendar";
 import CalendarListItem from "../components/calendar/CalendarListItem";
+import { PAGE_NAME } from "../constants/pageName";
 export default function CalendarPage() {
   const [scheduleList, setScheduleList] = useState([]);
   const getScheduleList = async () => {
     const res = await calendar();
-    console.log(res);
     setScheduleList(res);
   };
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function CalendarPage() {
   return (
     <PageLayout>
       <Header>
-        <StyledPageHeader>학사일정</StyledPageHeader>
+        <StyledPageHeader>{PAGE_NAME.CALENDAR}</StyledPageHeader>
       </Header>
       <StyledPageContainer>
         {scheduleList.map((schedule, index) => (

@@ -3,14 +3,10 @@ import colors from "constants/colors";
 
 export default function MainCalendarItem(props) {
   const { schedule } = props;
-  const isToday = schedule.today;
   return (
     <div>
       <Title>
         <DateText>{schedule.scheduleDate}</DateText>
-        {/* {
-          isToday && <TodayText>오늘</TodayText>
-        } */}
       </Title>
       <Content>{schedule.scheduleContents}</Content>
     </div>

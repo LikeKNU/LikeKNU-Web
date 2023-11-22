@@ -7,6 +7,7 @@ import { fetchNotifications } from "../api/notification";
 import styled from "styled-components";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { BackHeader } from "../components/BackHeader";
+import { PAGE_NAME } from "../constants/pageName";
 
 export default function NotificationPage() {
   const [notifications, setNotifications] = useState([]);
@@ -32,7 +33,7 @@ export default function NotificationPage() {
   return (
     <PageLayout>
       <Header>
-        <BackHeader Title={"알림"} />
+        <BackHeader Title={PAGE_NAME.NOTIFICATION} />
       </Header>
       <ShortHeaderPageContainer>
         {notifications.map((notification, index) => (

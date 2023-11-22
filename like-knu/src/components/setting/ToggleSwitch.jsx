@@ -9,7 +9,8 @@ export function ToggleSwitch({ width, height, area, isTurnOn, changeHandler }) {
         id="toggle"
         checked={isTurnOn}
         onChange={changeHandler}
-        hidden />
+        hidden
+      />
       <ToggleLabel
         htmlFor="toggle"
         className="toggle_switch"
@@ -33,7 +34,7 @@ const Wrapper = styled.div`
 `;
 
 const ToggleLabel = styled.label`
-  width: ${(props) => props.$width}; //100
+  width: ${(props) => props.$width};
   height: ${(props) => props.$height};
   display: block;
   position: relative;

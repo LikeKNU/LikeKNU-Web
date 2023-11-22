@@ -7,8 +7,9 @@ import { useEffect, useState } from "react";
 import { notice } from "../api/notice";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { getCampus } from "../utils/DeviceManageUtil";
-import { Campus } from "../constants/campus";
+import { CampusEng } from "../constants/campus";
 import ListItem from "../components/ListItem";
+import { PAGE_NAME } from "../constants/pageName";
 
 export default function InfiniteScrollNoticePage() {
   const [notices, setNotices] = useState([]);
@@ -17,9 +18,7 @@ export default function InfiniteScrollNoticePage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
-  let campus = getCampus();
-  const keys = Object.keys(Campus);
-  campus = keys.find((key) => Campus[key] === campus);
+  let campus = CampusEng[getCampus()];
 
   const getNotices = async (category) => {
     const res = await notice(campus, category);
@@ -53,7 +52,7 @@ export default function InfiniteScrollNoticePage() {
   return (
     <PageLayout>
       <Header>
-        <PageHeader>공지사항</PageHeader>
+        <PageHeader>{PAGE_NAME.NOTICE}</PageHeader>
         <TabList>
           {noticeTab.map((name, index) => (
             <TabItem
@@ -69,6 +68,7 @@ export default function InfiniteScrollNoticePage() {
       <PageContainer>
         {notices.map((notice, index) => (
           <ListItem
+            key={index}
             head={notice.announcementTag}
             subHead={notice.announcementDate}
             body={notice.announcementTitle}

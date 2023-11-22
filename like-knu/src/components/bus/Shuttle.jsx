@@ -4,7 +4,7 @@ import PageContainer from "../../layouts/PageContainer";
 import { useEffect, useState } from "react";
 import { shuttleBuses, shuttleBusesRoutes } from "../../api/bus";
 import { getCampus } from "../../utils/DeviceManageUtil";
-import { Campus } from "../../constants/campus";
+import { CampusEng } from "../../constants/campus";
 import { BusItem } from "./BusItem";
 import colors from "../../constants/colors";
 
@@ -15,9 +15,7 @@ function Shuttle() {
   const [shuttle, setShuttle] = useState([]);
   const [message, setMessage] = useState("");
   const [id, setId] = useState("");
-  let campus = getCampus();
-  const keys = Object.keys(Campus);
-  campus = keys.find((key) => Campus[key] === campus);
+  let campus = CampusEng[getCampus()];
 
   const getRoutes = async () => {
     const res = await shuttleBusesRoutes(campus);

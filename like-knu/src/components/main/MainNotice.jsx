@@ -3,15 +3,14 @@ import CardContainer from "components/styles/CardContainer";
 import { noticeMain } from "api/main";
 import colors from "constants/colors";
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { CampusEng } from "../../constants/campus";
+import { PAGE_NAME } from "../../constants/pageName";
 
 export default function MainNotice({ selectCampus }) {
   const [notices, setNotices] = useState([]);
   const navigate = useNavigate();
-  // const campus = useParams();
   const goNotice = () => {
-    console.log("공지사항으로 이동!!");
     navigate(`/notice/`);
   };
   const getNotices = async () => {
@@ -25,7 +24,7 @@ export default function MainNotice({ selectCampus }) {
 
   return (
     <NoticeContainer>
-      <Title onClick={goNotice}>공지사항</Title>
+      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}</Title>
       {notices.map((notice) => (
         <Text key={notice.announcementId}>
           <a href={notice.announcementUrl} className="notice_link">

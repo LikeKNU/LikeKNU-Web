@@ -7,6 +7,8 @@ import MainBusItem from "components/main/MainBusItem";
 import BusRefreshBtn from "components/BusRefreshBtn";
 import { useNavigate } from "react-router-dom";
 import { CampusEng } from "../../constants/campus";
+import { PAGE_NAME } from "../../constants/pageName";
+import { AFTER_TIME } from "../../constants/message";
 
 export default function MainBus({ selectCampus }) {
   const [buses, setBuses] = useState([]);
@@ -14,13 +16,12 @@ export default function MainBus({ selectCampus }) {
   const today = new Date();
   const formattedDate = `${today.getHours()}:${String(
     today.getMinutes(),
-  ).padStart(2, "0")} 기준`;
+  ).padStart(2, "0")} ${AFTER_TIME}`;
   const getBuses = async () => {
     const res = await busMain(CampusEng[selectCampus]);
     setBuses(res);
   };
   const goBus = () => {
-    console.log("버스로 이동!!");
     navigate(`/bus`);
   };
 
@@ -30,7 +31,7 @@ export default function MainBus({ selectCampus }) {
   return (
     <BusContainer>
       <Row>
-        <Title onClick={goBus}>버스</Title>
+        <Title onClick={goBus}>{PAGE_NAME.BUS}</Title>
         <RefreshTime>{formattedDate}</RefreshTime>
         <BusRefreshBtn getBuses={getBuses}></BusRefreshBtn>
       </Row>

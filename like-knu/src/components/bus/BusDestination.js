@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import colors from "../../constants/colors";
-import GlobalColor from "../styles/globalColor";
 export const BusDestination = styled.button`
   background-color: ${colors.WHITE};
   width: 100px;

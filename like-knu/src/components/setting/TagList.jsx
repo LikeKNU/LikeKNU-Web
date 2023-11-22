@@ -5,7 +5,6 @@ import { putTag, tags } from "../../api/tag";
 import colors from "../../constants/colors";
 import Tag from "../styles/Tag";
 
-// const Id = "test";
 export default function TagList() {
   const [checkedList, setCheckedList] = useState([]);
   const [isChecked, setIstChecked] = useState(false);
