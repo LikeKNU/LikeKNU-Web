@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "ac.knu.likeknu",
+        "sha256_cert_fingerprints": ["45:61:EA:2C:DE:C3:4D:8C:C3:87:45:37:4A:CE:77:5C:A3:D6:E4:2B:D5:A7:06:32:22:2B:1D:BF:0E:05:30:2C"]
+      }
+    }]
