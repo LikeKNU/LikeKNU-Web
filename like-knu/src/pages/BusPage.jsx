@@ -36,7 +36,7 @@ export default function BusPage() {
         </TabList>
       </Header>
 
-      {category === 0 && <CityBus>모시깽</CityBus>}
+      {category === 0 && <CityBus></CityBus>}
       {category === 1 && <Shuttle></Shuttle>}
     </PageLayout>
   );
