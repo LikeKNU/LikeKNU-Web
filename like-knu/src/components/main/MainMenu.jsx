@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { styled } from "styled-components";
 import GlobalColor from "../styles/globalColor";
 import { CampusEng } from "../../constants/campus";
-const MEAL_TYPE = "아침";
+const MEAL_TYPE = "내일 아침";
 export default function MainMenu({ selectCampus }) {
   const [cafeteria, setCafeteria] = useState([]);
   const navigate = useNavigate();
