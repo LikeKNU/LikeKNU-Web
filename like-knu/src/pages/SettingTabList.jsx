@@ -22,7 +22,7 @@ export default function SettingTabList() {
     <SettingContent>
       <Link to={"/setting/notificationTag"}>
         <SettingItem>
-          {SETTING_MENU_NAME.NOTICE_NOTIFICATION} <RightArrowIcon />
+          {SETTING_MENU_NAME.NOTICE_NOTIFICATION + " 🔔"} <RightArrowIcon />
         </SettingItem>
       </Link>
       <SettingItem onClick={sendAskMail}>
