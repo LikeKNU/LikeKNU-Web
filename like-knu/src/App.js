@@ -13,8 +13,8 @@ import NotificationPage from "./pages/NotificationPage";
 import SettingNotificationPage from "./pages/SettingNotificationPage";
 import SettingAboutPage from "./pages/SettingAboutPage";
 import { initializeDevice } from "./api/initializer";
-import AosImage from "./assets/ios_onboarding.png";
-import IosImage from "./assets/aos_onboarding.png";
+import AosImage from "./assets/aos_onboarding.png";
+import IosImage from "./assets/ios_onboarding.png";
 import styled from "styled-components";
 function App() {
   const location = useLocation();
