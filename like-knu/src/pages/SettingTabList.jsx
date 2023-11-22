@@ -28,11 +28,6 @@ export default function SettingTabList() {
       <SettingItem onClick={sendAskMail}>
         {SETTING_MENU_NAME.CONTACT} <RightArrowIcon />
       </SettingItem>
-      <Link to={"/setting/about"}>
-        <SettingItem>
-          {SETTING_MENU_NAME.GUIDE} <RightArrowIcon />
-        </SettingItem>
-      </Link>
       <SettingItem onClick={shareContent}>
         {SETTING_MENU_NAME.SHARE} <RightArrowIcon />
       </SettingItem>
