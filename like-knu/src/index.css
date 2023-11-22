@@ -9,6 +9,7 @@ body {
   scrollbar-width: none;
   overflow-x: hidden;
   overflow-y: scroll;
+
 }
 body::-webkit-scrollbar {
   /*background-color: red;*/
@@ -26,7 +27,8 @@ html {
   -webkit-user-select: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   user-select: none;
-  overscroll-behavior-y: none;
+  overscroll-behavior: contain;
+
 }
 
 button {
