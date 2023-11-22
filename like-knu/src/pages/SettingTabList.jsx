@@ -12,7 +12,7 @@ export default function SettingTabList() {
   const shareContent = async () => {
     const shareData = {
       title: "공주대처럼",
-      text: "공주대학교 학생들을 위한 서비스!",
+      text: "공주대처럼",
       url: "https://like-knu.vercel.app",
     };
     await navigator.share(shareData);
