@@ -9,6 +9,15 @@ export default function SettingTabList() {
     document.location.href = "mailto:likeknu2023@gmail.com";
   };
 
+  const shareContent = async () => {
+    const shareData = {
+      title: "공주대처럼",
+      text: "공주대학교 학생들을 위한 서비스!",
+      url: "https://like-knu.vercel.app",
+    };
+    await navigator.share(shareData);
+  };
+
   return (
     <SettingContent>
       <Link to={"/setting/notificationTag"}>
@@ -24,6 +33,9 @@ export default function SettingTabList() {
           {SETTING_MENU_NAME.GUIDE} <RightArrowIcon />
         </SettingItem>
       </Link>
+      <SettingItem onClick={shareContent}>
+        {SETTING_MENU_NAME.SHARE} <RightArrowIcon />
+      </SettingItem>
       <Info>
         공주대학교 <br />
         컴퓨터공학부 소프트웨어전공 캡스톤디자인 <br />
