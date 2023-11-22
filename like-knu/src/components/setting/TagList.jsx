@@ -4,7 +4,6 @@ import TAGNAME from "../../constants/tagName";
 import { putTag, tags } from "../../api/tag";
 import colors from "../../constants/colors";
 import Tag from "../styles/Tag";
-import { getDeviceId } from "../../utils/DeviceManageUtil";
 
 // const Id = "test";
 export default function TagList() {
@@ -16,9 +15,7 @@ export default function TagList() {
     checkedList.forEach((tagName) => {
       tags.push({ tag: tagName });
     });
-    const data = { deviceId: getDeviceId(), tags: tags };
-    await putTag(data);
-    console.log("보냄");
+    await putTag(tags);
     alert("설정되었습니다.");
   };
 
