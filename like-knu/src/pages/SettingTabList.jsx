@@ -9,24 +9,31 @@ export default function SettingTabList() {
     document.location.href = "mailto:likeknu2023@gmail.com";
   };
 
+  const shareContent = async () => {
+    const shareData = {
+      title: "공주대처럼",
+      text: "아이폰은 '사파리', 안드로이드는 '크롬'으로 접속해 주세요",
+      url: "https://like-knu.vercel.app",
+    };
+    await navigator.share(shareData);
+  };
+
   return (
     <SettingContent>
       <Link to={"/setting/notificationTag"}>
         <SettingItem>
-          {SETTING_MENU_NAME.NOTICE_NOTIFICATION} <RightArrowIcon />
+          {SETTING_MENU_NAME.NOTICE_NOTIFICATION + " 🔔"} <RightArrowIcon />
         </SettingItem>
       </Link>
       <SettingItem onClick={sendAskMail}>
         {SETTING_MENU_NAME.CONTACT} <RightArrowIcon />
       </SettingItem>
-      <Link to={"/setting/about"}>
-        <SettingItem>
-          {SETTING_MENU_NAME.GUIDE} <RightArrowIcon />
-        </SettingItem>
-      </Link>
+      <SettingItem onClick={shareContent}>
+        {SETTING_MENU_NAME.SHARE} <RightArrowIcon />
+      </SettingItem>
       <Info>
         공주대학교 <br />
-        컴퓨터공학부 소프트웨어전공 캡스톤디자인 <br />
+        컴퓨터공학부 소프트웨어전공 캡스톤디자인 <br /><br />
         지찬우(jcw001031@gmail.com) <br />
         강채련(chaechae823@naver.com) <br />
         안나영(annay01794@gmail.com) <br />
