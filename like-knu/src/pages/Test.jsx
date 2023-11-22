@@ -62,61 +62,66 @@ export default function Test() {
   }, []);
 
   return (
-    <Background>
-      {/* <ul onClick={() => setView(!view)}>
-        안녕하세요
-        {view && <Dropdown />}
-      </ul> */}
-      <button onClick={test1}>안녕하세요1</button>
-      <button onClick={test2}>안녕하세요2</button>
-      <button onClick={printAxiosTest3}>안녕하세요3</button>
-      <button onClick={axiosTest4}>안녕하세요4</button>
-      <button onClick={print}>안녕하세요5</button>
-      <div className="wrapper">
-        <div className="area">
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="line"></div>
-        </div>
-        <div className="text_area">
-          <div className="text">뭐야뭐야무야</div>
-          <div className="text">뭐야뭐야무야</div>
-          <div className="text">뭐야뭐야무야</div>
-        </div>
-      </div>
-
-      {/*<BusItem routeCount={2} campus={"천안캠"} />*/}
-      {/*<BusItem routeCount={3} campus={"신관캠"} />*/}
-      {/*<BusItem routeCount={4} campus={"예산캠"} />*/}
-      {/*<BusItem routeCount={5} campus={"천안캠"} />*/}
-
-      {/*<Toggle>*/}
-      {/*  <input type="checkbox" id="toggle" hidden />*/}
-      {/*  <label htmlFor="toggle" className="toggleSwitch">*/}
-      {/*    <div className="toggleButton" />*/}
-      {/*  </label>*/}
-      {/*</Toggle>*/}
-
-      {/*<ToggleSwitch />*/}
-      {/*<Select*/}
-      {/*  defaultValue={options[0]}*/}
-      {/*  options={options}*/}
-      {/*  isSearchable={false}*/}
-      {/*  theme={(theme) => ({*/}
-      {/*    ...theme,*/}
-      {/*    colors: {*/}
-      {/*      ...theme.colors,*/}
-      {/*      primary: colors.COMMON,*/}
-      {/*      primary50: colors.GRAY100,*/}
-      {/*      primary75: "black",*/}
-      {/*    },*/}
-      {/*  })}*/}
-      {/*  styles={SelectStyle}*/}
-      {/*></Select>*/}
-      {/*<BusSelect options={options}></BusSelect>*/}
-    </Background>
+    <>
+      <h1>PWA를 설치해 주세요!</h1>
+    </>
   );
+  // return (
+  //   <Background>
+  //     {/* <ul onClick={() => setView(!view)}>
+  //       안녕하세요
+  //       {view && <Dropdown />}
+  //     </ul> */}
+  //     <button onClick={test1}>안녕하세요1</button>
+  //     <button onClick={test2}>안녕하세요2</button>
+  //     <button onClick={printAxiosTest3}>안녕하세요3</button>
+  //     <button onClick={axiosTest4}>안녕하세요4</button>
+  //     <button onClick={print}>안녕하세요5</button>
+  //     <div className="wrapper">
+  //       <div className="area">
+  //         <div className="circle"></div>
+  //         <div className="circle"></div>
+  //         <div className="circle"></div>
+  //         <div className="line"></div>
+  //       </div>
+  //       <div className="text_area">
+  //         <div className="text">뭐야뭐야무야</div>
+  //         <div className="text">뭐야뭐야무야</div>
+  //         <div className="text">뭐야뭐야무야</div>
+  //       </div>
+  //     </div>
+  //
+  //     {/*<BusItem routeCount={2} campus={"천안캠"} />*/}
+  //     {/*<BusItem routeCount={3} campus={"신관캠"} />*/}
+  //     {/*<BusItem routeCount={4} campus={"예산캠"} />*/}
+  //     {/*<BusItem routeCount={5} campus={"천안캠"} />*/}
+  //
+  //     {/*<Toggle>*/}
+  //     {/*  <input type="checkbox" id="toggle" hidden />*/}
+  //     {/*  <label htmlFor="toggle" className="toggleSwitch">*/}
+  //     {/*    <div className="toggleButton" />*/}
+  //     {/*  </label>*/}
+  //     {/*</Toggle>*/}
+  //
+  //     {/*<ToggleSwitch />*/}
+  //     {/*<Select*/}
+  //     {/*  defaultValue={options[0]}*/}
+  //     {/*  options={options}*/}
+  //     {/*  isSearchable={false}*/}
+  //     {/*  theme={(theme) => ({*/}
+  //     {/*    ...theme,*/}
+  //     {/*    colors: {*/}
+  //     {/*      ...theme.colors,*/}
+  //     {/*      primary: colors.COMMON,*/}
+  //     {/*      primary50: colors.GRAY100,*/}
+  //     {/*      primary75: "black",*/}
+  //     {/*    },*/}
+  //     {/*  })}*/}
+  //     {/*  styles={SelectStyle}*/}
+  //     {/*></Select>*/}
+  //     {/*<BusSelect options={options}></BusSelect>*/}
+  //   </Background>
+  // );
 }
 const SelectStyle = {
   control: (control) => ({
