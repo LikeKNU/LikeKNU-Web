@@ -52,12 +52,12 @@ function App() {
       </>);
   } else {
     // PWA로 설치되지 않은 상태
-    const isAndroid = /Android/.test(navigator.userAgent);
-    const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
+    const android = /Android/.test(navigator.userAgent);
+    const iOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
 
-    if (isAndroid) {
+    if (android) {
       alert('Android');
-    } else if (isiOS) {
+    } else if (iOS) {
       alert('iOS');
     } else {
       alert('Others');
