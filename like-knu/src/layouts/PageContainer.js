@@ -5,4 +5,5 @@ export default styled.div`
   padding-top: 140px;
   padding-bottom: 110px;
   display: grid;
+  height: 100%;
 `;
