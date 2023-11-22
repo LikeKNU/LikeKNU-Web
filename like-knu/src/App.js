@@ -15,6 +15,7 @@ import SettingAboutPage from "./pages/SettingAboutPage";
 import { initializeDevice } from "./api/initializer";
 import AosImage from "./assets/aos_onboarding.png";
 import IosImage from "./assets/ios_onboarding.png";
+import OtherImage from "./assets/other_onboarding.png";
 import styled from "styled-components";
 function App() {
   const location = useLocation();
@@ -67,9 +68,15 @@ function App() {
     } else if (isiOS) {
       return (
         <>
-          <Image src={IosImage} alt={"뭘봐"} />
+          <Image src={IosImage} alt={"뭘봐"}/>
         </>
       );
+    } else {
+      return (
+        <>
+          <Image src={OtherImage} alt={"뭘봐"}/>
+        </>
+      )
     }
   }
 
