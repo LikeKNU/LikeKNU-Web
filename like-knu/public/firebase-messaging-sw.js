@@ -1,10 +1,8 @@
 self.addEventListener("install", function (e) {
-  console.log("fcm sw install..");
   self.skipWaiting();
 });
 
 self.addEventListener("activate", function (e) {
-  console.log("fcm sw activate..");
 });
 
 self.addEventListener("push", function (event) {
@@ -25,7 +23,6 @@ self.addEventListener("push", function (event) {
 });
 
 self.addEventListener("notificationclick", function (event) {
-  // TODO 푸시 알림 클릭 시 동작
   event.notification.close();
   let url = event.notification.data;
   clients.openWindow(url);
