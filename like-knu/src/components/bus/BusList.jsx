@@ -1,10 +1,8 @@
 import styled from "styled-components";
-import MainBusItem from "../main/MainBusItem";
 import { CityBusListItem } from "./CityBusListItem";
 import { ReactComponent as ArrowIcon } from "assets/icon/Arrow right alt.svg";
 import colors from "../../constants/colors";
-const EMPTY_MESSAGE = "30분 이내에 있는 버스가 없습니다.";
-
+import { EMPTY_MESSAGE } from "../../constants/message";
 export default function BusList({ route }) {
   return (
     <Wrapper>
@@ -33,8 +31,9 @@ export default function BusList({ route }) {
 }
 const EmptyText = styled.div`
   color: ${colors.GRAY300};
-  margin-top: 5px;
+  margin-top: 8px;
   font-size: 1.3rem;
+  margin-bottom: 8px;
 `;
 const RouteText = styled.div`
   display: flex;

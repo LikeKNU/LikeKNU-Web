@@ -8,8 +8,7 @@ import { notice } from "../api/notice";
 import styled from "styled-components";
 import colors from "../constants/colors";
 import { getCampus } from "../utils/DeviceManageUtil";
-import NoticePagination from "../components/notice/NoticePagination";
-import Campus from "../constants/campus";
+import { CampusEng } from "../constants/campus";
 import ListItem from "../components/ListItem";
 
 export default function NoticePage() {
@@ -18,9 +17,7 @@ export default function NoticePage() {
   const [totalElements, setTotalElements] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
 
-  let campus = getCampus();
-  const keys = Object.keys(Campus);
-  campus = keys.find((key) => Campus[key] === campus);
+  let campus = CampusEng[getCampus()];
 
   const getNotices = async (category, page) => {
     const res = await notice(campus, category, page);
@@ -62,11 +59,6 @@ export default function NoticePage() {
             url={notice.announcementUrl}
           ></ListItem>
         ))}
-        <NoticePagination
-          totalElements={totalElements}
-          currentPage={currentPage}
-          setPage={setCurrentPage}
-        />
       </PageContainer>
     </PageLayout>
   );

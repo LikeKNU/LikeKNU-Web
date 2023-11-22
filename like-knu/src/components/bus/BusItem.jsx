@@ -1,6 +1,5 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import React from "react";
-import colors from "../../constants/colors";
 import GlobalColor from "../styles/globalColor";
 
 export function BusItem({ times }) {

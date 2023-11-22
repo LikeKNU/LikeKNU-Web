@@ -7,8 +7,6 @@ import { ReactComponent as CalendarIcon } from "assets/icon/calendar_today_black
 import { ReactComponent as RestaurantIcon } from "assets/icon/restaurant_black_24dp.svg";
 import colors from "constants/colors";
 import { useLocation, useNavigate } from "react-router-dom";
-import { getCampus } from "utils/DeviceManageUtil";
-import { Campus } from "constants/campus";
 import { PAGE_NAME } from "../../constants/pageName";
 
 export default function BottomNav() {
