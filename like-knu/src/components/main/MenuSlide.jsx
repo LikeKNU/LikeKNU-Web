@@ -5,7 +5,7 @@ export default function MenuSlide({ menu }) {
   const [newMenu, setNewMenu] = useState([]); //메뉴스
   const [isOver, setIsOver] = useState(false);
   const cnt = Object.keys(menu).length;
-  const slice = 6;
+  const slice = 5;
   const [isEmpty, setIsEmpty] = useState(false);
 
   // 메뉴 개수 세서 새로운 객체에 저장하는 함수

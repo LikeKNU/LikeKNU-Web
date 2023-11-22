@@ -42,7 +42,7 @@ export default function MainMenu({ selectCampus }) {
           <SwiperSlide key={c.cafeteriaId}>
             <Title>
               {c.cafeteriaName}
-              <MealTypeText>{MEAL_TYPE}</MealTypeText>
+              <MealTypeText>{c.mealType}</MealTypeText>
             </Title>
             <MenuSlide menu={c.menus} />
           </SwiperSlide>
