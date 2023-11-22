@@ -3,6 +3,7 @@ import MainBusItem from "../main/MainBusItem";
 import { CityBusListItem } from "./CityBusListItem";
 import { ReactComponent as ArrowIcon } from "assets/icon/Arrow right alt.svg";
 import colors from "../../constants/colors";
+const EMPTY_MESSAGE = "30분 이내에 있는 버스가 없습니다.";
 
 export default function BusList({ route }) {
   return (
@@ -16,18 +17,25 @@ export default function BusList({ route }) {
         <OriginText>{route.departureStop} 출발</OriginText>
       </Title>
       <Content>
-        {route.buses.map((bus, index) => (
-          <CityBusListItem
-            key={index}
-            busColor={bus.busColor}
-            busNumber={bus.busNumber}
-            remainingTime={bus.remainingTime}
-          />
-        ))}
+        {route.buses.length !== 0 &&
+          route.buses.map((bus, index) => (
+            <CityBusListItem
+              key={index}
+              busColor={bus.busColor}
+              busNumber={bus.busNumber}
+              remainingTime={bus.remainingTime}
+            />
+          ))}
+        {route.buses.length === 0 && <EmptyText>{EMPTY_MESSAGE}</EmptyText>}
       </Content>
     </Wrapper>
   );
 }
+const EmptyText = styled.div`
+  color: ${colors.GRAY300};
+  margin-top: 5px;
+  font-size: 1.3rem;
+`;
 const RouteText = styled.div`
   display: flex;
   flex-direction: row;
