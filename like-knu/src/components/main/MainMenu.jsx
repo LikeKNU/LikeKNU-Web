@@ -8,11 +8,10 @@ import { menuMain } from "api/main";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
 import GlobalColor from "../styles/globalColor";
 import { CampusEng } from "../../constants/campus";
-const MEAL_TYPE = "내일 아침";
 export default function MainMenu({ selectCampus }) {
   const [cafeteria, setCafeteria] = useState([]);
   const navigate = useNavigate();
@@ -22,7 +21,6 @@ export default function MainMenu({ selectCampus }) {
   };
 
   const goMenu = () => {
-    console.log("메뉴로 이동!!");
     navigate(`/menu`);
   };
   useEffect(() => {
@@ -42,7 +40,7 @@ export default function MainMenu({ selectCampus }) {
           <SwiperSlide key={c.cafeteriaId}>
             <Title>
               {c.cafeteriaName}
-              <MealTypeText>{MEAL_TYPE}</MealTypeText>
+              <MealTypeText>{c.mealType}</MealTypeText>
             </Title>
             <MenuSlide menu={c.menus} />
           </SwiperSlide>

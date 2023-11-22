@@ -4,7 +4,6 @@ import colors from "constants/colors";
 
 export default function BusRefreshBtn({ getBuses }) {
   const refreshHandler = () => {
-    console.log("새로고칠까말까");
     getBuses();
   };
 

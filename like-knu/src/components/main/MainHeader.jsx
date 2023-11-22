@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import colors from "constants/colors";
 import DropDown from "components/main/DropDown";
 import { useState } from "react";
@@ -8,20 +8,16 @@ import { ReactComponent as NotificationIcon } from "assets/icon/bell-fill.svg";
 import { ReactComponent as SettingIcon } from "assets/icon/gear-fill.svg";
 import { useNavigate } from "react-router-dom";
 import GlobalColor from "../styles/globalColor";
-import Campus from "../../constants/campus";
-import { setDeviceCampus } from "../../api/device";
-
+import { MAIN_MESSAGE } from "../../constants/message";
 export default function MainHeader({ setSelectCampus }) {
   const [view, setView] = useState(false);
   const navigate = useNavigate();
 
   const goNotification = () => {
-    console.log("푸시알림 이동!!");
     navigate(`/notification`);
   };
 
   const goSetting = () => {
-    console.log("설정 이동!!");
     navigate(`/setting`);
   };
   GlobalColor.setColor();
@@ -37,7 +33,7 @@ export default function MainHeader({ setSelectCampus }) {
         {view && <DropDown setSelectCampus={setSelectCampus} />}
         <DownIcon fill={colors.BLACK} />
       </CampusList>
-      <Message>✨롤드컵 우승 축하✨</Message>
+      <Message>{MAIN_MESSAGE}</Message>
       <IconList>
         <StyledNotification onClick={goNotification} />
         <StyledSetting onClick={goSetting} />

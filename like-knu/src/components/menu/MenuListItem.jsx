@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { menuIcon } from "../../assets/icon/menuIcon";
 import colors from "../../constants/colors";
 export function MenuListItem({ menuList }) {
-  // console.log(menuList.cafeteriaId);
-  let isOperation = false;
   return (
     <div>
       {menuList.map((menu, index) => (

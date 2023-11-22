@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { calendarMain } from "api/main";
 import MainCalendarItem from "./MainCalendarItem";
 import { useNavigate } from "react-router-dom";
+import { PAGE_NAME } from "../../constants/pageName";
 
 export default function MainCalendar() {
   const [scheduleList, setScheduleList] = useState([]);
@@ -14,7 +15,6 @@ export default function MainCalendar() {
     setScheduleList(res);
   };
   const goCalendar = () => {
-    console.log("학사일정으로 이동!!");
     navigate(`/calendar`);
   };
   useEffect(() => {
@@ -22,15 +22,7 @@ export default function MainCalendar() {
   }, []);
   return (
     <CardContainer>
-      <Title onClick={goCalendar}>학사일정</Title>
-      {/* {
-        scheduleList.map((schedule) => (
-          <MainCalendarItem key={schedule.scheduleId} schedule={schedule}/>
-        ))
-      } */}
-      {/* <CalendarList>
-        <MainCalendarItem></MainCalendarItem>
-      </CalendarList> */}
+      <Title onClick={goCalendar}>{PAGE_NAME.CALENDAR}</Title>
       <CalendarList>
         {scheduleList.map((schedule) => (
           <MainCalendarItem key={schedule.scheduleId} schedule={schedule} />
