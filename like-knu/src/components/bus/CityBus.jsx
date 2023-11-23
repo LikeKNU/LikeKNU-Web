@@ -32,34 +32,38 @@ function CityBus() {
     setBuses(res);
   };
   GlobalColor.setColor();
-
   useEffect(() => {
     getBuses();
   }, [destination]);
   return (
-    <Wrapper>
-      <BusDestinationArea>
-        <Row>
-          {school.map((text, index) => (
-            <BusDestination
-              key={index}
-              onClick={() => setDestination(index)}
-              className={destination === index ? "active" : null}
-              $campus={GlobalColor.getColor()}
-            >
-              {text}
-            </BusDestination>
-          ))}
-        </Row>
-        <Row>
-          <RefreshTime>{formattedDate}</RefreshTime>
-          <BusRefreshBtn getBuses={getBuses} />
-        </Row>
-      </BusDestinationArea>
-      {buses.map((bus, index) => (
-        <BusList key={index} route={bus} />
-      ))}
-    </Wrapper>
+    <>
+      <FixContainer>
+        <BusDestinationArea>
+          <Row>
+            {school.map((text, index) => (
+              <BusDestination
+                key={index}
+                onClick={() => setDestination(index)}
+                className={destination === index ? "active" : null}
+                $campus={GlobalColor.getColor()}
+              >
+                {text}
+              </BusDestination>
+            ))}
+          </Row>
+          <Row>
+            <RefreshTime>{formattedDate}</RefreshTime>
+            <BusRefreshBtn getBuses={getBuses} />
+          </Row>
+        </BusDestinationArea>
+      </FixContainer>
+
+      <Wrapper>
+        {buses.map((bus, index) => (
+          <BusList key={index} route={bus} />
+        ))}
+      </Wrapper>
+    </>
   );
 }
 const Row = styled.div`
@@ -73,11 +77,21 @@ const RefreshTime = styled.div`
   margin-right: 10px;
 `;
 
-const Wrapper = styled(PageContainer)``;
+const Wrapper = styled(PageContainer)`
+  padding-top: 160px;
+`;
+const FixContainer = styled.div`
+  top: 99px;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  padding: 12px 0;
+  box-shadow: 0 2px 0 0 rgba(175, 175, 175, 0.1);
+`;
 const BusDestinationArea = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 26px;
+  padding: 0 16px;
 `;
 export default CityBus;
