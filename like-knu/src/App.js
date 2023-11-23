@@ -33,7 +33,7 @@ function App() {
     }
   }, [location]);
 
-  if (window.matchMedia("(display-mode: fullscreen)").matches) {
+  if (window.matchMedia("(display-mode: standalone)").matches) {
     // if(true)
     // PWA로 설치된 상태
     initializeDevice();
