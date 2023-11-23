@@ -1,22 +1,30 @@
 import styled from "styled-components";
 import React from "react";
 import GlobalColor from "../styles/globalColor";
+import colors from "../../constants/colors";
 
-export function BusItem({ times }) {
+export function BusItem({ times, isRunning }) {
   const routeCount = times.length;
   const calAreaHeight = () => {
     return 12 * routeCount + 18 * (routeCount - 1);
   };
   GlobalColor.setColor();
+
+  let color = "";
+  if (isRunning) {
+    color = GlobalColor.getColor();
+  } else {
+    color = colors.GRAY300;
+  }
   return (
     <Wrapper $height={calAreaHeight() + "px"}>
       <div className="marker_area">
         {Array(routeCount)
           .fill(0)
           .map((_, index) => (
-            <Circle key={index} $campus={GlobalColor.getColor()}></Circle>
+            <Circle key={index} $campus={color}></Circle>
           ))}
-        <Line $campus={GlobalColor.getColor()} />
+        <Line $campus={color} />
       </div>
       <div className="text_area">
         {times.map((time, index) => (
@@ -29,6 +37,7 @@ export function BusItem({ times }) {
     </Wrapper>
   );
 }
+
 const Time = styled.div``;
 const Row = styled.div`
   display: flex;
@@ -41,6 +50,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   margin-bottom: 20px;
   margin-top: 20px;
+
   .text_area {
     display: flex;
     flex-direction: column;

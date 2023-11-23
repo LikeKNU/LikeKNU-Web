@@ -32,6 +32,7 @@ function App() {
   }, [location]);
 
   if (window.matchMedia("(display-mode: fullscreen)").matches) {
+    // if(true)
     // PWA로 설치된 상태
     initializeDevice();
     return (
@@ -68,15 +69,15 @@ function App() {
     } else if (isiOS) {
       return (
         <>
-          <Image src={IosImage} alt={"뭘봐"}/>
+          <Image src={IosImage} alt={"뭘봐"} />
         </>
       );
     } else {
       return (
         <>
-          <Image src={OtherImage} alt={"뭘봐"}/>
+          <Image src={OtherImage} alt={"뭘봐"} />
         </>
-      )
+      );
     }
   }
 

@@ -47,7 +47,7 @@ function Shuttle() {
       {shuttle.map((route, index) => (
         <Content key={index}>
           <Title>{route.busName}</Title>
-          <BusItem times={route.times} />
+          <BusItem times={route.times} isRunning={route.isRunning} />
         </Content>
       ))}
     </Wrapper>

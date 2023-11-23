@@ -46,8 +46,7 @@ export default function MainBus({ selectCampus }) {
 const RefreshTime = styled.div`
   color: ${colors.GRAY350};
   font-size: 1.2rem;
-  margin-right: 10px;
-  width: 20%;
+  margin-right: 6px;
 `;
 
 const Row = styled.div`
