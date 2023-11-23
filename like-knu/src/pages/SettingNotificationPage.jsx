@@ -23,12 +23,12 @@ export default function SettingNotificationPage() {
   };
 
   const changeDeviceNotification = async () => {
-    changeTurnOnNotification(!isTurnOn);
-    if (!isTurnOn) {
+    setIsTurnOn(!isTurnOn);
+    changeTurnOnNotification(isTurnOn);
+    if (isTurnOn) {
       let token = await requestNotificationPermission();
       updateNotificationToken(token);
     }
-    setIsTurnOn(!isTurnOn);
   };
 
   useEffect(() => {
