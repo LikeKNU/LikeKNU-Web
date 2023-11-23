@@ -17,6 +17,8 @@ import AosImage from "./assets/aos_onboarding.png";
 import IosImage from "./assets/ios_onboarding.png";
 import OtherImage from "./assets/other_onboarding.png";
 import styled from "styled-components";
+import RouteChangeTracker from "./RouteChangeTrancker";
+
 function App() {
   const location = useLocation();
   const [isBottomBar, setIsBottomBar] = useState(true);
@@ -34,6 +36,7 @@ function App() {
   if (window.matchMedia("(display-mode: fullscreen)").matches) {
     // PWA로 설치된 상태
     initializeDevice();
+    RouteChangeTracker();
     return (
       <>
         <Routes>
