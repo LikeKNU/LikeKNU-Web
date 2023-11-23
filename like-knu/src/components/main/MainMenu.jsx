@@ -34,7 +34,7 @@ export default function MainMenu({ selectCampus }) {
         pagination={{ clickable: true }}
         cssMode={true}
         onClick={goMenu}
-        spaceBetween={10}
+        // spaceBetween={10}
         // threshold={0}
         $campus={GlobalColor.getColor()}
       >
