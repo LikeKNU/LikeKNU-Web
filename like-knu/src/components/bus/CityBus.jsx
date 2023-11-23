@@ -31,6 +31,8 @@ function CityBus() {
     const res = await cityBuses(CampusEng[getCampus()], type);
     setBuses(res);
   };
+  GlobalColor.setColor();
+
   useEffect(() => {
     getBuses();
   }, [destination]);
