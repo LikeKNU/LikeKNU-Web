@@ -11,7 +11,7 @@ export const PageHeader = styled.div`
 
   color: ${colors.BLACK};
   font-size: 2.2rem;
-  font-weight: 700;
+  font-weight: 600;
 `;
 export const Header = styled.div`
   position: fixed;

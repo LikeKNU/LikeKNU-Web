@@ -47,6 +47,7 @@ const RefreshTime = styled.div`
   color: ${colors.GRAY350};
   font-size: 1.2rem;
   margin-right: 6px;
+  width: 20%;
 `;
 
 const Row = styled.div`

@@ -22,7 +22,7 @@ export default function SettingTabList() {
     <SettingContent>
       <Link to={"/setting/notificationTag"}>
         <SettingItem>
-          {SETTING_MENU_NAME.NOTICE_NOTIFICATION + " 🔔"} <RightArrowIcon />
+          {SETTING_MENU_NAME.NOTICE_NOTIFICATION} <RightArrowIcon />
         </SettingItem>
       </Link>
       <SettingItem onClick={sendAskMail}>
@@ -33,10 +33,8 @@ export default function SettingTabList() {
       </SettingItem>
       <Info>
         공주대학교 <br />
-        컴퓨터공학부 소프트웨어전공 캡스톤디자인 <br /><br />
-        지찬우(jcw001031@gmail.com) <br />
-        강채련(chaechae823@naver.com) <br />
-        안나영(annay01794@gmail.com) <br />
+        컴퓨터공학부 소프트웨어전공 캡스톤디자인 <br />
+        지찬우, 강채련, 안나영
       </Info>
     </SettingContent>
   );
@@ -46,7 +44,7 @@ const Info = styled.div`
   bottom: 30px;
   left: 50%;
   transform: translate(-50%, 0);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   text-align: center;
   line-height: 1.5;
   color: ${colors.GRAY400};
