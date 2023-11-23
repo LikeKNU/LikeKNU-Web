@@ -10,6 +10,6 @@ export const PAGE_NAME = {
 
 export const SETTING_MENU_NAME = {
   NOTICE_NOTIFICATION: "공지사항 알림 구독",
-  CONTACT: "문의하기 ✉️",
-  SHARE: "공주대처럼 공유하기 🥳"
+  CONTACT: "문의하기",
+  SHARE: "공주대처럼 공유하기",
 };
