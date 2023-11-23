@@ -34,6 +34,8 @@ export default function MainMenu({ selectCampus }) {
         pagination={{ clickable: true }}
         cssMode={true}
         onClick={goMenu}
+        spaceBetween={10}
+        threshold={100}
         $campus={GlobalColor.getColor()}
       >
         {cafeteria.map((c) => (
