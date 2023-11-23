@@ -35,7 +35,8 @@ export default function MainMenu({ selectCampus }) {
         cssMode={true}
         onClick={goMenu}
         // spaceBetween={10}
-        speed={600}
+        // speed={600}
+        followFinger={false}
         $campus={GlobalColor.getColor()}
       >
         {cafeteria.map((c) => (
