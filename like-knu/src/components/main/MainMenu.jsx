@@ -34,9 +34,13 @@ export default function MainMenu({ selectCampus }) {
         pagination={{ clickable: true }}
         cssMode={true}
         onClick={goMenu}
+        slidesPerGroup={1}
         // spaceBetween={10}
-        // speed={600}
-        followFinger={false}
+        speed={300}
+        // followFinger={false}
+        resistance={true}
+        shortSwipes={false}
+        threshold={10}
         $campus={GlobalColor.getColor()}
       >
         {cafeteria.map((c) => (
