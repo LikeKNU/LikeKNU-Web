@@ -26,10 +26,8 @@ export default function MainNotice({ selectCampus }) {
     <NoticeContainer>
       <Title onClick={goNotice}>{PAGE_NAME.NOTICE}</Title>
       {notices.map((notice) => (
-        <Text key={notice.announcementId}>
-          <a href={notice.announcementUrl} className="notice_link">
-            {notice.announcementTitle}
-          </a>
+        <Text key={notice.announcementId} onClick={() => window.open(notice.announcementUrl, "_blank")}>
+          {notice.announcementTitle}
         </Text>
       ))}
     </NoticeContainer>
