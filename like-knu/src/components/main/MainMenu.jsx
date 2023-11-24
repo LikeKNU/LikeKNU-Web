@@ -32,7 +32,6 @@ export default function MainMenu({ selectCampus }) {
         slidesPerView="auto"
         modules={[Pagination]}
         pagination={{ clickable: true }}
-        cssMode={true}
         onClick={goMenu}
         slidesPerGroup={1}
         // spaceBetween={10}
@@ -77,7 +76,6 @@ const Title = styled.div`
   align-items: center;
 `;
 const SwiperContainer = styled(Swiper)`
-  overflow: visible;
   margin-right: 2rem;
   margin-left: 2rem;
   .swiper-pagination {
