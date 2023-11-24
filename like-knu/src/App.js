@@ -53,7 +53,7 @@ function App() {
           />
           <Route path="/setting/about" element={<SettingAboutPage />} />
           <Route path="/notification" element={<NotificationPage />} />
-          <Route path="*" element={<Test />} />
+          <Route path="*" element={<Test />} />₩
         </Routes>
         {isBottomBar && <BottomNav />}
       </>
