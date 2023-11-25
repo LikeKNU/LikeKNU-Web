@@ -14,7 +14,7 @@ export default function CalendarPage() {
     setScheduleList(res);
   };
   useEffect(() => {
-    getScheduleList().then((r) => console.log(r));
+    getScheduleList();
   }, []);
   return (
     <PageLayout>

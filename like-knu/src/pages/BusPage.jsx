@@ -3,8 +3,6 @@ import { PageHeader, Header } from "components/styles/PageHeader";
 import { busTab } from "../constants/tabName";
 import { TabList, TabItem } from "../components/styles/Tab";
 import { useState } from "react";
-import { getCampus } from "../utils/DeviceManageUtil";
-import { CampusEng } from "../constants/campus";
 import CityBus from "../components/bus/CityBus";
 import Shuttle from "../components/bus/Shuttle";
 import { PAGE_NAME } from "../constants/pageName";
