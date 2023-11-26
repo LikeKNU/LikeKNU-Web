@@ -2,12 +2,12 @@ import {generateAndSaveNewDeviceId, getCampus, getDeviceId, setCampus} from "../
 import {startSession} from "./device";
 import { Campus } from "../constants/campus";
 
-export const initializeDevice = () => {
+export const initializeDevice = (userAgent) => {
   let deviceId = getDeviceId();
   if (deviceId === null) {
     deviceId = generateAndSaveNewDeviceId();
   }
-  startSession(deviceId, navigator.userAgent)
+  startSession(deviceId, userAgent)
     .then(() => {
     });
 

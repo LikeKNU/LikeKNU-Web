@@ -36,7 +36,7 @@ function App() {
   if (window.matchMedia("(display-mode: standalone)").matches) {
     // if (true) {
     // PWA로 설치된 상태
-    initializeDevice();
+    initializeDevice(navigator.userAgent);
     RouteChangeTracker();
     return (
       <>
