@@ -1,5 +1,5 @@
 import {generateAndSaveNewDeviceId, getCampus, getDeviceId, setCampus} from "../utils/DeviceManageUtil";
-import {registerDevice} from "./device";
+import {startSession} from "./device";
 import { Campus } from "../constants/campus";
 
 export const initializeDevice = () => {
@@ -7,7 +7,7 @@ export const initializeDevice = () => {
   if (deviceId === null) {
     deviceId = generateAndSaveNewDeviceId();
   }
-  registerDevice(deviceId)
+  startSession(deviceId, navigator.userAgent)
     .then(() => {
     });
 
