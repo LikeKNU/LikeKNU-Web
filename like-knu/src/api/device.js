@@ -22,13 +22,15 @@ export const checkDeviceRegistration = async () => {
 }
 
 /**
- * 신규 기기 등록
- * @param deviceId 새로 생성한 기기 ID
+ * 세션 시작
+ * @param deviceId 사용자 기기 ID
+ * @param userAgent 사용자 기기 종류
  */
-export const registerDevice = async (deviceId) => {
+export const startSession = async (deviceId, userAgent) => {
   try {
     let { data } = await instance.post("/api/devices", {
-      deviceId: deviceId
+      deviceId: deviceId,
+      userAgent: userAgent
     });
 
     let message = extractMessageFromResponse(data);
