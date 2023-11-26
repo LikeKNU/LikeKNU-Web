@@ -7,9 +7,7 @@ export const initializeDevice = () => {
   if (deviceId === null) {
     deviceId = generateAndSaveNewDeviceId();
   }
-  startSession(deviceId, navigator.userAgent)
-    .then(() => {
-    });
+  startSession(deviceId, navigator.userAgent);
 
   let campus = getCampus();
   if (campus === null || campus === undefined) {
