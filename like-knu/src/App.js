@@ -33,8 +33,8 @@ function App() {
     }
   }, [location]);
 
-  if (window.matchMedia("(display-mode: standalone)").matches) {
-    // if (true) {
+  // if (window.matchMedia("(display-mode: standalone)").matches) {
+  if (true) {
     // PWA로 설치된 상태
     initializeDevice();
     RouteChangeTracker();
@@ -53,7 +53,7 @@ function App() {
           />
           <Route path="/setting/about" element={<SettingAboutPage />} />
           <Route path="/notification" element={<NotificationPage />} />
-          <Route path="*" element={<Test />} />
+          <Route path="*" element={<Test />} />₩
         </Routes>
         {isBottomBar && <BottomNav />}
       </>

@@ -14,7 +14,7 @@ self.addEventListener("push", function (event) {
   const notificationOptions = {
     body: notification.body,
     icon: '/logo192.png',
-    data: data.announcement_url
+    data: data.url
   };
 
   event.waitUntil(

@@ -25,10 +25,11 @@ const Title = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-bottom: 4px;
 `;
 const Text = styled.div`
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: 500;
   color: ${colors.BLACK};
   text-align: center;
 `;

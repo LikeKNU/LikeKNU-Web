@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import colors from "../constants/colors";
 import { ReactComponent as BackIcon } from "../assets/icon/arrow_back_ios_new_black_24dp.svg";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 export function BackHeader({ Title }) {
   const navigate = useNavigate();
   const goBack = () => {
-    navigate(-1);
+    navigate("/");
   };
 
   return (
