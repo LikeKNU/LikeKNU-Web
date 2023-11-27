@@ -1,6 +1,5 @@
 import PageLayout from "../layouts/PageLayout";
 import { PageHeader, Header } from "../components/styles/PageHeader";
-import PageContainer from "../layouts/PageContainer";
 import { getCampus } from "../utils/DeviceManageUtil";
 import { TabItem, TabList } from "../components/styles/Tab";
 import { useEffect, useState } from "react";
@@ -18,6 +17,7 @@ export default function MenuPage() {
   const [category, setCategory] = useState(0);
   const [menuList, setMenuList] = useState([]);
   const [mealList, setMealList] = useState([]);
+  const [today, setToday] = useState("오늘");
   let campus = CampusEng[getCampus()];
 
   const getMenuList = async () => {
@@ -35,6 +35,10 @@ export default function MenuPage() {
       setMealList(menuList[category].meal);
     }
   }, [category]);
+
+  const toggleToday = () => {
+    setToday((prev) => (prev === "오늘" ? "내일" : "오늘"));
+  };
 
   return (
     <PageLayout>
@@ -55,7 +59,7 @@ export default function MenuPage() {
       <StyledPageContainer>
         <TitleArea>
           <StyledArrowIcon className={"swiper-prev"} />
-          <Title>튜머어로우</Title>
+          <Title>{today}</Title>
           <StyledArrowIcon className={"swiper-next"} />
         </TitleArea>
         <Swiper
@@ -65,7 +69,8 @@ export default function MenuPage() {
             prevEl: ".swiper-prev",
           }}
           modules={[Navigation]}
-          onSlideChange={() => console.log("slide change")}
+          onSlideChange={() => toggleToday()}
+          initialSlide={0}
         >
           <SwiperSlide>
             <MenuListItem menuList={mealList}></MenuListItem>
@@ -79,9 +84,9 @@ export default function MenuPage() {
   );
 }
 const Title = styled.div`
-  font-size: 1.4rem;
-  font-weight: 500;
-  margin: 0 16px;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0 18px;
   color: ${colors.BLACK};
 `;
 const TitleArea = styled.div`
@@ -95,7 +100,7 @@ const TitleArea = styled.div`
 `;
 const StyledArrowIcon = styled(PrevArrowIcon)`
   position: relative;
-  z-index: 100;
+  z-index: 10;
   fill: ${colors.BLACK};
   width: 16px;
   height: 16px;
@@ -103,6 +108,7 @@ const StyledArrowIcon = styled(PrevArrowIcon)`
 const StyledPageContainer = styled.div`
   height: 100vh;
   position: relative;
+  margin-bottom: 100px;
   .my-swiper {
     height: 100%;
   }

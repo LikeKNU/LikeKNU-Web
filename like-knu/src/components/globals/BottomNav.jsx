@@ -17,7 +17,7 @@ export default function BottomNav() {
     if (activeNav === 1 && value === 1) {
       console.log("메인에서 메인으로 이동하려 함.");
     } else {
-      navigate(url);
+      navigate(url, { replace: true });
       setActiveNav(value);
     }
   };
@@ -30,6 +30,8 @@ export default function BottomNav() {
       setActiveNav(4);
     } else if (pathName.includes("/calendar")) {
       setActiveNav(5);
+    } else {
+      setActiveNav(1);
     }
   }, [pathName]);
 
