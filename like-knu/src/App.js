@@ -13,9 +13,9 @@ import NotificationPage from "./pages/NotificationPage";
 import SettingNotificationPage from "./pages/SettingNotificationPage";
 import SettingAboutPage from "./pages/SettingAboutPage";
 import { initializeDevice } from "./api/initializer";
-import AosImage from "./assets/aos_onboarding.png";
-import IosImage from "./assets/ios_onboarding.png";
-import OtherImage from "./assets/other_onboarding.png";
+import AosImage from "./assets/image/aos_onboarding.png";
+import IosImage from "./assets/image/ios_onboarding.png";
+import OtherImage from "./assets/image/other_onboarding.png";
 import styled from "styled-components";
 import RouteChangeTracker from "./RouteChangeTrancker";
 
@@ -33,8 +33,8 @@ function App() {
     }
   }, [location]);
 
-  if (window.matchMedia("(display-mode: standalone)").matches) {
-    // if (true) {
+  // if (window.matchMedia("(display-mode: standalone)").matches) {
+  if (true) {
     // PWA로 설치된 상태
     initializeDevice();
     RouteChangeTracker();
@@ -53,7 +53,7 @@ function App() {
           />
           <Route path="/setting/about" element={<SettingAboutPage />} />
           <Route path="/notification" element={<NotificationPage />} />
-          <Route path="*" element={<Test />} />₩
+          <Route path="*" element={<Test />} />
         </Routes>
         {isBottomBar && <BottomNav />}
       </>
@@ -83,23 +83,6 @@ function App() {
       );
     }
   }
-
-  // <div className="App">
-  //   <header className="App-header">
-  //     <img src={logo} className="App-logo" alt="logo" />
-  //     <p>
-  //       Edit <code>src/App.js</code> and save to reload.
-  //     </p>
-  //     <a
-  //       className="App-link"
-  //       href="https://reactjs.org"
-  //       target="_blank"
-  //       rel="noopener noreferrer"
-  //     >
-  //       Learn React
-  //     </a>
-  //   </header>
-  // </div>
 }
 const Image = styled.img`
   width: 100%;

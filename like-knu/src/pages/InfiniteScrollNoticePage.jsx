@@ -10,6 +10,7 @@ import { getCampus } from "../utils/DeviceManageUtil";
 import { CampusEng } from "../constants/campus";
 import ListItem from "../components/ListItem";
 import { PAGE_NAME } from "../constants/pageName";
+import { TabHeader } from "../components/globals/TabHeader";
 
 export default function InfiniteScrollNoticePage() {
   const [notices, setNotices] = useState([]);
@@ -53,17 +54,11 @@ export default function InfiniteScrollNoticePage() {
     <PageLayout>
       <Header>
         <PageHeader>{PAGE_NAME.NOTICE}</PageHeader>
-        <TabList>
-          {noticeTab.map((name, index) => (
-            <TabItem
-              key={index}
-              onClick={() => setCategory(index)}
-              className={category === index ? "active" : null}
-            >
-              {name}
-            </TabItem>
-          ))}
-        </TabList>
+        <TabHeader
+          names={noticeTab}
+          category={category}
+          setCategory={setCategory}
+        />
       </Header>
       <PageContainer>
         {notices.map((notice, index) => (
