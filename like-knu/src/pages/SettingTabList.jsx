@@ -9,7 +9,9 @@ export default function SettingTabList() {
     let mail = "likeknu2023@gmail.com";
     let subject = "[공주대처럼] 문의하기";
     let body = "문의 내용: ";
-    document.location.href = `mailto:${mail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    document.location.href = `mailto:${mail}?subject=${encodeURIComponent(
+      subject,
+    )}&body=${encodeURIComponent(body)}`;
   };
 
   const shareContent = async () => {

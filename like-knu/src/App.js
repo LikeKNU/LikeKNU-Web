@@ -13,9 +13,9 @@ import NotificationPage from "./pages/NotificationPage";
 import SettingNotificationPage from "./pages/SettingNotificationPage";
 import SettingAboutPage from "./pages/SettingAboutPage";
 import { initializeDevice } from "./api/initializer";
-import AosImage from "./assets/aos_onboarding.png";
-import IosImage from "./assets/ios_onboarding.png";
-import OtherImage from "./assets/other_onboarding.png";
+import AosImage from "./assets/image/aos_onboarding.png";
+import IosImage from "./assets/image/ios_onboarding.png";
+import OtherImage from "./assets/image/other_onboarding.png";
 import styled from "styled-components";
 import RouteChangeTracker from "./RouteChangeTrancker";
 
