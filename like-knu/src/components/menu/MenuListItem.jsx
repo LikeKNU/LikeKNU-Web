@@ -4,7 +4,7 @@ import { menuIcon } from "../../assets/icon/menuIcon";
 import colors from "../../constants/colors";
 export function MenuListItem({ menuList }) {
   return (
-    <div>
+    <Wrapper>
       {menuList.map((menu, index) => (
         <MenuCardContainer key={index}>
           <Title>
@@ -27,10 +27,12 @@ export function MenuListItem({ menuList }) {
           </Content>
         </MenuCardContainer>
       ))}
-    </div>
+    </Wrapper>
   );
 }
-
+const Wrapper = styled.div`
+  padding: 0 16px;
+`;
 const MenuCardContainer = styled(CardContainer)`
   box-shadow: none;
   border: 1px solid ${colors.GRAY80};
