@@ -53,7 +53,7 @@ function App() {
           />
           <Route path="/setting/about" element={<SettingAboutPage />} />
           <Route path="/notification" element={<NotificationPage />} />
-          <Route path="*" element={<Test />} />₩
+          <Route path="*" element={<Test />} />
         </Routes>
         {isBottomBar && <BottomNav />}
       </>
@@ -83,23 +83,6 @@ function App() {
       );
     }
   }
-
-  // <div className="App">
-  //   <header className="App-header">
-  //     <img src={logo} className="App-logo" alt="logo" />
-  //     <p>
-  //       Edit <code>src/App.js</code> and save to reload.
-  //     </p>
-  //     <a
-  //       className="App-link"
-  //       href="https://reactjs.org"
-  //       target="_blank"
-  //       rel="noopener noreferrer"
-  //     >
-  //       Learn React
-  //     </a>
-  //   </header>
-  // </div>
 }
 const Image = styled.img`
   width: 100%;

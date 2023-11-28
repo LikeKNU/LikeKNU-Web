@@ -6,4 +6,3 @@ export const apiNoticeTabList = [
   "internship",
 ];
 export const busTab = ["시내버스", "셔틀버스"];
-export const apiBusTabList = ["city-bus", "school-bus", "circular-bus"];

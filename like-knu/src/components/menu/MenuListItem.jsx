@@ -2,7 +2,7 @@ import CardContainer from "../styles/CardContainer";
 import styled from "styled-components";
 import { menuIcon } from "../../assets/icon/menuIcon";
 import colors from "../../constants/colors";
-export function MenuListItem({ menuList }) {
+export default function MenuListItem({ menuList }) {
   return (
     <Wrapper>
       {menuList.map((menu, index) => (

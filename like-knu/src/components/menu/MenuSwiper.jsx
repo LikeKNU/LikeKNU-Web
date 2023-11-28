@@ -12,6 +12,7 @@ export function MenuSwiper({ setMenuSwiper, mealList }) {
   const toggleToday = () => {
     setToday((prev) => (prev === "오늘" ? "내일" : "오늘"));
   };
+
   return (
     <StyledPageContainer>
       <TitleArea>
@@ -30,10 +31,10 @@ export function MenuSwiper({ setMenuSwiper, mealList }) {
         onSwiper={(swiper) => setMenuSwiper(swiper)}
       >
         <SwiperSlide>
-          <MenuListItem menuList={mealList["today"]}></MenuListItem>
+          {/*<MenuListItem menuList={mealList["today"]} />*/}
         </SwiperSlide>
         <SwiperSlide>
-          <MenuListItem menuList={mealList["tomorrow"]}></MenuListItem>
+          {/*<MenuListItem menuList={mealList["tomorrow"]} />*/}
         </SwiperSlide>
       </Swiper>
     </StyledPageContainer>
