@@ -10,7 +10,6 @@ import { CampusEng } from "../../constants/campus";
 import { getCampus } from "../../utils/DeviceManageUtil";
 import { cityBuses } from "../../api/bus";
 import CityCheonanError from "../../assets/city_cheonan_error.png";
-import IosImage from "../../assets/ios_onboarding.png";
 const school = ["학교에서 출발", "학교로 도착"];
 
 function CityBus() {

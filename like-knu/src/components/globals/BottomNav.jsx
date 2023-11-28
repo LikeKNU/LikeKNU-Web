@@ -30,6 +30,8 @@ export default function BottomNav() {
       setActiveNav(4);
     } else if (pathName.includes("/calendar")) {
       setActiveNav(5);
+    } else {
+      setActiveNav(1);
     }
   }, [pathName]);
 
