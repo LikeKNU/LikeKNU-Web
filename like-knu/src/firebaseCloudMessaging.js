@@ -18,11 +18,11 @@ export async function requestPermission() {
 
     const permission = await Notification.requestPermission();
     if (permission === "denied") {
-        console.log("알림 권한 허용 안됨");
+        alert("알림 거절");
         return;
     }
 
-    console.log("알림 권한이 허용됨");
+    alert("알림 허용");
     const token = await getToken(messaging, {
         vapidKey: process.env.REACT_APP_FCM_VAPID,
     });
@@ -30,7 +30,7 @@ export async function requestPermission() {
     if (token) {
         return token;
     } else {
-        console.log("Can not get Token");
+        alert("허용 벗 토큰 없음");
     }
 
     /*//TODO FCM 메시지 처리
