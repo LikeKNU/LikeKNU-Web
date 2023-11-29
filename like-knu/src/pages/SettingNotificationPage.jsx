@@ -28,7 +28,7 @@ export default function SettingNotificationPage() {
     if (!isTurnOn) {
       let token = await requestNotificationPermission();
       if (!token) {
-        setIsTurnOn(!isTurnOn);
+        setIsTurnOn(isTurnOn);
       }
       updateNotificationToken(token);
     }
