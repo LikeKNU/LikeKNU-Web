@@ -20,14 +20,11 @@ export async function requestNotificationPermission() {
     return;
   }
 
-  alert("알림 권한이 허용됨");
   const token = await getToken(messaging, {
     vapidKey: process.env.REACT_APP_FCM_VAPID,
   });
 
   if (token) {
     return token;
-  } else {
-    alert("Can not get Token");
   }
 }
