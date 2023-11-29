@@ -42,7 +42,6 @@ export function MenuSwiper({ setMenuSwiper, mealList }) {
 }
 
 const StyledPageContainer = styled.div`
-  //height: 100vh;
   position: relative;
   margin-bottom: 90px;
   .my-swiper {
