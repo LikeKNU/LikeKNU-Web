@@ -18,21 +18,15 @@ export default function MenuPage() {
   const [category, setCategory] = useState(0);
   const [menuList, setMenuList] = useState([]);
   const [mealList, setMealList] = useState([]);
-  // const [menuSwiper, setMenuSwiper] = useState(null);
+  const [menuSwiper, setMenuSwiper] = useState(null);
   let campus = CampusEng[getCampus()];
-  // const [todayText, setTodayText] = useState("오늘");
-
-  // const toggleToday = () => {
-  //   setTodayText((prev) => (prev === "오늘" ? "내일" : "오늘"));
-  //   setMealList(menuList[category].tomorrow);
-  // };
 
   const getMenuList = async () => {
     const res = await menu(campus);
     console.log(res[category]);
     console.log(res);
     setMenuList(res);
-    setMealList(res[category].today);
+    setMealList(res[category]);
   };
   useEffect(() => {
     getMenuList();
@@ -40,11 +34,11 @@ export default function MenuPage() {
 
   useEffect(() => {
     if (mealList.length !== 0) {
-      setMealList(menuList[category].today);
+      setMealList(menuList[category]);
     }
-    // if (menuSwiper !== null) {
-    //   menuSwiper.slideTo(0);
-    // }
+    if (menuSwiper !== null) {
+      menuSwiper.slideTo(0);
+    }
   }, [category]);
   return (
     <PageLayout>
@@ -62,31 +56,7 @@ export default function MenuPage() {
           ))}
         </TabList>
       </Header>
-      <StyledPageContainer>
-        <MenuListItem menuList={mealList} />
-        {/*<TitleArea>*/}
-        {/*  <StyledArrowIcon className={"swiper-prev"} />*/}
-        {/*  <Title>{todayText}</Title>*/}
-        {/*  <StyledArrowIcon className={"swiper-next"} />*/}
-        {/*</TitleArea>*/}
-        {/*<Swiper*/}
-        {/*  className={"my-swiper"}*/}
-        {/*  navigation={{*/}
-        {/*    nextEl: ".swiper-next",*/}
-        {/*    prevEl: ".swiper-prev",*/}
-        {/*  }}*/}
-        {/*  modules={[Navigation]}*/}
-        {/*  onSlideChange={() => toggleToday()}*/}
-        {/*  onSwiper={(swiper) => setMenuSwiper(swiper)}*/}
-        {/*>*/}
-        {/*  <SwiperSlide>*/}
-        {/*    <MenuListItem menuList={mealList["today"]} />*/}
-        {/*  </SwiperSlide>*/}
-        {/*  <SwiperSlide>*/}
-        {/*    <MenuListItem menuList={mealList["tomorrow"]} />*/}
-        {/*  </SwiperSlide>*/}
-        {/*</Swiper>*/}
-      </StyledPageContainer>
+      <MenuSwiper mealList={mealList} setMenuSwiper={setMenuSwiper} />
     </PageLayout>
   );
 }

@@ -2,31 +2,33 @@ import CardContainer from "../styles/CardContainer";
 import styled from "styled-components";
 import { menuIcon } from "../../assets/icon/menuIcon";
 import colors from "../../constants/colors";
+import { menu } from "../../api/menu";
 export default function MenuListItem({ menuList }) {
   return (
     <Wrapper>
-      {menuList.map((menu, index) => (
-        <MenuCardContainer key={index}>
-          <Title>
-            <IconTitle>
-              {menuIcon[index]}
-              <MealType>{menu.mealType}</MealType>
-            </IconTitle>
-            {menu.operatingTime ? (
-              <OperatingTime>{menu.operatingTime}</OperatingTime>
-            ) : (
-              <OperatingTime>운영하지 않음</OperatingTime>
-            )}
-          </Title>
-          <Content>
-            {menu.menus.map((menu, index) => (
-              <div className={"menuItem"} key={index}>
-                {menu.menuName}
-              </div>
-            ))}
-          </Content>
-        </MenuCardContainer>
-      ))}
+      {menuList !== undefined &&
+        menuList.map((menu, index) => (
+          <MenuCardContainer key={index}>
+            <Title>
+              <IconTitle>
+                {menuIcon[index]}
+                <MealType>{menu.mealType}</MealType>
+              </IconTitle>
+              {menu.operatingTime ? (
+                <OperatingTime>{menu.operatingTime}</OperatingTime>
+              ) : (
+                <OperatingTime>운영하지 않음</OperatingTime>
+              )}
+            </Title>
+            <Content>
+              {menu.menus.map((menu, index) => (
+                <div className={"menuItem"} key={index}>
+                  {menu.menuName}
+                </div>
+              ))}
+            </Content>
+          </MenuCardContainer>
+        ))}
     </Wrapper>
   );
 }
