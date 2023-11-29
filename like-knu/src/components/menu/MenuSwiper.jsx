@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { MenuListItem } from "./MenuListItem";
+import MenuListItem from "./MenuListItem";
 import styled from "styled-components";
 import colors from "../../constants/colors";
 import { useState } from "react";
@@ -31,10 +31,10 @@ export function MenuSwiper({ setMenuSwiper, mealList }) {
         onSwiper={(swiper) => setMenuSwiper(swiper)}
       >
         <SwiperSlide>
-          {/*<MenuListItem menuList={mealList["today"]} />*/}
+          <MenuListItem menuList={mealList["today"]} />
         </SwiperSlide>
         <SwiperSlide>
-          {/*<MenuListItem menuList={mealList["tomorrow"]} />*/}
+          <MenuListItem menuList={mealList["tomorrow"]} />
         </SwiperSlide>
       </Swiper>
     </StyledPageContainer>
