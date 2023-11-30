@@ -16,18 +16,15 @@ const messaging = getMessaging(app);
 export async function requestNotificationPermission() {
   const permission = await Notification.requestPermission();
   if (permission === "denied") {
-    console.log("알림 권한 허용 안됨");
+    alert("알림이 차단되어 있습니다. 설정에서 직접 알림 권한을 허용해주세요!");
     return;
   }
 
-  console.log("알림 권한이 허용됨");
   const token = await getToken(messaging, {
     vapidKey: process.env.REACT_APP_FCM_VAPID,
   });
 
   if (token) {
     return token;
-  } else {
-    console.log("Can not get Token");
   }
 }

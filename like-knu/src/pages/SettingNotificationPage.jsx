@@ -1,18 +1,18 @@
 import PageLayout from "../layouts/PageLayout";
-import { BackHeader } from "../components/BackHeader";
+import {BackHeader} from "../components/BackHeader";
 import styled from "styled-components";
 import PageContainer from "../layouts/PageContainer";
 import TagList from "../components/setting/TagList";
 import colors from "../constants/colors";
-import { ToggleSwitch } from "../components/setting/ToggleSwitch";
-import { useEffect, useState } from "react";
+import {ToggleSwitch} from "../components/setting/ToggleSwitch";
+import {useEffect, useState} from "react";
 import {
   changeTurnOnNotification,
   isTurnOnNotification,
   updateNotificationToken,
 } from "../api/device";
-import { requestNotificationPermission } from "../firebaseCloudMessaging";
-import { SETTING_MENU_NAME } from "../constants/pageName";
+import {requestNotificationPermission} from "../firebaseCloudMessaging";
+import {SETTING_MENU_NAME} from "../constants/pageName";
 
 export default function SettingNotificationPage() {
   const [isTurnOn, setIsTurnOn] = useState(false);
@@ -27,6 +27,9 @@ export default function SettingNotificationPage() {
     changeTurnOnNotification(!isTurnOn);
     if (!isTurnOn) {
       let token = await requestNotificationPermission();
+      if (!token) {
+        setIsTurnOn(isTurnOn);
+      }
       updateNotificationToken(token);
     }
   };
@@ -37,7 +40,7 @@ export default function SettingNotificationPage() {
 
   return (
     <PageLayout>
-      <BackHeader Title={SETTING_MENU_NAME.NOTICE_NOTIFICATION} />
+      <BackHeader Title={SETTING_MENU_NAME.NOTICE_NOTIFICATION}/>
       <StyledPageContainer>
         <Content>
           <Notification>
@@ -53,7 +56,7 @@ export default function SettingNotificationPage() {
           <Tag>
             <Title>공지사항 태그</Title>
             <Detail>알림을 받고 싶은 태그를 선택해주세요!</Detail>
-            <TagList />
+            <TagList/>
           </Tag>
         </Content>
       </StyledPageContainer>
