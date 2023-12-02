@@ -9,7 +9,6 @@ import BusList from "./BusList";
 import { CampusEng } from "../../constants/campus";
 import { getCampus } from "../../utils/DeviceManageUtil";
 import { cityBuses } from "../../api/bus";
-import CityCheonanError from "../../assets/image/city_cheonan_error.png";
 const school = ["학교에서 출발", "학교로 도착"];
 
 function CityBus() {
@@ -35,10 +34,6 @@ function CityBus() {
   useEffect(() => {
     getBuses();
   }, [destination]);
-
-  const isError = () => {
-    return getCampus() === "천안캠" && destination === 1;
-  };
   return (
     <>
       <FixContainer>
@@ -61,24 +56,14 @@ function CityBus() {
           </Row>
         </BusDestinationArea>
       </FixContainer>
-
-      {isError() && <Image src={CityCheonanError} alt={"뭘봐"} />}
-      {!isError() && (
-        <Wrapper>
-          {buses.map((bus, index) => (
-            <BusList key={index} route={bus} />
-          ))}
-        </Wrapper>
-      )}
+      <PageContainer>
+        {buses.map((bus, index) => (
+          <BusList key={index} route={bus} />
+        ))}
+      </PageContainer>
     </>
   );
 }
-const Image = styled.img`
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-`;
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -88,10 +73,6 @@ const RefreshTime = styled.div`
   color: ${colors.GRAY350};
   font-size: 1.2rem;
   margin-right: 10px;
-`;
-
-const Wrapper = styled(PageContainer)`
-  padding-top: 160px;
 `;
 const FixContainer = styled.div`
   top: 99px;
