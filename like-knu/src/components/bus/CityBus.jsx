@@ -56,14 +56,17 @@ function CityBus() {
           </Row>
         </BusDestinationArea>
       </FixContainer>
-      <PageContainer>
+      <StyledPageContainer>
         {buses.map((bus, index) => (
           <BusList key={index} route={bus} />
         ))}
-      </PageContainer>
+      </StyledPageContainer>
     </>
   );
 }
+const StyledPageContainer = styled(PageContainer)`
+  padding-top: 160px;
+`;
 const Row = styled.div`
   display: flex;
   flex-direction: row;
