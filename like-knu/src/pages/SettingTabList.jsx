@@ -67,6 +67,6 @@ const SettingItem = styled.div`
   align-items: center;
   padding: 0 14px 0 20px;
   height: 48px;
-  background-color: #fff;
+  background-color: ${colors.WHITE};
   font-size: 1.6rem;
 `;
