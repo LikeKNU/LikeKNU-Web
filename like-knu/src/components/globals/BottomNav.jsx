@@ -87,14 +87,15 @@ const Wrapper = styled.nav`
   bottom: 0;
   width: 100%;
   z-index: 10;
-  padding: 12px 16px 28px 16px;
+
+  padding: ${(props) =>
+    props.isAndroid ? "12px 16px 12px 16px" : "12px 16px 28px 16px"};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   box-sizing: border-box;
   border-top: 1px solid ${colors.GRAY100};
   background-color: ${colors.WHITE};
-  height: ${(props) => (props.isAndroid ? "50px" : "90px")};
 `;
 
 // 각 아이템
