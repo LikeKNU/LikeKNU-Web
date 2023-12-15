@@ -41,7 +41,7 @@ function App() {
         <Image src={IosImage} alt={"뭘봐"} />
       </>
     );
-  } else if (!isAndroid) {
+  } else if (!isAndroid && !isiOS) {
     return (
       <>
         <Image src={OtherImage} alt={"뭘봐"} />
