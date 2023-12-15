@@ -35,47 +35,41 @@ function App() {
   // PWA로 설치되지 않은 상태
   const isAndroid = /Android/.test(navigator.userAgent);
   const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
-
-  if (window.matchMedia("(display-mode: standalone)").matches) {
-    // if (true) {
-    // PWA로 설치된 상태
-    initializeDevice();
-    RouteChangeTracker();
+  if (isiOS && !window.matchMedia("(display-mode: standalone)").matches) {
     return (
       <>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/bus" element={<BusPage />} />
-          <Route path="/notice" element={<InfiniteScrollNoticePage />} />
-          <Route path="/calendar" element={<CalendarPage />} />
-          <Route path="/menu" element={<MenuPage />} />
-          <Route path="/setting" element={<SettingPage />} />
-          <Route
-            path="/setting/notificationTag"
-            element={<SettingNotificationPage />}
-          />
-          <Route path="/setting/about" element={<SettingAboutPage />} />
-          <Route path="/notification" element={<NotificationPage />} />
-          <Route path="*" element={<Test />} />
-        </Routes>
-        {isBottomBar && <BottomNav isAndroid={isAndroid} />}
+        <Image src={IosImage} alt={"뭘봐"} />
       </>
     );
-  } else {
-    if (isiOS) {
-      return (
-        <>
-          <Image src={IosImage} alt={"뭘봐"} />
-        </>
-      );
-    } else if (!isAndroid) {
-      return (
-        <>
-          <Image src={OtherImage} alt={"뭘봐"} />
-        </>
-      );
-    }
+  } else if (!isAndroid) {
+    return (
+      <>
+        <Image src={OtherImage} alt={"뭘봐"} />
+      </>
+    );
   }
+  initializeDevice();
+  RouteChangeTracker();
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/bus" element={<BusPage />} />
+        <Route path="/notice" element={<InfiniteScrollNoticePage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/setting" element={<SettingPage />} />
+        <Route
+          path="/setting/notificationTag"
+          element={<SettingNotificationPage />}
+        />
+        <Route path="/setting/about" element={<SettingAboutPage />} />
+        <Route path="/notification" element={<NotificationPage />} />
+        <Route path="*" element={<Test />} />
+      </Routes>
+      {isBottomBar && <BottomNav isAndroid={isAndroid} />}
+    </>
+  );
 }
 const Image = styled.img`
   width: 100%;
