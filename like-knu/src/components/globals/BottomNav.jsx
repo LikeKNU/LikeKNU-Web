@@ -94,7 +94,7 @@ const Wrapper = styled.nav`
   box-sizing: border-box;
   border-top: 1px solid ${colors.GRAY100};
   background-color: ${colors.WHITE};
-  height: ${(props) => (props.isAndroid ? "80px" : "90px")};
+  height: ${(props) => (props.isAndroid ? "50px" : "90px")};
 `;
 
 // 각 아이템
