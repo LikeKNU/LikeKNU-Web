@@ -13,7 +13,6 @@ import NotificationPage from "./pages/NotificationPage";
 import SettingNotificationPage from "./pages/SettingNotificationPage";
 import SettingAboutPage from "./pages/SettingAboutPage";
 import { initializeDevice } from "./api/initializer";
-import AosImage from "./assets/image/aos_onboarding.png";
 import IosImage from "./assets/image/ios_onboarding.png";
 import OtherImage from "./assets/image/other_onboarding.png";
 import styled from "styled-components";
@@ -33,8 +32,12 @@ function App() {
     }
   }, [location]);
 
+  // PWA로 설치되지 않은 상태
+  const isAndroid = /Android/.test(navigator.userAgent);
+  const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
+
   if (window.matchMedia("(display-mode: standalone)").matches) {
-  // if (true) {
+    // if (true) {
     // PWA로 설치된 상태
     initializeDevice();
     RouteChangeTracker();
@@ -55,27 +58,17 @@ function App() {
           <Route path="/notification" element={<NotificationPage />} />
           <Route path="*" element={<Test />} />
         </Routes>
-        {isBottomBar && <BottomNav />}
+        {isBottomBar && <BottomNav isAndroid={isAndroid} />}
       </>
     );
   } else {
-    // PWA로 설치되지 않은 상태
-    const isAndroid = /Android/.test(navigator.userAgent);
-    const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
-
-    if (isAndroid) {
-      return (
-        <>
-          <Image src={AosImage} alt={"뭘봐"} />
-        </>
-      );
-    } else if (isiOS) {
+    if (isiOS) {
       return (
         <>
           <Image src={IosImage} alt={"뭘봐"} />
         </>
       );
-    } else {
+    } else if (!isAndroid) {
       return (
         <>
           <Image src={OtherImage} alt={"뭘봐"} />

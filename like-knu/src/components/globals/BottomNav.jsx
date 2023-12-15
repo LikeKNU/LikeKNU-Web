@@ -9,7 +9,7 @@ import colors from "constants/colors";
 import { useLocation, useNavigate } from "react-router-dom";
 import { PAGE_NAME } from "../../constants/pageName";
 
-export default function BottomNav() {
+export default function BottomNav({ isAndroid }) {
   const [activeNav, setActiveNav] = useState(1);
   let pathName = useLocation().pathname;
   const navigate = useNavigate();
@@ -36,7 +36,7 @@ export default function BottomNav() {
   }, [pathName]);
 
   return (
-    <Wrapper>
+    <Wrapper isAndroid={isAndroid}>
       <ButtonItem onClick={() => goDetailPage(`/`, 1)}>
         <HomeIcon
           className={activeNav === 1 ? "icon_style icon_active" : "icon_style"}
@@ -86,7 +86,6 @@ const Wrapper = styled.nav`
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 90px;
   z-index: 10;
   padding: 12px 16px 28px 16px;
   display: flex;
@@ -95,6 +94,7 @@ const Wrapper = styled.nav`
   box-sizing: border-box;
   border-top: 1px solid ${colors.GRAY100};
   background-color: ${colors.WHITE};
+  height: ${(props) => (props.isAndroid ? "80px" : "90px")};
 `;
 
 // 각 아이템
