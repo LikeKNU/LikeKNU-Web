@@ -1,7 +1,6 @@
 import PageLayout from "layouts/PageLayout";
 import PageContainer from "layouts/PageContainer";
 import { Header, PageHeader } from "../components/styles/PageHeader";
-import { TabItem, TabList } from "../components/styles/Tab";
 import { apiNoticeTabList, noticeTab } from "../constants/tabName";
 import { useEffect, useState } from "react";
 import { notice } from "../api/notice";
