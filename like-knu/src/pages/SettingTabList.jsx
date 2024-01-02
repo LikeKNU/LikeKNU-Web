@@ -17,8 +17,8 @@ export default function SettingTabList() {
   const shareContent = async () => {
     const shareData = {
       title: "공주대처럼",
-      text: "아이폰은 '사파리', 안드로이드는 '크롬'으로 접속해 주세요",
-      url: "https://like-knu.vercel.app",
+      text: "아이폰은 꼭 '사파리'로 접속해 주세요!",
+      url: "https://tosto.re/likeknu",
     };
     await navigator.share(shareData);
   };
