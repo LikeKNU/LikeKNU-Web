@@ -18,7 +18,7 @@ export default function MainPage() {
     <PageLayout>
       <MainHeader setSelectCampus={setSelectCampus} />
       <StyledPageContainer>
-        <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'50'} disabled={false} />
+        <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'100%'} height={'50'} disabled={false} />
         <MainNotice selectCampus={selectCampus} />
         <MainBus selectCampus={selectCampus} />
         <MainMenu selectCampus={selectCampus} />
