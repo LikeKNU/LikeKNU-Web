@@ -6,6 +6,7 @@ import CalendarPage from "pages/CalendarPage";
 import Test from "pages/Test";
 import BusPage from "pages/BusPage";
 import MenuPage from "pages/MenuPage";
+import KakaoAdFit from './KakaoAdFit';
 import SettingPage from "./pages/SettingPage";
 import InfiniteScrollNoticePage from "./pages/InfiniteScrollNoticePage";
 import BottomNav from "./components/globals/BottomNav";
