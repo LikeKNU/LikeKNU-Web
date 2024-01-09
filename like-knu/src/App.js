@@ -38,12 +38,14 @@ function App() {
   if (isiOS && !window.matchMedia("(display-mode: standalone)").matches) {
     return (
       <>
+        <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'50'} disabled={false} />
         <Image src={IosImage} alt={"뭘봐"} />
       </>
     );
   } else if (!isAndroid && !isiOS) {
     return (
       <>
+        <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'50'} disabled={false} />
         <Image src={OtherImage} alt={"뭘봐"} />
       </>
     );
