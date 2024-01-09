@@ -30,6 +30,7 @@ export default function MainPage() {
 
 const StyledPageContainer = styled(PageContainer)`
     background-color: ${colors.GRAY50};
+    padding-top: 12px;
     grid-template-rows: minmax(100px, auto);
     grid-template-columns: 1fr 1fr;
 
