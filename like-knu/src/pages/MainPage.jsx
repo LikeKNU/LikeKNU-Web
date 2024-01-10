@@ -8,7 +8,6 @@ import MainMenu from "components/main/MainMenu";
 import MainCalendar from "components/main/MainCalendar";
 import styled from "styled-components";
 import colors from "constants/colors";
-import KakaoAdFit from '../KakaoAdFit';
 import { getCampus } from "../utils/DeviceManageUtil";
 
 export default function MainPage() {
@@ -17,7 +16,6 @@ export default function MainPage() {
   return (
     <PageLayout>
       <MainHeader setSelectCampus={setSelectCampus} />
-      <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'50'} disabled={false} />
       <StyledPageContainer>
         <MainNotice selectCampus={selectCampus} />
         <MainBus selectCampus={selectCampus} />
@@ -30,7 +28,7 @@ export default function MainPage() {
 
 const StyledPageContainer = styled(PageContainer)`
   background-color: ${colors.GRAY50};
-  padding-top: 12px;
+  padding-top: 74px;
   grid-template-rows: minmax(100px, auto);
   grid-template-columns: 1fr 1fr;
 
