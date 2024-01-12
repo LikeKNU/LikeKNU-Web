@@ -1,6 +1,7 @@
-import instance from "./api";
-import { extractBodyFromResponse } from "./apiUtility";
-const baseURL = "/api/main";
+import instance from './api';
+import { extractBodyFromResponse } from './apiUtility';
+
+const baseURL = '/api/main';
 
 export const noticeMain = async (campus) => {
   const { data } = await instance.get(`${baseURL}/announcements`, {
@@ -38,6 +39,12 @@ export const calendarMain = async (campus) => {
       campus: campus,
     },
   });
+  console.log(data);
+  return extractBodyFromResponse(data);
+};
+
+export const mainHeaderMessage = async () => {
+  const { data } = await instance.get(`${baseURL}/messages`);
   console.log(data);
   return extractBodyFromResponse(data);
 };
