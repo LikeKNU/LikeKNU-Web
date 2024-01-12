@@ -41,3 +41,9 @@ export const calendarMain = async (campus) => {
   console.log(data);
   return extractBodyFromResponse(data);
 };
+
+export const mainHeaderMessage = async () => {
+  const { data } = await instance.get(`${baseURL}/messages`);
+  console.log(data);
+  return extractBodyFromResponse(data);
+};
