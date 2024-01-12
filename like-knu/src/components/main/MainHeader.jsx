@@ -14,6 +14,7 @@ export default function MainHeader({ setSelectCampus }) {
   const [view, setView] = useState(false);
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
+
   useEffect(async () => {
     const message = await mainHeaderMessage();
     setMessage(message);

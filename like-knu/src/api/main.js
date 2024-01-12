@@ -1,7 +1,6 @@
-import instance from './api';
-import { extractBodyFromResponse } from './apiUtility';
-
-const baseURL = '/api/main';
+import instance from "./api";
+import { extractBodyFromResponse } from "./apiUtility";
+const baseURL = "/api/main";
 
 export const noticeMain = async (campus) => {
   const { data } = await instance.get(`${baseURL}/announcements`, {
