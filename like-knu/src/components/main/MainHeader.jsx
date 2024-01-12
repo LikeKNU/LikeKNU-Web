@@ -1,24 +1,17 @@
-import { ReactComponent as NotificationIcon } from 'assets/icon/bell-fill.svg';
-import { ReactComponent as DownIcon } from 'assets/icon/expand_more_black_24dp.svg';
-import { ReactComponent as SettingIcon } from 'assets/icon/gear-fill.svg';
-import DropDown from 'components/main/DropDown';
-import colors from 'constants/colors';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { getCampus } from 'utils/DeviceManageUtil';
-import { mainHeaderMessage } from '../../api/main';
-import GlobalColor from '../styles/globalColor';
-
+import styled from "styled-components";
+import colors from "constants/colors";
+import DropDown from "components/main/DropDown";
+import { useState } from "react";
+import { getCampus } from "utils/DeviceManageUtil";
+import { ReactComponent as DownIcon } from "assets/icon/expand_more_black_24dp.svg";
+import { ReactComponent as NotificationIcon } from "assets/icon/bell-fill.svg";
+import { ReactComponent as SettingIcon } from "assets/icon/gear-fill.svg";
+import { useNavigate } from "react-router-dom";
+import GlobalColor from "../styles/globalColor";
+import { MAIN_MESSAGE } from "../../constants/message";
 export default function MainHeader({ setSelectCampus }) {
   const [view, setView] = useState(false);
   const navigate = useNavigate();
-  const [message, setMessage] = useState('');
-
-  useEffect(async () => {
-    const message = await mainHeaderMessage();
-    setMessage(message);
-  }, []);
 
   const goNotification = () => {
     navigate(`/notification`);
@@ -40,7 +33,7 @@ export default function MainHeader({ setSelectCampus }) {
         {view && <DropDown setSelectCampus={setSelectCampus} />}
         <DownIcon fill={colors.BLACK} />
       </CampusList>
-      <Message>{message}</Message>
+      <Message>{MAIN_MESSAGE}</Message>
       <IconList>
         <StyledNotification onClick={goNotification} />
         <StyledSetting onClick={goSetting} />
