@@ -1,30 +1,26 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import { Route, Routes, useLocation } from "react-router-dom";
-import MainPage from "pages/MainPage";
-import CalendarPage from "pages/CalendarPage";
-import Test from "pages/Test";
-import BusPage from "pages/BusPage";
-import MenuPage from "pages/MenuPage";
-import SettingPage from "./pages/SettingPage";
-import InfiniteScrollNoticePage from "./pages/InfiniteScrollNoticePage";
-import BottomNav from "./components/globals/BottomNav";
-import NotificationPage from "./pages/NotificationPage";
-import SettingNotificationPage from "./pages/SettingNotificationPage";
-import SettingAboutPage from "./pages/SettingAboutPage";
-import { initializeDevice } from "./api/initializer";
-import IosImage from "./assets/image/ios_onboarding.png";
-import OtherImage from "./assets/image/other_onboarding.png";
-import styled from "styled-components";
-import RouteChangeTracker from "./RouteChangeTrancker";
+import BusPage from 'pages/BusPage';
+import CalendarPage from 'pages/CalendarPage';
+import MainPage from 'pages/MainPage';
+import MenuPage from 'pages/MenuPage';
+import Test from 'pages/Test';
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import { Route, Routes, useLocation } from 'react-router-dom';
+import styled from 'styled-components';
+import BottomNav from './components/globals/BottomNav';
+import NoticePage from './pages/NoticePage';
+import NotificationPage from './pages/NotificationPage';
+import SettingAboutPage from './pages/SettingAboutPage';
+import SettingNotificationPage from './pages/SettingNotificationPage';
+import SettingPage from './pages/SettingPage';
 
 function App() {
   const location = useLocation();
   const [isBottomBar, setIsBottomBar] = useState(true);
   useEffect(() => {
     if (
-      location.pathname.includes("/setting") ||
-      location.pathname === "/notification"
+      location.pathname.includes('/setting') ||
+      location.pathname === '/notification'
     ) {
       setIsBottomBar(false);
     } else {
@@ -35,7 +31,7 @@ function App() {
   // PWA로 설치되지 않은 상태
   const isAndroid = /Android/.test(navigator.userAgent);
   const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
-  if (isiOS && !window.matchMedia("(display-mode: standalone)").matches) {
+  /*if (isiOS && !window.matchMedia("(display-mode: standalone)").matches) {
     return (
       <>
         <Image src={IosImage} alt={"뭘봐"} />
@@ -47,15 +43,15 @@ function App() {
         <Image src={OtherImage} alt={"뭘봐"} />
       </>
     );
-  }
-  initializeDevice();
-  RouteChangeTracker();
+  }*/
+  // initializeDevice();
+  // RouteChangeTracker();
   return (
     <>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/bus" element={<BusPage />} />
-        <Route path="/notice" element={<InfiniteScrollNoticePage />} />
+        <Route path="/notice" element={<NoticePage />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/setting" element={<SettingPage />} />
@@ -71,6 +67,7 @@ function App() {
     </>
   );
 }
+
 const Image = styled.img`
   width: 100%;
   position: absolute;
