@@ -8,6 +8,8 @@ import './App.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { initializeDevice } from './api/initializer';
+import IosImage from './assets/image/ios_onboarding.png';
+import OtherImage from './assets/image/other_onboarding.png';
 import BottomNav from './components/globals/BottomNav';
 import NoticePage from './pages/NoticePage';
 import NotificationPage from './pages/NotificationPage';
