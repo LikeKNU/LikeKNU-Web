@@ -2,10 +2,9 @@ import { campusColors } from '../../constants/colors';
 import { getCampus } from '../../utils/DeviceManageUtil';
 
 class GlobalColor {
-  static color;
+  static color = campusColors[getCampus()];
 
   static getColor() {
-    this.color = campusColors[getCampus()];
     return this.color;
   }
 
