@@ -1,85 +1,142 @@
-import PageLayout from "layouts/PageLayout";
-import PageContainer from "layouts/PageContainer";
-import { Header, PageHeader } from "../components/styles/PageHeader";
-import { TabItem, TabList } from "../components/styles/Tab";
-import { apiNoticeTabList, noticeTab } from "../constants/tabName";
-import { useEffect, useState } from "react";
-import { notice } from "../api/notice";
-import styled from "styled-components";
-import colors from "../constants/colors";
-import { getCampus } from "../utils/DeviceManageUtil";
-import { CampusEng } from "../constants/campus";
-import ListItem from "../components/ListItem";
+import PageContainer from 'layouts/PageContainer';
+import PageLayout from 'layouts/PageLayout';
+import { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import styled from 'styled-components';
+import { notice } from '../api/notice';
+import { TabHeader } from '../components/globals/TabHeader';
+import ListItem from '../components/ListItem';
+import GlobalColor from '../components/styles/globalColor';
+import { Header, PageHeader } from '../components/styles/PageHeader';
+import { CampusEng } from '../constants/campus';
+import colors from '../constants/colors';
+import { PAGE_NAME } from '../constants/pageName';
+import { apiNoticeTabList, noticeTab } from '../constants/tabName';
+import { getCampus } from '../utils/DeviceManageUtil';
 
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
   const [category, setCategory] = useState(0);
-  const [totalElements, setTotalElements] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [keyword, setKeyword] = useState('');
 
   let campus = CampusEng[getCampus()];
 
-  const getNotices = async (category, page) => {
-    const res = await notice(campus, category, page);
+  const getNotices = async (category) => {
+    const res = await notice(campus, category);
     setNotices(res.body);
-    setTotalElements(res.page.totalElements);
+    setTotalPages(res.page.totalPages);
   };
 
-  useEffect(() => {
-    console.log(currentPage);
-    setCurrentPage(1);
-    getNotices(apiNoticeTabList[category], currentPage);
-  }, [category]);
+  const searchNotices = async (category) => {
+    const res = await notice(campus, category, 1, keyword);
+    setNotices(res.body);
+    await setTotalPages(res.page.totalPages);
+    if (res.page.totalPages <= 1) {
+      setHasMore(false);
+    }
+  };
+
+  const fetchData = async () => {
+    if (notices.length === 0) {
+      const res = await notice(campus, apiNoticeTabList[category], 1, keyword);
+      setNotices(notices.concat(res.body));
+      return;
+    }
+
+    if (totalPages === currentPage) {
+      setHasMore(false);
+    }
+
+    const res = await notice(campus, apiNoticeTabList[category], currentPage, keyword);
+    setNotices(notices.concat(res.body));
+    setCurrentPage(currentPage + 1);
+  };
+
+  const searchByKeyword = () => {
+    setNotices([]);
+    setCurrentPage(2);
+    setHasMore(true);
+    searchNotices(apiNoticeTabList[category]);
+  }
 
   useEffect(() => {
-    getNotices(apiNoticeTabList[category], currentPage);
-  }, [currentPage]);
+    setNotices([]);
+    setKeyword('');
+    setCurrentPage(2);
+    setHasMore(true);
+    getNotices(apiNoticeTabList[category]);
+  }, [category]);
+
   return (
     <PageLayout>
       <Header>
-        <PageHeader>공지사항</PageHeader>
-        <TabList>
-          {noticeTab.map((name, index) => (
-            <TabItem
-              key={index}
-              onClick={() => setCategory(index)}
-              className={category === index ? "active" : null}
-            >
-              {name}
-            </TabItem>
-          ))}
-        </TabList>
+        <PageHeader>{PAGE_NAME.NOTICE}</PageHeader>
+        <TabHeader
+          names={noticeTab}
+          category={category}
+          setCategory={setCategory}
+        />
       </Header>
       <PageContainer>
-        {notices.map((notice) => (
+        <SearchBox>
+          <SearchInput value={keyword} onChange={(e) => setKeyword(e.target.value)}
+                       placeholder="검색어를 입력하세요"></SearchInput>
+          <SearchButton $color={GlobalColor.getColor()} onClick={searchByKeyword}>검색</SearchButton>
+        </SearchBox>
+        {notices.map((notice, index) => (
           <ListItem
+            key={index}
             head={notice.announcementTag}
             subHead={notice.announcementDate}
             body={notice.announcementTitle}
             url={notice.announcementUrl}
           ></ListItem>
         ))}
+        <InfiniteScroll
+          dataLength={notices.length} // 페이지 당 개수
+          next={fetchData} // 스크롤 하단에 도달한 경우 호출할 함수
+          hasMore={hasMore} // 추가 데이터 여부
+          loader={
+            // 로딩 메시지
+            <div>불러오는 중..</div>
+          }
+          scrollThreshold={0.9}
+        />
       </PageContainer>
     </PageLayout>
   );
 }
 
-const Content = styled.a`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-bottom: 24px;
-`;
-const Detail = styled.div`
-  color: ${colors.GRAY350};
+const SearchBox = styled.div`
+  margin-bottom: 20px;
+  margin-top: -10px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  font-size: 1.1rem;
-  margin-bottom: 4px;
+  flex: 1;
 `;
 
-const Title = styled.span`
-  font-size: 1.3rem;
-  color: ${colors.BLACK};
+const SearchInput = styled.input`
+  border-width: 0 0 1px 0;
+  border-bottom-color: ${colors.GRAY200};
+  font-size: 1.4rem;
+  flex: 6;
+
+  &:focus {
+    outline: none;
+    border-bottom: 1.2px solid ${colors.GRAY500};
+  }
+`;
+
+const SearchButton = styled.button`
+  margin-left: 10px;
+  padding: 4px;
+  font-size: 1.4rem;
+  background-color: ${(props) => props.$color};
+  color: white;
+  font-weight: 600;
+  border-radius: 4px;
+  flex: 1;
 `;
