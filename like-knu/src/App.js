@@ -7,12 +7,14 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { initializeDevice } from './api/initializer';
 import BottomNav from './components/globals/BottomNav';
 import NoticePage from './pages/NoticePage';
 import NotificationPage from './pages/NotificationPage';
 import SettingAboutPage from './pages/SettingAboutPage';
 import SettingNotificationPage from './pages/SettingNotificationPage';
 import SettingPage from './pages/SettingPage';
+import RouteChangeTracker from './RouteChangeTrancker';
 
 function App() {
   const location = useLocation();
@@ -31,21 +33,21 @@ function App() {
   // PWA로 설치되지 않은 상태
   const isAndroid = /Android/.test(navigator.userAgent);
   const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
-  /*if (isiOS && !window.matchMedia("(display-mode: standalone)").matches) {
+  if (isiOS && !window.matchMedia('(display-mode: standalone)').matches) {
     return (
       <>
-        <Image src={IosImage} alt={"뭘봐"} />
+        <Image src={IosImage} alt={'뭘봐'} />
       </>
     );
   } else if (!isAndroid && !isiOS) {
     return (
       <>
-        <Image src={OtherImage} alt={"뭘봐"} />
+        <Image src={OtherImage} alt={'뭘봐'} />
       </>
     );
-  }*/
-  // initializeDevice();
-  // RouteChangeTracker();
+  }
+  initializeDevice();
+  RouteChangeTracker();
   return (
     <>
       <Routes>
