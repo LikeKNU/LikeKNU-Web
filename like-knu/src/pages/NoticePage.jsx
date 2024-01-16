@@ -121,6 +121,7 @@ const SearchBox = styled.div`
 const SearchInput = styled.input`
   border-width: 0 0 1px 0;
   border-bottom-color: ${colors.GRAY200};
+  border-radius: 0;
   font-size: 1.4rem;
   flex: 6;
 
