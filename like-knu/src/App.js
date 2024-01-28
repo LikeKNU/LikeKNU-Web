@@ -36,7 +36,7 @@ function App() {
   // PWA로 설치되지 않은 상태
   const isAndroid = /Android/.test(navigator.userAgent);
   const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
-  /*if (isiOS && !window.matchMedia('(display-mode: standalone)').matches) {
+  if (isiOS && !window.matchMedia('(display-mode: standalone)').matches) {
     return (
       <>
         <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'100'} disabled={false}></KakaoAdFit>
@@ -50,7 +50,7 @@ function App() {
         <Image src={OtherImage} alt={'뭘봐'} />
       </>
     );
-  }*/
+  }
   initializeDevice();
   RouteChangeTracker();
   return (
