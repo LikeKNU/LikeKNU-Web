@@ -50,9 +50,9 @@ function App() {
         <Image src={OtherImage} alt={'뭘봐'} />
       </>
     );
-  }
+  }*/
   initializeDevice();
-  RouteChangeTracker();*/
+  RouteChangeTracker();
   return (
     <>
       <Routes>
