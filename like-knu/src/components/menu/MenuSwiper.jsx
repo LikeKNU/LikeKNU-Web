@@ -48,7 +48,7 @@ const StyledPageContainer = styled.div`
     height: 100%;
   }
   .my-swiper .swiper-wrapper .swiper-slide {
-    margin-top: 170px;
+    margin-top: 60px;
   }
   .swiper-prev {
   }
@@ -61,7 +61,7 @@ const StyledPageContainer = styled.div`
 `;
 const TitleArea = styled.div`
   position: absolute;
-  top: 130px;
+  top: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 export default styled.div`
-  padding: 0 16px;
-  padding-top: 140px;
-  padding-bottom: 110px;
+  padding: 30px 16px 110px;
   display: grid;
   height: 100%;
 `;

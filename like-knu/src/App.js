@@ -11,6 +11,7 @@ import { initializeDevice } from './api/initializer';
 import IosImage from './assets/image/ios_onboarding.png';
 import OtherImage from './assets/image/other_onboarding.png';
 import BottomNav from './components/globals/BottomNav';
+import KakaoAdFit from './KakaoAdFit';
 import NoticePage from './pages/NoticePage';
 import NotificationPage from './pages/NotificationPage';
 import SettingAboutPage from './pages/SettingAboutPage';
@@ -35,19 +36,21 @@ function App() {
   // PWA로 설치되지 않은 상태
   const isAndroid = /Android/.test(navigator.userAgent);
   const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
-  if (isiOS && !window.matchMedia('(display-mode: standalone)').matches) {
+  /*if (isiOS && !window.matchMedia('(display-mode: standalone)').matches) {
     return (
       <>
+        <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'100'} disabled={false}></KakaoAdFit>
         <Image src={IosImage} alt={'뭘봐'} />
       </>
     );
   } else if (!isAndroid && !isiOS) {
     return (
       <>
+        <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'100'} disabled={false}></KakaoAdFit>
         <Image src={OtherImage} alt={'뭘봐'} />
       </>
     );
-  }
+  }*/
   initializeDevice();
   RouteChangeTracker();
   return (
