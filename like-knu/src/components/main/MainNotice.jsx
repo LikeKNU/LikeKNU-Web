@@ -1,11 +1,11 @@
-import { noticeMain } from 'api/main';
-import CardContainer from 'components/styles/CardContainer';
-import colors from 'constants/colors';
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { CampusEng } from '../../constants/campus';
-import { PAGE_NAME } from '../../constants/pageName';
+import styled from "styled-components";
+import CardContainer from "components/styles/CardContainer";
+import { noticeMain } from "api/main";
+import colors from "constants/colors";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CampusEng } from "../../constants/campus";
+import { PAGE_NAME } from "../../constants/pageName";
 
 export default function MainNotice({ selectCampus }) {
   const [notices, setNotices] = useState([]);
@@ -23,10 +23,10 @@ export default function MainNotice({ selectCampus }) {
   }, [selectCampus]);
 
   return (
-    <NoticeContainer onClick={goNotice}>
-      <Title>{PAGE_NAME.NOTICE}</Title>
+    <NoticeContainer>
+      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}</Title>
       {notices.map((notice) => (
-        <Text key={notice.announcementId}>
+        <Text key={notice.announcementId} onClick={() => window.open(notice.announcementUrl, "_blank")}>
           {notice.announcementTitle}
         </Text>
       ))}
