@@ -49,7 +49,7 @@ function App() {
     );
   }
   initializeDevice();
-  RouteChangeTracker();*/
+  RouteChangeTracker();
   return (
     <>
       <Routes>
