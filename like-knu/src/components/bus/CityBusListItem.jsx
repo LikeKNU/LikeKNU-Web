@@ -1,9 +1,10 @@
-import { ReactComponent as BusIcon } from "assets/icon/directions_bus_black_24dp.svg";
-import styled from "styled-components";
-import colors from "../../constants/colors";
-import { EMPTY_MESSAGE } from "../../constants/message";
+import { ReactComponent as BusIcon } from 'assets/icon/directions_bus_black_24dp.svg';
+import styled from 'styled-components';
+import colors from '../../constants/colors';
+import { EMPTY_MESSAGE } from '../../constants/message';
+
 export function CityBusListItem({ busColor, busNumber, remainingTime }) {
-  const formattedBusColor = "#" + busColor;
+  const formattedBusColor = '#' + busColor;
   if (!busColor && !busNumber && !remainingTime) {
     return (
       <Wrapper>
@@ -20,6 +21,7 @@ export function CityBusListItem({ busColor, busNumber, remainingTime }) {
     </Wrapper>
   );
 }
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: row;

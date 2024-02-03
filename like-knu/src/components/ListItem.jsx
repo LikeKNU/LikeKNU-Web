@@ -1,12 +1,19 @@
-import styled from "styled-components";
-import colors from "../constants/colors";
+import { ReactComponent as MarkerIcon } from 'assets/icon/dot.svg';
+import styled from 'styled-components';
+import colors from '../constants/colors';
+import { getCurrentDate } from '../utils/DateUtility';
 
 export default function ListItem({ head, subHead, body, url }) {
+  const isDateMatch = subHead === getCurrentDate();
+
   return (
-    <Wrapper onClick={() => window.open(url, "_blank")}>
+    <Wrapper onClick={() => window.open(url, '_blank')}>
       <Detail>
         <div>{head}</div>
-        <div>{subHead}</div>
+        <SubHeader>
+          {isDateMatch && <StyledMarkerIcon fill={'red'} />}
+          <div>{subHead}</div>
+        </SubHeader>
       </Detail>
       <Title>{body}</Title>
     </Wrapper>
@@ -32,4 +39,15 @@ const Wrapper = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   margin-bottom: 24px;
+`;
+
+const SubHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const StyledMarkerIcon = styled(MarkerIcon)`
+  width: 16px; // 아이콘 너비 조정
+  height: 16px; // 아이콘 높이 조정
+  margin-top: 0; // 아이콘과 텍스트 사이의 마진 조정
 `;
