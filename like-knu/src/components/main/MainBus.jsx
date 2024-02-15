@@ -40,9 +40,9 @@ export default function MainBus({ selectCampus }) {
           <MainBusItem key={bus.routeId} bus={bus} />
         ))}
       </BusList>*/}
-      <h3 style={{textAlign: 'center', color: 'grey'}}>
+      <h2 style={{textAlign: 'center', color: 'grey', marginTop: '60px', marginBottom: '60px'}}>
         버그 퇴치 중..😭
-      </h3>
+      </h2>
     </BusContainer>
   );
 }
