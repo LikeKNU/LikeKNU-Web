@@ -35,14 +35,11 @@ export default function MainBus({ selectCampus }) {
         <RefreshTime>{formattedDate}</RefreshTime>
         <BusRefreshBtn getBuses={getBuses}></BusRefreshBtn>
       </Row>
-      {/*<BusList>
+      <BusList>
         {buses.map((bus) => (
           <MainBusItem key={bus.routeId} bus={bus} />
         ))}
-      </BusList>*/}
-      <h2 style={{textAlign: 'center', color: 'grey', marginTop: '60px', marginBottom: '60px'}}>
-        버그 퇴치 중..😭
-      </h2>
+      </BusList>
     </BusContainer>
   );
 }

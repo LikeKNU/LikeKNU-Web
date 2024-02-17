@@ -57,12 +57,9 @@ function CityBus() {
         </BusDestinationArea>
       </FixContainer>
       <StyledPageContainer>
-        {/*{buses.map((bus, index) => (
+        {buses.map((bus, index) => (
           <BusList key={index} route={bus} />
-        ))}*/}
-        <h1 style={{ textAlign: 'center', color: 'grey', marginTop: '30px' }}>
-          버그 퇴치 중..😭
-        </h1>
+        ))}
       </StyledPageContainer>
     </>
   );
