@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import colors from "constants/colors";
+import colors from 'constants/colors';
+import styled from 'styled-components';
 
 export default function TitleBox(props) {
   const { text, colors, margin_top } = props;

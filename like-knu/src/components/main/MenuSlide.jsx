@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import colors from "constants/colors";
+import colors from 'constants/colors';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+import GlobalColor from '../styles/globalColor';
+
 export default function MenuSlide({ menu }) {
   const [newMenu, setNewMenu] = useState([]); //메뉴스
   const [isOver, setIsOver] = useState(false);
@@ -46,16 +49,16 @@ export default function MenuSlide({ menu }) {
       {newMenu.map((menu) => (
         <Text key={menu.menuId}>{menu.menuName}</Text>
       ))}
-      {isOver && <MoreMenu>+더보기</MoreMenu>}
+      {isOver && <MoreMenu>•••</MoreMenu>}
       {isEmpty && <NoMenu>메뉴 없음</NoMenu>}
     </Wrapper>
   );
 }
 const NoMenu = styled.div`
-  color: ${colors.GRAY400};
+  color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY300};
 `;
 const MoreMenu = styled.div`
-  color: ${colors.COMMON};
+  color: ${!isDarkMode() ? colors.GRAY500 : colors.GRAY300};
   margin-bottom: 4px;
 `;
 const Text = styled.div`
@@ -64,7 +67,7 @@ const Text = styled.div`
 const Wrapper = styled.div`
   font-size: 1.2rem;
   font-weight: 400;
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   display: flex;
   flex-direction: column;
   height: 160px;

@@ -1,22 +1,25 @@
-import styled from "styled-components";
-import colors from "../constants/colors";
-import { ReactComponent as BackIcon } from "../assets/icon/arrow_back_ios_new_black_24dp.svg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { ReactComponent as BackIcon } from '../assets/icon/arrow_back_ios_new_black_24dp.svg';
+import colors from '../constants/colors';
+import { isDarkMode } from '../utils/DeviceManageUtil';
+
 export function BackHeader({ Title }) {
   const navigate = useNavigate();
   const goBack = () => {
-    navigate("/");
+    navigate('/');
   };
 
   return (
     <Wrapper>
       <button onClick={goBack}>
-        <BackIcon fill={colors.BLACK} />
+        <StyledBackIcon />
       </button>
       <Center>{Title}</Center>
     </Wrapper>
   );
 }
+
 const Wrapper = styled.div`
   height: 65px;
 
@@ -26,7 +29,7 @@ const Wrapper = styled.div`
   position: relative;
 
   padding-left: 14px;
-  border-bottom: 1px solid ${colors.GRAY100};
+  border-bottom: 0.5px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY600};
 `;
 const Center = styled.div`
   position: absolute;
@@ -34,7 +37,11 @@ const Center = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-size: 2.2rem;
   font-weight: 600;
+`;
+
+const StyledBackIcon = styled(BackIcon)`
+  fill: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
 `;

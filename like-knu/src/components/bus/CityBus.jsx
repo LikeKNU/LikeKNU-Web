@@ -1,15 +1,16 @@
-import styled from "styled-components";
-import { BusDestination } from "./BusDestination";
-import React, { useEffect, useState } from "react";
-import PageContainer from "../../layouts/PageContainer";
-import GlobalColor from "../styles/globalColor";
-import BusRefreshBtn from "../BusRefreshBtn";
-import colors from "../../constants/colors";
-import BusList from "./BusList";
-import { CampusEng } from "../../constants/campus";
-import { getCampus } from "../../utils/DeviceManageUtil";
-import { cityBuses } from "../../api/bus";
-const school = ["학교에서 출발", "학교로 도착"];
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { cityBuses } from '../../api/bus';
+import { CampusEng } from '../../constants/campus';
+import colors from '../../constants/colors';
+import PageContainer from '../../layouts/PageContainer';
+import { getCampus, isDarkMode } from '../../utils/DeviceManageUtil';
+import BusRefreshBtn from '../BusRefreshBtn';
+import GlobalColor from '../styles/globalColor';
+import { BusDestination } from './BusDestination';
+import BusList from './BusList';
+
+const school = ['학교에서 출발', '학교로 도착'];
 
 function CityBus() {
   const [destination, setDestination] = useState(0);
@@ -17,15 +18,15 @@ function CityBus() {
   const today = new Date();
   const formattedDate = `${today.getHours()}:${String(
     today.getMinutes(),
-  ).padStart(2, "0")} 기준`;
+  ).padStart(2, '0')} 기준`;
 
   const getBuses = async () => {
-    let type = "";
+    let type = '';
     if (destination === 0) {
-      type = "outgoing";
+      type = 'outgoing';
     }
     if (destination === 1) {
-      type = "incoming";
+      type = 'incoming';
     }
     const res = await cityBuses(CampusEng[getCampus()], type);
     setBuses(res);
@@ -43,7 +44,7 @@ function CityBus() {
               <BusDestination
                 key={index}
                 onClick={() => setDestination(index)}
-                className={destination === index ? "active" : null}
+                className={destination === index ? 'active' : null}
                 $campus={GlobalColor.getColor()}
               >
                 {text}
@@ -74,17 +75,17 @@ const Row = styled.div`
   align-items: center;
 `;
 const RefreshTime = styled.div`
-  color: ${colors.GRAY350};
+  color: ${!isDarkMode() ? colors.GRAY350 : colors.GRAY400};
   font-size: 1.2rem;
   margin-right: 10px;
 `;
 const FixContainer = styled.div`
   top: 99px;
   position: fixed;
-  background-color: white;
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   width: 100%;
   padding: 12px 0;
-  box-shadow: 0 2px 0 0 rgba(175, 175, 175, 0.1);
+  box-shadow: ${!isDarkMode() ? '0 2px 0 0 rgba(175, 175, 175, 0.1)' : '0 2px 0 0 rgba(80, 80, 80, 0.1)'};
 `;
 const BusDestinationArea = styled.div`
   display: flex;

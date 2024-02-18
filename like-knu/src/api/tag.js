@@ -1,8 +1,8 @@
-import instance from "./api";
-import { getDeviceId } from "../utils/DeviceManageUtil";
-import { extractBodyFromResponse } from "./apiUtility";
+import { getDeviceId } from '../utils/DeviceManageUtil';
+import instance from './api';
+import { extractBodyFromResponse } from './apiUtility';
 
-const baseURL = "/api/devices/subscribes";
+const baseURL = '/api/devices/subscribes';
 
 export const putTag = async (tags) => {
   try {

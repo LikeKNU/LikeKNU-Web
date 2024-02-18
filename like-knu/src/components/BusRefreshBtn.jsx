@@ -1,7 +1,8 @@
-import styled, {css, keyframes} from "styled-components";
-import { ReactComponent as RefreshIcon } from "assets/icon/refresh_black_24dp.svg";
-import colors from "constants/colors";
-import {useState} from "react";
+import { ReactComponent as RefreshIcon } from 'assets/icon/refresh_black_24dp.svg';
+import colors from 'constants/colors';
+import { useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import { isDarkMode } from '../utils/DeviceManageUtil';
 
 export default function BusRefreshBtn({ getBuses }) {
   const [isRotating, setIsRotating] = useState(false);
@@ -25,8 +26,8 @@ const Wrapper = styled.button`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 1px solid ${colors.GRAY200};
-  background-color: ${colors.WHITE};
+  border: 1px solid ${!isDarkMode() ? colors.GRAY200 : colors.GRAY500};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,6 +45,6 @@ const spin = keyframes`
 const StyledRefresh = styled(RefreshIcon)`
   width: 18px;
   height: 18px;
-  fill: ${colors.GRAY500};
+  fill: ${!isDarkMode() ? colors.GRAY500 : colors.GRAY100};
   animation: ${(props) => (props.rotate ? css`${spin} 1s linear` : '')};
 `;

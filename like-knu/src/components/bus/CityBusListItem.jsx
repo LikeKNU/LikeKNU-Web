@@ -2,6 +2,7 @@ import { ReactComponent as BusIcon } from 'assets/icon/directions_bus_black_24dp
 import styled from 'styled-components';
 import colors from '../../constants/colors';
 import { EMPTY_MESSAGE } from '../../constants/message';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
 
 export function CityBusListItem({ busColor, busNumber, remainingTime }) {
   const formattedBusColor = '#' + busColor;
@@ -32,15 +33,15 @@ const BoldText = styled.div`
   font-size: 1.5rem;
   font-weight: 800;
   margin: ${(props) => props.$margin};
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   text-align: center;
 `;
 const LightText = styled.div`
-  color: ${colors.GRAY500};
+  color: ${!isDarkMode() ? colors.GRAY500: colors.GRAY100};
   font-size: 1.3rem;
   font-weight: 400;
 `;
 const EmptyText = styled(LightText)`
-  color: ${colors.GRAY300};
+  color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY400};
   margin-top: 5px;
 `;

@@ -12,7 +12,7 @@ import { CampusEng } from '../constants/campus';
 import colors from '../constants/colors';
 import { PAGE_NAME } from '../constants/pageName';
 import { apiNoticeTabList, noticeTab } from '../constants/tabName';
-import { getCampus } from '../utils/DeviceManageUtil';
+import { getCampus, isDarkMode } from '../utils/DeviceManageUtil';
 
 export default function NoticePage() {
   const [notices, setNotices] = useState([]);
@@ -101,7 +101,7 @@ export default function NoticePage() {
           hasMore={hasMore} // 추가 데이터 여부
           loader={
             // 로딩 메시지
-            <div>불러오는 중..</div>
+            <div style={{ color: !isDarkMode() ? colors.BLACK : colors.WHITE }}>불러오는 중..</div>
           }
           scrollThreshold={0.9}
         />
@@ -120,14 +120,16 @@ const SearchBox = styled.div`
 
 const SearchInput = styled.input`
   border-width: 0 0 1px 0;
-  border-bottom-color: ${colors.GRAY200};
+  border-bottom-color: ${!isDarkMode() ? colors.GRAY200 : colors.GRAY600};
   border-radius: 0;
   font-size: 1.4rem;
   flex: 6;
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
 
   &:focus {
     outline: none;
-    border-bottom: 1.2px solid ${colors.GRAY500};
+    border-bottom: 1.2px solid ${!isDarkMode() ? colors.GRAY500 : colors.GRAY200};
   }
 `;
 

@@ -1,6 +1,6 @@
-import {generateAndSaveNewDeviceId, getCampus, getDeviceId, setCampus} from "../utils/DeviceManageUtil";
-import {startSession} from "./device";
-import { Campus } from "../constants/campus";
+import { Campus } from '../constants/campus';
+import { generateAndSaveNewDeviceId, getCampus, getDeviceId, setCampus } from '../utils/DeviceManageUtil';
+import { startSession } from './device';
 
 export const initializeDevice = () => {
   let deviceId = getDeviceId();
@@ -16,4 +16,11 @@ export const initializeDevice = () => {
   }
 
   return campus;
+}
+
+export function initializeDeviceColor() {
+  let mode = localStorage.getItem('dark-mode');
+  if (mode === null || mode === undefined) {
+    localStorage.setItem('dark-mode', 'light');
+  }
 }

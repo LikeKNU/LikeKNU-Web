@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import colors from "constants/colors";
+import colors from 'constants/colors';
+import styled from 'styled-components';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
 
 export default function MainCalendarItem(props) {
   const { schedule } = props;
@@ -20,15 +21,15 @@ const Title = styled.div`
   margin-bottom: 2px;
 `;
 const DateText = styled.div`
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-weight: 600;
 `;
 const TodayText = styled.div`
-  color: ${colors.GRAY300};
+  color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY500};
 `;
 
 const Content = styled.div`
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-size: 1.2rem;
   text-overflow: ellipsis;
   overflow: hidden;

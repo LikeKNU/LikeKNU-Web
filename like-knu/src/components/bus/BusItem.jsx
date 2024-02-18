@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import React from "react";
-import GlobalColor from "../styles/globalColor";
-import colors from "../../constants/colors";
+import React from 'react';
+import styled from 'styled-components';
+import colors from '../../constants/colors';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+import GlobalColor from '../styles/globalColor';
 
 export function BusItem({ times, isRunning }) {
   const routeCount = times.length;
@@ -10,14 +11,14 @@ export function BusItem({ times, isRunning }) {
   };
   GlobalColor.setColor();
 
-  let color = "";
+  let color = '';
   if (isRunning) {
     color = GlobalColor.getColor();
   } else {
-    color = colors.GRAY300;
+    color = !isDarkMode() ? colors.GRAY300 : colors.GRAY400;
   }
   return (
-    <Wrapper $height={calAreaHeight() + "px"}>
+    <Wrapper $height={calAreaHeight() + 'px'}>
       <div className="marker_area">
         {Array(routeCount)
           .fill(0)
@@ -29,7 +30,7 @@ export function BusItem({ times, isRunning }) {
       <div className="text_area">
         {times.map((time, index) => (
           <Row key={index}>
-            <div>{time.arrivalStop}</div>
+            <div style={{ color: !isDarkMode() ? colors.BLACK : colors.WHITE }}>{time.arrivalStop}</div>
             <Time>{time.arrivalTime}</Time>
           </Row>
         ))}
@@ -38,7 +39,9 @@ export function BusItem({ times, isRunning }) {
   );
 }
 
-const Time = styled.div``;
+const Time = styled.div`
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+`;
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -75,7 +78,8 @@ const Circle = styled.div`
   height: 12px;
   border-radius: 50%;
   box-sizing: border-box;
-  background-color: #fff;
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+  z-index: 1;
 `;
 const Line = styled.div`
   background-color: ${(props) => props.$campus};
@@ -84,5 +88,5 @@ const Line = styled.div`
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  z-index: -1;
+  z-index: 0;
 `;

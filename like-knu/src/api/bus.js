@@ -1,7 +1,7 @@
-import instance from "./api";
-import { extractBodyFromResponse } from "./apiUtility";
+import instance from './api';
+import { extractBodyFromResponse } from './apiUtility';
 
-const baseURL = "/api/buses";
+const baseURL = '/api/buses';
 
 export const shuttleBusesRoutes = async (campus) => {
   const { data } = await instance.get(`${baseURL}/shuttle-bus/routes`, {

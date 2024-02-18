@@ -1,8 +1,14 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target": {
-        "namespace": "android_app",
-        "package_name": "ac.knu.likeknu",
-        "sha256_cert_fingerprints": ["E3:0C:9D:27:68:CE:E5:56:CE:95:5A:9A:CE:6E:51:38:AD:55:89:16:E5:BE:49:A2:1C:C0:37:07:F3:5E:AF:B2"]
-      }
-    }]
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "ac.knu.likeknu",
+      "sha256_cert_fingerprints": [
+        "E3:0C:9D:27:68:CE:E5:56:CE:95:5A:9A:CE:6E:51:38:AD:55:89:16:E5:BE:49:A2:1C:C0:37:07:F3:5E:AF:B2"
+      ]
+    }
+  }
+]

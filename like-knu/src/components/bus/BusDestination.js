@@ -1,14 +1,16 @@
-import styled from "styled-components";
-import colors from "../../constants/colors";
+import styled from 'styled-components';
+import colors from '../../constants/colors';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+
 export const BusDestination = styled.button`
-  background-color: ${colors.WHITE};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   width: 100px;
   height: 30px;
   font-size: 1.5rem;
   font-weight: 600;
-  border: 1px solid ${colors.GRAY200};
+  border: 1px solid ${!isDarkMode() ? colors.GRAY200 : colors.GRAY600};
   border-radius: 6px;
-  color: ${colors.GRAY400};
+  color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY300};
   margin-right: 10px;
 
   &&.active {

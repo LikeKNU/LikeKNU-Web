@@ -1,5 +1,7 @@
-import styled from "styled-components";
-import colors from "../../constants/colors";
+import styled from 'styled-components';
+import colors from '../../constants/colors';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+import GlobalColor from '../styles/globalColor';
 
 export function ToggleSwitch({ width, height, area, isTurnOn, changeHandler }) {
   return (
@@ -22,14 +24,15 @@ export function ToggleSwitch({ width, height, area, isTurnOn, changeHandler }) {
     </Wrapper>
   );
 }
+
 const Wrapper = styled.div`
   #toggle:checked ~ .toggle_switch {
-    background: ${colors.COMMON};
+    background: ${GlobalColor.getColor()};
   }
 
   #toggle:checked ~ .toggle_switch .toggle_div {
     left: calc(100% - 26px);
-    background: ${colors.WHITE};
+    background: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   }
 `;
 
@@ -39,7 +42,7 @@ const ToggleLabel = styled.label`
   display: block;
   position: relative;
   border-radius: 30px;
-  background-color: ${colors.GRAY300};
+  background-color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY500};
   transition: all 0.2s ease-in;
 `;
 const ToggleDiv = styled.div`
@@ -50,6 +53,6 @@ const ToggleDiv = styled.div`
   left: 4px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: ${colors.WHITE};
+  background: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   transition: all 0.2s ease-in;
 `;

@@ -6,11 +6,11 @@ import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { getCampus } from 'utils/DeviceManageUtil';
+import { getCampus, isDarkMode } from 'utils/DeviceManageUtil';
 import { mainHeaderMessage } from '../../api/main';
 import GlobalColor from '../styles/globalColor';
 
-export default function MainHeader({ setSelectCampus }) {
+export default function MainHeader({ setCampus }) {
   const [view, setView] = useState(false);
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
@@ -41,8 +41,8 @@ export default function MainHeader({ setSelectCampus }) {
         }}
       >
         <Title $campus={GlobalColor.getColor()}>{getCampus()}</Title>
-        {view && <DropDown setSelectCampus={setSelectCampus} />}
-        <DownIcon fill={colors.BLACK} />
+        {view && <DropDown setSelectCampus={setCampus} />}
+        <DownIcon fill={!isDarkMode() ? colors.BLACK : colors.WHITE} />
       </CampusList>
       <Message>{message}</Message>
       <IconList>
@@ -62,8 +62,8 @@ const Wrapper = styled.div`
   height: 6.4rem;
   margin-bottom: 16px;
   padding: 0 16px;
-  border-bottom: 1px solid ${colors.GRAY100};
-  background-color: ${colors.WHITE};
+  // border-bottom: 1px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY650};
+  background-color: ${!isDarkMode() ? colors.GRAY50 : colors.GRAY700};
 
   position: fixed;
   top: 0;
@@ -84,7 +84,7 @@ const Title = styled.div`
   color: ${(props) => props.$campus};
 `;
 const Message = styled.div`
-  color: ${colors.GRAY400};
+  color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY100};
   font-size: 1.4rem;
   font-weight: 600;
   position: absolute;
@@ -102,5 +102,5 @@ const StyledNotification = styled(NotificationIcon)`
 const StyledSetting = styled(SettingIcon)`
   width: 22px;
   height: 22px;
-  color: #7f7c7d;
+  color: ${!isDarkMode() ? '#7f7c7d' : '#b7b7b7'};
 `;

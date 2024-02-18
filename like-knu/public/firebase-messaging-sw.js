@@ -1,11 +1,11 @@
-self.addEventListener("install", function (e) {
+self.addEventListener('install', function (e) {
   self.skipWaiting();
 });
 
-self.addEventListener("activate", function (e) {
+self.addEventListener('activate', function (e) {
 });
 
-self.addEventListener("push", function (event) {
+self.addEventListener('push', function (event) {
   if (!event.data.json()) return;
 
   const notification = event.data.json().notification;
@@ -22,7 +22,7 @@ self.addEventListener("push", function (event) {
   )
 });
 
-self.addEventListener("notificationclick", function (event) {
+self.addEventListener('notificationclick', function (event) {
   event.notification.close();
   let url = event.notification.data;
   clients.openWindow(url);

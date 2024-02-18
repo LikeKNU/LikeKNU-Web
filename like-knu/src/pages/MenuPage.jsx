@@ -1,12 +1,13 @@
-import PageLayout from "../layouts/PageLayout";
-import { PageHeader, Header } from "../components/styles/PageHeader";
-import { getCampus } from "../utils/DeviceManageUtil";
-import { TabItem, TabList } from "../components/styles/Tab";
-import { useEffect, useState } from "react";
-import { CampusEng } from "../constants/campus";
-import { menu } from "../api/menu";
-import { PAGE_NAME } from "../constants/pageName";
-import { MenuSwiper } from "../components/menu/MenuSwiper";
+import { useEffect, useState } from 'react';
+import { menu } from '../api/menu';
+import { MenuSwiper } from '../components/menu/MenuSwiper';
+import { Header, PageHeader } from '../components/styles/PageHeader';
+import { TabItem, TabList } from '../components/styles/Tab';
+import { CampusEng } from '../constants/campus';
+import { PAGE_NAME } from '../constants/pageName';
+import PageLayout from '../layouts/PageLayout';
+import { getCampus } from '../utils/DeviceManageUtil';
+
 export default function MenuPage() {
   const [category, setCategory] = useState(0);
   const [menuList, setMenuList] = useState([]);
@@ -42,7 +43,7 @@ export default function MenuPage() {
             <TabItem
               key={index}
               onClick={() => setCategory(index)}
-              className={category === index ? "active" : null}
+              className={category === index ? 'active' : null}
             >
               {cafeteria.cafeteriaName}
             </TabItem>

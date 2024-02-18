@@ -1,9 +1,11 @@
-import styled from "styled-components";
-import { useEffect, useState } from "react";
-import TAGNAME from "../../constants/tagName";
-import { putTag, tags } from "../../api/tag";
-import colors from "../../constants/colors";
-import Tag from "../styles/Tag";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { putTag, tags } from '../../api/tag';
+import colors from '../../constants/colors';
+import TAGNAME from '../../constants/tagName';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+import GlobalColor from '../styles/globalColor';
+import Tag from '../styles/Tag';
 
 export default function TagList() {
   const [checkedList, setCheckedList] = useState([]);
@@ -15,7 +17,7 @@ export default function TagList() {
       tags.push({ tag: tagName });
     });
     await putTag(tags);
-    alert("설정되었습니다.");
+    alert('설정되었습니다.');
   };
 
   const getTags = async () => {
@@ -81,7 +83,7 @@ const Wrapper = styled.div``;
 const Button = styled.button`
   ${`width: calc(100% - 32px)`};
   height: 46px;
-  background-color: ${colors.COMMON};
+  background-color: ${GlobalColor.getColor()};
   border-radius: 13px;
 
   position: absolute;
@@ -110,7 +112,7 @@ const CheckBoxInput = styled.input`
   border: 0;
 
   &:checked + label {
-    background-color: ${colors.COMMON};
+    background-color: ${GlobalColor.getColor()};
     color: ${colors.WHITE};
   }
 `;

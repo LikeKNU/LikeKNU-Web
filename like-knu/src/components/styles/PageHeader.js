@@ -1,5 +1,7 @@
-import styled from "styled-components";
-import colors from "../../constants/colors";
+import styled from 'styled-components';
+import colors from '../../constants/colors';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+
 export const PageHeader = styled.div`
   height: 65px;
 
@@ -9,7 +11,7 @@ export const PageHeader = styled.div`
   padding-right: 16px;
   padding-left: 16px;
 
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-size: 2.2rem;
   font-weight: 600;
 `;
@@ -19,5 +21,5 @@ export const Header = styled.div`
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: ${colors.WHITE};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
 `;

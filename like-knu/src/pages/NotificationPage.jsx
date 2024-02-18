@@ -1,13 +1,13 @@
-import PageLayout from "../layouts/PageLayout";
-import { Header } from "../components/styles/PageHeader";
-import PageContainer from "../layouts/PageContainer";
-import ListItem from "../components/ListItem";
-import { useEffect, useState } from "react";
-import { fetchNotifications } from "../api/notification";
-import styled from "styled-components";
-import InfiniteScroll from "react-infinite-scroll-component";
-import { BackHeader } from "../components/BackHeader";
-import { PAGE_NAME } from "../constants/pageName";
+import { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import styled from 'styled-components';
+import { fetchNotifications } from '../api/notification';
+import { BackHeader } from '../components/BackHeader';
+import ListItem from '../components/ListItem';
+import { Header } from '../components/styles/PageHeader';
+import { PAGE_NAME } from '../constants/pageName';
+import PageContainer from '../layouts/PageContainer';
+import PageLayout from '../layouts/PageLayout';
 
 export default function NotificationPage() {
   const [notifications, setNotifications] = useState([]);

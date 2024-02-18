@@ -1,8 +1,9 @@
-import CardContainer from "../styles/CardContainer";
-import styled from "styled-components";
-import { menuIcon } from "../../assets/icon/menuIcon";
-import colors from "../../constants/colors";
-import { menu } from "../../api/menu";
+import styled from 'styled-components';
+import { menuIcon } from '../../assets/icon/menuIcon';
+import colors from '../../constants/colors';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+import CardContainer from '../styles/CardContainer';
+
 export default function MenuListItem({ menuList }) {
   return (
     <Wrapper>
@@ -22,7 +23,7 @@ export default function MenuListItem({ menuList }) {
             </Title>
             <Content>
               {menu.menus.map((menu, index) => (
-                <div className={"menuItem"} key={index}>
+                <div className={'menuItem'} key={index}>
                   {menu.menuName}
                 </div>
               ))}
@@ -37,8 +38,8 @@ const Wrapper = styled.div`
 `;
 const MenuCardContainer = styled(CardContainer)`
   box-shadow: none;
-  border: 1px solid ${colors.GRAY80};
-  color: ${colors.BLACK};
+  border: 1px solid ${!isDarkMode() ? colors.GRAY80 : colors.GRAY600};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-size: 1.3rem;
   font-weight: 400;
   padding-top: 16px;

@@ -1,18 +1,15 @@
-import PageLayout from "../layouts/PageLayout";
-import {BackHeader} from "../components/BackHeader";
-import styled from "styled-components";
-import PageContainer from "../layouts/PageContainer";
-import TagList from "../components/setting/TagList";
-import colors from "../constants/colors";
-import {ToggleSwitch} from "../components/setting/ToggleSwitch";
-import {useEffect, useState} from "react";
-import {
-  changeTurnOnNotification,
-  isTurnOnNotification,
-  updateNotificationToken,
-} from "../api/device";
-import {requestNotificationPermission} from "../firebaseCloudMessaging";
-import {SETTING_MENU_NAME} from "../constants/pageName";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { changeTurnOnNotification, isTurnOnNotification, updateNotificationToken, } from '../api/device';
+import { BackHeader } from '../components/BackHeader';
+import TagList from '../components/setting/TagList';
+import { ToggleSwitch } from '../components/setting/ToggleSwitch';
+import colors from '../constants/colors';
+import { SETTING_MENU_NAME } from '../constants/pageName';
+import { requestNotificationPermission } from '../firebaseCloudMessaging';
+import PageContainer from '../layouts/PageContainer';
+import PageLayout from '../layouts/PageLayout';
+import { isDarkMode } from '../utils/DeviceManageUtil';
 
 export default function SettingNotificationPage() {
   const [isTurnOn, setIsTurnOn] = useState(false);
@@ -40,15 +37,15 @@ export default function SettingNotificationPage() {
 
   return (
     <PageLayout>
-      <BackHeader Title={SETTING_MENU_NAME.NOTICE_NOTIFICATION}/>
+      <BackHeader Title={SETTING_MENU_NAME.NOTICE_NOTIFICATION} />
       <StyledPageContainer>
         <Content>
           <Notification>
             <Title>공지사항 알림</Title>
             <ToggleSwitch
-              width={"54px"}
-              height={"28px"}
-              area={"22px"}
+              width={'54px'}
+              height={'28px'}
+              area={'22px'}
               isTurnOn={isTurnOn}
               changeHandler={changeDeviceNotification}
             />
@@ -56,7 +53,7 @@ export default function SettingNotificationPage() {
           <Tag>
             <Title>공지사항 태그</Title>
             <Detail>알림을 받고 싶은 태그를 선택해주세요!</Detail>
-            <TagList/>
+            <TagList />
           </Tag>
         </Content>
       </StyledPageContainer>
@@ -78,12 +75,12 @@ const Notification = styled.div`
 `;
 const Title = styled.div`
   font-size: 1.8rem;
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-weight: 600;
 `;
 const Detail = styled.div`
   font-size: 1.4rem;
-  color: ${colors.GRAY400};
+  color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
   margin-top: 4px;
   margin-bottom: 20px;
 `;

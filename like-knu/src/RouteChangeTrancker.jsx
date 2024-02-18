@@ -1,6 +1,6 @@
-import {useLocation} from "react-router-dom";
-import {useEffect, useState} from "react";
-import ReactGA from "react-ga4";
+import { useEffect, useState } from 'react';
+import ReactGA from 'react-ga4';
+import { useLocation } from 'react-router-dom';
 
 const RouteChangeTracker = () => {
   let location = useLocation();
@@ -15,8 +15,8 @@ const RouteChangeTracker = () => {
 
   useEffect(() => {
     if (initialized) {
-      ReactGA.set({page: location.pathname})
-      ReactGA.send("pageview");
+      ReactGA.set({ page: location.pathname })
+      ReactGA.send('pageview');
     }
   }, [initialized, location]);
 };
