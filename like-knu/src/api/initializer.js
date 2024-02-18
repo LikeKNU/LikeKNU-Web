@@ -15,6 +15,10 @@ export const initializeDevice = () => {
     setCampus(campus);
   }
 
+  return campus;
+}
+
+export function initializeDeviceColor() {
   if (isDarkMode()) {
     if (detectDarkMode()) {
       localStorage.setItem('dark-mode', 'dark');
@@ -24,8 +28,6 @@ export const initializeDevice = () => {
       document.body.setAttribute('data-theme', 'light');
     }
   }
-
-  return campus;
 }
 
 function detectDarkMode() {
