@@ -141,8 +141,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
   "id": "ac.knu.likeknu",
   "description": "공주대학교 학생들을 위한 정보 제공 서비스",
   "lang": "ko",
