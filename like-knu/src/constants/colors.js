@@ -15,9 +15,12 @@ const colors = {
   GRAY600: '#464646',
   GRAY650: '#323232',
   GRAY700: '#101012',
+  DARK: '#18171D',
+  DARK_WHITE: '#E6E6E6',
 
   WHITE: '#FFFFFF',
-  BLACK: '#18171D',
+  BLACK: '#403E3F',
+
   SHADOW: 'rgba(0, 0, 0, 0.05)',
 };
 

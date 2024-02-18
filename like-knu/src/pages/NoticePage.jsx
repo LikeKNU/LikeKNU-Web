@@ -101,7 +101,7 @@ export default function NoticePage() {
           hasMore={hasMore} // 추가 데이터 여부
           loader={
             // 로딩 메시지
-            <div style={{ color: !isDarkMode() ? colors.BLACK : colors.WHITE }}>불러오는 중..</div>
+            <div style={{ color: !isDarkMode() ? colors.BLACK : colors.DARK_WHITE }}>불러오는 중..</div>
           }
           scrollThreshold={0.9}
         />
@@ -124,8 +124,8 @@ const SearchInput = styled.input`
   border-radius: 0;
   font-size: 1.4rem;
   flex: 6;
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
 
   &:focus {
     outline: none;

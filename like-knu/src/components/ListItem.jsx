@@ -32,7 +32,7 @@ const Detail = styled.div`
 
 const Title = styled.span`
   font-size: 1.4rem;
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
 `;
 
 const Wrapper = styled.div`

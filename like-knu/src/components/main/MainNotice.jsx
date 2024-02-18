@@ -39,7 +39,7 @@ const NoticeContainer = styled(CardContainer)`
   grid-column: 1 / 3;
 `;
 const Text = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.3rem;
   font-weight: 400;
   overflow: hidden;
@@ -48,11 +48,11 @@ const Text = styled.div`
   padding-bottom: 12px;
 
   .notice_link {
-    color: ${colors.BLACK};
+    color: ${colors.DARK};
   }
 `;
 const Title = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 16px;

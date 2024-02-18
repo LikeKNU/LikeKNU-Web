@@ -67,7 +67,7 @@ const Text = styled.div`
 const Wrapper = styled.div`
   font-size: 1.2rem;
   font-weight: 400;
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   display: flex;
   flex-direction: column;
   height: 160px;

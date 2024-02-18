@@ -27,7 +27,7 @@ const Wrapper = styled.button`
   height: 30px;
   border-radius: 50%;
   border: 1px solid ${!isDarkMode() ? colors.GRAY200 : colors.GRAY500};
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
   display: flex;
   justify-content: center;
   align-items: center;

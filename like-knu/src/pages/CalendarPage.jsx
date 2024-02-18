@@ -45,7 +45,7 @@ const StyledPageContainer = styled(PageContainer)`
   padding-top: 68px;
 `;
 const Month = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.7rem;
   font-weight: 700;
   margin-bottom: 12px;

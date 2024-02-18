@@ -17,11 +17,11 @@ export const TabList = styled.div`
   box-sizing: border-box;
 
   .active {
-    border-bottom: 2px solid ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+    border-bottom: 2px solid ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   }
 `;
 export const TabItem = styled.button`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   line-height: 34px;
   text-align: center;
   font-size: 1.6rem;

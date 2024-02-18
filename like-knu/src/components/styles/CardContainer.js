@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
 
 export default styled.div`
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
   border-radius: 2rem;
   padding: 0 2rem 1.6rem 2rem;
   display: flex;

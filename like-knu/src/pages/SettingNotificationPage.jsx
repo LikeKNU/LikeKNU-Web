@@ -75,7 +75,7 @@ const Notification = styled.div`
 `;
 const Title = styled.div`
   font-size: 1.8rem;
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-weight: 600;
 `;
 const Detail = styled.div`

@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 const MenuCardContainer = styled(CardContainer)`
   box-shadow: none;
   border: 1px solid ${!isDarkMode() ? colors.GRAY80 : colors.GRAY600};
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.3rem;
   font-weight: 400;
   padding-top: 16px;

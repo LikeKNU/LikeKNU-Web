@@ -23,22 +23,22 @@ function BusSelect({ options, value, label, setId, setMesseage }) {
         colors: {
           ...theme.colors,
           primary: GlobalColor.getColor(),
-          primary25: !isDarkMode() ? colors.WHITE : colors.BLACK,
+          primary25: !isDarkMode() ? colors.WHITE : colors.DARK,
           primary50: !isDarkMode() ? colors.GRAY100 : colors.GRAY700,
           primary75: !isDarkMode() ? 'black' : 'white',
-          // neutral5: !getDarkMode() ? colors.BLACK : colors.WHITE,
-          // neutral10: !getDarkMode() ? colors.BLACK : colors.WHITE,
-          neutral0: !isDarkMode() ? colors.WHITE : colors.BLACK, // 오픈 컨테이너 배경
-          // neutral30: !getDarkMode() ? colors.BLACK : colors.WHITE,
-          // neutral40: !getDarkMode() ? colors.BLACK : colors.WHITE,
-          // neutral50: !getDarkMode() ? colors.BLACK : colors.WHITE,
+          // neutral5: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
+          // neutral10: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
+          neutral0: !isDarkMode() ? colors.WHITE : colors.DARK, // 오픈 컨테이너 배경
+          // neutral30: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
+          // neutral40: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
+          // neutral50: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
           neutral20: !isDarkMode() ? colors.GRAY200 : colors.GRAY500, // border
-          // neutral60: !getDarkMode() ? colors.BLACK : colors.WHITE,
-          // neutral70: !getDarkMode() ? colors.BLACK : colors.WHITE,
-          neutral80: !isDarkMode() ? colors.BLACK : colors.WHITE, // 선택 레이블
-          // neutral90: !getDarkMode() ? colors.BLACK : colors.WHITE,
-          danger: !isDarkMode() ? colors.BLACK : colors.WHITE,
-          dangerLight: !isDarkMode() ? colors.BLACK : colors.WHITE,
+          // neutral60: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
+          // neutral70: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
+          neutral80: !isDarkMode() ? colors.BLACK : colors.DARK_WHITE, // 선택 레이블
+          // neutral90: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
+          danger: !isDarkMode() ? colors.BLACK : colors.DARK_WHITE,
+          dangerLight: !isDarkMode() ? colors.BLACK : colors.DARK_WHITE,
         },
       })}
       styles={SelectStyle}
@@ -51,7 +51,7 @@ const SelectStyle = {
     ...control,
     fontSize: '15px',
     fontWeight: '600',
-    backgroundColor: !isDarkMode() ? colors.WHITE : colors.BLACK,
+    backgroundColor: !isDarkMode() ? colors.WHITE : colors.DARK,
   }),
   container: (container) => ({
     ...container,
@@ -59,7 +59,7 @@ const SelectStyle = {
     transform: 'translate(-50%, 0)',
     left: '50%',
     fontSize: '13px',
-    color: !isDarkMode() ? colors.BLACK : colors.WHITE
+    color: !isDarkMode() ? colors.BLACK : colors.DARK_WHITE
   }),
 };
 export default BusSelect;

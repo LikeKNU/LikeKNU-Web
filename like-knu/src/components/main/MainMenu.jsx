@@ -62,7 +62,7 @@ const MenuContainer = styled(CardContainer)`
   padding: 0;
 `;
 const Title = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;
@@ -79,7 +79,7 @@ const SwiperContainer = styled(Swiper)`
   }
 
   .swiper-pagination-bullet {
-    border: 1.5px solid ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+    border: 1.5px solid ${!isDarkMode() ? colors.WHITE : colors.DARK};
     opacity: 1;
     background-color: ${!isDarkMode() ? colors.GRAY200 : colors.GRAY500};
   }

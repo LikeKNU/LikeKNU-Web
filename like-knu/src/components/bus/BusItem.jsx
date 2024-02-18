@@ -30,7 +30,7 @@ export function BusItem({ times, isRunning }) {
       <div className="text_area">
         {times.map((time, index) => (
           <Row key={index}>
-            <div style={{ color: !isDarkMode() ? colors.BLACK : colors.WHITE }}>{time.arrivalStop}</div>
+            <div style={{ color: !isDarkMode() ? colors.BLACK : colors.DARK_WHITE }}>{time.arrivalStop}</div>
             <Time>{time.arrivalTime}</Time>
           </Row>
         ))}
@@ -40,7 +40,7 @@ export function BusItem({ times, isRunning }) {
 }
 
 const Time = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
 `;
 const Row = styled.div`
   display: flex;
@@ -78,7 +78,7 @@ const Circle = styled.div`
   height: 12px;
   border-radius: 50%;
   box-sizing: border-box;
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
   z-index: 1;
 `;
 const Line = styled.div`

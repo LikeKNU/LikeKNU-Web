@@ -33,7 +33,7 @@ const BoldText = styled.div`
   font-size: 1.5rem;
   font-weight: 800;
   margin: ${(props) => props.$margin};
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   text-align: center;
 `;
 const LightText = styled.div`

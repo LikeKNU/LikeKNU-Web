@@ -37,11 +37,11 @@ const Center = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 2.2rem;
   font-weight: 600;
 `;
 
 const StyledBackIcon = styled(BackIcon)`
-  fill: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  fill: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
 `;

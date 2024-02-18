@@ -102,7 +102,7 @@ const Wrapper = styled.nav`
   justify-content: space-between;
   box-sizing: border-box;
   border-top: 0.5px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY650};
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
 `;
 
 // 각 아이템

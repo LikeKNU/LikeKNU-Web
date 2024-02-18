@@ -62,7 +62,7 @@ const Message = styled.div`
 const Title = styled.div`
   font-size: 1.4rem;
   font-weight: 600;
-  color: ${colors.BLACK};
+  color: ${colors.DARK};
 `;
 const Content = styled.div`
   padding: 0 40px;

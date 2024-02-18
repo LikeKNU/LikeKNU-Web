@@ -82,7 +82,7 @@ const RefreshTime = styled.div`
 const FixContainer = styled.div`
   top: 99px;
   position: fixed;
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
   width: 100%;
   padding: 12px 0;
   box-shadow: ${!isDarkMode() ? '0 2px 0 0 rgba(175, 175, 175, 0.1)' : '0 2px 0 0 rgba(80, 80, 80, 0.1)'};

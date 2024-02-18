@@ -62,7 +62,7 @@ const BusContainer = styled(CardContainer)`
   min-height: 80px;
 `;
 const Title = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;

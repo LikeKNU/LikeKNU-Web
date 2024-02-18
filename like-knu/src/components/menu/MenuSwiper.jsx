@@ -78,13 +78,13 @@ const Title = styled.div`
   font-size: 1.6rem;
   font-weight: 600;
   margin: 0 18px;
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
 `;
 
 const StyledArrowIcon = styled(PrevArrowIcon)`
   position: relative;
   z-index: 10;
-  fill: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  fill: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   width: 16px;
   height: 16px;
 `;

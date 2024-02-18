@@ -32,7 +32,7 @@ export default function DropDown({ setSelectCampus }) {
   );
 }
 const Wrapper = styled.div`
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
   list-style: none;
   z-index: 10;
   position: absolute;
@@ -45,7 +45,7 @@ const Wrapper = styled.div`
 const CampusItem = styled.li`
   font-size: 1.6rem;
   font-weight: 500;
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   padding: 5px 15px;
 `;
 const Line = styled.hr`

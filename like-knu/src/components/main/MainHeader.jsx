@@ -42,7 +42,7 @@ export default function MainHeader({ setCampus }) {
       >
         <Title $campus={GlobalColor.getColor()}>{getCampus()}</Title>
         {view && <DropDown setSelectCampus={setCampus} />}
-        <DownIcon fill={!isDarkMode() ? colors.BLACK : colors.WHITE} />
+        <DownIcon fill={!isDarkMode() ? colors.BLACK : colors.DARK_WHITE} />
       </CampusList>
       <Message>{message}</Message>
       <IconList>

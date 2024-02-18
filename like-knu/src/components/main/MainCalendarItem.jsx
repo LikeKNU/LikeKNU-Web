@@ -21,7 +21,7 @@ const Title = styled.div`
   margin-bottom: 2px;
 `;
 const DateText = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-weight: 600;
 `;
 const TodayText = styled.div`
@@ -29,7 +29,7 @@ const TodayText = styled.div`
 `;
 
 const Content = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.2rem;
   text-overflow: ellipsis;
   overflow: hidden;

@@ -17,7 +17,7 @@ export default function CalendarListItem({ scheduleContent }) {
 const Wrapper = styled.div`
   margin-left: 10px;
   padding-left: 16px;
-  border-left: 2px solid ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  border-left: 2px solid ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
 `;
 const Content = styled.div`
   margin-bottom: 15px;
@@ -28,6 +28,6 @@ const Date = styled.div`
   margin-bottom: 4px;
 `;
 const Text = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.4rem;
 `;

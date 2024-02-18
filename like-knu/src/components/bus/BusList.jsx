@@ -66,10 +66,10 @@ const Title = styled.div`
   justify-content: space-between;
   font-size: 1.4rem;
   font-weight: 600;
-  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   text-align: center;
 `;
 const StyledArrow = styled(ArrowIcon)`
   margin: 0 1rem;
-  fill: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  fill: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
 `;
