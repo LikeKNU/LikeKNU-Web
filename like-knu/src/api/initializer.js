@@ -1,5 +1,5 @@
 import { Campus } from '../constants/campus';
-import { generateAndSaveNewDeviceId, getCampus, getDeviceId, isDarkMode, setCampus } from '../utils/DeviceManageUtil';
+import { generateAndSaveNewDeviceId, getCampus, getDeviceId, setCampus } from '../utils/DeviceManageUtil';
 import { startSession } from './device';
 
 export const initializeDevice = () => {
@@ -19,17 +19,8 @@ export const initializeDevice = () => {
 }
 
 export function initializeDeviceColor() {
-  if (isDarkMode()) {
-    if (detectDarkMode()) {
-      localStorage.setItem('dark-mode', 'dark');
-      document.body.setAttribute('data-theme', 'dark');
-    } else {
-      localStorage.setItem('dark-mode', 'light');
-      document.body.setAttribute('data-theme', 'light');
-    }
+  let mode = localStorage.getItem('dark-mode');
+  if (mode === null || mode === undefined) {
+    localStorage.setItem('dark-mode', 'light');
   }
-}
-
-function detectDarkMode() {
-  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
