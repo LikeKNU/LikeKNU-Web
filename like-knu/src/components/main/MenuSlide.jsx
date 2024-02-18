@@ -49,7 +49,7 @@ export default function MenuSlide({ menu }) {
       {newMenu.map((menu) => (
         <Text key={menu.menuId}>{menu.menuName}</Text>
       ))}
-      {isOver && <MoreMenu>+더보기</MoreMenu>}
+      {isOver && <MoreMenu>•••</MoreMenu>}
       {isEmpty && <NoMenu>메뉴 없음</NoMenu>}
     </Wrapper>
   );
@@ -58,7 +58,7 @@ const NoMenu = styled.div`
   color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY300};
 `;
 const MoreMenu = styled.div`
-  color: ${GlobalColor.getColor()};
+  color: ${!isDarkMode() ? colors.GRAY500 : colors.GRAY300};
   margin-bottom: 4px;
 `;
 const Text = styled.div`
