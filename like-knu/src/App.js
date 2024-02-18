@@ -27,11 +27,16 @@ function App() {
 
   useEffect(() => {
     const bodyTag = document.querySelector('body');
+    const themeColor = document.querySelector('meta[name="theme-color"]');
+    const backgroundColor = document.querySelector('meta[name="background-color"]');
 
     if (isDarkMode()) {
       bodyTag.style.backgroundColor = colors.BLACK;
+      themeColor.setAttribute('content', colors.BLACK);
+      backgroundColor.setAttribute('content', colors.BLACK);
     } else {
       bodyTag.style.backgroundColor = colors.WHITE;
+      backgroundColor.setAttribute('content', colors.WHITE);
     }
   }, []);
 
