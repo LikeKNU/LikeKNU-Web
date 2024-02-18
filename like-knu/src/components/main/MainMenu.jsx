@@ -79,7 +79,7 @@ const SwiperContainer = styled(Swiper)`
   }
 
   .swiper-pagination-bullet {
-    border: 1.5px solid ${!isDarkMode() ? colors.WHITE : colors.DARK};
+    border: 1.5px solid ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
     opacity: 1;
     background-color: ${!isDarkMode() ? colors.GRAY200 : colors.GRAY500};
   }

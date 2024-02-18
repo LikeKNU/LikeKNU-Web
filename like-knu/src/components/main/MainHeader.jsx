@@ -63,7 +63,7 @@ const Wrapper = styled.div`
   margin-bottom: 16px;
   padding: 0 16px;
   // border-bottom: 1px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY650};
-  background-color: ${!isDarkMode() ? colors.GRAY50 : colors.GRAY700};
+  background-color: ${!isDarkMode() ? colors.GRAY50 : colors.DARK};
 
   position: fixed;
   top: 0;

@@ -32,7 +32,7 @@ export default function DropDown({ setSelectCampus }) {
   );
 }
 const Wrapper = styled.div`
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   list-style: none;
   z-index: 10;
   position: absolute;

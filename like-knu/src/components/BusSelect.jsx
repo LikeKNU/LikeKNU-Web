@@ -23,12 +23,12 @@ function BusSelect({ options, value, label, setId, setMesseage }) {
         colors: {
           ...theme.colors,
           primary: GlobalColor.getColor(),
-          primary25: !isDarkMode() ? colors.WHITE : colors.DARK,
-          primary50: !isDarkMode() ? colors.GRAY100 : colors.GRAY700,
+          primary25: !isDarkMode() ? colors.WHITE : colors.DARK_GRAY,
+          primary50: !isDarkMode() ? colors.GRAY100 : colors.DARK,
           primary75: !isDarkMode() ? 'black' : 'white',
           // neutral5: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
           // neutral10: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
-          neutral0: !isDarkMode() ? colors.WHITE : colors.DARK, // 오픈 컨테이너 배경
+          neutral0: !isDarkMode() ? colors.WHITE : colors.DARK_GRAY, // 오픈 컨테이너 배경
           // neutral30: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
           // neutral40: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
           // neutral50: !getDarkMode() ? colors.BLACK : colors.DARK_WHITE,
@@ -51,7 +51,7 @@ const SelectStyle = {
     ...control,
     fontSize: '15px',
     fontWeight: '600',
-    backgroundColor: !isDarkMode() ? colors.WHITE : colors.DARK,
+    backgroundColor: !isDarkMode() ? colors.WHITE : colors.DARK_GRAY,
   }),
   container: (container) => ({
     ...container,

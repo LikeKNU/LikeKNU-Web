@@ -14,8 +14,9 @@ const colors = {
   GRAY500: '#5f5f5f',
   GRAY600: '#464646',
   GRAY650: '#323232',
-  GRAY700: '#101012',
-  DARK: '#18171D',
+
+  DARK: '#101012',
+  DARK_GRAY: '#18171D',
   DARK_WHITE: '#E6E6E6',
 
   WHITE: '#FFFFFF',

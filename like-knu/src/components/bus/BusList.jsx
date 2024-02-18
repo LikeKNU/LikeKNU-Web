@@ -62,7 +62,7 @@ const Title = styled.div`
   padding-left: 14px;
   height: 30px;
   border-radius: 5px;
-  background-color: ${!isDarkMode() ? colors.GRAY80 : colors.GRAY700};
+  background-color: ${!isDarkMode() ? colors.GRAY80 : colors.DARK};
   justify-content: space-between;
   font-size: 1.4rem;
   font-weight: 600;

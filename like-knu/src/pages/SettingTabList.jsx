@@ -89,6 +89,6 @@ const SettingItem = styled.div`
   padding: 0 14px 0 20px;
   height: 48px;
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   font-size: 1.6rem;
 `;

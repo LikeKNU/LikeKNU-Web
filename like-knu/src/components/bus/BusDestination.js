@@ -3,7 +3,7 @@ import colors from '../../constants/colors';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
 
 export const BusDestination = styled.button`
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   width: 100px;
   height: 30px;
   font-size: 1.5rem;

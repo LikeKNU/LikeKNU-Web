@@ -32,7 +32,7 @@ const Wrapper = styled.div`
 
   #toggle:checked ~ .toggle_switch .toggle_div {
     left: calc(100% - 26px);
-    background: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+    background: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   }
 `;
 
@@ -53,6 +53,6 @@ const ToggleDiv = styled.div`
   left: 4px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+  background: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   transition: all 0.2s ease-in;
 `;

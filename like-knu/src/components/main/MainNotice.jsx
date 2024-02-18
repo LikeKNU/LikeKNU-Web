@@ -48,7 +48,7 @@ const Text = styled.div`
   padding-bottom: 12px;
 
   .notice_link {
-    color: ${colors.DARK};
+    color: ${colors.DARK_GRAY};
   }
 `;
 const Title = styled.div`

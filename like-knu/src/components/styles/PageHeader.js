@@ -21,5 +21,5 @@ export const Header = styled.div`
   left: 0;
   right: 0;
   z-index: 100;
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
 `;

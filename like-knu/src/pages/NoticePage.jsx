@@ -124,7 +124,7 @@ const SearchInput = styled.input`
   border-radius: 0;
   font-size: 1.4rem;
   flex: 6;
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
 
   &:focus {

@@ -78,7 +78,7 @@ const Circle = styled.div`
   height: 12px;
   border-radius: 50%;
   box-sizing: border-box;
-  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   z-index: 1;
 `;
 const Line = styled.div`
