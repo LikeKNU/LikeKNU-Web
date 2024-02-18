@@ -11,13 +11,13 @@ const colors = {
   GRAY300: '#BDBDBD',
   GRAY350: '#AFAFAF',
   GRAY400: '#8A8A8A',
-  GRAY500: '#666666',
-  GRAY600: '#4c4c4c',
-  GRAY650: '#41414c',
-  GRAY700: '#2d2d2d',
+  GRAY500: '#5f5f5f',
+  GRAY600: '#464646',
+  GRAY650: '#323232',
+  GRAY700: '#101012',
 
   WHITE: '#FFFFFF',
-  BLACK: '#262626',
+  BLACK: '#18171D',
   SHADOW: 'rgba(0, 0, 0, 0.05)',
 };
 
