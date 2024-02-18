@@ -1,4 +1,5 @@
-import { TabItem, TabList } from "../styles/Tab";
+import { TabItem, TabList } from '../styles/Tab';
+
 export function TabHeader({ names, category, setCategory }) {
   return (
     <>
@@ -7,7 +8,7 @@ export function TabHeader({ names, category, setCategory }) {
           <TabItem
             key={index}
             onClick={() => setCategory(index)}
-            className={category === index ? "active" : null}
+            className={category === index ? 'active' : null}
           >
             {name}
           </TabItem>

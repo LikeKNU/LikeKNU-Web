@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import colors from "constants/colors";
-import { test1, test2, axiosTest3 } from "api/test";
-import axios from "axios";
-import { BusItem } from "../components/bus/BusItem";
-import Select from "react-select";
-import { cityBusesRoutes } from "../api/bus";
-import { getCampus } from "../utils/DeviceManageUtil";
-import { Campus } from "../constants/campus";
-import Modal from "react-modal";
-import { BackHeader } from "../components/BackHeader";
-import { TabItem } from "../components/styles/Tab";
-import TagList from "../components/setting/TagList";
-import { ToggleSwitch } from "../components/setting/ToggleSwitch";
-import BusSelect from "../components/BusSelect";
-import BusList from "../components/bus/BusList";
+import { axiosTest3 } from 'api/test';
+import axios from 'axios';
+import colors from 'constants/colors';
+import React, { useEffect, useState } from 'react';
+import Select from 'react-select';
+import styled from 'styled-components';
+import { Campus } from '../constants/campus';
+import { getCampus } from '../utils/DeviceManageUtil';
 
 const options = [
-  { value: "chocolate", label: "Chocolate" },
-  { value: "strawberry", label: "Strawberry" },
-  { value: "vanilla", label: "Vanilla" },
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
 ];
 
 export default function Test() {
@@ -33,7 +24,7 @@ export default function Test() {
   const axiosTest4 = async () => {
     await axios
       .get(
-        "https://3ce0ef2e-86a4-4c2b-a1e3-a3dde60f58b3.mock.pstmn.io/api/main/announcements",
+        'https://3ce0ef2e-86a4-4c2b-a1e3-a3dde60f58b3.mock.pstmn.io/api/main/announcements',
       )
       .then((res) => {
         console.log(res);
@@ -126,8 +117,8 @@ export default function Test() {
 const SelectStyle = {
   control: (control) => ({
     ...control,
-    fontSize: "15px",
-    fontWeight: "600",
+    fontSize: '15px',
+    fontWeight: '600',
   }),
 };
 const Toggle = styled.div`
@@ -171,17 +162,19 @@ const StyledSelect = styled(Select)`
 `;
 
 const Background = styled.div`
-  // background-color: ${colors.COMMON};
+    // background-color: ${colors.COMMON};
 
   .wrapper {
     display: flex;
     flex-direction: row;
   }
+
   .text_area {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
+
   .area {
     height: 50px;
     width: 12px;

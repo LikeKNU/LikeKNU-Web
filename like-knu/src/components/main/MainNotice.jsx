@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { CampusEng } from '../../constants/campus';
 import { PAGE_NAME } from '../../constants/pageName';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
 
 export default function MainNotice({ selectCampus }) {
   const [notices, setNotices] = useState([]);
@@ -38,6 +39,7 @@ const NoticeContainer = styled(CardContainer)`
   grid-column: 1 / 3;
 `;
 const Text = styled.div`
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-size: 1.3rem;
   font-weight: 400;
   overflow: hidden;
@@ -50,7 +52,7 @@ const Text = styled.div`
   }
 `;
 const Title = styled.div`
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 16px;

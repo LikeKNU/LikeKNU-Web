@@ -1,7 +1,7 @@
-import instance from "./api";
-import { extractBodyFromResponse } from "./apiUtility";
+import instance from './api';
+import { extractBodyFromResponse } from './apiUtility';
 
-const baseURL = "/api/schedule";
+const baseURL = '/api/schedule';
 
 export const calendar = async () => {
   const { data } = await instance.get(`${baseURL}`);

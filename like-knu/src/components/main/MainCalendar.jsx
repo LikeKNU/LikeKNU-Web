@@ -1,11 +1,12 @@
-import styled from "styled-components";
-import CardContainer from "components/styles/CardContainer";
-import colors from "constants/colors";
-import { useEffect, useState } from "react";
-import { calendarMain } from "api/main";
-import MainCalendarItem from "./MainCalendarItem";
-import { useNavigate } from "react-router-dom";
-import { PAGE_NAME } from "../../constants/pageName";
+import { calendarMain } from 'api/main';
+import CardContainer from 'components/styles/CardContainer';
+import colors from 'constants/colors';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { PAGE_NAME } from '../../constants/pageName';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+import MainCalendarItem from './MainCalendarItem';
 
 export default function MainCalendar() {
   const [scheduleList, setScheduleList] = useState([]);
@@ -33,7 +34,7 @@ export default function MainCalendar() {
 }
 
 const Title = styled.div`
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;

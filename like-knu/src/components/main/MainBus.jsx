@@ -1,14 +1,15 @@
-import styled from "styled-components";
-import CardContainer from "components/styles/CardContainer";
-import colors from "constants/colors";
-import { busMain } from "api/main";
-import { useState, useEffect } from "react";
-import MainBusItem from "components/main/MainBusItem";
-import BusRefreshBtn from "components/BusRefreshBtn";
-import { useNavigate } from "react-router-dom";
-import { CampusEng } from "../../constants/campus";
-import { PAGE_NAME } from "../../constants/pageName";
-import { AFTER_TIME } from "../../constants/message";
+import { busMain } from 'api/main';
+import BusRefreshBtn from 'components/BusRefreshBtn';
+import MainBusItem from 'components/main/MainBusItem';
+import CardContainer from 'components/styles/CardContainer';
+import colors from 'constants/colors';
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { CampusEng } from '../../constants/campus';
+import { AFTER_TIME } from '../../constants/message';
+import { PAGE_NAME } from '../../constants/pageName';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
 
 export default function MainBus({ selectCampus }) {
   const [buses, setBuses] = useState([]);
@@ -16,7 +17,7 @@ export default function MainBus({ selectCampus }) {
   const today = new Date();
   const formattedDate = `${today.getHours()}:${String(
     today.getMinutes(),
-  ).padStart(2, "0")} ${AFTER_TIME}`;
+  ).padStart(2, '0')} ${AFTER_TIME}`;
   const getBuses = async () => {
     const res = await busMain(CampusEng[selectCampus]);
     setBuses(res);
@@ -44,7 +45,7 @@ export default function MainBus({ selectCampus }) {
   );
 }
 const RefreshTime = styled.div`
-  color: ${colors.GRAY350};
+  color: ${!isDarkMode() ? colors.GRAY350 : colors.GRAY50};
   font-size: 1.2rem;
   margin-right: 6px;
   width: 20%;
@@ -61,7 +62,7 @@ const BusContainer = styled(CardContainer)`
   min-height: 80px;
 `;
 const Title = styled.div`
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 1rem;

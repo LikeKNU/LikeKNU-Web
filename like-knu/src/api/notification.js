@@ -1,7 +1,7 @@
-import instance from "./api";
-import {getDeviceId} from "../utils/DeviceManageUtil";
+import { getDeviceId } from '../utils/DeviceManageUtil';
+import instance from './api';
 
-const endpointPrefix = "/api/notifications";
+const endpointPrefix = '/api/notifications';
 
 export const fetchNotifications = async (page) => {
   const { data } = await instance.get(`${endpointPrefix}`, {

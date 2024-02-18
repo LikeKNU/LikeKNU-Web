@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 // axios instance
 const instance = axios.create({

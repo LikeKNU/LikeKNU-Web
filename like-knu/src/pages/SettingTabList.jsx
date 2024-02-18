@@ -1,14 +1,19 @@
-import { Link } from "react-router-dom";
-import { ReactComponent as RightArrowIcon } from "../assets/icon/right-arrow.svg";
-import styled from "styled-components";
-import colors from "../constants/colors";
-import { SETTING_MENU_NAME } from "../constants/pageName";
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { ReactComponent as RightArrowIcon } from '../assets/icon/right-arrow.svg';
+import { ToggleSwitch } from '../components/setting/ToggleSwitch';
+import colors from '../constants/colors';
+import { SETTING_MENU_NAME } from '../constants/pageName';
+import { changeDarkMode, isDarkMode } from '../utils/DeviceManageUtil';
 
 export default function SettingTabList() {
+  const [darkMode, setDarkMode] = useState(isDarkMode());
+
   const sendAskMail = () => {
-    let mail = "likeknu2023@gmail.com";
-    let subject = "[공주대처럼] 문의하기";
-    let body = "문의 내용: ";
+    let mail = 'likeknu2023@gmail.com';
+    let subject = '[공주대처럼] 문의하기';
+    let body = '문의 내용: ';
     document.location.href = `mailto:${mail}?subject=${encodeURIComponent(
       subject,
     )}&body=${encodeURIComponent(body)}`;
@@ -16,16 +21,22 @@ export default function SettingTabList() {
 
   const shareContent = async () => {
     const shareData = {
-      title: "공주대처럼",
-      text: "아이폰은 꼭 '사파리'로 접속해 주세요!",
-      url: "https://tosto.re/likeknu",
+      title: '공주대처럼',
+      text: '아이폰은 꼭 \'사파리\'로 접속해 주세요!',
+      url: 'https://tosto.re/likeknu',
     };
     await navigator.share(shareData);
   };
 
+  const changeColorMode = async () => {
+    await changeDarkMode();
+    setDarkMode(isDarkMode());
+    window.alert('🔄 앱을 재실행하면 적용됩니다!');
+  };
+
   return (
     <SettingContent>
-      <Link to={"/setting/notificationTag"}>
+      <Link to={'/setting/notificationTag'}>
         <SettingItem>
           {SETTING_MENU_NAME.NOTICE_NOTIFICATION} <RightArrowIcon />
         </SettingItem>
@@ -35,6 +46,16 @@ export default function SettingTabList() {
       </SettingItem>
       <SettingItem onClick={shareContent}>
         {SETTING_MENU_NAME.SHARE} <RightArrowIcon />
+      </SettingItem>
+      <SettingItem>
+        다크 모드
+        <ToggleSwitch
+          width={'54px'}
+          height={'28px'}
+          area={'22px'}
+          isTurnOn={darkMode}
+          changeHandler={changeColorMode}
+        />
       </SettingItem>
       <Info>
         공주대학교 <br />
@@ -52,7 +73,7 @@ const Info = styled.div`
   font-size: 1.1rem;
   text-align: center;
   line-height: 1.5;
-  color: ${colors.GRAY400};
+  color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
   width: 100%;
 `;
 const SettingContent = styled.div`
@@ -67,6 +88,7 @@ const SettingItem = styled.div`
   align-items: center;
   padding: 0 14px 0 20px;
   height: 48px;
-  background-color: ${colors.WHITE};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   font-size: 1.6rem;
 `;

@@ -11,16 +11,30 @@ import { initializeDevice } from './api/initializer';
 import IosImage from './assets/image/ios_onboarding.png';
 import OtherImage from './assets/image/other_onboarding.png';
 import BottomNav from './components/globals/BottomNav';
+import colors from './constants/colors';
 import NoticePage from './pages/NoticePage';
 import NotificationPage from './pages/NotificationPage';
 import SettingAboutPage from './pages/SettingAboutPage';
 import SettingNotificationPage from './pages/SettingNotificationPage';
 import SettingPage from './pages/SettingPage';
 import RouteChangeTracker from './RouteChangeTrancker';
+import { getCampus, isDarkMode } from './utils/DeviceManageUtil';
 
 function App() {
   const location = useLocation();
   const [isBottomBar, setIsBottomBar] = useState(true);
+  const [campus, setCampus] = useState(getCampus);
+
+  useEffect(() => {
+    const bodyTag = document.querySelector('body');
+
+    if (isDarkMode()) {
+      bodyTag.style.backgroundColor = colors.BLACK;
+    } else {
+      bodyTag.style.backgroundColor = colors.WHITE;
+    }
+  }, []);
+
   useEffect(() => {
     if (
       location.pathname.includes('/setting') ||
@@ -53,7 +67,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<MainPage setCampus={setCampus} selectedCampus={campus} />} />
         <Route path="/bus" element={<BusPage />} />
         <Route path="/notice" element={<NoticePage />} />
         <Route path="/calendar" element={<CalendarPage />} />
@@ -67,7 +81,7 @@ function App() {
         <Route path="/notification" element={<NotificationPage />} />
         <Route path="*" element={<Test />} />
       </Routes>
-      {isBottomBar && <BottomNav isAndroid={isAndroid} />}
+      {isBottomBar && <BottomNav isAndroid={isAndroid} selectedCampus={campus} />}
     </>
   );
 }

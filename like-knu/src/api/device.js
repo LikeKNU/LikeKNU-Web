@@ -1,6 +1,6 @@
-import instance from "./api";
-import {extractBodyFromResponse, extractMessageFromResponse} from "./apiUtility";
-import {getDeviceId} from "../utils/DeviceManageUtil";
+import { getDeviceId } from '../utils/DeviceManageUtil';
+import instance from './api';
+import { extractBodyFromResponse, extractMessageFromResponse } from './apiUtility';
 
 /**
  * 기기 등록 여부
@@ -8,7 +8,7 @@ import {getDeviceId} from "../utils/DeviceManageUtil";
 export const checkDeviceRegistration = async () => {
   try {
     let deviceId = getDeviceId();
-    let { data } = await instance.get("/api/devices", {
+    let { data } = await instance.get('/api/devices', {
       params: {
         deviceId: deviceId
       }
@@ -28,7 +28,7 @@ export const checkDeviceRegistration = async () => {
  */
 export const startSession = async (deviceId, userAgent) => {
   try {
-    let { data } = await instance.post("/api/devices", {
+    let { data } = await instance.post('/api/devices', {
       deviceId: deviceId,
       userAgent: userAgent
     });
@@ -48,7 +48,7 @@ export const startSession = async (deviceId, userAgent) => {
 export const setDeviceCampus = async (campus) => {
   console.log(campus);
   try {
-    let { data } = await instance.put("/api/devices/campus", {
+    let { data } = await instance.put('/api/devices/campus', {
       deviceId: getDeviceId(),
       campus: campus
     });
@@ -62,7 +62,7 @@ export const setDeviceCampus = async (campus) => {
 
 export const updateNotificationToken = async (token) => {
   try {
-    let { data } = await instance.post("/api/devices/token", {
+    let { data } = await instance.post('/api/devices/token', {
       deviceId: getDeviceId(),
       token: token
     });
@@ -76,7 +76,7 @@ export const updateNotificationToken = async (token) => {
 
 export const isTurnOnNotification = async () => {
   try {
-    let { data } = await instance.get("/api/devices/notifications", {
+    let { data } = await instance.get('/api/devices/notifications', {
       params: {
         deviceId: getDeviceId()
       }
@@ -91,7 +91,7 @@ export const isTurnOnNotification = async () => {
 
 export const changeTurnOnNotification = async (isTurnOn) => {
   try {
-    let { data } = await instance.put("/api/devices/notifications", {
+    let { data } = await instance.put('/api/devices/notifications', {
       deviceId: getDeviceId(),
       notification: isTurnOn
     });

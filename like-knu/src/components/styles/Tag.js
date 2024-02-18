@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import colors from "../../constants/colors";
+import styled from 'styled-components';
+import colors from '../../constants/colors';
+
 export default styled.label`
   width: auto;
   height: 26px;

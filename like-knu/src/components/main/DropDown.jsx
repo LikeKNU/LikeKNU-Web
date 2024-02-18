@@ -1,9 +1,8 @@
-import styled from "styled-components";
-import { Campus } from "constants/campus";
-import colors from "constants/colors";
-import { getCampus, setCampus } from "utils/DeviceManageUtil";
-import { Link } from "react-router-dom";
-import { setDeviceCampus } from "../../api/device";
+import { Campus } from 'constants/campus';
+import colors from 'constants/colors';
+import styled from 'styled-components';
+import { getCampus, isDarkMode, setCampus } from 'utils/DeviceManageUtil';
+import { setDeviceCampus } from '../../api/device';
 
 export default function DropDown({ setSelectCampus }) {
   // 이름 클릭시, 캠퍼스 세팅
@@ -33,7 +32,7 @@ export default function DropDown({ setSelectCampus }) {
   );
 }
 const Wrapper = styled.div`
-  background-color: #fff;
+  background-color: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   list-style: none;
   z-index: 10;
   position: absolute;
@@ -41,16 +40,16 @@ const Wrapper = styled.div`
   top: 55px;
   border-radius: 5px;
   padding: 5px 20px;
-  border: 1px solid ${colors.GRAY200};
+  border: 1px solid ${!isDarkMode() ? colors.GRAY200 : colors.GRAY500};
 `;
 const CampusItem = styled.li`
   font-size: 1.6rem;
   font-weight: 500;
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
   padding: 5px 15px;
 `;
 const Line = styled.hr`
   border: none;
   height: 1px;
-  background-color: ${colors.GRAY100};
+  background-color: ${!isDarkMode() ? colors.GRAY100 : colors.GRAY600};
 `;

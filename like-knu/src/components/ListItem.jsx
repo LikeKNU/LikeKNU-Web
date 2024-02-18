@@ -2,6 +2,7 @@ import { ReactComponent as MarkerIcon } from 'assets/icon/dot.svg';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import { getCurrentDate } from '../utils/DateUtility';
+import { isDarkMode } from '../utils/DeviceManageUtil';
 
 export default function ListItem({ head, subHead, body, url }) {
   const isDateMatch = subHead === getCurrentDate();
@@ -21,7 +22,7 @@ export default function ListItem({ head, subHead, body, url }) {
 }
 
 const Detail = styled.div`
-  color: ${colors.GRAY350};
+  color: ${!isDarkMode() ? colors.GRAY350 : colors.GRAY400};
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,7 +32,7 @@ const Detail = styled.div`
 
 const Title = styled.span`
   font-size: 1.4rem;
-  color: ${colors.BLACK};
+  color: ${!isDarkMode() ? colors.BLACK : colors.WHITE};
 `;
 
 const Wrapper = styled.div`

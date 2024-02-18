@@ -1,5 +1,7 @@
-import styled from "styled-components";
-import colors from "../../constants/colors";
+import styled from 'styled-components';
+import colors from '../../constants/colors';
+import { isDarkMode } from '../../utils/DeviceManageUtil';
+import GlobalColor from '../styles/globalColor';
 
 export function ToggleSwitch({ width, height, area, isTurnOn, changeHandler }) {
   return (
@@ -22,14 +24,15 @@ export function ToggleSwitch({ width, height, area, isTurnOn, changeHandler }) {
     </Wrapper>
   );
 }
+
 const Wrapper = styled.div`
   #toggle:checked ~ .toggle_switch {
-    background: ${colors.COMMON};
+    background: ${GlobalColor.getColor()};
   }
 
   #toggle:checked ~ .toggle_switch .toggle_div {
     left: calc(100% - 26px);
-    background: ${colors.WHITE};
+    background: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   }
 `;
 

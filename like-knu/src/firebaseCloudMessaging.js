@@ -1,5 +1,5 @@
-import {initializeApp} from "firebase/app";
-import {getMessaging, getToken} from 'firebase/messaging';
+import { initializeApp } from 'firebase/app';
+import { getMessaging, getToken } from 'firebase/messaging';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -15,8 +15,8 @@ const messaging = getMessaging(app);
 
 export async function requestNotificationPermission() {
   const permission = await Notification.requestPermission();
-  if (permission === "denied") {
-    alert("알림이 차단되어 있습니다. 설정에서 직접 알림 권한을 허용해주세요!");
+  if (permission === 'denied') {
+    alert('알림이 차단되어 있습니다. 설정에서 직접 알림 권한을 허용해주세요!');
     return;
   }
 
