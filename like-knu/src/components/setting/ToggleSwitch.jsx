@@ -42,7 +42,7 @@ const ToggleLabel = styled.label`
   display: block;
   position: relative;
   border-radius: 30px;
-  background-color: ${colors.GRAY300};
+  background-color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY500};
   transition: all 0.2s ease-in;
 `;
 const ToggleDiv = styled.div`
@@ -53,6 +53,6 @@ const ToggleDiv = styled.div`
   left: 4px;
   transform: translateY(-50%);
   border-radius: 50%;
-  background: ${colors.WHITE};
+  background: ${!isDarkMode() ? colors.WHITE : colors.BLACK};
   transition: all 0.2s ease-in;
 `;
