@@ -4,7 +4,7 @@ const colors = {
   SINGWAN: '#E85239',
   YESAN: '#E2981E',
 
-  GRAY50: '#FAFAFA',
+  GRAY50: '#F3F4F6',
   GRAY80: '#EDEDED',
   GRAY100: '#E2E2E2',
   GRAY200: '#D1D3D2',

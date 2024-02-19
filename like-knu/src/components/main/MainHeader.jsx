@@ -62,13 +62,16 @@ const Wrapper = styled.div`
   height: 6.4rem;
   margin-bottom: 16px;
   padding: 0 16px;
-  // border-bottom: 1px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY650};
-  background-color: ${!isDarkMode() ? colors.GRAY50 : colors.DARK};
+    // border-bottom: 1px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY650};
+    //  background-color: ${!isDarkMode() ? colors.GRAY50 : colors.DARK};
+  background-color: ${!isDarkMode() ? 'rgba( 243, 244, 246, 0.6 )' : 'rgba( 16, 16, 18, 0.6 )'};
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  left: 0.5px;
+  right: 0.5px;
   z-index: 10;
 `;
 const CampusList = styled.ul`

@@ -36,8 +36,8 @@ function App() {
       backgroundColor.setAttribute('content', colors.DARK);
     } else {
       bodyTag.style.backgroundColor = colors.WHITE;
-      themeColor.setAttribute('content', colors.WHITE);
-      backgroundColor.setAttribute('content', colors.WHITE);
+      themeColor.setAttribute('content', colors.GRAY50);
+      backgroundColor.setAttribute('content', colors.GRAY50);
     }
   }, []);
 
