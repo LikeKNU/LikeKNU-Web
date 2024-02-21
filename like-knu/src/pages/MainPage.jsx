@@ -8,6 +8,7 @@ import PageContainer from 'layouts/PageContainer';
 import PageLayout from 'layouts/PageLayout';
 import React from 'react';
 import styled from 'styled-components';
+import KakaoAdFit from '../KakaoAdFit';
 import { isDarkMode } from '../utils/DeviceManageUtil';
 
 export default function MainPage({ setCampus, selectedCampus }) {
@@ -15,8 +16,8 @@ export default function MainPage({ setCampus, selectedCampus }) {
   return (
     <PageLayout>
       <MainHeader setCampus={setCampus} />
-      {/*<KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'100'} disabled={false}
-                  style={{ marginTop: '66px' }}></KakaoAdFit>*/}
+      <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'100'} disabled={false}
+                  style={{ marginTop: '66px' }}></KakaoAdFit>
       <StyledPageContainer>
         <MainNotice selectCampus={selectedCampus} />
         <MainBus selectCampus={selectedCampus} />

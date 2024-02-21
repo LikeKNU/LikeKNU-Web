@@ -5,7 +5,7 @@ import PageLayout from '../layouts/PageLayout';
 export default function SettingAboutPage() {
   return (
     <PageLayout>
-      <BackHeader Title={SETTING_MENU_NAME.GUIDE} />
+      <BackHeader title={SETTING_MENU_NAME.GUIDE} path={'/'} />
     </PageLayout>
   );
 }

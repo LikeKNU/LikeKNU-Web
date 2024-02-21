@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { fetchNotifications } from '../api/notification';
 import { BackHeader } from '../components/BackHeader';
@@ -14,6 +15,7 @@ export default function NotificationPage() {
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const location = useLocation();
 
   const updateNotifications = async () => {
     if (totalPages === currentPage || totalPages < currentPage) {
@@ -33,11 +35,12 @@ export default function NotificationPage() {
   return (
     <PageLayout>
       <Header>
-        <BackHeader Title={PAGE_NAME.NOTIFICATION} />
+        <BackHeader title={PAGE_NAME.NOTIFICATION} path={'/'} />
       </Header>
       <ShortHeaderPageContainer>
         {notifications.map((notification, index) => (
           <ListItem
+            rendererPath={location.pathname}
             key={index}
             head={notification.notificationTitle}
             subHead={notification.notificationDate}

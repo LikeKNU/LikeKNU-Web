@@ -2,7 +2,7 @@ import { noticeMain } from 'api/main';
 import CardContainer from 'components/styles/CardContainer';
 import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { CampusEng } from '../../constants/campus';
 import { PAGE_NAME } from '../../constants/pageName';
@@ -11,8 +11,13 @@ import { isDarkMode } from '../../utils/DeviceManageUtil';
 export default function MainNotice({ selectCampus }) {
   const [notices, setNotices] = useState([]);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleClick = (url) => {
+  };
+
   const goNotice = () => {
-    navigate(`/notice/`);
+    navigate(`/notice`);
   };
   const getNotices = async () => {
     const res = await noticeMain(CampusEng[selectCampus]);
@@ -27,7 +32,12 @@ export default function MainNotice({ selectCampus }) {
     <NoticeContainer>
       <Title onClick={goNotice}>{PAGE_NAME.NOTICE}</Title>
       {notices.map((notice) => (
-        <Text key={notice.announcementId} onClick={() => window.open(notice.announcementUrl, '_blank')}>
+        <Text key={notice.announcementId} onClick={() => navigate('/notice/details', {
+          state: {
+            url: notice.announcementUrl,
+            previousPath: location.pathname
+          }
+        })}>
           {notice.announcementTitle}
         </Text>
       ))}

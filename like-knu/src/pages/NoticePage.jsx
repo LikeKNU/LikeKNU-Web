@@ -2,6 +2,7 @@ import PageContainer from 'layouts/PageContainer';
 import PageLayout from 'layouts/PageLayout';
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { notice } from '../api/notice';
 import { TabHeader } from '../components/globals/TabHeader';
@@ -21,6 +22,7 @@ export default function NoticePage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [keyword, setKeyword] = useState('');
+  const location = useLocation();
 
   let campus = CampusEng[getCampus()];
 
@@ -88,6 +90,7 @@ export default function NoticePage() {
         </SearchBox>
         {notices.map((notice, index) => (
           <ListItem
+            rendererPath={location.pathname}
             key={index}
             head={notice.announcementTag}
             subHead={notice.announcementDate}
