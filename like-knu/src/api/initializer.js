@@ -7,13 +7,14 @@ export const initializeDevice = () => {
   if (deviceId === null) {
     deviceId = generateAndSaveNewDeviceId();
   }
-  startSession(deviceId, navigator.userAgent);
 
   let campus = getCampus();
   if (campus === null || campus === undefined) {
     campus = Campus.CHEONAN;
     setCampus(campus);
   }
+
+  startSession(deviceId, navigator.userAgent, campus);
 
   return campus;
 }
