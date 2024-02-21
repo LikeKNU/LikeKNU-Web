@@ -1,14 +1,20 @@
 import { ReactComponent as MarkerIcon } from 'assets/icon/dot.svg';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import { getCurrentDate } from '../utils/DateUtility';
 import { isDarkMode } from '../utils/DeviceManageUtil';
 
-export default function ListItem({ head, subHead, body, url }) {
+export default function ListItem({ head, subHead, body, url, rendererPath}) {
   const isDateMatch = subHead === getCurrentDate();
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate('/notice/details', { state: { url: url, previousPath:  rendererPath} });
+  }
 
   return (
-    <Wrapper onClick={() => window.open(url, '_blank')}>
+    <Wrapper onClick={handleClick}>
       <Detail>
         <div>{head}</div>
         <SubHeader>

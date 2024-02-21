@@ -6,7 +6,7 @@ import SettingTabList from './SettingTabList';
 export default function SettingPage() {
   return (
     <PageLayout>
-      <BackHeader Title={PAGE_NAME.SETTING} />
+      <BackHeader title={PAGE_NAME.SETTING} path={'/'} />
       <SettingTabList />
     </PageLayout>
   );

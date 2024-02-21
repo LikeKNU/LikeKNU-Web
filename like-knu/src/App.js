@@ -13,6 +13,7 @@ import OtherImage from './assets/image/other_onboarding.png';
 import BottomNav from './components/globals/BottomNav';
 import colors from './constants/colors';
 import NoticePage from './pages/NoticePage';
+import NoticeRenderPage from './pages/NoticeRenderPage';
 import NotificationPage from './pages/NotificationPage';
 import SettingAboutPage from './pages/SettingAboutPage';
 import SettingNotificationPage from './pages/SettingNotificationPage';
@@ -44,7 +45,7 @@ function App() {
   useEffect(() => {
     if (
       location.pathname.includes('/setting') ||
-      location.pathname === '/notification'
+      location.pathname === '/notification' || location.pathname === '/notice/details'
     ) {
       setIsBottomBar(false);
     } else {
@@ -80,12 +81,10 @@ function App() {
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/menu" element={<MenuPage />} />
         <Route path="/setting" element={<SettingPage />} />
-        <Route
-          path="/setting/notificationTag"
-          element={<SettingNotificationPage />}
-        />
+        <Route path="/setting/notificationTag" element={<SettingNotificationPage />} />
         <Route path="/setting/about" element={<SettingAboutPage />} />
         <Route path="/notification" element={<NotificationPage />} />
+        <Route path="/notice/details" element={<NoticeRenderPage />}></Route>
         <Route path="*" element={<Test />} />
       </Routes>
       {isBottomBar && <BottomNav isAndroid={isAndroid} selectedCampus={campus} />}

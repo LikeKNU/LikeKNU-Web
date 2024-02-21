@@ -37,7 +37,7 @@ export default function SettingNotificationPage() {
 
   return (
     <PageLayout>
-      <BackHeader Title={SETTING_MENU_NAME.NOTICE_NOTIFICATION} />
+      <BackHeader title={SETTING_MENU_NAME.NOTICE_NOTIFICATION} path={'/setting'} />
       <StyledPageContainer>
         <Content>
           <Notification>
