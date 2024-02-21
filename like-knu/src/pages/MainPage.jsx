@@ -30,7 +30,7 @@ export default function MainPage({ setCampus, selectedCampus }) {
 
 const StyledPageContainer = styled(PageContainer)`
   background-color: ${!isDarkMode() ? colors.GRAY50 : colors.DARK};
-  padding-top: 76px;
+  padding-top: 126px;
   grid-template-rows: minmax(100px, auto);
   grid-template-columns: 1fr 1fr;
 
