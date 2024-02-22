@@ -2,7 +2,7 @@ import PageContainer from 'layouts/PageContainer';
 import PageLayout from 'layouts/PageLayout';
 import { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { notice } from '../api/notice';
 import { TabHeader } from '../components/globals/TabHeader';
@@ -16,13 +16,14 @@ import { apiNoticeTabList, noticeTab } from '../constants/tabName';
 import { getCampus, isDarkMode } from '../utils/DeviceManageUtil';
 
 export default function NoticePage() {
+  const location = useLocation();
+  const { returnCategory } = location.state || { returnCategory: 0 };
   const [notices, setNotices] = useState([]);
-  const [category, setCategory] = useState(0);
+  const [category, setCategory] = useState(returnCategory);
   const [totalPages, setTotalPages] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [keyword, setKeyword] = useState('');
-  const location = useLocation();
 
   let campus = CampusEng[getCampus()];
 
@@ -96,6 +97,7 @@ export default function NoticePage() {
             subHead={notice.announcementDate}
             body={notice.announcementTitle}
             url={notice.announcementUrl}
+            category={category}
           ></ListItem>
         ))}
         <InfiniteScroll

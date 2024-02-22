@@ -4,10 +4,10 @@ import { ReactComponent as BackIcon } from '../assets/icon/arrow_back_ios_new_bl
 import colors from '../constants/colors';
 import { isDarkMode } from '../utils/DeviceManageUtil';
 
-export function BackHeader({ title, path }) {
+export function BackHeader({ title, path, category }) {
   const navigate = useNavigate();
   const goBack = () => {
-    navigate(path);
+    navigate(path, { state: { returnCategory: category } });
   };
 
   return (

@@ -1,16 +1,16 @@
 import { ReactComponent as MarkerIcon } from 'assets/icon/dot.svg';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import colors from '../constants/colors';
 import { getCurrentDate } from '../utils/DateUtility';
 import { isDarkMode } from '../utils/DeviceManageUtil';
 
-export default function ListItem({ head, subHead, body, url, rendererPath}) {
+export default function ListItem({ head, subHead, body, url, rendererPath, category }) {
   const isDateMatch = subHead === getCurrentDate();
   const navigate = useNavigate();
 
   function handleClick() {
-    navigate('/notice/details', { state: { url: url, previousPath:  rendererPath} });
+    navigate('/notice/details', { state: { url: url, previousPath: rendererPath, category: category } });
   }
 
   return (
