@@ -3,48 +3,43 @@ import { extractBodyFromResponse, extractMessageFromResponse } from './apiUtilit
 
 const baseURL = '/api/main';
 
-export const noticeMain = async (campus) => {
+export const noticeMainAPI = async (campus) => {
   const { data } = await instance.get(`${baseURL}/announcements`, {
     params: {
       campus: campus,
     },
   });
-  console.log(data);
   return extractBodyFromResponse(data);
 };
 
-export const busMain = async (campus) => {
+export const busMainAPI = async (campus) => {
   const { data } = await instance.get(`${baseURL}/buses`, {
     params: {
       campus: campus,
     },
   });
-  console.log(data);
   return extractBodyFromResponse(data);
 };
 
-export const menuMain = async (campus) => {
+export const menuMainAPI = async (campus) => {
   const { data } = await instance.get(`${baseURL}/menu`, {
     params: {
       campus: campus,
     },
   });
-  console.log(data);
   return extractBodyFromResponse(data);
 };
 
-export const calendarMain = async (campus) => {
+export const calendarMainAPI = async (campus) => {
   const { data } = await instance.get(`${baseURL}/schedule`, {
     params: {
       campus: campus,
     },
   });
-  console.log(data);
   return extractBodyFromResponse(data);
 };
 
-export const mainHeaderMessage = async () => {
+export const mainHeaderMessageAPI = async () => {
   const { data } = await instance.get(`${baseURL}/messages`);
-  console.log(data);
   return extractMessageFromResponse(data);
 };

@@ -1,4 +1,4 @@
-import { noticeMain } from 'api/main';
+import { noticeMainAPI } from 'api/main';
 import CardContainer from 'components/styles/CardContainer';
 import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
@@ -20,7 +20,7 @@ export default function MainNotice({ selectCampus }) {
     navigate(`/notice`);
   };
   const getNotices = async () => {
-    const res = await noticeMain(CampusEng[selectCampus]);
+    const res = await noticeMainAPI(CampusEng[selectCampus]);
     setNotices(res);
   };
 

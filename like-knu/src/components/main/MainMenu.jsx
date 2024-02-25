@@ -1,4 +1,4 @@
-import { menuMain } from 'api/main';
+import { menuMainAPI } from 'api/main';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
@@ -10,7 +10,8 @@ import { styled } from 'styled-components';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { CampusEng } from '../../constants/campus';
-import { isDarkMode } from '../../utils/DeviceManageUtil';
+import { getPinnedCafeteria, isDarkMode } from '../../utils/DeviceManageUtil';
+import { sortPinElementTop } from '../../utils/ReorderList';
 import GlobalColor from '../styles/globalColor';
 import MenuSlide from './MenuSlide';
 
@@ -18,8 +19,9 @@ export default function MainMenu({ selectCampus }) {
   const [cafeteria, setCafeteria] = useState([]);
   const navigate = useNavigate();
   const getCafeteria = async () => {
-    const res = await menuMain(CampusEng[selectCampus]);
-    setCafeteria(res);
+    const response = await menuMainAPI(CampusEng[selectCampus]);
+    const sortedCafeterias = sortPinElementTop(response, cafeteria => cafeteria.cafeteriaId === getPinnedCafeteria());
+    setCafeteria(sortedCafeterias);
   };
 
   const goMenu = () => {
@@ -49,18 +51,21 @@ export default function MainMenu({ selectCampus }) {
       </SwiperContainer>
     </MenuContainer>
   );
-}
+};
+
 const MealTypeText = styled.div`
   color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY400};
   font-size: 1.2rem;
   margin-left: 6px;
   display: inline-block;
 `;
+
 const MenuContainer = styled(CardContainer)`
   display: flex;
   flex-direction: column;
   padding: 0;
 `;
+
 const Title = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.8rem;
@@ -70,6 +75,7 @@ const Title = styled.div`
   padding-top: 16px;
   align-items: center;
 `;
+
 const SwiperContainer = styled(Swiper)`
   margin-right: 2rem;
   margin-left: 2rem;

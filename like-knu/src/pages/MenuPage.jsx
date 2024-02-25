@@ -1,30 +1,47 @@
 import { useEffect, useState } from 'react';
-import { menu } from '../api/menu';
+import { menuAPI } from '../api/menuAPI';
 import { MenuSwiper } from '../components/menu/MenuSwiper';
 import { Header, PageHeader } from '../components/styles/PageHeader';
 import { TabItem, TabList } from '../components/styles/Tab';
 import { CampusEng } from '../constants/campus';
 import { PAGE_NAME } from '../constants/pageName';
 import PageLayout from '../layouts/PageLayout';
-import { getCampus } from '../utils/DeviceManageUtil';
+import { getCampus, getPinnedCafeteria, pinCafeteria } from '../utils/DeviceManageUtil';
+import { sortPinElementTop } from '../utils/ReorderList';
 
 export default function MenuPage() {
   const [category, setCategory] = useState(0);
   const [menuList, setMenuList] = useState([]);
   const [mealList, setMealList] = useState([]);
   const [menuSwiper, setMenuSwiper] = useState(null);
+  const [pin, setPin] = useState(getPinnedCafeteria());
   let campus = CampusEng[getCampus()];
 
   const getMenuList = async () => {
-    const res = await menu(campus);
-    console.log(res[category]);
-    console.log(res);
-    setMenuList(res);
-    setMealList(res[category]);
+    const response = await menuAPI(campus);
+    const sortedCafeterias = sortPinElementTop(response, cafeteria => cafeteria.cafeteriaId === pin);
+    setMenuList(sortedCafeterias);
+    setMealList(sortedCafeterias[category]);
   };
+
+  const isPinnedCafeteria = () => {
+    return pin === mealList.cafeteriaId;
+  }
+
+  const changePin = () => {
+    if (isPinnedCafeteria()) {
+      setPin(null);
+      pinCafeteria(null);
+    } else {
+      setPin(mealList.cafeteriaId);
+      pinCafeteria(mealList.cafeteriaId);
+    }
+    setCategory(0);
+  };
+
   useEffect(() => {
     getMenuList();
-  }, []);
+  }, [pin]);
 
   useEffect(() => {
     if (mealList.length !== 0) {
@@ -34,6 +51,7 @@ export default function MenuPage() {
       menuSwiper.slideTo(0);
     }
   }, [category]);
+
   return (
     <PageLayout>
       <Header>
@@ -50,7 +68,8 @@ export default function MenuPage() {
           ))}
         </TabList>
       </Header>
-      <MenuSwiper mealList={mealList} setMenuSwiper={setMenuSwiper} />
+      <MenuSwiper mealList={mealList} setMenuSwiper={setMenuSwiper} changePinCallback={changePin}
+                  isPinned={isPinnedCafeteria()} />
     </PageLayout>
   );
 }

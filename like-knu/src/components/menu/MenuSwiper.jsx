@@ -3,11 +3,13 @@ import styled from 'styled-components';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { ReactComponent as PrevArrowIcon } from '../../assets/icon/arrow_back_ios_new_black_24dp.svg';
+import { ReactComponent as FillPin } from '../../assets/icon/pin-angle-fill.svg';
+import { ReactComponent as Pin } from '../../assets/icon/pin-angle.svg';
 import colors from '../../constants/colors';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
 import MenuListItem from './MenuListItem';
 
-export function MenuSwiper({ setMenuSwiper, mealList }) {
+export function MenuSwiper({ setMenuSwiper, mealList, isPinned, changePinCallback }) {
   const [today, setToday] = useState('오늘');
 
   const toggleToday = () => {
@@ -20,6 +22,7 @@ export function MenuSwiper({ setMenuSwiper, mealList }) {
         <StyledArrowIcon className={'swiper-prev'} />
         <Title>{today}</Title>
         <StyledArrowIcon className={'swiper-next'} />
+        {isPinned ? <StyledFillPin onClick={changePinCallback} /> : <StyledPin onClick={changePinCallback} />}
       </TitleArea>
       <Swiper
         className={'my-swiper'}
@@ -65,6 +68,7 @@ const StyledPageContainer = styled.div`
     opacity: 0.2;
   }
 `;
+
 const TitleArea = styled.div`
   position: absolute;
   top: 130px;
@@ -74,6 +78,7 @@ const TitleArea = styled.div`
   width: 100%;
   justify-content: center;
 `;
+
 const Title = styled.div`
   font-size: 1.6rem;
   font-weight: 600;
@@ -87,4 +92,22 @@ const StyledArrowIcon = styled(PrevArrowIcon)`
   fill: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   width: 16px;
   height: 16px;
+`;
+
+const StyledPin = styled(Pin)`
+  position: absolute;
+  right: 30px;
+  width: 22px;
+  height: 22px;
+  fill: ${!isDarkMode() ? colors.GRAY400 : colors.DARK_WHITE};
+  z-index: 3;
+`;
+
+const StyledFillPin = styled(FillPin)`
+  position: absolute;
+  right: 30px;
+  width: 22px;
+  height: 22px;
+  fill: #F04452;
+  z-index: 3;
 `;

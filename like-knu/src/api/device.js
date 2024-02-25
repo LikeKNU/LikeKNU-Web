@@ -35,7 +35,6 @@ export const startSession = async (deviceId, userAgent, campus) => {
     });
 
     let message = extractMessageFromResponse(data);
-    console.log(message);
   } catch (error) {
     console.log(error);
   }
@@ -47,7 +46,6 @@ export const startSession = async (deviceId, userAgent, campus) => {
  * @param campus 기기에 설정된 캠퍼스
  */
 export const setDeviceCampus = async (campus) => {
-  console.log(campus);
   try {
     let { data } = await instance.put('/api/devices/campus', {
       deviceId: getDeviceId(),
@@ -55,7 +53,6 @@ export const setDeviceCampus = async (campus) => {
     });
 
     let message = extractMessageFromResponse(data);
-    console.log(message);
   } catch (error) {
     console.log(error);
   }
@@ -69,7 +66,6 @@ export const updateNotificationToken = async (token) => {
     });
 
     let message = extractMessageFromResponse(data);
-    console.log(message);
   } catch (error) {
     console.log(error);
   }
@@ -98,7 +94,6 @@ export const changeTurnOnNotification = async (isTurnOn) => {
     });
 
     let message = extractMessageFromResponse(data);
-    console.log(message);
   } catch (error) {
     console.log(error);
   }

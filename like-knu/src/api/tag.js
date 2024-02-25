@@ -22,7 +22,6 @@ export const tags = async () => {
         deviceId: getDeviceId(),
       },
     });
-    console.log(data);
     return extractBodyFromResponse(data);
   } catch (error) {
     console.log(error);

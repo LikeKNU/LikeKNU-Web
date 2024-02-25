@@ -1,4 +1,4 @@
-import { calendarMain } from 'api/main';
+import { calendarMainAPI } from 'api/main';
 import CardContainer from 'components/styles/CardContainer';
 import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
@@ -12,7 +12,7 @@ export default function MainCalendar() {
   const [scheduleList, setScheduleList] = useState([]);
   const navigate = useNavigate();
   const getSchedule = async () => {
-    const res = await calendarMain();
+    const res = await calendarMainAPI();
     setScheduleList(res);
   };
   const goCalendar = () => {

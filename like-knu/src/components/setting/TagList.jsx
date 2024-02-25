@@ -40,21 +40,18 @@ export default function TagList() {
     // 배열에 추가
     if (isChecked) {
       setCheckedList((prev) => [...prev, value]);
-      console.log(checkedList);
       return;
     }
 
     // 배열에서 삭제
     if (!isChecked && checkedList.includes(value)) {
       setCheckedList(checkedList.filter((item) => item !== value));
-      console.log(checkedList);
     }
   };
 
   const checkHandler = (e, value) => {
     setIstChecked(!isChecked);
     checkedItemHandler(value, e.target.checked);
-    console.log(value, e.target.checked);
   };
 
   return (

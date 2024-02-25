@@ -27,7 +27,6 @@ export default function Test() {
         'https://3ce0ef2e-86a4-4c2b-a1e3-a3dde60f58b3.mock.pstmn.io/api/main/announcements',
       )
       .then((res) => {
-        console.log(res);
       })
       .catch((error) => {
         console.log(error);
@@ -40,7 +39,6 @@ export default function Test() {
   };
   // 콘솔 출력 함수
   const print = () => {
-    console.log(data);
   };
 
   // const getRoutes = async () => {
