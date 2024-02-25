@@ -30,7 +30,6 @@ export default function MenuSlide({ menu }) {
   const funIsOver = () => {
     if (cnt > slice) {
       setIsOver(true);
-      console.log(isOver);
     }
   };
   const funIsEmpty = () => {

@@ -18,13 +18,12 @@ export default function BottomNav({ isAndroid, selectedCampus }) {
   let pathName = useLocation().pathname;
   const navigate = useNavigate();
   const goDetailPage = (url, value) => {
-    if (activeNav === 1 && value === 1) {
-      console.log('메인에서 메인으로 이동하려 함.');
-    } else {
+    if (activeNav !== 1 || value !== 1) {
       navigate(url);
       setActiveNav(value);
     }
   };
+
   useEffect(() => {
     if (pathName.includes('/notice')) {
       setActiveNav(2);

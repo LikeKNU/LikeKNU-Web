@@ -3,7 +3,7 @@ import PageContainer from 'layouts/PageContainer';
 import PageLayout from 'layouts/PageLayout';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { calendar } from '../api/calendar';
+import { calendarAPI } from '../api/calendarAPI';
 import CalendarListItem from '../components/calendar/CalendarListItem';
 import colors from '../constants/colors';
 import { PAGE_NAME } from '../constants/pageName';
@@ -12,12 +12,14 @@ import { isDarkMode } from '../utils/DeviceManageUtil';
 export default function CalendarPage() {
   const [scheduleList, setScheduleList] = useState([]);
   const getScheduleList = async () => {
-    const res = await calendar();
-    setScheduleList(res);
+    const response = await calendarAPI();
+    setScheduleList(response);
   };
+
   useEffect(() => {
-    getScheduleList().then((r) => console.log(r));
+    getScheduleList();
   }, []);
+
   return (
     <PageLayout>
       <Header>

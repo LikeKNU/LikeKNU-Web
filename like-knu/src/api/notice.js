@@ -10,6 +10,5 @@ export const notice = async (campus, category, page, keyword) => {
       keyword: keyword
     },
   });
-  console.log(data);
   return data.data;
 };

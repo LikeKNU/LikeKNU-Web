@@ -1,4 +1,4 @@
-import { busMain } from 'api/main';
+import { busMainAPI } from 'api/main';
 import BusRefreshBtn from 'components/BusRefreshBtn';
 import MainBusItem from 'components/main/MainBusItem';
 import CardContainer from 'components/styles/CardContainer';
@@ -19,7 +19,7 @@ export default function MainBus({ selectCampus }) {
     today.getMinutes(),
   ).padStart(2, '0')} ${AFTER_TIME}`;
   const getBuses = async () => {
-    const res = await busMain(CampusEng[selectCampus]);
+    const res = await busMainAPI(CampusEng[selectCampus]);
     setBuses(res);
   };
   const goBus = () => {

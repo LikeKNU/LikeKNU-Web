@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { getCampus, isDarkMode } from 'utils/DeviceManageUtil';
-import { mainHeaderMessage } from '../../api/main';
+import { mainHeaderMessageAPI } from '../../api/main';
 import GlobalColor from '../styles/globalColor';
 
 export default function MainHeader({ setCampus }) {
@@ -20,7 +20,7 @@ export default function MainHeader({ setCampus }) {
   }, []);
 
   const getMessage = async () => {
-    const message = await mainHeaderMessage();
+    const message = await mainHeaderMessageAPI();
     setMessage(message);
   };
 
