@@ -16,8 +16,7 @@ export default function MainPage({ setCampus, selectedCampus }) {
   return (
     <PageLayout>
       <MainHeader setCampus={setCampus} />
-      <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'100'} disabled={false}
-                  style={{ marginTop: '66px' }}></KakaoAdFit>
+      <KakaoAdFit unit={'DAN-fVYT1aWQnMOribRe'} width={'320'} height={'50'} top={'64px'} disabled={false} />
       <StyledPageContainer>
         <MainNotice selectCampus={selectedCampus} />
         <MainBus selectCampus={selectedCampus} />

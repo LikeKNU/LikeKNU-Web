@@ -1,6 +1,6 @@
 import PageContainer from 'layouts/PageContainer';
 import PageLayout from 'layouts/PageLayout';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -13,6 +13,7 @@ import { CampusEng } from '../constants/campus';
 import colors from '../constants/colors';
 import { PAGE_NAME } from '../constants/pageName';
 import { apiNoticeTabList, noticeTab } from '../constants/tabName';
+import KakaoAdFit from '../KakaoAdFit';
 import { getCampus, isDarkMode } from '../utils/DeviceManageUtil';
 
 export default function NoticePage() {
@@ -83,6 +84,7 @@ export default function NoticePage() {
           setCategory={setCategory}
         />
       </Header>
+      <KakaoAdFit unit={'DAN-WAYBvFEHuDERQixR'} width={'320'} height={'50'} disabled={false} top={'100px'} />
       <PageContainer>
         <SearchBox>
           <SearchInput value={keyword} onChange={(e) => setKeyword(e.target.value)}

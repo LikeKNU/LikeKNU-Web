@@ -54,7 +54,7 @@ const StyledPageContainer = styled.div`
   }
 
   .my-swiper .swiper-wrapper .swiper-slide {
-    margin-top: 170px;
+    margin-top: 214px;
   }
 
   .swiper-prev {
@@ -71,7 +71,7 @@ const StyledPageContainer = styled.div`
 
 const TitleArea = styled.div`
   position: absolute;
-  top: 130px;
+  top: 174px;
   display: flex;
   flex-direction: row;
   align-items: center;

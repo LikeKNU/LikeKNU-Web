@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 
-function KakaoAdFit({ unit, width, height, disabled }) {
+function KakaoAdFit({ unit, width, height, disabled, top }) {
   const scriptElementWrapper = useRef(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function KakaoAdFit({ unit, width, height, disabled }) {
     }
   }, [])
 
-  return <div style={{ position: 'fixed', top:'64px', left: 0, right: 0 }} ref={scriptElementWrapper}>
+  return <div style={{ position: 'fixed', top: top, left: 0, right: 0 }} ref={scriptElementWrapper}>
     <ins className="kakao_ad_area" style={{ display: 'none' }}
          data-ad-unit={unit}
          data-ad-width={width}

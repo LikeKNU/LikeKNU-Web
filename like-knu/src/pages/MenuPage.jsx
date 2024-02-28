@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { menuAPI } from '../api/menuAPI';
 import { MenuSwiper } from '../components/menu/MenuSwiper';
 import { Header, PageHeader } from '../components/styles/PageHeader';
 import { TabItem, TabList } from '../components/styles/Tab';
 import { CampusEng } from '../constants/campus';
 import { PAGE_NAME } from '../constants/pageName';
+import KakaoAdFit from '../KakaoAdFit';
 import PageLayout from '../layouts/PageLayout';
 import { getCampus, getPinnedCafeteria, pinCafeteria } from '../utils/DeviceManageUtil';
 import { sortPinElementTop } from '../utils/ReorderList';
@@ -68,6 +69,7 @@ export default function MenuPage() {
           ))}
         </TabList>
       </Header>
+      <KakaoAdFit unit={'DAN-9Cfb9NX8XYsxZeh3'} width={'320'} height={'50'} disabled={false} top={'100px'} />
       <MenuSwiper mealList={mealList} setMenuSwiper={setMenuSwiper} changePinCallback={changePin}
                   isPinned={isPinnedCafeteria()} />
     </PageLayout>
