@@ -69,7 +69,7 @@ export default function MenuPage() {
           ))}
         </TabList>
       </Header>
-      <KakaoAdFit unit={'DAN-9Cfb9NX8XYsxZeh3'} width={'320'} height={'50'} disabled={false} top={'100px'} />
+      <KakaoAdFit unit={'DAN-WAYBvFEHuDERQixR'} width={'320'} height={'50'} disabled={false} top={'100px'} />
       <MenuSwiper mealList={mealList} setMenuSwiper={setMenuSwiper} changePinCallback={changePin}
                   isPinned={isPinnedCafeteria()} />
     </PageLayout>
