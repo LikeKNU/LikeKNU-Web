@@ -1,20 +1,20 @@
-import BusSelect from "../BusSelect";
-import styled from "styled-components";
-import PageContainer from "../../layouts/PageContainer";
-import { useEffect, useState } from "react";
-import { shuttleBuses, shuttleBusesRoutes } from "../../api/bus";
-import { getCampus } from "../../utils/DeviceManageUtil";
-import { CampusEng } from "../../constants/campus";
-import { BusItem } from "./BusItem";
-import colors from "../../constants/colors";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { shuttleBuses, shuttleBusesRoutes } from '../../api/bus';
+import { CampusEng } from '../../constants/campus';
+import colors from '../../constants/colors';
+import PageContainer from '../../layouts/PageContainer';
+import { getCampus, isDarkMode } from '../../utils/DeviceManageUtil';
+import BusSelect from '../BusSelect';
+import { BusItem } from './BusItem';
 
-const parameter = ["shuttleId", "shuttleName"];
+const parameter = ['shuttleId', 'shuttleName'];
 
 function Shuttle() {
   const [routes, setRoutes] = useState([]);
   const [shuttle, setShuttle] = useState([]);
-  const [message, setMessage] = useState("");
-  const [id, setId] = useState("");
+  const [message, setMessage] = useState('');
+  const [id, setId] = useState('');
   let campus = CampusEng[getCampus()];
 
   const getRoutes = async () => {
@@ -29,7 +29,7 @@ function Shuttle() {
     getRoutes();
   }, []);
   useEffect(() => {
-    if (id !== "") {
+    if (id !== '') {
       getBuses(id);
     }
   }, [id]);
@@ -53,6 +53,7 @@ function Shuttle() {
     </Wrapper>
   );
 }
+
 const Message = styled.div`
   text-align: center;
   font-size: 1.2rem;
@@ -62,11 +63,13 @@ const Message = styled.div`
 const Title = styled.div`
   font-size: 1.4rem;
   font-weight: 600;
-  color: ${colors.DARK_GRAY};
+  color: ${!isDarkMode() ? colors.DARK_GRAY : colors.DARK_WHITE};
 `;
 const Content = styled.div`
   padding: 0 40px;
   margin-top: 30px;
 `;
-const Wrapper = styled(PageContainer)``;
+const Wrapper = styled(PageContainer)`
+  padding-top: 140px;
+`;
 export default Shuttle;
