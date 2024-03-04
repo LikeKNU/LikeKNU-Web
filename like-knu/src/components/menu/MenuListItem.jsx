@@ -22,11 +22,13 @@ export default function MenuListItem({ menuList }) {
               )}
             </Title>
             <Content>
-              {menu.menus.map((menu, index) => (
-                <div className={'menuItem'} key={index}>
-                  {menu.menuName}
-                </div>
-              ))}
+              {menu.menus.length === 0 && menu.operatingTime ? (
+                <div className={'menuItem'}>등록된 메뉴가 없습니다</div>) : (
+                menu.menus.map((menu, index) => (
+                  <div className={'menuItem'} key={index}>
+                    {menu.menuName}
+                  </div>))
+              )}
             </Content>
           </MenuCardContainer>
         ))}
