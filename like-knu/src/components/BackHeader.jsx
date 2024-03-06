@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   position: relative;
 
   padding-left: 14px;
-  border-bottom: 0.5px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY600};
+  //border-bottom: 0.5px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY600};
 `;
 const Center = styled.div`
   position: absolute;
