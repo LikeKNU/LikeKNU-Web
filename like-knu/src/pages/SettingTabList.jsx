@@ -58,9 +58,8 @@ export default function SettingTabList() {
         />
       </SettingItem>
       <Info>
-        공주대학교 <br />
-        컴퓨터공학부 소프트웨어전공 캡스톤디자인 <br />
-        지찬우, 강채련, 안나영
+        공주대학교 소프트웨어학과<br />
+        지찬우 • 강채련 • 안나영
       </Info>
     </SettingContent>
   );
