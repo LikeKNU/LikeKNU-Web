@@ -56,7 +56,7 @@ function App() {
   // PWA로 설치되지 않은 상태
   const isAndroid = /Android/.test(navigator.userAgent);
   const isiOS = /(iPhone|iPad|iPod)/.test(navigator.userAgent);
-  /*if (isiOS && !window.matchMedia('(display-mode: standalone)').matches) {
+  if (isiOS && !window.matchMedia('(display-mode: standalone)').matches) {
     return (
       <>
         <Image src={IosImage} alt={'뭘봐'} />
@@ -68,7 +68,7 @@ function App() {
         <Image src={OtherImage} alt={'뭘봐'} />
       </>
     );
-  }*/
+  }
   initializeDevice();
   RouteChangeTracker();
   initializeDeviceColor();
