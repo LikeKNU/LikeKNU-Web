@@ -40,6 +40,8 @@ function App() {
       themeColor.setAttribute('content', colors.GRAY50);
       backgroundColor.setAttribute('content', colors.GRAY50);
     }
+
+    initializeDevice();
   }, []);
 
   useEffect(() => {
@@ -69,7 +71,6 @@ function App() {
       </>
     );
   }
-  initializeDevice();
   RouteChangeTracker();
   initializeDeviceColor();
   return (
