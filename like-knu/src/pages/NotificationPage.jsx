@@ -62,5 +62,6 @@ export default function NotificationPage() {
 const ShortHeaderPageContainer = styled(PageContainer)`
   &&& {
     padding-top: 100px;
+    padding-bottom: 20px;
   }
 `;

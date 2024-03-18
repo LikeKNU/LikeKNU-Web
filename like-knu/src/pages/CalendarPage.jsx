@@ -44,7 +44,7 @@ const Content = styled.div``;
 
 const StyledPageContainer = styled(PageContainer)`
   padding-top: 68px;
-  padding-bottom: 18px;
+  padding-bottom: 20px;
 `;
 
 const Month = styled.div`
