@@ -8,8 +8,6 @@ import './App.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { initializeDevice, initializeDeviceColor } from './api/initializer';
-import IosImage from './assets/image/ios_onboarding.png';
-import OtherImage from './assets/image/other_onboarding.png';
 import BottomNav from './components/globals/BottomNav';
 import colors from './constants/colors';
 import NoticePage from './pages/NoticePage';
@@ -35,7 +33,7 @@ function App() {
 
   useEffect(() => {
     if (
-      location.pathname.includes('/setting/') ||
+      location.pathname.includes('/setting/') || location.pathname === '/calendar' ||
       location.pathname === '/notification' || location.pathname === '/notice/details'
     ) {
       setIsBottomBar(false);
