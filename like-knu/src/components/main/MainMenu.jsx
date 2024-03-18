@@ -101,4 +101,5 @@ const SwiperContainer = styled(Swiper)`
 
 const StyledRightArrowIcon = styled(RightArrowIcon)`
   fill: ${!isDarkMode() ? colors.GRAY500 : colors.GRAY200};
+  padding-bottom: 1px;
 `;
