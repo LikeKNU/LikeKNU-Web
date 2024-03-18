@@ -45,11 +45,11 @@ function App() {
 
     if (location.pathname === '/') {
       if (isDarkMode()) {
-        bodyTag.style.backgroundColor = colors.DARK_GRAY;
+        bodyTag.style.backgroundColor = colors.DARK;
         themeColor.setAttribute('content', colors.DARK);
         backgroundColor.setAttribute('content', colors.DARK);
       } else {
-        bodyTag.style.backgroundColor = colors.WHITE;
+        bodyTag.style.backgroundColor = colors.GRAY50;
         themeColor.setAttribute('content', colors.GRAY50);
         backgroundColor.setAttribute('content', colors.GRAY50);
       }
