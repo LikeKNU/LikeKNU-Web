@@ -73,6 +73,7 @@ const Title = styled.div`
   width: 70%;
   padding-top: 16px;
   display: flex;
+  align-items: center;
 `;
 
 const BusList = styled.div`

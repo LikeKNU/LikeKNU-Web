@@ -45,10 +45,12 @@ export default function MainNotice({ selectCampus }) {
     </NoticeContainer>
   );
 }
+
 const NoticeContainer = styled(CardContainer)`
   height: 141px;
   grid-column: 1 / 3;
 `;
+
 const Text = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.3rem;
@@ -62,6 +64,7 @@ const Text = styled.div`
     color: ${colors.DARK_GRAY};
   }
 `;
+
 const Title = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.8rem;
@@ -70,6 +73,7 @@ const Title = styled.div`
   width: 100%;
   padding-top: 16px;
   display: flex;
+  align-items: center;
 `;
 
 const StyledRightArrowIcon = styled(RightArrowIcon)`

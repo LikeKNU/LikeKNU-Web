@@ -42,6 +42,7 @@ const Title = styled.div`
   width: 100%;
   padding-top: 16px;
   display: flex;
+  align-items: center;
 `;
 
 const CalendarList = styled.div`
