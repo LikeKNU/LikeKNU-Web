@@ -76,7 +76,6 @@ const Title = styled.div`
   font-weight: 700;
   margin-bottom: 10px;
   padding-top: 16px;
-  display: flex;
   align-items: center;
 `;
 
@@ -101,5 +100,5 @@ const SwiperContainer = styled(Swiper)`
 
 const StyledRightArrowIcon = styled(RightArrowIcon)`
   fill: ${!isDarkMode() ? colors.GRAY500 : colors.GRAY200};
-  padding-bottom: 1px;
+  margin-bottom: -3px;
 `;
