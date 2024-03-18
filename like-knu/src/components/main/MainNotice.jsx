@@ -77,6 +77,6 @@ const Title = styled.div`
 `;
 
 const StyledRightArrowIcon = styled(RightArrowIcon)`
-  fill: ${!isDarkMode() ? colors.GRAY500 : colors.GRAY200};
+  fill: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
   padding-bottom: 1px;
 `;
