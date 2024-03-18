@@ -31,14 +31,26 @@ function App() {
     const themeColor = document.querySelector('meta[name="theme-color"]');
     const backgroundColor = document.querySelector('meta[name="background-color"]');
 
-    if (isDarkMode()) {
-      bodyTag.style.backgroundColor = colors.DARK_GRAY;
-      themeColor.setAttribute('content', colors.DARK);
-      backgroundColor.setAttribute('content', colors.DARK);
+    if (location.pathname === '/') {
+      if (isDarkMode()) {
+        bodyTag.style.backgroundColor = colors.DARK_GRAY;
+        themeColor.setAttribute('content', colors.DARK);
+        backgroundColor.setAttribute('content', colors.DARK);
+      } else {
+        bodyTag.style.backgroundColor = colors.WHITE;
+        themeColor.setAttribute('content', colors.GRAY50);
+        backgroundColor.setAttribute('content', colors.GRAY50);
+      }
     } else {
-      bodyTag.style.backgroundColor = colors.WHITE;
-      themeColor.setAttribute('content', colors.GRAY50);
-      backgroundColor.setAttribute('content', colors.GRAY50);
+      if (isDarkMode()) {
+        bodyTag.style.backgroundColor = colors.DARK_GRAY;
+        themeColor.setAttribute('content', colors.DARK_GRAY);
+        backgroundColor.setAttribute('content', colors.DARK_GRAY);
+      } else {
+        bodyTag.style.backgroundColor = colors.WHITE;
+        themeColor.setAttribute('content', colors.WHITE);
+        backgroundColor.setAttribute('content', colors.WHITE);
+      }
     }
 
     initializeDevice();
