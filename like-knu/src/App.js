@@ -25,33 +25,42 @@ function App() {
   const location = useLocation();
   const [isBottomBar, setIsBottomBar] = useState(true);
   const [campus, setCampus] = useState(getCampus);
+  const bodyTag = document.querySelector('body');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  const backgroundColor = document.querySelector('meta[name="background-color"]');
 
   useEffect(() => {
-    const bodyTag = document.querySelector('body');
-    const themeColor = document.querySelector('meta[name="theme-color"]');
-    const backgroundColor = document.querySelector('meta[name="background-color"]');
-
-    if (isDarkMode()) {
-      bodyTag.style.backgroundColor = colors.DARK_GRAY;
-      themeColor.setAttribute('content', colors.DARK);
-      backgroundColor.setAttribute('content', colors.DARK);
-    } else {
-      bodyTag.style.backgroundColor = colors.WHITE;
-      themeColor.setAttribute('content', colors.GRAY50);
-      backgroundColor.setAttribute('content', colors.GRAY50);
-    }
-
     initializeDevice();
   }, []);
 
   useEffect(() => {
     if (
-      location.pathname.includes('/setting') ||
+      location.pathname.includes('/setting/') || location.pathname === '/calendar' ||
       location.pathname === '/notification' || location.pathname === '/notice/details'
     ) {
       setIsBottomBar(false);
     } else {
       setIsBottomBar(true);
+    }
+
+    let lightColor;
+    let darkColor;
+    if (location.pathname === '/') {
+      lightColor = colors.GRAY50;
+      darkColor = colors.DARK;
+    } else {
+      lightColor = colors.WHITE;
+      darkColor = colors.DARK_GRAY;
+    }
+
+    if (isDarkMode()) {
+      bodyTag.style.backgroundColor = darkColor;
+      themeColor.setAttribute('content', darkColor);
+      backgroundColor.setAttribute('content', darkColor);
+    } else {
+      bodyTag.style.backgroundColor = lightColor;
+      themeColor.setAttribute('content', lightColor);
+      backgroundColor.setAttribute('content', lightColor);
     }
   }, [location]);
 

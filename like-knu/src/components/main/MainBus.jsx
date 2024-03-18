@@ -6,6 +6,7 @@ import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 import { CampusEng } from '../../constants/campus';
 import { AFTER_TIME } from '../../constants/message';
 import { PAGE_NAME } from '../../constants/pageName';
@@ -32,7 +33,7 @@ export default function MainBus({ selectCampus }) {
   return (
     <BusContainer>
       <Row>
-        <Title onClick={goBus}>{PAGE_NAME.BUS}</Title>
+        <Title onClick={goBus}>{PAGE_NAME.BUS}{/*<StyledRightArrowIcon />*/}</Title>
         <RefreshTime>{formattedDate}</RefreshTime>
         <BusRefreshBtn getBuses={getBuses}></BusRefreshBtn>
       </Row>
@@ -44,6 +45,7 @@ export default function MainBus({ selectCampus }) {
     </BusContainer>
   );
 }
+
 const RefreshTime = styled.div`
   color: ${!isDarkMode() ? colors.GRAY350 : colors.GRAY50};
   font-size: 1.2rem;
@@ -57,10 +59,12 @@ const Row = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
 const BusContainer = styled(CardContainer)`
   grid-column: 1 / 3;
   min-height: 80px;
 `;
+
 const Title = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.8rem;
@@ -68,7 +72,15 @@ const Title = styled.div`
   margin-bottom: 1rem;
   width: 70%;
   padding-top: 16px;
+  display: flex;
+  align-items: center;
 `;
+
 const BusList = styled.div`
   display: grid;
+`;
+
+const StyledRightArrowIcon = styled(RightArrowIcon)`
+  fill: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
+  padding-bottom: 1px;
 `;

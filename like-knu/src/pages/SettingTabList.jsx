@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as RightArrowIcon } from '../assets/icon/right-arrow.svg';
@@ -38,14 +38,14 @@ export default function SettingTabList() {
     <SettingContent>
       <Link to={'/setting/notificationTag'}>
         <SettingItem>
-          {SETTING_MENU_NAME.NOTICE_NOTIFICATION} <RightArrowIcon />
+          {SETTING_MENU_NAME.NOTICE_NOTIFICATION} <StyledRightArrowIcon />
         </SettingItem>
       </Link>
       <SettingItem onClick={sendAskMail}>
-        {SETTING_MENU_NAME.CONTACT} <RightArrowIcon />
+        {SETTING_MENU_NAME.CONTACT} <StyledRightArrowIcon />
       </SettingItem>
       <SettingItem onClick={shareContent}>
-        {SETTING_MENU_NAME.SHARE} <RightArrowIcon />
+        {SETTING_MENU_NAME.SHARE} <StyledRightArrowIcon />
       </SettingItem>
       <SettingItem>
         다크 모드
@@ -66,7 +66,7 @@ export default function SettingTabList() {
 }
 const Info = styled.div`
   position: absolute;
-  bottom: 30px;
+  bottom: 110px;
   left: 50%;
   transform: translate(-50%, 0);
   font-size: 1.1rem;
@@ -78,6 +78,7 @@ const Info = styled.div`
 const SettingContent = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 68px;
 `;
 
 const SettingItem = styled.div`
@@ -90,4 +91,8 @@ const SettingItem = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   font-size: 1.6rem;
+`;
+
+const StyledRightArrowIcon = styled(RightArrowIcon)`
+  fill: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY400};
 `;

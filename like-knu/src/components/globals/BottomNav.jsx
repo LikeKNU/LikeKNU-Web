@@ -1,8 +1,8 @@
 import { ReactComponent as AssignmentIcon } from 'assets/icon/assignment_black_24dp.svg';
-import { ReactComponent as CalendarIcon } from 'assets/icon/calendar_today_black_24dp.svg';
 import { ReactComponent as BusIcon } from 'assets/icon/directions_bus_black_24dp.svg';
 import { ReactComponent as HomeIcon } from 'assets/icon/home_black_24dp.svg';
 import { ReactComponent as RestaurantIcon } from 'assets/icon/restaurant_black_24dp.svg';
+import { ReactComponent as MoreIcon } from 'assets/icon/three-dots.svg';
 import colors, { campusColors } from 'constants/colors';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -31,7 +31,7 @@ export default function BottomNav({ isAndroid, selectedCampus }) {
       setActiveNav(3);
     } else if (pathName.includes('/menu')) {
       setActiveNav(4);
-    } else if (pathName.includes('/calendar')) {
+    } else if (pathName.includes('/setting')) {
       setActiveNav(5);
     } else {
       setActiveNav(1);
@@ -76,12 +76,12 @@ export default function BottomNav({ isAndroid, selectedCampus }) {
           {PAGE_NAME.MENU}
         </Text>
       </ButtonItem>
-      <ButtonItem campusColor={color} onClick={() => goDetailPage(`/calendar`, 5)}>
-        <CalendarIcon
+      <ButtonItem campusColor={color} onClick={() => goDetailPage(`/setting`, 5)}>
+        <MoreIcon
           className={activeNav === 5 ? 'icon_style icon_active' : 'icon_style'}
         />
         <Text className={activeNav === 5 ? 'text_active' : null}>
-          {PAGE_NAME.CALENDAR}
+          {PAGE_NAME.MORE}
         </Text>
       </ButtonItem>
     </Wrapper>

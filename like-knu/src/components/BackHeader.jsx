@@ -29,7 +29,6 @@ const Wrapper = styled.div`
   position: relative;
 
   padding-left: 14px;
-  //border-bottom: 0.5px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY600};
 `;
 const Center = styled.div`
   position: absolute;
@@ -38,7 +37,7 @@ const Center = styled.div`
   transform: translate(-50%, -50%);
 
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
-  font-size: 2.2rem;
+  font-size: 2.0rem;
   font-weight: 600;
 `;
 

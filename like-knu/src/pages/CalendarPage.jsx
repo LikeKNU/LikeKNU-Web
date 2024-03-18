@@ -1,9 +1,10 @@
-import { Header, PageHeader } from 'components/styles/PageHeader';
+import { Header } from 'components/styles/PageHeader';
 import PageContainer from 'layouts/PageContainer';
 import PageLayout from 'layouts/PageLayout';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { calendarAPI } from '../api/calendarAPI';
+import { BackHeader } from '../components/BackHeader';
 import CalendarListItem from '../components/calendar/CalendarListItem';
 import colors from '../constants/colors';
 import { PAGE_NAME } from '../constants/pageName';
@@ -23,7 +24,7 @@ export default function CalendarPage() {
   return (
     <PageLayout>
       <Header>
-        <StyledPageHeader>{PAGE_NAME.CALENDAR}</StyledPageHeader>
+        <BackHeader title={PAGE_NAME.CALENDAR} path={'/'} />
       </Header>
       <StyledPageContainer>
         {scheduleList.map((schedule, index) => (
@@ -40,12 +41,12 @@ export default function CalendarPage() {
 }
 
 const Content = styled.div``;
-const StyledPageHeader = styled(PageHeader)`
-  border-bottom: 0.5px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY600};
-`;
+
 const StyledPageContainer = styled(PageContainer)`
   padding-top: 68px;
+  padding-bottom: 18px;
 `;
+
 const Month = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.7rem;

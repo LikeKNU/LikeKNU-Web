@@ -4,6 +4,7 @@ import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 import { PAGE_NAME } from '../../constants/pageName';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
 import MainCalendarItem from './MainCalendarItem';
@@ -23,7 +24,7 @@ export default function MainCalendar() {
   }, []);
   return (
     <CardContainer>
-      <Title onClick={goCalendar}>{PAGE_NAME.CALENDAR}</Title>
+      <Title onClick={goCalendar}>{PAGE_NAME.CALENDAR}<StyledRightArrowIcon /></Title>
       <CalendarList>
         {scheduleList.map((schedule) => (
           <MainCalendarItem key={schedule.scheduleId} schedule={schedule} />
@@ -40,10 +41,18 @@ const Title = styled.div`
   margin-bottom: 10px;
   width: 100%;
   padding-top: 16px;
+  display: flex;
+  align-items: center;
 `;
+
 const CalendarList = styled.div`
   height: 160px;
   display: grid;
   grid-template-rows: repeat(3, 1fr);
   grid-row-gap: 1.2rem;
+`;
+
+const StyledRightArrowIcon = styled(RightArrowIcon)`
+  fill: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
+  padding-bottom: 1px;
 `;

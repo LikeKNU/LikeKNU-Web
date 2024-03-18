@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { CampusEng } from '../../constants/campus';
 import { PAGE_NAME } from '../../constants/pageName';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
+import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 
 export default function MainNotice({ selectCampus }) {
   const [notices, setNotices] = useState([]);
@@ -30,7 +31,7 @@ export default function MainNotice({ selectCampus }) {
 
   return (
     <NoticeContainer>
-      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}</Title>
+      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}{/*<StyledRightArrowIcon />*/}</Title>
       {notices.map((notice) => (
         <Text key={notice.announcementId} onClick={() => navigate('/notice/details', {
           state: {
@@ -44,10 +45,12 @@ export default function MainNotice({ selectCampus }) {
     </NoticeContainer>
   );
 }
+
 const NoticeContainer = styled(CardContainer)`
   height: 141px;
   grid-column: 1 / 3;
 `;
+
 const Text = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.3rem;
@@ -61,6 +64,7 @@ const Text = styled.div`
     color: ${colors.DARK_GRAY};
   }
 `;
+
 const Title = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.8rem;
@@ -68,4 +72,11 @@ const Title = styled.div`
   margin-bottom: 16px;
   width: 100%;
   padding-top: 16px;
+  display: flex;
+  align-items: center;
+`;
+
+const StyledRightArrowIcon = styled(RightArrowIcon)`
+  fill: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
+  padding-bottom: 1px;
 `;
