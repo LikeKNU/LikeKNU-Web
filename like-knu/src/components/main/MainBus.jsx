@@ -80,6 +80,5 @@ const BusList = styled.div`
 `;
 
 const StyledRightArrowIcon = styled(RightArrowIcon)`
-  fill: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
-  margin-left: 4px;
+  fill: ${!isDarkMode() ? colors.GRAY500 : colors.GRAY200};
 `;
