@@ -25,11 +25,23 @@ function App() {
   const location = useLocation();
   const [isBottomBar, setIsBottomBar] = useState(true);
   const [campus, setCampus] = useState(getCampus);
+  const bodyTag = document.querySelector('body');
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+  const backgroundColor = document.querySelector('meta[name="background-color"]');
 
   useEffect(() => {
-    const bodyTag = document.querySelector('body');
-    const themeColor = document.querySelector('meta[name="theme-color"]');
-    const backgroundColor = document.querySelector('meta[name="background-color"]');
+    initializeDevice();
+  }, []);
+
+  useEffect(() => {
+    if (
+      location.pathname.includes('/setting/') ||
+      location.pathname === '/notification' || location.pathname === '/notice/details'
+    ) {
+      setIsBottomBar(false);
+    } else {
+      setIsBottomBar(true);
+    }
 
     if (location.pathname === '/') {
       if (isDarkMode()) {
@@ -51,19 +63,6 @@ function App() {
         themeColor.setAttribute('content', colors.WHITE);
         backgroundColor.setAttribute('content', colors.WHITE);
       }
-    }
-
-    initializeDevice();
-  }, []);
-
-  useEffect(() => {
-    if (
-      location.pathname.includes('/setting/') ||
-      location.pathname === '/notification' || location.pathname === '/notice/details'
-    ) {
-      setIsBottomBar(false);
-    } else {
-      setIsBottomBar(true);
     }
   }, [location]);
 
