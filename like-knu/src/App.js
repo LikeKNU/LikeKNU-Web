@@ -43,26 +43,24 @@ function App() {
       setIsBottomBar(true);
     }
 
+    let lightColor;
+    let darkColor;
     if (location.pathname === '/') {
-      if (isDarkMode()) {
-        bodyTag.style.backgroundColor = colors.DARK;
-        themeColor.setAttribute('content', colors.DARK);
-        backgroundColor.setAttribute('content', colors.DARK);
-      } else {
-        bodyTag.style.backgroundColor = colors.GRAY50;
-        themeColor.setAttribute('content', colors.GRAY50);
-        backgroundColor.setAttribute('content', colors.GRAY50);
-      }
+      lightColor = colors.GRAY50;
+      darkColor = colors.DARK;
     } else {
-      if (isDarkMode()) {
-        bodyTag.style.backgroundColor = colors.DARK_GRAY;
-        themeColor.setAttribute('content', colors.DARK_GRAY);
-        backgroundColor.setAttribute('content', colors.DARK_GRAY);
-      } else {
-        bodyTag.style.backgroundColor = colors.WHITE;
-        themeColor.setAttribute('content', colors.WHITE);
-        backgroundColor.setAttribute('content', colors.WHITE);
-      }
+      lightColor = colors.WHITE;
+      darkColor = colors.DARK_GRAY;
+    }
+
+    if (isDarkMode()) {
+      bodyTag.style.backgroundColor = darkColor;
+      themeColor.setAttribute('content', darkColor);
+      backgroundColor.setAttribute('content', darkColor);
+    } else {
+      bodyTag.style.backgroundColor = lightColor;
+      themeColor.setAttribute('content', lightColor);
+      backgroundColor.setAttribute('content', lightColor);
     }
   }, [location]);
 
