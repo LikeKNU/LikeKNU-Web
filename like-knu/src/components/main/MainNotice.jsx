@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { CampusEng } from '../../constants/campus';
 import { PAGE_NAME } from '../../constants/pageName';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
+import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 
 export default function MainNotice({ selectCampus }) {
   const [notices, setNotices] = useState([]);
@@ -30,7 +31,7 @@ export default function MainNotice({ selectCampus }) {
 
   return (
     <NoticeContainer>
-      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}</Title>
+      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}<StyledRightArrowIcon /></Title>
       {notices.map((notice) => (
         <Text key={notice.announcementId} onClick={() => navigate('/notice/details', {
           state: {
@@ -68,4 +69,10 @@ const Title = styled.div`
   margin-bottom: 16px;
   width: 100%;
   padding-top: 16px;
+  display: flex;
+`;
+
+const StyledRightArrowIcon = styled(RightArrowIcon)`
+  fill: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
+  margin-left: 4px;
 `;

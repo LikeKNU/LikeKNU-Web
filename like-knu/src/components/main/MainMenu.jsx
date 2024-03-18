@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 import { CampusEng } from '../../constants/campus';
 import { getPinnedCafeteria, isDarkMode } from '../../utils/DeviceManageUtil';
 import { sortPinElementTop } from '../../utils/ReorderList';
@@ -41,10 +42,11 @@ export default function MainMenu({ selectCampus }) {
       >
         {cafeteria.map((c) => (
           <SwiperSlide key={c.cafeteriaId}>
-            <Title>
-              {c.cafeteriaName}
-              <MealTypeText>{c.mealType}</MealTypeText>
-            </Title>
+              <Title>
+                {c.cafeteriaName}
+                <StyledRightArrowIcon />
+              </Title>
+            <MealTypeText>{c.mealType}</MealTypeText>
             <MenuSlide menu={c.menus} />
           </SwiperSlide>
         ))}
@@ -56,8 +58,10 @@ export default function MainMenu({ selectCampus }) {
 const MealTypeText = styled.div`
   color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY400};
   font-size: 1.2rem;
-  margin-left: 6px;
-  display: inline-block;
+  position: fixed;
+  right: 0;
+  top: 20px;
+  font-weight: 700;
 `;
 
 const MenuContainer = styled(CardContainer)`
@@ -71,9 +75,9 @@ const Title = styled.div`
   font-size: 1.8rem;
   font-weight: 700;
   margin-bottom: 10px;
-  width: 100%;
   padding-top: 16px;
   align-items: center;
+  display: flex;
 `;
 
 const SwiperContainer = styled(Swiper)`
@@ -93,4 +97,9 @@ const SwiperContainer = styled(Swiper)`
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: ${(props) => props.$campus};
   }
+`;
+
+const StyledRightArrowIcon = styled(RightArrowIcon)`
+  fill: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
+  margin-left: 4px;
 `;
