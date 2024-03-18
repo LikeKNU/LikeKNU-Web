@@ -1,4 +1,5 @@
 import { BackHeader } from '../components/BackHeader';
+import { Header, PageHeader } from '../components/styles/PageHeader';
 import { PAGE_NAME } from '../constants/pageName';
 import PageLayout from '../layouts/PageLayout';
 import SettingTabList from './SettingTabList';
@@ -6,7 +7,9 @@ import SettingTabList from './SettingTabList';
 export default function SettingPage() {
   return (
     <PageLayout>
-      <BackHeader title={PAGE_NAME.SETTING} path={'/'} />
+      <Header>
+        <PageHeader>{PAGE_NAME.MORE}</PageHeader>
+      </Header>
       <SettingTabList />
     </PageLayout>
   );

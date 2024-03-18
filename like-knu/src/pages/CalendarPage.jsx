@@ -40,12 +40,14 @@ export default function CalendarPage() {
 }
 
 const Content = styled.div``;
+
 const StyledPageHeader = styled(PageHeader)`
   border-bottom: 0.5px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY600};
 `;
 const StyledPageContainer = styled(PageContainer)`
   padding-top: 68px;
 `;
+
 const Month = styled.div`
   color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   font-size: 1.7rem;

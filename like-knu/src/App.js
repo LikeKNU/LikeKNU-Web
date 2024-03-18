@@ -46,7 +46,7 @@ function App() {
 
   useEffect(() => {
     if (
-      location.pathname.includes('/setting') ||
+      location.pathname.includes('/setting/') ||
       location.pathname === '/notification' || location.pathname === '/notice/details'
     ) {
       setIsBottomBar(false);

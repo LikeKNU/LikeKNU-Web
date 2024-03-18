@@ -28,9 +28,10 @@ export default function MainHeader({ setCampus }) {
     navigate(`/notification`);
   };
 
-  const goSetting = () => {
+  /*const goSetting = () => {
     navigate(`/setting`);
-  };
+  };*/
+
   GlobalColor.setColor();
 
   return (
@@ -47,7 +48,7 @@ export default function MainHeader({ setCampus }) {
       <Message>{message}</Message>
       <IconList>
         <StyledNotification onClick={goNotification} />
-        <StyledSetting onClick={goSetting} />
+        {/*<StyledSetting onClick={goSetting} />*/}
       </IconList>
     </Wrapper>
   );
@@ -100,7 +101,7 @@ const StyledNotification = styled(NotificationIcon)`
   width: 22px;
   height: 22px;
   color: #ffcb74;
-  margin-right: 14px;
+  //margin-right: 14px;
 `;
 const StyledSetting = styled(SettingIcon)`
   width: 22px;

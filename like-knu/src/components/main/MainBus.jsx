@@ -33,7 +33,7 @@ export default function MainBus({ selectCampus }) {
   return (
     <BusContainer>
       <Row>
-        <Title onClick={goBus}>{PAGE_NAME.BUS}<StyledRightArrowIcon /></Title>
+        <Title onClick={goBus}>{PAGE_NAME.BUS}{/*<StyledRightArrowIcon />*/}</Title>
         <RefreshTime>{formattedDate}</RefreshTime>
         <BusRefreshBtn getBuses={getBuses}></BusRefreshBtn>
       </Row>

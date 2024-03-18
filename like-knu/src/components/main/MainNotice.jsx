@@ -31,7 +31,7 @@ export default function MainNotice({ selectCampus }) {
 
   return (
     <NoticeContainer>
-      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}<StyledRightArrowIcon /></Title>
+      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}{/*<StyledRightArrowIcon />*/}</Title>
       {notices.map((notice) => (
         <Text key={notice.announcementId} onClick={() => navigate('/notice/details', {
           state: {

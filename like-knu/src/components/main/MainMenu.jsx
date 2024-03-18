@@ -44,9 +44,9 @@ export default function MainMenu({ selectCampus }) {
           <SwiperSlide key={c.cafeteriaId}>
               <Title>
                 {c.cafeteriaName}
-                <StyledRightArrowIcon />
+                {/*<StyledRightArrowIcon />*/}
+                <MealTypeText>{c.mealType}</MealTypeText>
               </Title>
-            <MealTypeText>{c.mealType}</MealTypeText>
             <MenuSlide menu={c.menus} />
           </SwiperSlide>
         ))}
@@ -58,10 +58,12 @@ export default function MainMenu({ selectCampus }) {
 const MealTypeText = styled.div`
   color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY400};
   font-size: 1.2rem;
-  position: fixed;
+  margin-left: 6px;
+  display: inline-block;
+  /*position: fixed;
   right: 0;
   top: 20px;
-  font-weight: 700;
+  font-weight: 700;*/
 `;
 
 const MenuContainer = styled(CardContainer)`
