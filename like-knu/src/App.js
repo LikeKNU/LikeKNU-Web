@@ -30,10 +30,6 @@ function App() {
   const backgroundColor = document.querySelector('meta[name="background-color"]');
 
   useEffect(() => {
-    initializeDevice();
-  }, []);
-
-  useEffect(() => {
     if (
       location.pathname.includes('/setting/') || location.pathname === '/calendar' ||
       location.pathname === '/notification' || location.pathname === '/notice/details'
@@ -80,6 +76,7 @@ function App() {
       </>
     );
   }
+  initializeDevice();
   RouteChangeTracker();
   initializeDeviceColor();
   return (
