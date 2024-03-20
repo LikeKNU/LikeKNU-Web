@@ -11,8 +11,16 @@ import MenuListItem from './MenuListItem';
 
 export function MenuSwiper({ setMenuSwiper, mealList, isPinned, changePinCallback }) {
   const [today, setToday] = useState('오늘');
+  const [date, setDate] = useState(new Date());
+  const day = ['일', '월', '화', '수', '목', '금', '토'];
 
   const toggleToday = () => {
+    if (today === '오늘') {
+      date.setDate(date.getDate() + 1);
+      setDate(date);
+    } else {
+      setDate(new Date());
+    }
     setToday((prev) => (prev === '오늘' ? '내일' : '오늘'));
   };
 
@@ -20,7 +28,7 @@ export function MenuSwiper({ setMenuSwiper, mealList, isPinned, changePinCallbac
     <StyledPageContainer>
       <TitleArea>
         <StyledArrowIcon className={'swiper-prev'} />
-        <Title>{today}</Title>
+        <Title>{`${today} (${day[date.getDay()]})`}</Title>
         <StyledArrowIcon className={'swiper-next'} />
         {isPinned ? <StyledFillPin onClick={changePinCallback} /> : <StyledPin onClick={changePinCallback} />}
       </TitleArea>
