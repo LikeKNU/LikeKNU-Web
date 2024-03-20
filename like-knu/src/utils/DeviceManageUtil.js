@@ -38,6 +38,10 @@ export const isDarkMode = () => {
   return darkMode === 'dark';
 };
 
+export const getThemeColor = () => {
+  return localStorage.getItem(darkModeKey);
+};
+
 export const getPinnedCafeteria = () => {
   return localStorage.getItem(pinCafeteriaKey);
 };

@@ -1,5 +1,12 @@
 import { Campus } from '../constants/campus';
-import { generateAndSaveNewDeviceId, getCampus, getDeviceId, setCampus } from '../utils/DeviceManageUtil';
+import {
+  generateAndSaveNewDeviceId,
+  getCampus,
+  getDeviceId,
+  getPinnedCafeteria,
+  getThemeColor,
+  setCampus
+} from '../utils/DeviceManageUtil';
 import { startSession } from './device';
 
 export const initializeDevice = () => {
@@ -14,7 +21,10 @@ export const initializeDevice = () => {
     setCampus(campus);
   }
 
-  startSession(deviceId, navigator.userAgent, campus);
+  const themeColor = getThemeColor();
+  const pinnedCafeteria = getPinnedCafeteria();
+
+  startSession(deviceId, navigator.userAgent, campus, themeColor, pinnedCafeteria);
 
   return campus;
 }

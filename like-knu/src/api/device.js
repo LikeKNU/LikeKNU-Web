@@ -26,12 +26,14 @@ export const checkDeviceRegistration = async () => {
  * @param deviceId 사용자 기기 ID
  * @param userAgent 사용자 기기 종류
  */
-export const startSession = async (deviceId, userAgent, campus) => {
+export const startSession = async (deviceId, userAgent, campus, theme, favorite) => {
   try {
     let { data } = await instance.post('/api/devices', {
       deviceId: deviceId,
       userAgent: userAgent,
-      campus: campus
+      campus: campus,
+      themeColor: theme,
+      favoriteCafeteria: favorite
     });
 
     let message = extractMessageFromResponse(data);
