@@ -8,7 +8,7 @@ export const notice = async (campus, category, page, keyword) => {
       campus: campus,
       page: page,
       keyword: keyword
-    },
+    }
   });
   return data.data;
 };
