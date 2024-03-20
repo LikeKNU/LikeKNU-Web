@@ -20,7 +20,7 @@ function CityBus() {
     today.getMinutes(),
   ).padStart(2, '0')} 기준`;
 
-  const getBuses = async () => {
+  const getBuses = async (refresh) => {
     let type = '';
     if (destination === 0) {
       type = 'outgoing';
@@ -28,13 +28,15 @@ function CityBus() {
     if (destination === 1) {
       type = 'incoming';
     }
-    const res = await cityBuses(CampusEng[getCampus()], type);
+    const res = await cityBuses(CampusEng[getCampus()], type, refresh);
     setBuses(res);
   };
+
   GlobalColor.setColor();
   useEffect(() => {
-    getBuses();
+    getBuses(false);
   }, [destination]);
+
   return (
     <>
       <FixContainer>
@@ -53,7 +55,7 @@ function CityBus() {
           </Row>
           <Row>
             <RefreshTime>{formattedDate}</RefreshTime>
-            <BusRefreshBtn getBuses={getBuses} />
+            <BusRefreshBtn getBuses={() => getBuses(true)} />
           </Row>
         </BusDestinationArea>
       </FixContainer>

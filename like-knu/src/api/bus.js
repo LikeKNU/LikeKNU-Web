@@ -11,15 +11,17 @@ export const shuttleBusesRoutes = async (campus) => {
   });
   return extractBodyFromResponse(data);
 };
+
 export const shuttleBuses = async (shuttleId) => {
   const { data } = await instance.get(`${baseURL}/shuttle-bus/${shuttleId}`);
   return extractBodyFromResponse(data);
 };
 
-export const cityBuses = async (campus, type) => {
+export const cityBuses = async (campus, type, refresh) => {
   const { data } = await instance.get(`${baseURL}/city-bus/${type}`, {
     params: {
       campus: campus,
+      isRefresh: refresh
     },
   });
   return extractBodyFromResponse(data);
