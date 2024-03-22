@@ -82,8 +82,10 @@ const OperatingTime = styled.div`
 `;
 
 const NoOperatingMessage = styled.div`
+  height: 50vh;
   margin-top: 12px;
   text-align: center;
+  align-content: center;
   font-size: 1.4rem;
   font-weight: 500;
   color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY300};
