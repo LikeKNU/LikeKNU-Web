@@ -96,7 +96,7 @@ const Title = styled.div`
 
 const StyledArrowIcon = styled(PrevArrowIcon)`
   position: relative;
-  z-index: 10;
+  z-index: 8;
   fill: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   width: 16px;
   height: 16px;
