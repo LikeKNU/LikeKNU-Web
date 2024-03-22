@@ -16,7 +16,7 @@ function KakaoAdFit({ unit, width, height, disabled, top }) {
     }
   }, [])
 
-  return <div style={{ position: 'fixed', top: top, left: 0, right: 0, zIndex: 5 }} ref={scriptElementWrapper}>
+  return <div style={{ position: 'fixed', top: top, left: 0, right: 0, zIndex: 9 }} ref={scriptElementWrapper}>
     <ins className="kakao_ad_area" style={{ display: 'none' }}
          data-ad-unit={unit}
          data-ad-width={width}
