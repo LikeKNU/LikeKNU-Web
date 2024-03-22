@@ -34,7 +34,7 @@ export default function DropDown({ setSelectCampus }) {
 const Wrapper = styled.div`
   background-color: ${!isDarkMode() ? colors.WHITE : colors.DARK_GRAY};
   list-style: none;
-  z-index: 10;
+  z-index: 20;
   position: absolute;
   left: 16px;
   top: 55px;

@@ -79,7 +79,6 @@ const CampusList = styled.ul`
   padding: 0;
   display: flex;
   flex-direction: row;
-  z-index: 20;
 `;
 
 const Title = styled.div`
