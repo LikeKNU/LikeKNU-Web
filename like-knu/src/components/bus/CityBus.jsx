@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { cityBuses } from '../../api/bus';
 import { CampusEng } from '../../constants/campus';
 import colors from '../../constants/colors';
+import KakaoAdFit from '../../KakaoAdFit';
 import PageContainer from '../../layouts/PageContainer';
 import { getCampus, isDarkMode } from '../../utils/DeviceManageUtil';
 import BusRefreshBtn from '../BusRefreshBtn';
@@ -59,6 +60,7 @@ function CityBus() {
           </Row>
         </BusDestinationArea>
       </FixContainer>
+      <KakaoAdFit unit={'DAN-qTBYATGoqSTrsMMI'} width={'320'} height={'50'} disabled={false} top={'154px'} />
       <StyledPageContainer>
         {buses.map((bus, index) => (
           <BusList key={index} route={bus} />
@@ -69,18 +71,21 @@ function CityBus() {
 }
 
 const StyledPageContainer = styled(PageContainer)`
-  padding-top: 160px;
+  padding-top: 210px;
 `;
+
 const Row = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
 `;
+
 const RefreshTime = styled.div`
   color: ${!isDarkMode() ? colors.GRAY350 : colors.GRAY400};
   font-size: 1.2rem;
   margin-right: 10px;
 `;
+
 const FixContainer = styled.div`
   top: 99px;
   position: fixed;
@@ -89,10 +94,12 @@ const FixContainer = styled.div`
   padding: 12px 0;
   box-shadow: ${!isDarkMode() ? '0 2px 0 0 rgba(175, 175, 175, 0.1)' : '0 2px 0 0 rgba(80, 80, 80, 0.1)'};
 `;
+
 const BusDestinationArea = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 0 16px;
 `;
+
 export default CityBus;

@@ -84,7 +84,7 @@ export default function NoticePage() {
           setCategory={setCategory}
         />
       </Header>
-      <KakaoAdFit unit={'DAN-WAYBvFEHuDERQixR'} width={'320'} height={'50'} disabled={false} top={'100px'} />
+      <KakaoAdFit unit={'DAN-WAYBvFEHuDERQixR'} width={'320'} height={'50'} disabled={false} top={'99px'} />
       <PageContainer>
         <SearchBox>
           <SearchInput value={keyword} onChange={(e) => setKeyword(e.target.value)}
