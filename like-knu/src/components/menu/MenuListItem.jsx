@@ -3,6 +3,7 @@ import { menuIcon } from '../../assets/icon/menuIcon';
 import colors from '../../constants/colors';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
 import CardContainer from '../styles/CardContainer';
+import ThumbsItem from './ThumbsItem';
 
 export default function MenuListItem({ menuList }) {
   return (
@@ -11,7 +12,7 @@ export default function MenuListItem({ menuList }) {
       menuList.some(menu => menu.operatingTime) ?
         (menuList.map((menu, index) => (
           menu.operatingTime ? (
-            <MenuCardContainer key={index}>
+            <MenuCardContainer key={menu.mealType + menu.menus}>
               <Title>
                 <IconTitle>
                   {menuIcon[index]}
@@ -28,12 +29,14 @@ export default function MenuListItem({ menuList }) {
                     </div>))
                 )}
               </Content>
+              <ThumbsItem />
             </MenuCardContainer>
           ) : (<div></div>)
         ))) : (<NoOperatingMessage>운영하지 않는 날이에요</NoOperatingMessage>)}
     </Wrapper>
   );
-}
+};
+
 const Wrapper = styled.div`
   padding: 0 16px;
 `;
@@ -46,6 +49,7 @@ const MenuCardContainer = styled(CardContainer)`
   font-weight: 400;
   padding-top: 16px;
   margin-bottom: 16px;
+  position: relative;
 `;
 
 const Title = styled.div`

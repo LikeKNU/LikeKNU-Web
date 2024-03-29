@@ -2,12 +2,11 @@ import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
-import GlobalColor from '../styles/globalColor';
 
 export default function MenuSlide({ menu }) {
-  const [newMenu, setNewMenu] = useState([]); //메뉴스
+  const [newMenu, setNewMenu] = useState([]);
   const [isOver, setIsOver] = useState(false);
-  const cnt = Object.keys(menu).length;
+  const count = Object.keys(menu).length;
   const slice = 5;
   const [isEmpty, setIsEmpty] = useState(false);
 
@@ -16,7 +15,7 @@ export default function MenuSlide({ menu }) {
     let newObj = [];
 
     const isCntBig = () => {
-      return cnt > slice ? slice : cnt;
+      return count > slice ? slice : count;
     };
 
     for (let i = 0; i < isCntBig(); i++) {
@@ -28,15 +27,17 @@ export default function MenuSlide({ menu }) {
 
   // 메뉴 개수가 slice 이상인지 확인하는 함수
   const funIsOver = () => {
-    if (cnt > slice) {
+    if (count > slice) {
       setIsOver(true);
     }
   };
+
   const funIsEmpty = () => {
-    if (cnt === 0) {
+    if (count === 0) {
       setIsEmpty(true);
     }
   };
+
   useEffect(() => {
     setNewMenu(countMenu());
     funIsEmpty();
@@ -62,6 +63,7 @@ const MoreMenu = styled.div`
 `;
 const Text = styled.div`
   margin-bottom: 8px;
+  font-weight: 450;
 `;
 const Wrapper = styled.div`
   font-size: 1.2rem;

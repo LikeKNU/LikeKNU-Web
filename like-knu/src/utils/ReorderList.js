@@ -1,8 +1,9 @@
 export const sortPinElementTop = (list, predicate) => {
-  const index = list.findIndex(predicate);
+  const cloneList = list.slice();
+  const index = cloneList.findIndex(predicate);
   if (index !== -1) {
-    const [element] = list.splice(index, 1);
-    list.unshift(element);
+    const [element] = cloneList.splice(index, 1);
+    cloneList.unshift(element);
   }
-  return list;
+  return cloneList;
 };

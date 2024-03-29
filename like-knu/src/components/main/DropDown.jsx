@@ -15,6 +15,7 @@ export default function DropDown({ setSelectCampus }) {
     let selectCampus = keys.find((key) => Campus[key] === selectedCampus);
     setDeviceCampus(selectCampus);
   };
+
   return (
     <Wrapper>
       <CampusItem>

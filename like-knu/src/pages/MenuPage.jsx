@@ -3,6 +3,7 @@ import { menuAPI } from '../api/menuAPI';
 import { MenuSwiper } from '../components/menu/MenuSwiper';
 import { Header, PageHeader } from '../components/styles/PageHeader';
 import { TabItem, TabList } from '../components/styles/Tab';
+import { CAFETERIA } from '../constants/cafeteria';
 import { CampusEng } from '../constants/campus';
 import { PAGE_NAME } from '../constants/pageName';
 import KakaoAdFit from '../KakaoAdFit';
@@ -11,22 +12,45 @@ import { getCampus, getPinnedCafeteria, pinCafeteria } from '../utils/DeviceMana
 import { sortPinElementTop } from '../utils/ReorderList';
 
 export default function MenuPage() {
-  const [category, setCategory] = useState(0);
+  const [cafeteria, setCafeteria] = useState();
+  const [cafeterias, setCafeterias] = useState([]);
   const [menuList, setMenuList] = useState([]);
   const [mealList, setMealList] = useState([]);
   const [menuSwiper, setMenuSwiper] = useState(null);
   const [pin, setPin] = useState(getPinnedCafeteria());
   let campus = CampusEng[getCampus()];
 
+  useEffect(() => {
+    initializeCafeterias();
+  }, []);
+
+  useEffect(() => {
+    initializeCafeterias();
+  }, [pin]);
+
+  useEffect(() => {
+    getMenuList();
+    if (mealList.length !== 0) {
+      setMealList(menuList[cafeteria]);
+    }
+    if (menuSwiper !== null) {
+      menuSwiper.slideTo(0);
+    }
+  }, [cafeteria]);
+
   const getMenuList = async () => {
-    const response = await menuAPI(campus);
-    const sortedCafeterias = sortPinElementTop(response, cafeteria => cafeteria.cafeteriaId === pin);
-    setMenuList(sortedCafeterias);
-    setMealList(sortedCafeterias[category]);
+    const response = await menuAPI(campus, cafeteria);
+    setMenuList(response);
+  };
+
+  const initializeCafeterias = async () => {
+    const sortedCafeterias = sortPinElementTop(CAFETERIA[campus], cafeteria => cafeteria === pin);
+    setCafeterias(sortedCafeterias);
+    setCafeteria(sortedCafeterias[0]);
   };
 
   const isPinnedCafeteria = () => {
-    return pin === mealList.cafeteriaId;
+    return pin === cafeteria;
   }
 
   const changePin = () => {
@@ -34,37 +58,22 @@ export default function MenuPage() {
       setPin(null);
       pinCafeteria(null);
     } else {
-      setPin(mealList.cafeteriaId);
-      pinCafeteria(mealList.cafeteriaId);
+      setPin(cafeteria);
+      pinCafeteria(cafeteria);
     }
-    setCategory(0);
   };
-
-  useEffect(() => {
-    getMenuList();
-  }, [pin]);
-
-  useEffect(() => {
-    if (mealList.length !== 0) {
-      setMealList(menuList[category]);
-    }
-    if (menuSwiper !== null) {
-      menuSwiper.slideTo(0);
-    }
-  }, [category]);
 
   return (
     <PageLayout>
       <Header>
         <PageHeader>{PAGE_NAME.MENU}</PageHeader>
         <TabList>
-          {menuList.map((cafeteria, index) => (
+          {cafeterias.map((cafeteriaName) => (
             <TabItem
-              key={index}
-              onClick={() => setCategory(index)}
-              className={category === index ? 'active' : null}
-            >
-              {cafeteria.cafeteriaName}
+              key={cafeteriaName}
+              onClick={() => setCafeteria(cafeteriaName)}
+              className={cafeteriaName === cafeteria ? 'active' : null}>
+              {cafeteriaName}
             </TabItem>
           ))}
         </TabList>

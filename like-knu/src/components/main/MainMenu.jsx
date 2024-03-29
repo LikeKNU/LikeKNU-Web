@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 import { CampusEng } from '../../constants/campus';
 import { getPinnedCafeteria, isDarkMode } from '../../utils/DeviceManageUtil';
 import { sortPinElementTop } from '../../utils/ReorderList';
@@ -17,37 +16,39 @@ import GlobalColor from '../styles/globalColor';
 import MenuSlide from './MenuSlide';
 
 export default function MainMenu({ selectCampus }) {
-  const [cafeteria, setCafeteria] = useState([]);
+  const [menus, setMenus] = useState([]);
   const navigate = useNavigate();
-  const getCafeteria = async () => {
+
+  const getMenus = async () => {
     const response = await menuMainAPI(CampusEng[selectCampus]);
-    const sortedCafeterias = sortPinElementTop(response, cafeteria => cafeteria.cafeteriaId === getPinnedCafeteria());
-    setCafeteria(sortedCafeterias);
+    const sortedMenus = sortPinElementTop(response, menu => menu.cafeteriaName === getPinnedCafeteria());
+    setMenus(sortedMenus);
   };
 
-  const goMenu = () => {
+  const navigateToMenuPage = () => {
     navigate(`/menu`);
   };
+
   useEffect(() => {
-    getCafeteria();
+    getMenus();
   }, [selectCampus]);
+
   return (
     <MenuContainer>
       <SwiperContainer
         slidesPerView="auto"
         modules={[Pagination]}
         pagination={{ clickable: true }}
-        onClick={goMenu}
+        onClick={navigateToMenuPage}
         $campus={GlobalColor.getColor()}
       >
-        {cafeteria.map((c) => (
-          <SwiperSlide key={c.cafeteriaId}>
-              <Title>
-                {c.cafeteriaName}
-                {/*<StyledRightArrowIcon />*/}
-                <MealTypeText>{c.mealType}</MealTypeText>
-              </Title>
-            <MenuSlide menu={c.menus} />
+        {menus.map((menu) => (
+          <SwiperSlide key={menu.cafeteriaId}>
+            <Title>
+              {menu.cafeteriaName}
+              <MealTypeText>{menu.mealType}</MealTypeText>
+            </Title>
+            <MenuSlide menu={menu.menus} />
           </SwiperSlide>
         ))}
       </SwiperContainer>
@@ -60,10 +61,6 @@ const MealTypeText = styled.div`
   font-size: 1.2rem;
   margin-left: 6px;
   display: inline-block;
-  /*position: fixed;
-  right: 0;
-  top: 20px;
-  font-weight: 700;*/
 `;
 
 const MenuContainer = styled(CardContainer)`
@@ -98,9 +95,4 @@ const SwiperContainer = styled(Swiper)`
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
     background-color: ${(props) => props.$campus};
   }
-`;
-
-const StyledRightArrowIcon = styled(RightArrowIcon)`
-  fill: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
-  margin-bottom: -3px;
 `;
