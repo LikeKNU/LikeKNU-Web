@@ -1,11 +1,8 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { menuThumbsAPI } from '../../api/menuAPI';
+import { menuThumbsAPI, updateMenuThumbsAPI } from '../../api/menuAPI';
 import { ReactComponent as ThumbsDownFill } from '../../assets/icon/hand-thumbs-down-fill.svg';
-import { ReactComponent as ThumbsDown } from '../../assets/icon/hand-thumbs-down.svg';
 import { ReactComponent as ThumbsUpFill } from '../../assets/icon/hand-thumbs-up-fill.svg';
-import { ReactComponent as ThumbsUp } from '../../assets/icon/hand-thumbs-up.svg';
-import colors from '../../constants/colors';
 import { THUMBS_TYPE } from '../../constants/thumbs';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
 
@@ -30,7 +27,9 @@ const ThumbsItem = ({ menuId }) => {
     }
   };
 
-  const thumbsUp = () => {
+  const clickThumbsUp = () => {
+    updateMenuThumbsAPI(menuId, THUMBS_TYPE.THUMBS_UP);
+
     if (isThumbsDown) {
       cancelThumbsDown();
     }
@@ -39,7 +38,9 @@ const ThumbsItem = ({ menuId }) => {
     setThumbsUp(!isThumbsUp);
   };
 
-  const thumbsDown = () => {
+  const clickThumbsDown = () => {
+    updateMenuThumbsAPI(menuId, THUMBS_TYPE.THUMBS_DOWN);
+
     if (isThumbsUp) {
       cancelThumbsUp();
     }
@@ -68,11 +69,11 @@ const ThumbsItem = ({ menuId }) => {
 
   return (
     <Wrapper>
-      <Thumbs onClick={thumbsUp}>
+      <Thumbs onClick={clickThumbsUp}>
         <StyledThumbsUpFill color={isDarkMode() ? '#4D4D59' : '#D1D6DA'} isThumbsUp={isThumbsUp} />
         <ThumbsCount color={isThumbsUp ? '#3182F7' : '#7D7D85'}>{thumbsUpCount}</ThumbsCount>
       </Thumbs>
-      <Thumbs onClick={thumbsDown}>
+      <Thumbs onClick={clickThumbsDown}>
         <StyledThumbsDownFill color={isDarkMode() ? '#4D4D59' : '#D1D6DA'} isThumbsDown={isThumbsDown} />
         <ThumbsCount color={isThumbsDown ? '#F04452' : '#7D7D85'}>{thumbsDownCount}</ThumbsCount>
       </Thumbs>
