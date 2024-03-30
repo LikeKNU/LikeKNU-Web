@@ -14,8 +14,8 @@ import { sortPinElementTop } from '../utils/ReorderList';
 export default function MenuPage() {
   const [cafeteria, setCafeteria] = useState();
   const [cafeterias, setCafeterias] = useState([]);
-  const [menuList, setMenuList] = useState([]);
-  const [mealList, setMealList] = useState([]);
+  const [meals, setMeals] = useState([]);
+  const [cafeteriaMeals, setCafeteriaMeals] = useState([]);
   const [menuSwiper, setMenuSwiper] = useState(null);
   const [pin, setPin] = useState(getPinnedCafeteria());
   let campus = CampusEng[getCampus()];
@@ -29,18 +29,21 @@ export default function MenuPage() {
   }, [pin]);
 
   useEffect(() => {
-    getMenuList();
-    if (mealList.length !== 0) {
-      setMealList(menuList[cafeteria]);
-    }
+    getCafeteriaMeals();
+
+    /*if (cafeteriaMeals.length !== 0) {
+      setMeals(cafeteriaMeals.meals);
+    }*/
+
     if (menuSwiper !== null) {
       menuSwiper.slideTo(0);
     }
   }, [cafeteria]);
 
-  const getMenuList = async () => {
+  const getCafeteriaMeals = async () => {
     const response = await menuAPI(campus, cafeteria);
-    setMenuList(response);
+    console.table(response);
+    setCafeteriaMeals(response);
   };
 
   const initializeCafeterias = async () => {
@@ -79,7 +82,7 @@ export default function MenuPage() {
         </TabList>
       </Header>
       <KakaoAdFit unit={'DAN-Nugravqf3orTiH3Q'} width={'320'} height={'50'} disabled={false} top={'99px'} />
-      <MenuSwiper mealList={mealList} setMenuSwiper={setMenuSwiper} changePinCallback={changePin}
+      <MenuSwiper cafeteriaMeals={cafeteriaMeals} setMenuSwiper={setMenuSwiper} changePinCallback={changePin}
                   isPinned={isPinnedCafeteria()} />
     </PageLayout>
   );

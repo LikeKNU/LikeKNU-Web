@@ -48,7 +48,7 @@ export default function MainMenu({ selectCampus }) {
               {menu.cafeteriaName}
               <MealTypeText>{menu.mealType}</MealTypeText>
             </Title>
-            <MenuSlide menu={menu.menus} />
+            <MenuSlide menu={menu.menus ? menu.menus.split(' ') : []} />
           </SwiperSlide>
         ))}
       </SwiperContainer>

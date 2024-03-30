@@ -5,31 +5,32 @@ import { isDarkMode } from '../../utils/DeviceManageUtil';
 import CardContainer from '../styles/CardContainer';
 import ThumbsItem from './ThumbsItem';
 
-export default function MenuListItem({ menuList }) {
+export default function MenuListItem({ meals }) {
+  console.log('MenuListItem.meals = ', meals);
   return (
     <Wrapper>
-      {menuList !== undefined &&
-      menuList.some(menu => menu.operatingTime) ?
-        (menuList.map((menu, index) => (
-          menu.operatingTime ? (
-            <MenuCardContainer key={menu.mealType + menu.menus}>
+      {meals !== undefined && meals.some(menu => menu.operatingTime) ?
+        (meals.map((meal, index) => (
+          meal.operatingTime ? (
+            <MenuCardContainer key={meal.mealType + meal.menus}>
               <Title>
                 <IconTitle>
                   {menuIcon[index]}
-                  <MealType>{menu.mealType}</MealType>
+                  <MealType>{meal.mealType}</MealType>
                 </IconTitle>
-                <OperatingTime>{menu.operatingTime}</OperatingTime>
+                <OperatingTime>{meal.operatingTime}</OperatingTime>
               </Title>
               <Content>
-                {menu.menus.length === 0 && menu.operatingTime ? (
+                {meal.menus === null && meal.operatingTime ? (
                   <div className={'menuItem'}>등록된 메뉴가 없습니다</div>) : (
-                  menu.menus.map((menu, index) => (
-                    <div className={'menuItem'} key={index}>
-                      {menu.menuName}
-                    </div>))
+                  meal.menus.split(' ')
+                    .map((menu, index) => (
+                      <div className={'menuItem'} key={index}>
+                        {menu}
+                      </div>))
                 )}
               </Content>
-              <ThumbsItem />
+              {/*{meal.menuId !== null ? <ThumbsItem /> : <></>}*/}
             </MenuCardContainer>
           ) : (<div></div>)
         ))) : (<NoOperatingMessage>운영하지 않는 날이에요</NoOperatingMessage>)}

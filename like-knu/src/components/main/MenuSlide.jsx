@@ -46,8 +46,8 @@ export default function MenuSlide({ menu }) {
 
   return (
     <Wrapper>
-      {newMenu.map((menu) => (
-        <Text key={menu.menuId}>{menu.menuName}</Text>
+      {newMenu.map((menu, index) => (
+        <Text key={index}>{menu}</Text>
       ))}
       {isOver && <MoreMenu>•••</MoreMenu>}
       {isEmpty && <NoMenu>메뉴 없음</NoMenu>}
