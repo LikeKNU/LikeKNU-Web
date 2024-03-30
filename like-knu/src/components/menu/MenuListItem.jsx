@@ -5,8 +5,24 @@ import { isDarkMode } from '../../utils/DeviceManageUtil';
 import CardContainer from '../styles/CardContainer';
 import ThumbsItem from './ThumbsItem';
 
-export default function MenuListItem({ meals }) {
-  console.log('MenuListItem.meals = ', meals);
+export default function MenuListItem({ meals, date }) {
+  const isToday = () => {
+    return formatDate(new Date()) === date;
+  };
+
+  const formatDate = (date) => {
+    let month = '' + (date.getMonth() + 1),
+      day = '' + date.getDate(),
+      year = date.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
   return (
     <Wrapper>
       {meals !== undefined && meals.some(menu => menu.operatingTime) ?
@@ -24,13 +40,12 @@ export default function MenuListItem({ meals }) {
                 {meal.menus === null && meal.operatingTime ? (
                   <div className={'menuItem'}>등록된 메뉴가 없습니다</div>) : (
                   meal.menus.split(' ')
-                    .map((menu, index) => (
-                      <div className={'menuItem'} key={index}>
+                    .map(menu =>
+                      <div className={'menuItem'} key={menu}>
                         {menu}
-                      </div>))
-                )}
+                      </div>))}
               </Content>
-              {/*{meal.menuId !== null ? <ThumbsItem /> : <></>}*/}
+              {meal.menuId !== null && isToday() ? <ThumbsItem menuId={meal.menuId} /> : <></>}
             </MenuCardContainer>
           ) : (<div></div>)
         ))) : (<NoOperatingMessage>운영하지 않는 날이에요</NoOperatingMessage>)}

@@ -46,6 +46,6 @@ export const getPinnedCafeteria = () => {
   return localStorage.getItem(pinCafeteriaKey);
 };
 
-export const pinCafeteria = (cafeteriaId) => {
-  localStorage.setItem(pinCafeteriaKey, cafeteriaId);
+export const pinCafeteria = (cafeteria) => {
+  localStorage.setItem(pinCafeteriaKey, cafeteria);
 };
