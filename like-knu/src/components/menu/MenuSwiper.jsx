@@ -9,7 +9,7 @@ import colors from '../../constants/colors';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
 import MenuListItem from './MenuListItem';
 
-export function MenuSwiper({ setMenuSwiper, mealList, isPinned, changePinCallback }) {
+export function MenuSwiper({ setMenuSwiper, cafeteriaMeals, isPinned, changePinCallback }) {
   const [today, setToday] = useState('오늘');
   const [date, setDate] = useState(new Date());
   const day = ['일', '월', '화', '수', '목', '금', '토'];
@@ -42,12 +42,10 @@ export function MenuSwiper({ setMenuSwiper, mealList, isPinned, changePinCallbac
         onSlideChange={() => toggleToday()}
         onSwiper={(swiper) => setMenuSwiper(swiper)}
       >
-        <SwiperSlide>
-          <MenuListItem menuList={mealList['today']} />
-        </SwiperSlide>
-        <SwiperSlide>
-          <MenuListItem menuList={mealList['tomorrow']} />
-        </SwiperSlide>
+        {cafeteriaMeals ? cafeteriaMeals.map(cafeteriaMeal =>
+          <SwiperSlide>
+            <MenuListItem meals={cafeteriaMeal.meals} date={cafeteriaMeal.date} />
+          </SwiperSlide>) : <></>}
       </Swiper>
     </StyledPageContainer>
   );

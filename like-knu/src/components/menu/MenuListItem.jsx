@@ -3,37 +3,56 @@ import { menuIcon } from '../../assets/icon/menuIcon';
 import colors from '../../constants/colors';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
 import CardContainer from '../styles/CardContainer';
+import ThumbsItem from './ThumbsItem';
 
-export default function MenuListItem({ menuList }) {
+export default function MenuListItem({ meals, date }) {
+  const isToday = () => {
+    return formatDate(new Date()) === date;
+  };
+
+  const formatDate = (date) => {
+    let month = '' + (date.getMonth() + 1),
+      day = '' + date.getDate(),
+      year = date.getFullYear();
+
+    if (month.length < 2)
+      month = '0' + month;
+    if (day.length < 2)
+      day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
   return (
     <Wrapper>
-      {menuList !== undefined &&
-      menuList.some(menu => menu.operatingTime) ?
-        (menuList.map((menu, index) => (
-          menu.operatingTime ? (
-            <MenuCardContainer key={index}>
+      {meals !== undefined && meals.some(menu => menu.operatingTime) ?
+        (meals.map((meal, index) => (
+          meal.operatingTime ? (
+            <MenuCardContainer key={meal.mealType + meal.menus}>
               <Title>
                 <IconTitle>
                   {menuIcon[index]}
-                  <MealType>{menu.mealType}</MealType>
+                  <MealType>{meal.mealType}</MealType>
                 </IconTitle>
-                <OperatingTime>{menu.operatingTime}</OperatingTime>
+                <OperatingTime>{meal.operatingTime}</OperatingTime>
               </Title>
               <Content>
-                {menu.menus.length === 0 && menu.operatingTime ? (
+                {meal.menus === null && meal.operatingTime ? (
                   <div className={'menuItem'}>등록된 메뉴가 없습니다</div>) : (
-                  menu.menus.map((menu, index) => (
-                    <div className={'menuItem'} key={index}>
-                      {menu.menuName}
-                    </div>))
-                )}
+                  meal.menus.split(' ')
+                    .map(menu =>
+                      <div className={'menuItem'} key={menu}>
+                        {menu}
+                      </div>))}
               </Content>
+              {meal.menuId !== null && isToday() ? <ThumbsItem menuId={meal.menuId} /> : <></>}
             </MenuCardContainer>
           ) : (<div></div>)
         ))) : (<NoOperatingMessage>운영하지 않는 날이에요</NoOperatingMessage>)}
     </Wrapper>
   );
-}
+};
+
 const Wrapper = styled.div`
   padding: 0 16px;
 `;
@@ -46,6 +65,7 @@ const MenuCardContainer = styled(CardContainer)`
   font-weight: 400;
   padding-top: 16px;
   margin-bottom: 16px;
+  position: relative;
 `;
 
 const Title = styled.div`

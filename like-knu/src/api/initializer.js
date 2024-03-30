@@ -1,10 +1,12 @@
-import { Campus } from '../constants/campus';
+import { CAFETERIA_ID } from '../constants/cafeteria';
+import { Campus, CampusEng } from '../constants/campus';
 import {
   generateAndSaveNewDeviceId,
   getCampus,
   getDeviceId,
   getPinnedCafeteria,
   getThemeColor,
+  pinCafeteria,
   setCampus
 } from '../utils/DeviceManageUtil';
 import { startSession } from './device';
@@ -23,11 +25,19 @@ export const initializeDevice = () => {
 
   const themeColor = getThemeColor();
   const pinnedCafeteria = getPinnedCafeteria();
+  changeCafeteriaIdToName(campus, pinnedCafeteria);
 
   startSession(deviceId, navigator.userAgent, campus, themeColor, pinnedCafeteria);
 
   return campus;
 }
+
+const changeCafeteriaIdToName = (campus, pinnedCafeteria) => {
+  if (Object.keys(CAFETERIA_ID[CampusEng[campus]]).includes(pinnedCafeteria)) {
+    const cafeteriaName = CAFETERIA_ID[CampusEng[campus]][pinnedCafeteria];
+    pinCafeteria(cafeteriaName);
+  }
+};
 
 export function initializeDeviceColor() {
   let mode = localStorage.getItem('dark-mode');
