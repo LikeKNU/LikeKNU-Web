@@ -42,6 +42,7 @@ const Title = styled.span`
 `;
 
 const Wrapper = styled.div`
+  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
