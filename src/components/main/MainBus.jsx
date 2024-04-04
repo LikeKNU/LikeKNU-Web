@@ -6,7 +6,6 @@ import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 import { CampusEng } from '../../constants/campus';
 import { AFTER_TIME } from '../../constants/message';
 import { PAGE_NAME } from '../../constants/pageName';
@@ -19,10 +18,12 @@ export default function MainBus({ selectCampus }) {
   const formattedDate = `${today.getHours()}:${String(
     today.getMinutes(),
   ).padStart(2, '0')} ${AFTER_TIME}`;
+
   const getBuses = async () => {
     const res = await busMainAPI(CampusEng[selectCampus]);
     setBuses(res);
   };
+
   const goBus = () => {
     navigate(`/bus`);
   };
@@ -30,10 +31,11 @@ export default function MainBus({ selectCampus }) {
   useEffect(() => {
     getBuses();
   }, [selectCampus]);
+
   return (
     <BusContainer>
       <Row>
-        <Title onClick={goBus}>{PAGE_NAME.BUS}{/*<StyledRightArrowIcon />*/}</Title>
+        <Title onClick={goBus}>{PAGE_NAME.BUS}</Title>
         <RefreshTime>{formattedDate}</RefreshTime>
         <BusRefreshBtn getBuses={getBuses}></BusRefreshBtn>
       </Row>
@@ -44,7 +46,7 @@ export default function MainBus({ selectCampus }) {
       </BusList>
     </BusContainer>
   );
-}
+};
 
 const RefreshTime = styled.div`
   color: ${!isDarkMode() ? colors.GRAY350 : colors.GRAY50};
@@ -78,9 +80,4 @@ const Title = styled.div`
 
 const BusList = styled.div`
   display: grid;
-`;
-
-const StyledRightArrowIcon = styled(RightArrowIcon)`
-  fill: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
-  padding-bottom: 1px;
 `;

@@ -28,10 +28,6 @@ export default function MainHeader({ setCampus }) {
     navigate(`/notification`);
   };
 
-  /*const goSetting = () => {
-    navigate(`/setting`);
-  };*/
-
   GlobalColor.setColor();
 
   return (
@@ -48,7 +44,6 @@ export default function MainHeader({ setCampus }) {
       <Message>{message}</Message>
       <IconList>
         <StyledNotification onClick={goNotification} />
-        {/*<StyledSetting onClick={goSetting} />*/}
       </IconList>
     </Wrapper>
   );
@@ -63,11 +58,7 @@ const Wrapper = styled.div`
   height: 6.4rem;
   margin-bottom: 16px;
   padding: 0 16px;
-    //border-bottom: 1px solid ${!isDarkMode() ? colors.GRAY100 : colors.GRAY650};
   background-color: ${!isDarkMode() ? colors.GRAY50 : colors.DARK};
-    // background-color: ${!isDarkMode() ? 'rgba( 243, 244, 246, 0.6 )' : 'rgba( 16, 16, 18, 0.6 )'};
-  //backdrop-filter: blur(8px);
-  //-webkit-backdrop-filter: blur(8px);
 
   position: fixed;
   top: 0;
@@ -75,6 +66,7 @@ const Wrapper = styled.div`
   right: 0;
   z-index: 10;
 `;
+
 const CampusList = styled.ul`
   padding: 0;
   display: flex;
@@ -87,6 +79,7 @@ const Title = styled.div`
   margin-right: 4px;
   color: ${(props) => props.$campus};
 `;
+
 const Message = styled.div`
   color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY100};
   font-size: 1.4rem;
@@ -96,13 +89,15 @@ const Message = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
 `;
+
 const IconList = styled.div``;
+
 const StyledNotification = styled(NotificationIcon)`
   width: 22px;
   height: 22px;
   color: #ffcb74;
-  //margin-right: 14px;
 `;
+
 const StyledSetting = styled(SettingIcon)`
   width: 22px;
   height: 22px;

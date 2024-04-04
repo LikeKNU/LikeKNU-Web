@@ -39,7 +39,7 @@ const changeCafeteriaIdToName = (campus, pinnedCafeteria) => {
   }
 };
 
-export function initializeDeviceColor() {
+export const initializeDeviceColor = () => {
   let mode = localStorage.getItem('dark-mode');
   if (mode === null || mode === undefined) {
     localStorage.setItem('dark-mode', 'light');

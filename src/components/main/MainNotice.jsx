@@ -4,18 +4,15 @@ import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 import { CampusEng } from '../../constants/campus';
 import { PAGE_NAME } from '../../constants/pageName';
 import { isDarkMode } from '../../utils/DeviceManageUtil';
-import { ReactComponent as RightArrowIcon } from '../../assets/icon/right-arrow.svg';
 
 export default function MainNotice({ selectCampus }) {
   const [notices, setNotices] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-
-  const handleClick = (url) => {
-  };
 
   const goNotice = () => {
     navigate(`/notice`);
@@ -31,7 +28,7 @@ export default function MainNotice({ selectCampus }) {
 
   return (
     <NoticeContainer>
-      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}{/*<StyledRightArrowIcon />*/}</Title>
+      <Title onClick={goNotice}>{PAGE_NAME.NOTICE}</Title>
       {notices.map((notice) => (
         <Text key={notice.announcementId} onClick={() => navigate('/notice/details', {
           state: {
@@ -74,9 +71,4 @@ const Title = styled.div`
   padding-top: 16px;
   display: flex;
   align-items: center;
-`;
-
-const StyledRightArrowIcon = styled(RightArrowIcon)`
-  fill: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY350};
-  padding-bottom: 1px;
 `;
