@@ -2,18 +2,20 @@ import React from 'react';
 import { Container as MapDiv, NaverMap } from 'react-naver-maps';
 import { Campus } from '../../constants/campus';
 import { getCampus } from '../../utils/DeviceManageUtil';
+import CustomMarker from './markers/CustomMarker';
+import MarkerIcon from './markers/MarkerIcon';
 
-const MapView = ({ navermaps }) => {
+const MapView = ({ navermaps, places }) => {
   const campus = getCampus();
 
   const getCampusCenterCoordinates = (campus) => {
     switch (campus) {
       case Campus.SINGWAN:
-        return { latitude: 36.4691, longitude: 127.1404 };
+        return { latitude: 36.4702096, longitude: 127.140998 };
       case Campus.CHEONAN:
-        return { latitude: 36.8511, longitude: 127.1511 };
+        return { latitude: 36.8506431, longitude: 127.150501 };
       case Campus.YESAN:
-        return { latitude: 36.6694, longitude: 126.8604 };
+        return { latitude: 36.670987, longitude: 126.859612 };
     }
   };
 
@@ -34,10 +36,12 @@ const MapView = ({ navermaps }) => {
     <MapDiv style={{ width: '100%', height: '100%' }}>
       <NaverMap defaultCenter={new navermaps.LatLng(centerCoordinates.latitude, centerCoordinates.longitude)}
                 defaultZoom={getCampusZoom(campus)}
-                minZoom={getCampusZoom(campus)}>
-        {/*<CustomMarker coordinate={centerCoordinates}>
-          <div>asdf</div>
-        </CustomMarker>*/}
+                minZoom={getCampusZoom(campus) - 1}>
+        {places.map((place, index) => (
+          <CustomMarker key={index} coordinate={place}>
+            <MarkerIcon type={place.type} />
+          </CustomMarker>
+        ))}
       </NaverMap>
     </MapDiv>
   );

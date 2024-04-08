@@ -84,7 +84,7 @@ function App() {
   return (
     <>
       <NavermapsProvider ncpClientId={naverMapClientId}>
-        <Suspense fallback='asdfasdf'>
+        <Suspense fallback="Loading...">
           <Routes>
             <Route path="/" element={<MainPage setCampus={setCampus} selectedCampus={campus} />} />
             <Route path="/bus" element={<BusPage />} />
