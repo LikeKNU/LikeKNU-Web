@@ -2,15 +2,17 @@ import BusPage from 'pages/BusPage';
 import CalendarPage from 'pages/CalendarPage';
 import MainPage from 'pages/MainPage';
 import MenuPage from 'pages/MenuPage';
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import './App.css';
+import { NavermapsProvider } from 'react-naver-maps';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { initializeDevice, initializeDeviceColor } from './api/initializer';
 import IosImage from './assets/image/ios_onboarding.png';
 import OtherImage from './assets/image/other_onboarding.png';
-import BottomNav from './components/globals/BottomNav';
+import BottomNav from './components/common/BottomNav';
 import colors from './constants/colors';
+import CampusMapPage from './pages/CampusMapPage';
 import NoticePage from './pages/NoticePage';
 import NoticeRenderPage from './pages/NoticeRenderPage';
 import NotificationPage from './pages/NotificationPage';
@@ -32,6 +34,7 @@ function App() {
     if (
       location.pathname.includes('/setting/') || location.pathname === '/calendar' ||
       location.pathname === '/notification' || location.pathname === '/notice/details'
+      || location.pathname === '/campusMap'
     ) {
       setIsBottomBar(false);
     } else {
@@ -79,18 +82,23 @@ function App() {
   initializeDeviceColor();
   return (
     <>
-      <Routes>
-        <Route path="/" element={<MainPage setCampus={setCampus} selectedCampus={campus} />} />
-        <Route path="/bus" element={<BusPage />} />
-        <Route path="/notice" element={<NoticePage />} />
-        <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/setting" element={<SettingPage />} />
-        <Route path="/setting/notificationTag" element={<SettingNotificationPage />} />
-        <Route path="/setting/about" element={<SettingAboutPage />} />
-        <Route path="/notification" element={<NotificationPage />} />
-        <Route path="/notice/details" element={<NoticeRenderPage />}></Route>
-      </Routes>
+      <NavermapsProvider ncpClientId="pe2k6cam8k">
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<MainPage setCampus={setCampus} selectedCampus={campus} />} />
+            <Route path="/bus" element={<BusPage />} />
+            <Route path="/notice" element={<NoticePage />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/setting" element={<SettingPage />} />
+            <Route path="/setting/notificationTag" element={<SettingNotificationPage />} />
+            <Route path="/setting/about" element={<SettingAboutPage />} />
+            <Route path="/notification" element={<NotificationPage />} />
+            <Route path="/notice/details" element={<NoticeRenderPage />}></Route>
+            <Route path="/campusMap" element={<CampusMapPage />} />
+          </Routes>
+        </Suspense>
+      </NavermapsProvider>
       {isBottomBar && <BottomNav isAndroid={isAndroid} selectedCampus={campus} />}
     </>
   );

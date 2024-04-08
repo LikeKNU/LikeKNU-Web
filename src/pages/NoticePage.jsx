@@ -5,7 +5,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { notice } from '../api/notice';
-import { TabHeader } from '../components/globals/TabHeader';
+import { TabHeader } from '../components/common/TabHeader';
 import ListItem from '../components/ListItem';
 import GlobalColor from '../components/styles/globalColor';
 import { Header, PageHeader } from '../components/styles/PageHeader';

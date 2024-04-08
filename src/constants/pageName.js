@@ -6,7 +6,8 @@ export const PAGE_NAME = {
   MENU: '식단',
   SETTING: '설정',
   NOTIFICATION: '알림',
-  MORE: '더보기'
+  MORE: '더보기',
+  CAMPUS_MAP: '캠퍼스 맵'
 };
 
 export const SETTING_MENU_NAME = {

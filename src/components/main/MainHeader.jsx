@@ -1,6 +1,6 @@
 import { ReactComponent as NotificationIcon } from 'assets/icon/bell-fill.svg';
 import { ReactComponent as DownIcon } from 'assets/icon/expand_more_black_24dp.svg';
-import { ReactComponent as SettingIcon } from 'assets/icon/gear-fill.svg';
+import { ReactComponent as MapFillIcon } from 'assets/icon/map-fill.svg';
 import DropDown from 'components/main/DropDown';
 import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
@@ -24,9 +24,13 @@ export default function MainHeader({ setCampus }) {
     setMessage(message);
   };
 
-  const goNotification = () => {
+  const navigateToNotificationPage = () => {
     navigate(`/notification`);
   };
+
+  const navigateToCampusMapPage = () => {
+    navigate(`/campusMap`);
+  }
 
   GlobalColor.setColor();
 
@@ -43,7 +47,8 @@ export default function MainHeader({ setCampus }) {
       </CampusList>
       <Message>{message}</Message>
       <IconList>
-        <StyledNotification onClick={goNotification} />
+        <StyledMapFillIcon onClick={navigateToCampusMapPage} />
+        <StyledNotification onClick={navigateToNotificationPage} />
       </IconList>
     </Wrapper>
   );
@@ -90,16 +95,22 @@ const Message = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const IconList = styled.div``;
+const IconList = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
 const StyledNotification = styled(NotificationIcon)`
   width: 22px;
   height: 22px;
   color: #ffcb74;
+  margin-left: 8px;
 `;
 
-const StyledSetting = styled(SettingIcon)`
-  width: 22px;
-  height: 22px;
-  color: ${!isDarkMode() ? '#7f7c7d' : '#b7b7b7'};
+const StyledMapFillIcon = styled(MapFillIcon)`
+  width: 20px;
+  height: 20px;
+  color: #43a1ff;
+  margin-right: 8px;
 `;

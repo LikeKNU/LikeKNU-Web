@@ -3,7 +3,7 @@ import PageLayout from 'layouts/PageLayout';
 import { useState } from 'react';
 import CityBus from '../components/bus/CityBus';
 import Shuttle from '../components/bus/Shuttle';
-import { TabHeader } from '../components/globals/TabHeader';
+import { TabHeader } from '../components/common/TabHeader';
 import { PAGE_NAME } from '../constants/pageName';
 import { busTab } from '../constants/tabName';
 

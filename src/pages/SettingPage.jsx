@@ -1,4 +1,3 @@
-import { BackHeader } from '../components/BackHeader';
 import { Header, PageHeader } from '../components/styles/PageHeader';
 import { PAGE_NAME } from '../constants/pageName';
 import PageLayout from '../layouts/PageLayout';
