@@ -29,6 +29,7 @@ function App() {
   const bodyTag = document.querySelector('body');
   const themeColor = document.querySelector('meta[name="theme-color"]');
   const backgroundColor = document.querySelector('meta[name="background-color"]');
+  const naverMapClientId = process.env.REACT_APP_NAVER_MAP_CLIENT_ID;
 
   useEffect(() => {
     if (
@@ -82,7 +83,7 @@ function App() {
   initializeDeviceColor();
   return (
     <>
-      <NavermapsProvider ncpClientId="pe2k6cam8k">
+      <NavermapsProvider ncpClientId={naverMapClientId}>
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<MainPage setCampus={setCampus} selectedCampus={campus} />} />
