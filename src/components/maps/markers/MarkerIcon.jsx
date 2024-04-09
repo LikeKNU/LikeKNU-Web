@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import { ReactComponent as MapMarkerFill } from '../../../assets/icon/map-marker-fill.svg';
-import { campusColors } from '../../../constants/colors';
+import colors, { campusColors } from '../../../constants/colors';
 import { PLACES_TYPE } from '../../../constants/places';
 import { getCampus } from '../../../utils/DeviceManageUtil';
 
-const MarkerIcon = ({ type }) => {
+const MarkerIcon = ({ name, type }) => {
   const campusColor = campusColors[getCampus()];
 
   const getMarkerIcon = (type) => {
@@ -22,6 +22,7 @@ const MarkerIcon = ({ type }) => {
 
   return (
     <Wrapper $color={campusColor}>
+      <Name>{name}</Name>
       <Icon>{getMarkerIcon(type)}</Icon>
       <StyledMapMarkerFill />
     </Wrapper>
@@ -56,4 +57,20 @@ const Icon = styled.div`
   bottom: 20px;
   font-size: 24px;
   text-align: center;
+`;
+
+const Name = styled.span`
+  max-width: 64px;
+  padding-right: 4px;
+  padding-left: 4px;
+  border-radius: 12px;
+  background-color: ${colors.BLACK};
+  text-align: center;
+  font-weight: 600;
+  color: ${colors.WHITE};
+  margin-bottom: 2px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

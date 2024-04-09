@@ -11,10 +11,10 @@ import PageLayout from '../layouts/PageLayout';
 const CampusMapPage = () => {
   const navermaps = useNavermaps();
   const [coordinatesList, setCoordinatesList] = useState([
-    { latitude: 36.8506431, longitude: 127.150506, type: PLACES_TYPE.BUILDING },
-    { latitude: 36.8503428, longitude: 127.149506, type: PLACES_TYPE.LIBRARY },
-    { latitude: 36.8506410, longitude: 127.151498, type: PLACES_TYPE.DORMITORY },
-    { latitude: 36.8514410, longitude: 127.152498, type: PLACES_TYPE.CAFETERIA }
+    { latitude: 36.8506431, longitude: 127.150506, type: PLACES_TYPE.BUILDING, name: '8공학관' },
+    { latitude: 36.8503428, longitude: 127.149506, type: PLACES_TYPE.LIBRARY, name: '천안도서관' },
+    { latitude: 36.8506410, longitude: 127.151498, type: PLACES_TYPE.DORMITORY, name: '챌린지하우스입니다' },
+    { latitude: 36.8514410, longitude: 127.152498, type: PLACES_TYPE.CAFETERIA, name: '학생식당' }
   ]);
 
   return (

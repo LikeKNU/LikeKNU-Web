@@ -31,10 +31,6 @@ export default function MenuPage() {
   useEffect(() => {
     getCafeteriaMeals();
 
-    /*if (cafeteriaMeals.length !== 0) {
-      setMeals(cafeteriaMeals.meals);
-    }*/
-
     if (menuSwiper !== null) {
       menuSwiper.slideTo(0);
     }

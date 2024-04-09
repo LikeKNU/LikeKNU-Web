@@ -30,7 +30,7 @@ const MapView = ({ navermaps, places }) => {
     }
   };
 
-  const centerCoordinates = getCampusCenterCoordinates(campus);
+  const centerCoordinates = getCampusCenterCoordinates(Campus.CHEONAN);
 
   return (
     <MapDiv style={{ width: '100%', height: '100%' }}>
@@ -39,7 +39,7 @@ const MapView = ({ navermaps, places }) => {
                 minZoom={getCampusZoom(campus) - 1}>
         {places.map((place, index) => (
           <CustomMarker key={index} coordinate={place}>
-            <MarkerIcon type={place.type} />
+            <MarkerIcon name={place.name} type={place.type} />
           </CustomMarker>
         ))}
       </NaverMap>
