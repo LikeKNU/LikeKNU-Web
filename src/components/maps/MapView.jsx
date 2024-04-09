@@ -4,6 +4,7 @@ import { Campus } from '../../constants/campus';
 import { getCampus } from '../../utils/DeviceManageUtil';
 import CustomMarker from './markers/CustomMarker';
 import MarkerIcon from './markers/MarkerIcon';
+import PlaceFilter from './PlaceFilter';
 
 const MapView = ({ navermaps, places }) => {
   const campus = getCampus();
@@ -33,17 +34,19 @@ const MapView = ({ navermaps, places }) => {
   const centerCoordinates = getCampusCenterCoordinates(Campus.CHEONAN);
 
   return (
-    <MapDiv style={{ width: '100%', height: '100%' }}>
-      <NaverMap defaultCenter={new navermaps.LatLng(centerCoordinates.latitude, centerCoordinates.longitude)}
-                defaultZoom={getCampusZoom(campus)}
-                minZoom={getCampusZoom(campus) - 1}>
-        {places.map((place, index) => (
-          <CustomMarker key={index} coordinate={place}>
-            <MarkerIcon name={place.name} type={place.type} />
-          </CustomMarker>
-        ))}
-      </NaverMap>
-    </MapDiv>
+    <>
+      <MapDiv style={{ width: '100%', height: '100%', zindex: 0 }}>
+        <NaverMap defaultCenter={new navermaps.LatLng(centerCoordinates.latitude, centerCoordinates.longitude)}
+                  defaultZoom={getCampusZoom(campus)}
+                  minZoom={getCampusZoom(campus) - 1}>
+          {places.map((place, index) => (
+            <CustomMarker key={index} coordinate={place}>
+              <MarkerIcon name={place.name} type={place.type} />
+            </CustomMarker>
+          ))}
+        </NaverMap>
+      </MapDiv>
+    </>
   );
 };
 

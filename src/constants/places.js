@@ -1,6 +1,6 @@
 export const PLACES_TYPE = {
-  BUILDING: 'building',
-  DORMITORY: 'dormitory',
-  LIBRARY: 'library',
-  CAFETERIA: 'cafeteria'
+  BUILDING: { name: '건물', icon: '🎓' },
+  DORMITORY: { name: '기숙사', icon: '🛌' },
+  LIBRARY: { name: '도서관', icon: '📚' },
+  CAFETERIA: { name: '식당', icon: '🍴' }
 };

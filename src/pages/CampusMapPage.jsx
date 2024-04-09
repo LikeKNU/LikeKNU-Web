@@ -3,6 +3,7 @@ import { useNavermaps } from 'react-naver-maps';
 import styled from 'styled-components';
 import { BackHeader } from '../components/BackHeader';
 import MapView from '../components/maps/MapView';
+import PlaceFilter from '../components/maps/PlaceFilter';
 import { Header } from '../components/styles/PageHeader';
 import { PAGE_NAME } from '../constants/pageName';
 import { PLACES_TYPE } from '../constants/places';
@@ -23,6 +24,7 @@ const CampusMapPage = () => {
         <BackHeader title={PAGE_NAME.CAMPUS_MAP} path={'/'} />
       </Header>
       <Content>
+        <PlaceFilter />
         <MapView navermaps={navermaps} places={coordinatesList} />
       </Content>
     </PageLayout>
