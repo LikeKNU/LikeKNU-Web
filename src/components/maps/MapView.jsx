@@ -34,12 +34,12 @@ const MapView = ({ navermaps, places }) => {
 
   return (
     <>
-      <MapDiv style={{ width: '100%', height: '100%', zindex: 0 }}>
+      <MapDiv style={{ width: '100%', height: '100%' }}>
         <NaverMap defaultCenter={new navermaps.LatLng(centerCoordinates.latitude, centerCoordinates.longitude)}
                   defaultZoom={getCampusZoom(campus)}
                   minZoom={getCampusZoom(campus) - 1}>
-          {places.map((place, index) => (
-            <CustomMarker key={index} coordinate={place}>
+          {places.map((place) => (
+            <CustomMarker key={place.id} coordinate={place}>
               <MarkerIcon name={place.name} type={place.type} />
             </CustomMarker>
           ))}

@@ -14,7 +14,6 @@ import { sortPinElementTop } from '../utils/ReorderList';
 export default function MenuPage() {
   const [cafeteria, setCafeteria] = useState();
   const [cafeterias, setCafeterias] = useState([]);
-  const [meals, setMeals] = useState([]);
   const [cafeteriaMeals, setCafeteriaMeals] = useState([]);
   const [menuSwiper, setMenuSwiper] = useState(null);
   const [pin, setPin] = useState(getPinnedCafeteria());

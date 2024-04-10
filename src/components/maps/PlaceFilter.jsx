@@ -1,16 +1,18 @@
-import { useState } from 'react';
 import styled from 'styled-components';
 import { PLACES_TYPE } from '../../constants/places';
 import PlaceFilterButton from './PlaceFilterButton';
 
-const PlaceFilter = () => {
-  const [selectedType, setSelectedType] = useState(null);
-
+const PlaceFilter = ({ selectedType, setSelectedType }) => {
   const isSelected = (type) => {
     return type === selectedType;
   };
 
   const handleChangePlaceType = (type) => {
+    if (isSelected(type)) {
+      setSelectedType(null);
+      return;
+    }
+
     setSelectedType(type);
   };
 
