@@ -25,6 +25,9 @@ const CampusMapPage = () => {
       </Header>
       <Content>
         <PlaceFilter />
+        {/*<ControllerContainer>
+          <PlaceSearchBox />
+        </ControllerContainer>*/}
         <MapView navermaps={navermaps} places={coordinatesList} />
       </Content>
     </PageLayout>
@@ -35,6 +38,15 @@ const Content = styled.div`
   padding-top: 65px;
   width: 100%;
   height: calc(100vh - 65px);
+`;
+
+const ControllerContainer = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+
+  width: 100%;
 `;
 
 export default CampusMapPage;

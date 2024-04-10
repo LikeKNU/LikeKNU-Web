@@ -4,7 +4,6 @@ import { Campus } from '../../constants/campus';
 import { getCampus } from '../../utils/DeviceManageUtil';
 import CustomMarker from './markers/CustomMarker';
 import MarkerIcon from './markers/MarkerIcon';
-import PlaceFilter from './PlaceFilter';
 
 const MapView = ({ navermaps, places }) => {
   const campus = getCampus();
