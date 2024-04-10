@@ -18,6 +18,8 @@ const MarkerIcon = ({ name, type }) => {
 export default MarkerIcon;
 
 const Wrapper = styled.div`
+  opacity: 0.9;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,8 +47,7 @@ const Icon = styled.div`
 
 const Name = styled.span`
   max-width: 64px;
-  padding-right: 4px;
-  padding-left: 4px;
+  padding: 1px 4px;
   border-radius: 12px;
   background-color: ${colors.BLACK};
   text-align: center;

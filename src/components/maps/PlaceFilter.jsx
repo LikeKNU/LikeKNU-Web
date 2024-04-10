@@ -23,10 +23,6 @@ const PlaceFilter = ({ selectedType, setSelectedType }) => {
           <PlaceFilterButton type={type} key={index} isSelected={isSelected(type)}
                              handleOnClick={() => handleChangePlaceType(type)} />
         ))}
-        {Object.values(PLACES_TYPE).map((type, index) => (
-          <PlaceFilterButton type={type} key={index} isSelected={isSelected(type)}
-                             handleOnClick={() => handleChangePlaceType(type)} />
-        ))}
       </VerticalScroll>
     </>
   );
