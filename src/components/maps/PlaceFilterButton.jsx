@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  box-shadow: ${isDarkMode() ? '0 2px 0 0 rgba(80, 80, 80, 0.1)' : '0 2px 0 0 rgba(175, 175, 175, 0.1)'};
+  box-shadow: 2px 4px 4px rgba(80, 80, 80, 0.1);
 `;
 
 const Icon = styled.div`
@@ -39,7 +39,7 @@ const Icon = styled.div`
   font-size: 18px;
   text-align: center;
   margin-bottom: 4px;
-  margin-right: 2px;
+  margin-right: 4px;
 `;
 
 const Text = styled.div`

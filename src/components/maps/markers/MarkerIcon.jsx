@@ -34,6 +34,10 @@ const Wrapper = styled.div`
 const StyledMapMarkerFill = styled(MapMarkerFill)`
   width: 48px;
   height: 48px;
+
+  filter: drop-shadow(2px 6px 8px rgba(0, 0, 0, 0.2));
+  
+  z-index: 1;
 `;
 
 const Icon = styled.div`
@@ -43,6 +47,7 @@ const Icon = styled.div`
   bottom: 20px;
   font-size: 24px;
   text-align: center;
+  z-index: 5;
 `;
 
 const Name = styled.span`

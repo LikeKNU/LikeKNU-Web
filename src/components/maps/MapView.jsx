@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { Container as MapDiv, NaverMap } from 'react-naver-maps';
+import styled from 'styled-components';
+import { ReactComponent as MyLocationMarker } from '../../assets/icon/my-location-marker.svg';
 import { Campus } from '../../constants/campus';
 import { getCampus } from '../../utils/DeviceManageUtil';
 import CustomMarker from './markers/CustomMarker';
 import MarkerIcon from './markers/MarkerIcon';
 
-const MapView = ({ navermaps, places }) => {
+const MapView = ({ navermaps, places, isMyLocation }) => {
   const [map, setMap] = useState(null);
+  const [myLocation, setMyLocation] = useState();
+  const [isRenderMyLocation, setIsRenderMyLocation] = useState(false);
   const campus = getCampus();
 
   useEffect(() => {
@@ -21,9 +25,28 @@ const MapView = ({ navermaps, places }) => {
     }
   }, [places]);
 
+  useEffect(() => {
+    if (isMyLocation) {
+      setIsRenderMyLocation(true);
+      navigator.geolocation.watchPosition(position => {
+        const { latitude, longitude } = position.coords;
+        setMyLocation(position.coords);
+        map.setCenter(new navermaps.LatLng(latitude, longitude));
+      });
+    } else {
+
+    }
+  }, [isMyLocation]);
+
+  useEffect(() => {
+    if (map) {
+      map.setZoom(18);
+    }
+  }, [myLocation]);
+
   const getBounds = (places) => {
-    const latitudes = places.map(place => place.latitude);
-    const longitudes = places.map(place => place.longitude);
+    const latitudes = places.map(place => place.coordinates.latitude);
+    const longitudes = places.map(place => place.coordinates.longitude);
 
     const margin = 0.001;
     const minLatitude = Math.min(...latitudes) - margin;
@@ -69,12 +92,18 @@ const MapView = ({ navermaps, places }) => {
         <NaverMap defaultCenter={new navermaps.LatLng(centerCoordinates.latitude, centerCoordinates.longitude)}
                   defaultZoom={getCampusZoom(campus)}
                   minZoom={getCampusZoom(campus) - 1}
+                  disableKineticPan={false}
                   ref={setMap}>
           {places.map((place) => (
-            <CustomMarker key={place.id} coordinate={place}>
+            <CustomMarker key={place.id} coordinates={place.coordinates}>
               <MarkerIcon name={place.name} type={place.type} />
             </CustomMarker>
           ))}
+          {isRenderMyLocation && myLocation && (
+            <CustomMarker coordinates={myLocation} anchor={{ x: 40, y: 40 }}>
+              <StyledMyLocationMarker />
+            </CustomMarker>
+          )}
         </NaverMap>
       </MapDiv>
     </>
@@ -82,3 +111,8 @@ const MapView = ({ navermaps, places }) => {
 };
 
 export default MapView;
+
+const StyledMyLocationMarker = styled(MyLocationMarker)`
+  align-items: center;
+  justify-content: center;
+`;
