@@ -7,7 +7,7 @@ import { getCampus } from '../../utils/DeviceManageUtil';
 import CustomMarker from './markers/CustomMarker';
 import MarkerIcon from './markers/MarkerIcon';
 
-const MapView = ({ navermaps, places, isMyLocation }) => {
+const MapView = ({ navermaps, places, isMyLocation, setIsMyLocation }) => {
   const [map, setMap] = useState(null);
   const [myLocation, setMyLocation] = useState();
   const [isRenderMyLocation, setIsRenderMyLocation] = useState(false);
@@ -26,21 +26,25 @@ const MapView = ({ navermaps, places, isMyLocation }) => {
   }, [places]);
 
   useEffect(() => {
-    if (isMyLocation) {
-      setIsRenderMyLocation(true);
-      navigator.geolocation.watchPosition(position => {
-        const { latitude, longitude } = position.coords;
-        setMyLocation(position.coords);
-        map.setCenter(new navermaps.LatLng(latitude, longitude));
-      });
-    } else {
+    if (isMyLocation && isRenderMyLocation && myLocation) {
+      map.setZoom(18);
+      map.setCenter(new navermaps.LatLng(myLocation.latitude, myLocation.longitude));
+      setIsMyLocation(true);
+    }
 
+    if (isMyLocation && !isRenderMyLocation) {
+      navigator.geolocation.watchPosition(position => {
+        setIsRenderMyLocation(true);
+        setMyLocation(position.coords);
+      });
     }
   }, [isMyLocation]);
 
   useEffect(() => {
-    if (map) {
+    if (map && isMyLocation) {
       map.setZoom(18);
+      map.setCenter(new navermaps.LatLng(myLocation.latitude, myLocation.longitude));
+      navermaps.Event.addListener(map, 'bounds_changed', () => setIsMyLocation(false));
     }
   }, [myLocation]);
 

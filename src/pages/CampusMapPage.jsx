@@ -39,7 +39,6 @@ const CampusMapPage = () => {
   };
 
   const changeIsMyLocation = () => {
-    console.log('changeIsMyLocation');
     setIsMyLocation((prevState) => !prevState);
   };
 
@@ -54,7 +53,8 @@ const CampusMapPage = () => {
         {/*<ControllerContainer>
           <PlaceSearchBox />
         </ControllerContainer>*/}
-        <MapView navermaps={navermaps} places={filteredPlaces} isMyLocation={isMyLocation} />
+        <MapView navermaps={navermaps} places={filteredPlaces} isMyLocation={isMyLocation}
+                 setIsMyLocation={setIsMyLocation} />
       </Content>
     </PageLayout>
   );

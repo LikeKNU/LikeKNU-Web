@@ -3,8 +3,6 @@ import ReactDOMServer from 'react-dom/server';
 import { Overlay, useNavermaps } from 'react-naver-maps';
 
 const CustomMarker = ({ coordinates, anchor = { x: 0, y: 0 }, children }) => {
-  console.log('anchor: ', anchor);
-
   const navermaps = useNavermaps();
   const componentHTML = ReactDOMServer.renderToString(children);
 
