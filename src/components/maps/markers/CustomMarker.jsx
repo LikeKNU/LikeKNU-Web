@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Overlay, useNavermaps } from 'react-naver-maps';
 
 const CustomMarker = ({ coordinates, anchor = { x: 0, y: 0 }, children }) => {
   const navermaps = useNavermaps();
   const componentHTML = ReactDOMServer.renderToString(children);
+
+  useEffect(() => {
+    marker.setPosition(new navermaps.LatLng(coordinates.latitude, coordinates.longitude));
+  }, [coordinates.latitude, coordinates.longitude]);
 
   const [marker] = useState(() => {
     return new navermaps.Marker({

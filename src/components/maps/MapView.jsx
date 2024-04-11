@@ -103,7 +103,7 @@ const MapView = ({ navermaps, places, isMyLocation, setIsMyLocation }) => {
             </CustomMarker>
           ))}
           {isRenderMyLocation && myLocation && (
-            <CustomMarker key={JSON.stringify(myLocation)} coordinates={myLocation} anchor={{ x: 40, y: 40 }}>
+            <CustomMarker coordinates={myLocation} anchor={{ x: 40, y: 40 }}>
               <StyledMyLocationMarker />
             </CustomMarker>
           )}
