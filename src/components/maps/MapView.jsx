@@ -41,7 +41,6 @@ const MapView = ({ navermaps, places, isMyLocation, setIsMyLocation }) => {
 
   useEffect(() => {
     if (map && isMyLocation) {
-      map.setZoom(18);
       map.setCenter(new navermaps.LatLng(myLocation.latitude, myLocation.longitude));
       navermaps.Event.addListener(map, 'bounds_changed', () => setIsMyLocation(false));
       setIsMyLocation(true);
@@ -104,7 +103,7 @@ const MapView = ({ navermaps, places, isMyLocation, setIsMyLocation }) => {
             </CustomMarker>
           ))}
           {isRenderMyLocation && myLocation && (
-            <CustomMarker coordinates={myLocation} anchor={{ x: 40, y: 40 }}>
+            <CustomMarker key={JSON.stringify(myLocation)} coordinates={myLocation} anchor={{ x: 40, y: 40 }}>
               <StyledMyLocationMarker />
             </CustomMarker>
           )}
