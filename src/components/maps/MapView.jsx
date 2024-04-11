@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container as MapDiv, NaverMap } from 'react-naver-maps';
 import { Campus } from '../../constants/campus';
 import { getCampus } from '../../utils/DeviceManageUtil';
@@ -6,7 +6,38 @@ import CustomMarker from './markers/CustomMarker';
 import MarkerIcon from './markers/MarkerIcon';
 
 const MapView = ({ navermaps, places }) => {
+  const [map, setMap] = useState(null);
   const campus = getCampus();
+
+  useEffect(() => {
+    if (map) {
+      const { minLatitude, maxLatitude, minLongitude, maxLongitude } = getBounds(places);
+      map.panToBounds(
+        new navermaps.LatLngBounds(
+          new navermaps.LatLng(minLatitude, minLongitude),
+          new navermaps.LatLng(maxLatitude, maxLongitude)
+        )
+      );
+    }
+  }, [places]);
+
+  const getBounds = (places) => {
+    const latitudes = places.map(place => place.latitude);
+    const longitudes = places.map(place => place.longitude);
+
+    const margin = 0.001;
+    const minLatitude = Math.min(...latitudes) - margin;
+    const maxLatitude = Math.max(...latitudes) + margin;
+    const minLongitude = Math.min(...longitudes) - margin;
+    const maxLongitude = Math.max(...longitudes) + margin;
+
+    return {
+      minLatitude,
+      maxLatitude,
+      minLongitude,
+      maxLongitude
+    };
+  };
 
   const getCampusCenterCoordinates = (campus) => {
     switch (campus) {
@@ -37,7 +68,8 @@ const MapView = ({ navermaps, places }) => {
       <MapDiv style={{ width: '100%', height: '100%' }}>
         <NaverMap defaultCenter={new navermaps.LatLng(centerCoordinates.latitude, centerCoordinates.longitude)}
                   defaultZoom={getCampusZoom(campus)}
-                  minZoom={getCampusZoom(campus) - 1}>
+                  minZoom={getCampusZoom(campus) - 1}
+                  ref={setMap}>
           {places.map((place) => (
             <CustomMarker key={place.id} coordinate={place}>
               <MarkerIcon name={place.name} type={place.type} />
