@@ -36,5 +36,6 @@ const Wrapper = styled.div`
 const StyledCrosshair = styled(Crosshair)`
   width: 24px;
   height: 24px;
-  fill: ${(props) => props.isMyLocation ? colors.CHEONAN : isDarkMode() ? colors.DARK_WHITE : colors.BLACK};
+  
+  fill: ${(props) => props.isMyLocation ? '#0565FF' : isDarkMode() ? colors.DARK_WHITE : colors.BLACK};
 `;
