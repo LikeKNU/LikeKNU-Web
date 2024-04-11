@@ -27,7 +27,6 @@ const MapView = ({ navermaps, places, isMyLocation, setIsMyLocation }) => {
 
   useEffect(() => {
     if (isMyLocation && isRenderMyLocation && myLocation) {
-      map.setZoom(18);
       map.setCenter(new navermaps.LatLng(myLocation.latitude, myLocation.longitude));
       setIsMyLocation(true);
     }

@@ -18,11 +18,11 @@ export default MyLocationButton;
 const Wrapper = styled.div`
   z-index: 10;
   position: fixed;
-  bottom: 30px;
-  right: 20px;
+  bottom: 50px;
+  right: 30px;
 
-  width: 41px;
-  height: 41px;
+  width: 60px;
+  height: 60px;
   border-radius: 24px;
   border: none;
   display: flex;
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledCrosshair = styled(Crosshair)`
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   fill: ${(props) => props.isMyLocation ? colors.CHEONAN : isDarkMode() ? colors.DARK_WHITE : colors.BLACK};
 `;
