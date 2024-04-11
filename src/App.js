@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import BusPage from 'pages/BusPage';
 import CalendarPage from 'pages/CalendarPage';
 import MainPage from 'pages/MainPage';
@@ -101,6 +102,7 @@ function App() {
         </Suspense>
       </NavermapsProvider>
       {isBottomBar && <BottomNav isAndroid={isAndroid} selectedCampus={campus} />}
+      <SpeedInsights />
     </>
   );
 }
