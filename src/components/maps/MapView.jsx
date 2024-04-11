@@ -45,6 +45,7 @@ const MapView = ({ navermaps, places, isMyLocation, setIsMyLocation }) => {
       map.setZoom(18);
       map.setCenter(new navermaps.LatLng(myLocation.latitude, myLocation.longitude));
       navermaps.Event.addListener(map, 'bounds_changed', () => setIsMyLocation(false));
+      setIsMyLocation(true);
     }
   }, [myLocation]);
 
