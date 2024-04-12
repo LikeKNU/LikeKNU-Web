@@ -25,7 +25,7 @@ export default function BottomNav({ isAndroid, selectedCampus }) {
   };
 
   useEffect(() => {
-    if (pathName.includes('/announcement')) {
+    if (pathName.includes('/notice')) {
       setActiveNav(2);
     } else if (pathName.includes('/bus')) {
       setActiveNav(3);
