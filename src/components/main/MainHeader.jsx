@@ -1,6 +1,7 @@
-import { ReactComponent as NotificationIcon } from 'assets/icon/bell-fill.svg';
+import bellEmoji from 'assets/icon/bell_emoji.png'
 import { ReactComponent as DownIcon } from 'assets/icon/expand_more_black_24dp.svg';
-import { ReactComponent as MapFillIcon } from 'assets/icon/map-fill.svg';
+import mapEmoji from 'assets/icon/map_emoji.png'
+import taxiFrontEmoji from 'assets/icon/taxi_front_emoji.png'
 import DropDown from 'components/main/DropDown';
 import colors from 'constants/colors';
 import { useEffect, useState } from 'react';
@@ -8,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { getCampus, isDarkMode } from 'utils/DeviceManageUtil';
 import { mainHeaderMessageAPI } from '../../api/main';
+import ImageIcon from '../common/ImageIcon';
 import GlobalColor from '../styles/globalColor';
 
 export default function MainHeader({ setCampus }) {
@@ -47,8 +49,9 @@ export default function MainHeader({ setCampus }) {
       </CampusList>
       <Message>{message}</Message>
       <IconList>
-        <StyledMapFillIcon onClick={navigateToCampusMapPage} />
-        <StyledNotification onClick={navigateToNotificationPage} />
+        <StyledImageIcon src={taxiFrontEmoji} />
+        <StyledImageIcon src={mapEmoji} onClick={navigateToCampusMapPage} />
+        <StyledImageIcon src={bellEmoji} onClick={navigateToNotificationPage} />
       </IconList>
     </Wrapper>
   );
@@ -101,16 +104,8 @@ const IconList = styled.div`
   align-items: center;
 `;
 
-const StyledNotification = styled(NotificationIcon)`
-  width: 22px;
-  height: 22px;
-  color: #ffcb74;
-  margin-left: 8px;
-`;
-
-const StyledMapFillIcon = styled(MapFillIcon)`
-  width: 20px;
-  height: 20px;
-  color: #43a1ff;
-  margin-right: 8px;
+const StyledImageIcon = styled(ImageIcon)`
+  width: 26px;
+  height: 26px;
+  padding-left: 10px;
 `;
