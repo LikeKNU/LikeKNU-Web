@@ -50,21 +50,26 @@ export default function MenuSlide({ menu }) {
         <Text key={index}>{menu}</Text>
       ))}
       {isOver && <MoreMenu>•••</MoreMenu>}
-      {isEmpty && <NoMenu>메뉴 없음</NoMenu>}
+      {isEmpty && <NoMenu>등록된 메뉴가 없어요</NoMenu>}
     </Wrapper>
   );
-}
+};
+
 const NoMenu = styled.div`
-  color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY300};
+  color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY400};
+  font-weight: 500;
 `;
+
 const MoreMenu = styled.div`
   color: ${!isDarkMode() ? colors.GRAY500 : colors.GRAY300};
   margin-bottom: 4px;
 `;
+
 const Text = styled.div`
   margin-bottom: 8px;
-  font-weight: 450;
+  font-weight: 500;
 `;
+
 const Wrapper = styled.div`
   font-size: 1.2rem;
   font-weight: 400;

@@ -38,7 +38,7 @@ export default function MenuListItem({ meals, date }) {
               </Title>
               <Content>
                 {meal.menus === null && meal.operatingTime ? (
-                  <div className={'menuItem'}>등록된 메뉴가 없습니다</div>) : (
+                  <div className={'menuItem'}>등록된 메뉴가 없어요</div>) : (
                   meal.menus.split(' ')
                     .map(menu =>
                       <div className={'menuItem'} key={menu}>

@@ -12,7 +12,7 @@ export default function MainCalendarItem(props) {
       <Content>{schedule.scheduleContents}</Content>
     </div>
   );
-}
+};
 
 const Title = styled.div`
   display: flex;
@@ -20,10 +20,12 @@ const Title = styled.div`
   font-size: 1.1rem;
   margin-bottom: 2px;
 `;
+
 const DateText = styled.div`
-  color: ${!isDarkMode() ? colors.BLACK : colors.DARK_WHITE};
-  font-weight: 600;
+  color: ${!isDarkMode() ? colors.GRAY400 : colors.GRAY400};
+  font-weight: 500;
 `;
+
 const TodayText = styled.div`
   color: ${!isDarkMode() ? colors.GRAY300 : colors.GRAY500};
 `;
