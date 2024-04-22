@@ -27,7 +27,7 @@ export const initializeDevice = () => {
   const pinnedCafeteria = getPinnedCafeteria();
   changeCafeteriaIdToName(campus, pinnedCafeteria);
 
-  startSession(deviceId, navigator.userAgent, campus, themeColor, pinnedCafeteria);
+  startSession(deviceId, navigator.userAgent, CampusEng[campus], themeColor, pinnedCafeteria);
 
   return campus;
 }
@@ -39,7 +39,7 @@ const changeCafeteriaIdToName = (campus, pinnedCafeteria) => {
   }
 };
 
-export const initializeDeviceColor = () => {
+export function initializeDeviceColor() {
   let mode = localStorage.getItem('dark-mode');
   if (mode === null || mode === undefined) {
     localStorage.setItem('dark-mode', 'light');
