@@ -5,8 +5,8 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { notice } from '../api/notice';
+import AnnouncementListItem from '../components/announcement/AnnouncementListItem';
 import { TabHeader } from '../components/globals/TabHeader';
-import ListItem from '../components/ListItem';
 import GlobalColor from '../components/styles/globalColor';
 import { Header, PageHeader } from '../components/styles/PageHeader';
 import { CampusEng } from '../constants/campus';
@@ -92,15 +92,15 @@ export default function NoticePage() {
           <SearchButton $color={GlobalColor.getColor()} onClick={searchByKeyword}>검색</SearchButton>
         </SearchBox>
         {notices.map((notice, index) => (
-          <ListItem
+          <AnnouncementListItem
             rendererPath={location.pathname}
             key={index}
-            head={notice.announcementTag}
-            subHead={notice.announcementDate}
+            subtitle={notice.announcementTag}
+            date={notice.announcementDate}
             body={notice.announcementTitle}
             url={notice.announcementUrl}
             category={category}
-          ></ListItem>
+          ></AnnouncementListItem>
         ))}
         <InfiniteScroll
           dataLength={notices.length} // 페이지 당 개수
