@@ -78,7 +78,7 @@ function App() {
   }*/
   if (isiOS) {
     return (
-      <div style={{width: '100%'}} onClick={() => window.open('https://apps.apple.com/app/공주대처럼-공주대학교-학생들의-필수-앱/id6499512208')}>
+      <div style={{width: '100%'}} onClick={() => window.open('https://apps.apple.com/app/id6499512208')}>
         <Image src={AppStoreImage} />
       </div>
     )
