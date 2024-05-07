@@ -10,6 +10,7 @@ import { initializeDevice, initializeDeviceColor } from './api/initializer';
 import IosImage from './assets/image/ios_onboarding.png';
 import OtherImage from './assets/image/other_onboarding.png';
 import AppStoreImage from './assets/image/app-store.png';
+import PlayStoreImage from './assets/image/play-store.png';
 import BottomNav from './components/globals/BottomNav';
 import colors from './constants/colors';
 import NoticePage from './pages/NoticePage';
@@ -28,7 +29,6 @@ function App() {
   const bodyTag = document.querySelector('body');
   const themeColor = document.querySelector('meta[name="theme-color"]');
   const backgroundColor = document.querySelector('meta[name="background-color"]');
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (
@@ -80,6 +80,14 @@ function App() {
     return (
       <div style={{width: '100%'}} onClick={() => window.open('https://apps.apple.com/app/id6499512208')}>
         <Image src={AppStoreImage} />
+      </div>
+    )
+  }
+
+  if (isAndroid) {
+    return (
+      <div style={{width: '100%'}} onClick={() => window.open('https://play.google.com/store/apps/details?id=ac.knu.likeknu')}>
+        <Image src={PlayStoreImage} />
       </div>
     )
   }
