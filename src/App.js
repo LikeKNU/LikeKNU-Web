@@ -70,9 +70,29 @@ function App() {
     )
   }
 
-  return <div style={{ width: '100%' }} onClick={() => window.open('https://apps.apple.com/app/id6499512208')}>
-    <Image src={AppStoreImage} />
-  </div>
+  /*initializeDevice();
+  RouteChangeTracker();
+  initializeDeviceColor();*/
+  return (
+    /*<>
+      <Routes>
+        <Route path="/" element={<MainPage setCampus={setCampus} selectedCampus={campus} />} />
+        <Route path="/bus" element={<BusPage />} />
+        <Route path="/notice" element={<NoticePage />} />
+        <Route path="/calendar" element={<CalendarPage />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/setting" element={<SettingPage />} />
+        <Route path="/setting/notificationTag" element={<SettingNotificationPage />} />
+        <Route path="/setting/about" element={<SettingAboutPage />} />
+        <Route path="/notification" element={<NotificationPage />} />
+        <Route path="/notice/details" element={<NoticeRenderPage />}></Route>
+      </Routes>
+      {isBottomBar && <BottomNav isAndroid={isAndroid} selectedCampus={campus} />}
+    </>*/
+    <div style={{ width: '100%' }} onClick={() => window.open('https://apps.apple.com/app/id6499512208')}>
+      <Image src={AppStoreImage} />
+    </div>
+  );
 }
 
 const Image = styled.img`
