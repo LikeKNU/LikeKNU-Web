@@ -1,25 +1,10 @@
-import BusPage from 'pages/BusPage';
-import CalendarPage from 'pages/CalendarPage';
-import MainPage from 'pages/MainPage';
-import MenuPage from 'pages/MenuPage';
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { initializeDevice, initializeDeviceColor } from './api/initializer';
-import IosImage from './assets/image/ios_onboarding.png';
-import OtherImage from './assets/image/other_onboarding.png';
 import AppStoreImage from './assets/image/app-store.png';
 import PlayStoreImage from './assets/image/play-store.png';
-import BottomNav from './components/globals/BottomNav';
 import colors from './constants/colors';
-import NoticePage from './pages/NoticePage';
-import NoticeRenderPage from './pages/NoticeRenderPage';
-import NotificationPage from './pages/NotificationPage';
-import SettingAboutPage from './pages/SettingAboutPage';
-import SettingNotificationPage from './pages/SettingNotificationPage';
-import SettingPage from './pages/SettingPage';
-import RouteChangeTracker from './RouteChangeTrancker';
 import { getCampus, isDarkMode } from './utils/DeviceManageUtil';
 
 function App() {
@@ -76,42 +61,18 @@ function App() {
       </>
     );
   }*/
-  if (isiOS) {
-    return (
-      <div style={{width: '100%'}} onClick={() => window.open('https://apps.apple.com/app/id6499512208')}>
-        <Image src={AppStoreImage} />
-      </div>
-    )
-  }
-
   if (isAndroid) {
     return (
-      <div style={{width: '100%'}} onClick={() => window.open('https://play.google.com/store/apps/details?id=ac.knu.likeknu')}>
+      <div style={{ width: '100%' }}
+           onClick={() => window.open('https://play.google.com/store/apps/details?id=ac.knu.likeknu')}>
         <Image src={PlayStoreImage} />
       </div>
     )
   }
 
-  initializeDevice();
-  RouteChangeTracker();
-  initializeDeviceColor();
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<MainPage setCampus={setCampus} selectedCampus={campus} />} />
-        <Route path="/bus" element={<BusPage />} />
-        <Route path="/notice" element={<NoticePage />} />
-        <Route path="/calendar" element={<CalendarPage />} />
-        <Route path="/menu" element={<MenuPage />} />
-        <Route path="/setting" element={<SettingPage />} />
-        <Route path="/setting/notificationTag" element={<SettingNotificationPage />} />
-        <Route path="/setting/about" element={<SettingAboutPage />} />
-        <Route path="/notification" element={<NotificationPage />} />
-        <Route path="/notice/details" element={<NoticeRenderPage />}></Route>
-      </Routes>
-      {isBottomBar && <BottomNav isAndroid={isAndroid} selectedCampus={campus} />}
-    </>
-  );
+  return <div style={{ width: '100%' }} onClick={() => window.open('https://apps.apple.com/app/id6499512208')}>
+    <Image src={AppStoreImage} />
+  </div>
 }
 
 const Image = styled.img`
